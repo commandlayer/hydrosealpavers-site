@@ -465,3 +465,18 @@ section{scroll-margin-top:var(--sticky-offset)}
 
 /* ===== Dropdown: remove note text blocks ===== */
 .dropdown .small-note{ display:none !important; }
+
+/* ===== Brand water-drop hover color (logo matched) ===== */
+:root{
+  --water-blue:#39BFEA;
+}
+
+/* Top nav hover */
+.nav-link:hover{
+  background: rgba(57,191,234,.22) !important;
+}
+
+/* Dropdown item hover */
+.dropdown a:hover{
+  background: rgba(57,191,234,.18) !important;
+}
