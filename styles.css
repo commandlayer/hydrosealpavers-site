@@ -431,12 +431,19 @@ section{scroll-margin-top:var(--sticky-offset)}
   }
 }
 
-/* ===== Brand logo sizing (single source of truth) ===== */
-.brand-logo{
-  height:60px;  /* ideal desktop sticky header */
+/* ideal desktop sticky header */
   width:auto;
   display:block;
 }
 @media (max-width:980px){
-  .brand-logo{ height:46px; }
+  }
+
+/* ===== Brand logo sizing (50% larger) ===== */
+.brand-logo{
+  height:90px;   /* 50% larger than 60px */
+  width:auto;
+  display:block;
+}
+@media (max-width:980px){
+  .brand-logo{ height:68px; }
 }
