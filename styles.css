@@ -492,3 +492,12 @@ section{scroll-margin-top:var(--sticky-offset)}
 .nav-link, .dropdown a{
   letter-spacing: .01em;
 }
+
+/* ===== Call button hover: match logo water blue ===== */
+.header-ctas .btn-ghost{
+  border-color: rgba(57,191,234,.45);
+}
+.header-ctas .btn-ghost:hover{
+  background: rgba(57,191,234,.22);
+  border-color: rgba(57,191,234,.70);
+}
