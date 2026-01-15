@@ -328,7 +328,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 /* Dropdown */
 .dropdown{
   position:absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
   min-width: 210px;   /* narrower */
   max-width: 240px;
@@ -446,4 +446,19 @@ section{scroll-margin-top:var(--sticky-offset)}
 }
 @media (max-width:980px){
   .brand-logo{ height:68px; }
+}
+
+/* ===== Dropdown hover bridge (prevents menu from disappearing) ===== */
+.dropdown{
+  margin-top:8px; /* visual spacing without breaking hover */
+}
+
+/* invisible bridge fills the gap so cursor can move into the dropdown */
+.dropdown::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-10px;
+  height:10px;
 }
