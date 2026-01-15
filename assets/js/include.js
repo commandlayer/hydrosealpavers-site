@@ -14,3 +14,11 @@
     }
   }
 })();
+
+/* After includes load, set footer year if present */
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+  }, 50);
+});
