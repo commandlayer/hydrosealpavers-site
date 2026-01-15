@@ -1,4 +1,8 @@
-/* Dropdown nav: click/tap support + close on outside click */
+/* HydroSeal dropdown nav
+   - caret toggles dropdown
+   - outside click closes
+   - Esc closes
+*/
 (function () {
   const groups = document.querySelectorAll(".nav-group");
   if (!groups.length) return;
@@ -6,19 +10,16 @@
   const closeAll = () => groups.forEach(g => g.classList.remove("open"));
 
   groups.forEach(g => {
-    const link = g.querySelector(".nav-link");
-    if (!link) return;
+    const trigger = g.querySelector(".nav-trigger");
+    if (!trigger) return;
 
-    link.addEventListener("click", (e) => {
-      const hasDropdown = !!g.querySelector(".dropdown");
-      if (!hasDropdown) return;
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-      // First click opens; second click navigates
-      if (!g.classList.contains("open")) {
-        e.preventDefault();
-        closeAll();
-        g.classList.add("open");
-      }
+      const isOpen = g.classList.contains("open");
+      closeAll();
+      if (!isOpen) g.classList.add("open");
     });
   });
 

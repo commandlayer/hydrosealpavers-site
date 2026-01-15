@@ -281,6 +281,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 .small{font-size:13px;color:rgba(255,255,255,.75)}
 .hr{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:18px}
 
+<<<<<<< HEAD
 /* Notice box */
 .notice{
   border:1px solid var(--line);
@@ -362,4 +363,35 @@ section{scroll-margin-top:var(--sticky-offset)}
 /* Optional: desktop hover support */
 @media (hover:hover){
   .nav-group:hover .dropdown{ display:block; }
+=======
+/* --- Include System + Dropdown Fix Pack --- */
+
+/* Ensure hero overlay never blocks clicks */
+.hero2::before{ pointer-events:none; }
+
+/* Ensure nav sits above everything */
+.header{ z-index:9999; }
+.nav{ position:relative; z-index:9999; }
+.nav-menu{ position:relative; z-index:9999; overflow:visible; }
+
+/* caret button */
+.nav-caret-btn{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:10px;
+  padding:6px 10px;
+  font-weight:900;
+  cursor:pointer;
+}
+.nav-caret-btn:hover{ background:#f3f4f6; }
+
+/* CTA styling */
+.nav-cta{
+  background:var(--blue);
+  color:#fff !important;
+}
+.nav-cta:hover{
+  opacity:.92;
+  background:var(--blue);
+>>>>>>> f4571fa (fix: update contact email to info@hydrosealpavers.com)
 }
