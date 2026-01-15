@@ -83,7 +83,7 @@ img{max-width:100%;display:block}
 .header{
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:9999;
   background:#fff;
   border-bottom:1px solid var(--line);
   box-shadow:0 8px 20px rgba(17,24,39,.08);
@@ -97,6 +97,8 @@ img{max-width:100%;display:block}
 .nav{
   background:#fff;
   border-top:1px solid var(--line);
+  position:relative;
+  z-index:9999;
 }
 /* NOTE: keep this generic so it doesn't fight .nav-menu */
 .nav .container{
@@ -136,6 +138,7 @@ section{scroll-margin-top:var(--sticky-offset)}
     linear-gradient(90deg, rgba(7,29,47,.90) 0%, rgba(7,29,47,.70) 45%, rgba(7,29,47,.35) 100%),
     url("/assets/hero/pavers-hero.jpg") center/cover no-repeat;
   transform:scale(1.02);
+  pointer-events:none; /* critical: never block clicks */
 }
 .hero2 .container{
   position:relative;
@@ -268,6 +271,14 @@ section{scroll-margin-top:var(--sticky-offset)}
 .section-title{font-size:28px;margin:0;letter-spacing:-.02em}
 .section-sub{color:var(--muted);margin:10px 0 0;max-width:820px}
 
+/* Notice box */
+.notice{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+  background:#f9fafb;
+}
+
 /* Footer */
 .footer{
   margin-top:50px;
@@ -281,34 +292,28 @@ section{scroll-margin-top:var(--sticky-offset)}
 .small{font-size:13px;color:rgba(255,255,255,.75)}
 .hr{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:18px}
 
-<<<<<<< HEAD
-/* Notice box */
-.notice{
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:16px;
-  background:#f9fafb;
-}
-
-/* ===== Dropdown Navigation (WORKING) ===== */
+/* ===== Dropdown Navigation (FINAL) ===== */
 .nav-menu{
   display:flex;
   gap:18px;
   align-items:center;
-  overflow:auto;
   padding:10px 16px;
   font-weight:900;
   font-size:14px;
   white-space:nowrap;
+  position:relative;
+  z-index:9999;
+  overflow:visible; /* allow dropdowns to show */
 }
 
+/* group wrapper */
 .nav-group{
   position:relative;
   display:inline-flex;
   align-items:center;
-  gap:6px;
 }
 
+/* nav links */
 .nav-link{
   display:inline-flex;
   align-items:center;
@@ -316,38 +321,46 @@ section{scroll-margin-top:var(--sticky-offset)}
   padding:8px 10px;
   border-radius:12px;
 }
-.nav-link:hover{ background:#f3f4f6; }
 
-.nav-trigger{
-  cursor:pointer;
-  user-select:none;
+/* Light blue hover */
+.nav-link:hover{
+  background: rgba(15,110,168,.12);
 }
 
+/* Remove boxed caret buttons entirely */
+.nav-caret-btn{ display:none !important; }
+
+/* Dropdown */
 .dropdown{
   position:absolute;
   top: calc(100% + 10px);
   left: 0;
-  min-width: 260px;
+  min-width: 210px;   /* narrower */
+  max-width: 240px;
   background:#fff;
   border:1px solid var(--line);
   border-radius:16px;
   box-shadow: var(--shadow);
-  padding:10px;
+  padding:8px;
   display:none;
-  z-index:3000; /* ensure above hero overlay */
+  z-index:3000;
 }
 
 .dropdown a{
   display:block;
-  padding:10px 12px;
+  padding:9px 10px;
   border-radius:12px;
   font-weight:900;
   color:var(--text);
 }
-.dropdown a:hover{ background:#f3f4f6; }
+
+/* Light blue hover inside dropdown */
+.dropdown a:hover{
+  background: rgba(15,110,168,.10);
+}
 
 .dropdown .small-note{
-  padding:10px 12px;
+  padding:10px 10px;
   border-radius:12px;
   color:var(--muted);
   font-weight:800;
@@ -357,33 +370,15 @@ section{scroll-margin-top:var(--sticky-offset)}
   margin-top:8px;
 }
 
-/* Click/tap open state (desktop + mobile) */
-.nav-group.open .dropdown{ display:block; }
-
-/* Optional: desktop hover support */
+/* Desktop hover support */
 @media (hover:hover){
   .nav-group:hover .dropdown{ display:block; }
-=======
-/* --- Include System + Dropdown Fix Pack --- */
-
-/* Ensure hero overlay never blocks clicks */
-.hero2::before{ pointer-events:none; }
-
-/* Ensure nav sits above everything */
-.header{ z-index:9999; }
-.nav{ position:relative; z-index:9999; }
-.nav-menu{ position:relative; z-index:9999; overflow:visible; }
-
-/* caret button */
-.nav-caret-btn{
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:10px;
-  padding:6px 10px;
-  font-weight:900;
-  cursor:pointer;
 }
-.nav-caret-btn:hover{ background:#f3f4f6; }
+
+/* Mobile: allow horizontal scroll for nav items */
+@media (max-width:900px){
+  .nav-menu{ overflow:auto; }
+}
 
 /* CTA styling */
 .nav-cta{
@@ -391,7 +386,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   color:#fff !important;
 }
 .nav-cta:hover{
+  background:var(--blue) !important;
   opacity:.92;
-  background:var(--blue);
->>>>>>> f4571fa (fix: update contact email to info@hydrosealpavers.com)
 }
