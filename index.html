@@ -35,14 +35,15 @@
       </div>
     </div>
 
-    <!-- DROPDOWN NAV -->
+    <!-- Dropdown nav (parent links navigate; caret toggles dropdown) -->
     <nav class="nav">
       <div class="container nav-menu" id="navMenu">
 
+        <!-- Paver Sealing -->
         <div class="nav-group">
-          <a class="nav-link" href="/paver-sealing/">
-            Paver Sealing <span class="nav-caret">▾</span>
-          </a>
+          <a class="nav-link" href="/paver-sealing/">Paver Sealing</a>
+          <a class="nav-link nav-trigger" href="#" aria-label="Open Paver Sealing menu">▾</a>
+
           <div class="dropdown">
             <a href="/paver-sealing/driveways.html">Driveways</a>
             <a href="/paver-sealing/pool-decks.html">Pool Decks</a>
@@ -52,10 +53,11 @@
           </div>
         </div>
 
+        <!-- Commercial -->
         <div class="nav-group">
-          <a class="nav-link" href="/commercial/">
-            Commercial <span class="nav-caret">▾</span>
-          </a>
+          <a class="nav-link" href="/commercial/">Commercial</a>
+          <a class="nav-link nav-trigger" href="#" aria-label="Open Commercial menu">▾</a>
+
           <div class="dropdown">
             <a href="/commercial/hoa-communities.html">HOA Communities</a>
             <a href="/commercial/apartment-complexes.html">Apartments</a>
@@ -66,10 +68,11 @@
           </div>
         </div>
 
+        <!-- Service Areas -->
         <div class="nav-group">
-          <a class="nav-link" href="/service-areas/">
-            Service Areas <span class="nav-caret">▾</span>
-          </a>
+          <a class="nav-link" href="/service-areas/">Service Areas</a>
+          <a class="nav-link nav-trigger" href="#" aria-label="Open Service Areas menu">▾</a>
+
           <div class="dropdown">
             <a href="/service-areas/st-johns-county/">St. Johns County</a>
             <a href="/service-areas/duval-county/">Duval County</a>
@@ -78,10 +81,12 @@
           </div>
         </div>
 
+        <!-- Proof -->
         <a class="nav-link" href="/gallery/">Gallery</a>
         <a class="nav-link" href="/reviews/">Reviews</a>
         <a class="nav-link" href="/faq/">FAQ</a>
 
+        <!-- CTA -->
         <a class="nav-link" href="/get-a-quote/" style="background:var(--blue);color:#fff;">
           Get a Quote
         </a>
@@ -208,6 +213,31 @@
     </div>
   </section>
 
+  <!-- PROOF / GALLERY CTA -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Results you can see</h2>
+      <p class="section-sub">We’ll build this section out with your before/after photos as you complete jobs.</p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>Before / After Gallery</h3>
+          <p>Add 12–20 of your best transformations. This is what sells online.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Reviews</h3>
+          <p>We’ll pull your best Google reviews and build a “why trust us” block.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -242,7 +272,7 @@
     </div>
   </footer>
 
-  <!-- Shared dropdown JS (required) -->
+  <!-- dropdown nav script (required for caret toggle) -->
   <script src="/assets/js/nav-dropdown.js" defer></script>
 
   <script>
