@@ -396,12 +396,6 @@ section{scroll-margin-top:var(--sticky-offset)}
 
 /* Brand logo */
 .brand{ display:flex; align-items:center; }
-.brand-logo{
-  height:40px;
-  width:auto;
-  display:block;
-}
-
 /* Nav sits in the middle and stretches */
 .header-nav{ flex:1; }
 .header-nav .nav-menu{
@@ -437,12 +431,12 @@ section{scroll-margin-top:var(--sticky-offset)}
   }
 }
 
-/* ===== Logo sizing override ===== */
+/* ===== Brand logo sizing (single source of truth) ===== */
 .brand-logo{
-  height:56px;
+  height:60px;  /* ideal desktop sticky header */
   width:auto;
   display:block;
 }
 @media (max-width:980px){
-  .brand-logo{ height:44px; }
+  .brand-logo{ height:46px; }
 }
