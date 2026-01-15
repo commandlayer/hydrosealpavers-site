@@ -1,365 +1,281 @@
-/* HydroSeal Pavers — styles.css (FULL FILE) */
 
-:root{
-  --navy:#0B2D4A;
-  --blue:#0F6EA8;
-  --teal:#28B6C8;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroSeal Pavers — Paver Sealing & Protection</title>
+  <meta name="description" content="Paver sealing & protection in St. Johns, Duval, and Clay County. Licensed & insured. Free estimates. Call 904.537.5000." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
 
-  --text:#111827;
-  --muted:#6b7280;
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <div>Licensed &amp; Insured • Free Estimates • Starts at $1.50/sq ft</div>
+      <div>
+        <a href="tel:+19045375000">📞 904.537.5000</a>
+        <span style="opacity:.6;margin:0 8px;">|</span>
+        <a href="mailto:info@hydropavers.com">✉️ info@hydropavers.com</a>
+      </div>
+    </div>
+  </div>
 
-  --bg:#ffffff;
-  --line:#e5e7eb;
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="/" style="display:flex;align-items:center;gap:10px;">
+        <strong style="font-size:18px;">
+          <span style="color:var(--navy)">Hydro</span><span style="color:var(--blue)">Seal</span> Pavers
+        </strong>
+      </a>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a class="btn btn-ghost" href="tel:+19045375000">Call</a>
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+      </div>
+    </div>
 
-  --radius:18px;
-  --shadow: 0 10px 30px rgba(17,24,39,.10);
+   <nav class="nav">
+  <div class="container nav-menu" id="navMenu">
 
-  /* sticky header sizing (used to prevent overlap) */
-  --sticky-offset: 116px; /* approx header+nav height on desktop */
-}
+    <!-- Paver Sealing -->
+    <div class="nav-group">
+      <a class="nav-link" href="/paver-sealing/">
+        Paver Sealing <span class="nav-caret">▾</span>
+      </a>
+      <div class="dropdown">
+        <a href="/paver-sealing/driveways.html">Driveways</a>
+        <a href="/paver-sealing/pool-decks.html">Pool Decks</a>
+        <a href="/paver-sealing/patios-walkways.html">Patios & Walkways</a>
+        <a href="/paver-sealing/commercial.html">Commercial Pavers</a>
+        <div class="small-note">Starts at $1.50/sq ft • Call 904.537.5000</div>
+      </div>
+    </div>
 
-*{box-sizing:border-box}
+    <!-- Commercial -->
+    <div class="nav-group">
+      <a class="nav-link" href="/commercial/">
+        Commercial <span class="nav-caret">▾</span>
+      </a>
+      <div class="dropdown">
+        <a href="/commercial/hoa-communities.html">HOA Communities</a>
+        <a href="/commercial/apartment-complexes.html">Apartments</a>
+        <a href="/commercial/builders-new-construction.html">Builders / New Construction</a>
+        <a href="/commercial/retail-centers.html">Retail Centers</a>
+        <a href="/commercial/office-buildings.html">Office Buildings</a>
+        <div class="small-note">Bid + recurring maintenance options</div>
+      </div>
+    </div>
 
-html,body{height:100%}
+    <!-- Service Areas -->
+    <div class="nav-group">
+      <a class="nav-link" href="/service-areas/">
+        Service Areas <span class="nav-caret">▾</span>
+      </a>
+      <div class="dropdown">
+        <a href="/service-areas/st-johns-county/">St. Johns County</a>
+        <a href="/service-areas/duval-county/">Duval County</a>
+        <a href="/service-areas/clay-county/">Clay County</a>
+        <div class="small-note">Neighborhood pages inside each county</div>
+      </div>
+    </div>
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+    <!-- Proof -->
+    <a class="nav-link" href="/gallery/">Gallery</a>
+    <a class="nav-link" href="/reviews/">Reviews</a>
+    <a class="nav-link" href="/faq/">FAQ</a>
 
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.container{max-width:1120px;margin:0 auto;padding:0 16px}
+    <!-- CTA -->
+    <a class="nav-link" href="/get-a-quote/" style="background:var(--blue);color:#fff;">
+      Get a Quote
+    </a>
 
-/* Buttons */
-.btn{
-  display:inline-block;
-  padding:12px 16px;
-  border-radius:14px;
-  font-weight:900;
-  letter-spacing:.01em;
-  transition:opacity .15s ease, transform .15s ease;
-}
-.btn:hover{opacity:.92}
-.btn:active{transform:translateY(1px)}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-ghost{border:1px solid var(--line);background:#fff;color:var(--text)}
-.btn-wide{width:100%;text-align:center}
+  </div>
+</nav>
 
-/* Pills / badges */
-.badge{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  padding:6px 10px;
-  border-radius:999px;
-  background:#eef6ff;
-  color:var(--navy);
-  font-weight:900;
-  font-size:12px;
-}
+  </header>
 
-/* Top bar (scrolls away by default — cleaner) */
-.topbar{
-  background:var(--navy);
-  color:#fff;
-  font-weight:900;
-  font-size:14px;
-}
-.topbar .container{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 16px;
-}
+  <!-- BIG HERO -->
+  <section class="hero2">
+    <div class="container">
+      <div class="hero-grid">
 
-/* Sticky header + nav (always visible) */
-.header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 20px rgba(17,24,39,.08);
-}
-.header .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 16px;
-}
-.nav{
-  background:#fff;
-  border-top:1px solid var(--line);
-}
-/* NOTE: keep this generic so it doesn't fight .nav-menu */
-.nav .container{
-  display:block;
-  padding:0;
-}
+        <div>
+          <div class="kicker">Paver Sealing & Protection</div>
+          <h1>Bring back the color. Lock in the sand. Protect your investment.</h1>
+          <p>
+            Professional paver sealing for driveways, pool decks, patios, and walkways across
+            St. Johns, Duval, and Clay County.
+          </p>
 
-/* Prevent anchor/content hiding behind sticky header */
-main{scroll-margin-top:var(--sticky-offset)}
-section{scroll-margin-top:var(--sticky-offset)}
+          <div class="chips">
+            <span class="chip">✅ Licensed</span>
+            <span class="chip">✅ Insured</span>
+            <span class="chip">✅ Free Estimates</span>
+            <span class="chip">💲 Starts at $1.50/sq ft</span>
+          </div>
 
-/* Basic hero (simple) */
-.hero{
-  background:var(--navy);
-  color:#fff;
-  padding:56px 0;
-}
-.hero h1{margin:0;font-size:42px;line-height:1.1;letter-spacing:-.02em}
-.hero p{margin:14px 0 0;color:rgba(255,255,255,.85);font-size:18px;max-width:720px}
-.hero .cta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;">
+            <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
+            <a class="btn btn-ghost" href="/get-a-quote/">Get a Quote</a>
+          </div>
 
-/* BIG HERO (photo opener) */
-.hero2{
-  position:relative;
-  min-height:78vh;
-  display:flex;
-  align-items:center;
-  background:#071d2f;
-  overflow:hidden;
-  padding-top:18px; /* avoids feeling tucked under sticky header */
-}
-.hero2::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg, rgba(7,29,47,.90) 0%, rgba(7,29,47,.70) 45%, rgba(7,29,47,.35) 100%),
-    url("/assets/hero/pavers-hero.jpg") center/cover no-repeat;
-  transform:scale(1.02);
-}
-.hero2 .container{
-  position:relative;
-  z-index:2;
-  padding:56px 16px;
-}
-.hero2 h1{
-  margin:10px 0 0;
-  font-size:50px;
-  line-height:1.05;
-  letter-spacing:-.02em;
-  color:#fff;
-  max-width:760px;
-}
-.hero2 p{
-  margin:14px 0 0;
-  color:rgba(255,255,255,.86);
-  font-size:18px;
-  max-width:720px;
-}
-.hero2 .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border:1px solid rgba(255,255,255,.20);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:999px;
-  font-weight:900;
-  font-size:12px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.25fr .85fr;
-  gap:18px;
-  align-items:start;
-}
-@media (max-width:980px){
-  :root{ --sticky-offset: 128px; } /* a bit taller on smaller screens */
-  .hero-grid{grid-template-columns:1fr}
-  .hero2 h1{font-size:40px}
-}
+          <div style="margin-top:10px;color:rgba(255,255,255,.78);font-weight:800;font-size:13px;">
+            No driveway pressure washing (pavers only). Soft wash for siding/roof available.
+          </div>
+        </div>
 
-/* Instant Quote card (homepage) */
-.quote-card{
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.10);
-  backdrop-filter:blur(10px);
-  padding:16px;
-  color:#fff;
-}
-.quote-card h3{margin:0;font-size:18px}
-.quote-card label{
-  display:block;
-  margin-top:12px;
-  font-weight:900;
-  font-size:12px;
-  opacity:.9;
-}
-.quote-card input,
-.quote-card select{
-  width:100%;
-  margin-top:6px;
-  padding:12px 12px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(7,29,47,.55);
-  color:#fff;
-  outline:none;
-}
-.quote-card input::placeholder{color:rgba(255,255,255,.65)}
-.quote-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media (max-width:520px){ .quote-row{grid-template-columns:1fr} }
-.subtle{opacity:.82;font-size:12px;margin-top:10px;line-height:1.35}
+        <!-- Instant Quote card -->
+        <aside class="quote-card">
+          <h3>Instant Estimate (Fast)</h3>
 
-/* Sections / grids */
-.section{padding:44px 0}
-.grid{display:grid;gap:14px}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:900px){
-  .grid-3,.grid-2{grid-template-columns:1fr}
-}
+          <form action="/get-a-quote/" method="get">
+            <div class="quote-row">
+              <div>
+                <label>Service</label>
+                <select name="service">
+                  <option value="paver-sealing">Paver Sealing</option>
+                  <option value="paver-cleaning">Paver Cleaning</option>
+                  <option value="commercial">Commercial / HOA</option>
+                  <option value="soft-wash">House / Roof Soft Wash</option>
+                </select>
+              </div>
+              <div>
+                <label>County</label>
+                <select name="county">
+                  <option value="st-johns">St. Johns</option>
+                  <option value="duval">Duval</option>
+                  <option value="clay">Clay</option>
+                </select>
+              </div>
+            </div>
 
-/* Cards */
-.card{
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:18px;
-  background:#fff;
-  box-shadow:none;
-  transition:box-shadow .15s ease, transform .15s ease;
-}
-.card:hover{
-  box-shadow:var(--shadow);
-  transform:translateY(-1px);
-}
-.card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
-.card p{margin:0;color:var(--muted)}
+            <label>Estimated square footage (optional)</label>
+            <input name="sqft" placeholder="e.g. 1200" inputmode="numeric" />
 
-/* Small kicker */
-.kicker{
-  color:var(--teal);
-  font-weight:1000;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  font-size:12px;
-}
+            <label>ZIP code</label>
+            <input name="zip" placeholder="e.g. 32081" inputmode="numeric" required />
 
-/* Trust bar */
-.trustbar{
-  background:#fff;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.trustbar .container{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 16px;
-}
-.trust-item{font-weight:900;color:var(--navy);font-size:13px}
+            <label>Best callback number</label>
+            <input name="phone" placeholder="e.g. 904-537-5000" inputmode="tel" />
 
-/* Headings helpers */
-.section-title{font-size:28px;margin:0;letter-spacing:-.02em}
-.section-sub{color:var(--muted);margin:10px 0 0;max-width:820px}
+            <button class="btn btn-primary btn-wide" type="submit">Get My Estimate</button>
 
-/* Footer */
-.footer{
-  margin-top:50px;
-  background:var(--navy);
-  color:#fff;
-}
-.footer .container{padding:46px 16px}
-.footer-grid{display:grid;gap:20px;grid-template-columns:2fr 1fr 1fr}
-@media (max-width:900px){.footer-grid{grid-template-columns:1fr}}
-.footer a{color:rgba(255,255,255,.85)}
-.small{font-size:13px;color:rgba(255,255,255,.75)}
-.hr{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:18px}
+            <div class="subtle">
+              Prefer to talk now? Call <a href="tel:+19045375000" style="font-weight:900;text-decoration:underline;">904.537.5000</a>.
+              We’ll confirm prep needs and give a real quote.
+            </div>
+          </form>
+        </aside>
 
-/* Notice box */
-.notice{
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:16px;
-  background:#f9fafb;
-}
+      </div>
+    </div>
+  </section>
 
-/* ===== Dropdown Navigation (WORKING) ===== */
-.nav-menu{
-  display:flex;
-  gap:18px;
-  align-items:center;
-  overflow:auto;
-  padding:10px 16px;
-  font-weight:900;
-  font-size:14px;
-  white-space:nowrap;
-}
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <div class="container">
+      <div class="trust-item">Residential + Commercial</div>
+      <div class="trust-item">St. Johns • Duval • Clay</div>
+      <div class="trust-item">Free Estimates</div>
+      <div class="trust-item">Call: 904.537.5000</div>
+    </div>
+  </div>
 
-.nav-group{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-}
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What we do</h2>
+      <p class="section-sub">
+        We focus on paver sealing and protection. If you want a clean, premium result that holds up to Florida heat and rain,
+        this is the lane.
+      </p>
 
-.nav-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 10px;
-  border-radius:12px;
-}
-.nav-link:hover{ background:#f3f4f6; }
+      <div class="grid grid-3" style="margin-top:16px;">
+        <a class="card" href="/paver-sealing/driveways.html">
+          <h3>Paver Driveways</h3>
+          <p>Cleaning + sanding + sealing for curb appeal and protection.</p>
+        </a>
+        <a class="card" href="/paver-sealing/pool-decks.html">
+          <h3>Pool Decks</h3>
+          <p>Cleaner finish, safer surface, long-term protection.</p>
+        </a>
+        <a class="card" href="/paver-sealing/patios-walkways.html">
+          <h3>Patios & Walkways</h3>
+          <p>Even finish, stabilized joints, reduced weed growth.</p>
+        </a>
+      </div>
 
-.nav-trigger{
-  cursor:pointer;
-  user-select:none;
-}
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="/service-areas/">See Service Areas</a>
+      </div>
+    </div>
+  </section>
 
-.dropdown{
-  position:absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  min-width: 260px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  box-shadow: var(--shadow);
-  padding:10px;
-  display:none;
-  z-index:3000; /* ensure above hero overlay */
-}
+  <!-- PROOF / GALLERY CTA -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Results you can see</h2>
+      <p class="section-sub">We’ll build this section out with your before/after photos as you complete jobs.</p>
 
-.dropdown a{
-  display:block;
-  padding:10px 12px;
-  border-radius:12px;
-  font-weight:900;
-  color:var(--text);
-}
-.dropdown a:hover{ background:#f3f4f6; }
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>Before / After Gallery</h3>
+          <p>Add 12–20 of your best transformations. This is what sells online.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Reviews</h3>
+          <p>We’ll pull your best Google reviews and build a “why trust us” block.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.dropdown .small-note{
-  padding:10px 12px;
-  border-radius:12px;
-  color:var(--muted);
-  font-weight:800;
-  font-size:12px;
-  background:#f9fafb;
-  border:1px solid var(--line);
-  margin-top:8px;
-}
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:20px;font-weight:900;">HydroSeal Pavers</div>
+          <div class="small" style="margin-top:8px;">Licensed &amp; Insured • Free Estimates • Starts at $1.50/sq ft</div>
+        </div>
 
-/* Click/tap open state (desktop + mobile) */
-.nav-group.open .dropdown{ display:block; }
+        <div>
+          <div style="font-weight:900;margin-bottom:8px;">Contact</div>
+          <div class="small">
+            <div><a href="tel:+19045375000">📞 904.537.5000</a></div>
+            <div><a href="mailto:info@hydropavers.com">✉️ info@hydropavers.com</a></div>
+          </div>
+        </div>
 
-/* Optional: desktop hover support */
-@media (hover:hover){
-  .nav-group:hover .dropdown{ display:block; }
-}
+        <div>
+          <div style="font-weight:900;margin-bottom:8px;">Links</div>
+          <div class="small">
+            <div><a href="/paver-sealing/">Paver Sealing</a></div>
+            <div><a href="/commercial/">Commercial</a></div>
+            <div><a href="/service-areas/">Service Areas</a></div>
+            <div><a href="/get-a-quote/">Get a Quote</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr small">
+        © <span id="y"></span> HydroSeal Pavers. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
