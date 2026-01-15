@@ -501,3 +501,13 @@ section{scroll-margin-top:var(--sticky-offset)}
   background: rgba(57,191,234,.22);
   border-color: rgba(57,191,234,.70);
 }
+
+/* ===== Call button hover: match logo water blue + navy text ===== */
+.header-ctas .btn-ghost{
+  border-color: rgba(57,191,234,.45);
+}
+.header-ctas .btn-ghost:hover{
+  background: rgba(57,191,234,.22);
+  border-color: rgba(57,191,234,.70);
+  color: var(--navy);
+}
