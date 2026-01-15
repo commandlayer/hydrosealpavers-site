@@ -462,3 +462,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   top:-10px;
   height:10px;
 }
+
+/* ===== Dropdown: remove note text blocks ===== */
+.dropdown .small-note{ display:none !important; }
