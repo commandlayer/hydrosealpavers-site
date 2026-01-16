@@ -11,7 +11,36 @@
 
   <div data-include="/partials/header.html"></div>
 
-<section class="section">
+  <!-- HERO IMAGE (big, like index) -->
+  <section class="section" style="padding-top:18px;">
+    <div class="container">
+      <div
+        class="page-hero"
+        style="
+          border-radius: var(--radius);
+          overflow: hidden;
+          box-shadow: var(--shadow);
+          border: 1px solid var(--line);
+          background: #fff;
+        "
+      >
+        <img
+          src="/assets/hero/hydroseal-patio-pavers.png"
+          alt="Screened pool patio with sealed pavers"
+          loading="eager"
+          decoding="async"
+          style="
+            width: 100%;
+            height: clamp(260px, 42vw, 520px);
+            object-fit: cover;
+            display: block;
+          "
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="kicker">Paver Sealing</div>
       <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15">Paver Sealing for Pool Decks</h1>
@@ -33,9 +62,10 @@
     </div>
   </section>
 
-  <div data-include="/partials/footer.html"></div><script src="/assets/js/nav-dropdown.js" defer></script>
+  <div data-include="/partials/footer.html"></div>
 
-<script src="/assets/js/include.js" defer></script>
-<script src="/assets/js/nav-dropdowns.js" defer></script>
+  <script src="/assets/js/nav-dropdown.js" defer></script>
+  <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/nav-dropdowns.js" defer></script>
 </body>
 </html>
