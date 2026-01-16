@@ -1,8 +1,4 @@
-/* HydroSeal dropdown nav
-   - caret toggles dropdown
-   - outside click closes
-   - Esc closes
-*/
+/* Hardened dropdown nav */
 (function () {
   const groups = document.querySelectorAll(".nav-group");
   if (!groups.length) return;
@@ -11,16 +7,21 @@
 
   groups.forEach(g => {
     const trigger = g.querySelector(".nav-trigger");
-    if (!trigger) return;
+    const parent  = g.querySelector(".nav-parent");
 
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+    if (trigger) {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const open = g.classList.contains("open");
+        closeAll();
+        if (!open) g.classList.add("open");
+      });
+    }
 
-      const isOpen = g.classList.contains("open");
-      closeAll();
-      if (!isOpen) g.classList.add("open");
-    });
+    if (parent) {
+      parent.addEventListener("click", () => closeAll()); // normal navigation
+    }
   });
 
   document.addEventListener("click", (e) => {
