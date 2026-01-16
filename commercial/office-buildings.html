@@ -62,4 +62,300 @@
         <aside
           class="quote-card"
           style="
-            background:#ffffff
+            background:#ffffff;
+            color:#111827;
+            border-radius:18px;
+            border:1px solid rgba(0,0,0,.12);
+            box-shadow:0 18px 45px rgba(17,24,39,.20);
+          "
+        >
+          <h3 style="margin:0 0 10px; color:#111827;">Commercial Quote Intake</h3>
+
+          <form action="/get-a-quote/" method="get">
+            <input type="hidden" name="service" value="commercial-office-buildings" />
+
+            <label style="color:#111827;">Property name</label>
+            <input name="property" placeholder="e.g. Riverplace Office Park" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);" />
+
+            <label style="color:#111827;">Address</label>
+            <input name="address" placeholder="Street, City" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);" />
+
+            <div class="quote-row">
+              <div>
+                <label style="color:#111827;">County</label>
+                <select name="county" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);">
+                  <option value="st-johns">St. Johns</option>
+                  <option value="duval">Duval</option>
+                  <option value="clay">Clay</option>
+                </select>
+              </div>
+              <div>
+                <label style="color:#111827;">Best contact</label>
+                <input name="phone" placeholder="Phone" inputmode="tel" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);" />
+              </div>
+            </div>
+
+            <label style="color:#111827;">What needs attention?</label>
+            <input
+              name="scope"
+              placeholder="Sidewalks, pavers, entrances, dumpster area…"
+              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
+            />
+
+            <button class="btn btn-primary btn-wide" type="submit">Request a Quote</button>
+
+            <div class="subtle" style="margin-top:10px; color:rgba(17,24,39,.72);">
+              Prefer to talk now? Call
+              <a href="tel:+19045375000" style="font-weight:900; text-decoration:underline; color:var(--blue);">904.537.5000</a>.
+              We can schedule a site walk and send a clean proposal.
+            </div>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <div class="container">
+      <div class="trust-item">Tenant-friendly scheduling</div>
+      <div class="trust-item">After-hours / early-morning</div>
+      <div class="trust-item">COI + Vendor packet support</div>
+      <div class="trust-item">Call: 904.537.5000</div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <section class="section">
+    <div class="container">
+
+      <!-- QUICK CTA STRIP -->
+      <div class="notice" style="margin-top:0;">
+        <strong>Commercial service is quoted by site.</strong> We price by scope, access, surface type, and schedule window.
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;">
+          <a class="btn btn-primary" href="/get-a-quote/">Request a Site Walk</a>
+          <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+        </div>
+      </div>
+
+      <!-- INTRO -->
+      <div style="margin-top:18px;color:var(--muted);max-width:920px;">
+        <p>
+          Office buildings win (or lose) trust at the curb: entry walks, signage, drop-off lanes, courtyards, and
+          common areas. When organics, gum, and staining build up, tenants notice—and so do visitors.
+          We keep it clean with repeatable processes, safety controls, and clear scheduling.
+        </p>
+      </div>
+
+      <!-- SPLIT BLOCK 1 -->
+      <section style="margin-top:22px;">
+        <div style="display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; align-items:stretch;">
+          <div class="card" style="padding:0; overflow:hidden;">
+            <img
+              src="/assets/hero/paver-sealing-jacksonville-driveway.png"
+              alt="Clean commercial entry areas"
+              loading="lazy"
+              decoding="async"
+              style="width:100%; height:100%; object-fit:cover; display:block;"
+            />
+          </div>
+
+          <div class="card">
+            <h2 style="margin:0 0 6px;">What we handle for office properties</h2>
+            <p style="margin:0;color:var(--muted);">
+              We focus on exterior surfaces that impact tenant satisfaction, safety, and first impression.
+              Most properties start with a deep clean, then move to a maintenance cadence.
+            </p>
+
+            <ul style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
+              <li><strong>Entry sidewalks &amp; plazas:</strong> organics, grime, and spot staining</li>
+              <li><strong>Paver courtyards &amp; walkways:</strong> cleaning + re-sanding + optional sealing</li>
+              <li><strong>Dumpster pads &amp; service corridors:</strong> odor/stain control as needed</li>
+              <li><strong>Canopies / awnings / signage wash-down:</strong> safe methods, no damage</li>
+              <li><strong>Building exterior soft wash:</strong> stucco/siding for streaking and organics</li>
+            </ul>
+
+            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+              <a class="btn btn-primary" href="/get-a-quote/">Request a Site Walk</a>
+              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPLIT BLOCK 2 (REVERSED) -->
+      <section style="margin-top:18px;">
+        <div style="display:grid; grid-template-columns: .9fr 1.1fr; gap:18px; align-items:stretch;">
+          <div class="card">
+            <h2 style="margin:0 0 6px;">Operations that won’t disrupt tenants</h2>
+            <p style="margin:0;color:var(--muted);">
+              Office properties need predictable access. We schedule around peak foot traffic and keep paths open.
+              Expect a clean plan—before we start.
+            </p>
+
+            <ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
+              <li><strong>Phased zones:</strong> entries, plazas, service areas—one at a time</li>
+              <li><strong>After-hours / early-morning:</strong> reduce disruption and improve dry times</li>
+              <li><strong>Safety controls:</strong> cones/tape + wet-surface signage where needed</li>
+              <li><strong>Tenant communication:</strong> simple notice template if you want it</li>
+              <li><strong>Photo documentation:</strong> before/after set for management records (optional)</li>
+            </ol>
+
+            <div style="margin-top:14px; padding:12px; border-radius:14px; background:rgba(40,182,200,.10); border:1px solid rgba(40,182,200,.25);">
+              <div style="font-weight:900;">Want maintenance pricing?</div>
+              <div style="color:var(--muted); margin-top:4px;">
+                After the first deep clean, we can quote a monthly/quarterly cadence for entries, walks, and common areas.
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:0; overflow:hidden;">
+            <img
+              src="/assets/hero/hydroseal-driveway.png"
+              alt="Commercial walkways and pavers"
+              loading="lazy"
+              decoding="async"
+              style="width:100%; height:100%; object-fit:cover; display:block;"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- VALUE ADD / UPSELL SECTION -->
+      <section style="margin-top:18px;">
+        <div class="card">
+          <h2 style="margin:0 0 8px;">High-value upgrades (optional)</h2>
+          <p style="margin:0;color:var(--muted);max-width:920px;">
+            These are the upgrades that make the property look “newer” and reduce long-term maintenance calls.
+          </p>
+
+          <div class="grid grid-2" style="margin-top:14px;">
+            <div class="card">
+              <h3 style="margin:0 0 6px;">Paver sealing for courtyards &amp; plazas</h3>
+              <p style="margin:0;color:var(--muted);">
+                Stabilizes joint sand, reduces weed growth, and keeps the surface looking uniform longer—especially in high foot traffic areas.
+              </p>
+              <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted);">
+                <li>Re-sand joints for stability</li>
+                <li>Even application (no blotchiness)</li>
+                <li>Optional color-enhancing finish</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 style="margin:0 0 6px;">Slip-resistance where it matters</h3>
+              <p style="margin:0;color:var(--muted);">
+                For wet zones (shaded courtyards, breezeways, fountain areas), we can add an anti-slip additive
+                (e.g., SharkGrip) to help reduce slip risk.
+              </p>
+              <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted);">
+                <li>Recommend areas based on site walk</li>
+                <li>Balanced traction (not gritty-looking)</li>
+                <li>Documented as an optional line item</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VENDOR READY / DOCUMENTS -->
+      <section style="margin-top:18px;">
+        <div class="card">
+          <h2 style="margin:0 0 8px;">Vendor-ready (what property managers care about)</h2>
+          <p style="margin:0;color:var(--muted);max-width:920px;">
+            We keep this simple: clear scope, clear schedule, clear documentation. If you have a vendor packet, send it—we’ll match it.
+          </p>
+
+          <div class="grid grid-2" style="margin-top:14px;">
+            <div class="card">
+              <h3 style="margin:0 0 6px;">Documentation</h3>
+              <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+                <li>Certificate of Insurance (COI) on request</li>
+                <li>W-9 available</li>
+                <li>Safety signage + controlled work zones</li>
+                <li>Before/after photos (optional)</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 style="margin:0 0 6px;">Scheduling &amp; communication</h3>
+              <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+                <li>After-hours / early-morning availability</li>
+                <li>Phased service plan to keep access open</li>
+                <li>Tenant/visitor notice template available</li>
+                <li>Defined dry-time guidance by surface</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section style="margin-top:18px;">
+        <h2 class="section-title">Office building FAQ</h2>
+
+        <div class="grid grid-2" style="margin-top:12px;">
+          <div class="card">
+            <h3 style="margin:0 0 6px;">Can you work after hours?</h3>
+            <p style="margin:0;color:var(--muted);">
+              Yes. Many office properties prefer early-morning or after-hours to reduce foot traffic and improve dry times.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 6px;">Do you offer recurring maintenance?</h3>
+            <p style="margin:0;color:var(--muted);">
+              Yes. After a deep clean, we can quote a monthly/quarterly cadence for entries, sidewalks, and common areas.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 6px;">How do you avoid disruption?</h3>
+            <p style="margin:0;color:var(--muted);">
+              Phased zones, signage, and a clear access plan. We never block every entrance at once.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 6px;">What do you need to quote?</h3>
+            <p style="margin:0;color:var(--muted);">
+              Address + a quick description is enough to start. Best case: schedule a short site walk so we can price it cleanly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section style="margin-top:18px;">
+        <div class="card" style="text-align:center;">
+          <h2 style="margin:0;">Get a commercial quote</h2>
+          <p style="margin:8px auto 0;color:var(--muted);max-width:820px;">
+            Tell us the property and the surfaces you want cleaned. We’ll schedule a site walk and send a clean, vendor-ready proposal.
+          </p>
+          <div style="margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;">
+            <a class="btn btn-primary" href="/get-a-quote/">Request a Site Walk</a>
+            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- responsive helpers -->
+      <style>
+        @media (max-width: 980px){
+          .hero2 { padding: 54px 0 !important; }
+        }
+        @media (max-width: 900px){
+          .hero2 > .container > div { grid-template-columns: 1fr !important; }
+        }
+      </style>
+
+    </div>
+  </section>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/assets/js/nav-dropdown.js" defer></script>
+  <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/nav-dropdowns.js" defer></script>
+</body>
+</html>
