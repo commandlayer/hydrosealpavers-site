@@ -82,4 +82,157 @@
               </div>
               <div>
                 <label style="color:#111827;">County</label>
-                <select name="county" style="background:#fff;color:#
+                <select name="county" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);">
+                  <option value="st-johns">St. Johns</option>
+                  <option value="duval">Duval</option>
+                  <option value="clay">Clay</option>
+                </select>
+              </div>
+            </div>
+
+            <label style="color:#111827;">Estimated square footage (optional)</label>
+            <input
+              name="sqft"
+              placeholder="e.g. 1200"
+              inputmode="numeric"
+              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
+            />
+
+            <label style="color:#111827;">ZIP code</label>
+            <input
+              name="zip"
+              placeholder="e.g. 32081"
+              inputmode="numeric"
+              required
+              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
+            />
+
+            <label style="color:#111827;">Best callback number</label>
+            <input
+              name="phone"
+              placeholder="e.g. 904-537-5000"
+              inputmode="tel"
+              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
+            />
+
+            <button class="btn btn-primary btn-wide" type="submit">Get My Estimate</button>
+
+            <div class="subtle" style="color:rgba(17,24,39,.72);">
+              Prefer to talk now? Call
+              <a href="tel:+19045375000" style="font-weight:900;text-decoration:underline;color:var(--blue);">904.537.5000</a>.
+              We’ll confirm prep needs and give you a real quote.
+            </div>
+          </form>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <div class="container">
+      <div class="trust-item">Residential + Commercial</div>
+      <div class="trust-item">St. Johns • Duval • Clay</div>
+      <div class="trust-item">Free Estimates</div>
+      <div class="trust-item">Call: 904.537.5000</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What we do</h2>
+      <p class="section-sub">
+        We focus on paver sealing and protection. If you want a clean, premium result that holds up to Florida heat and rain,
+        this is the lane.
+      </p>
+
+      <div class="grid grid-3" style="margin-top:16px;">
+
+        <a class="card service-card" href="/paver-sealing/driveways.html" style="overflow:hidden;">
+          <img
+            class="service-thumb"
+            src="/assets/hero/hydroseal-paver-driveway-square.png"
+            alt="Close-up paver driveway"
+            loading="lazy"
+            width="1024"
+            height="1024"
+          />
+          <div style="margin-top:12px;">
+            <h3>Paver Driveways</h3>
+            <p>Cleaning + sanding + sealing for curb appeal and protection.</p>
+          </div>
+        </a>
+
+        <a class="card service-card" href="/paver-sealing/pool-decks.html" style="overflow:hidden;">
+          <img
+            class="service-thumb"
+            src="/assets/hero/hydroseal-travertine-pool-deck-square.png"
+            alt="Travertine pool deck"
+            loading="lazy"
+            width="1024"
+            height="1024"
+          />
+          <div style="margin-top:12px;">
+            <h3>Pool Decks</h3>
+            <p>Cleaner finish, safer surface, long-term protection.</p>
+          </div>
+        </a>
+
+        <a class="card service-card" href="/paver-sealing/patios-walkways.html" style="overflow:hidden;">
+          <img
+            class="service-thumb"
+            src="/assets/hero/hydroseal-paver-patio-square.png"
+            alt="Paver patio"
+            loading="lazy"
+            width="1024"
+            height="1024"
+          />
+          <div style="margin-top:12px;">
+            <h3>Patios &amp; Walkways</h3>
+            <p>Even finish, stabilized joints, reduced weed growth.</p>
+          </div>
+        </a>
+
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="/service-areas/">See Service Areas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / GALLERY CTA -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Results you can see</h2>
+      <p class="section-sub">We’ll build this section out with your before/after photos as you complete jobs.</p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>Before / After Gallery</h3>
+          <p>Add 12–20 of your best transformations. This is what sells online.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Reviews</h3>
+          <p>We’ll pull your best Google reviews and build a “why trust us” block.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/nav-dropdowns.js" defer></script>
+
+</body>
+</html>
