@@ -19,12 +19,11 @@
   /* sticky header sizing (used to prevent overlap) */
   --sticky-offset: 116px; /* approx header+nav height on desktop */
 
-  /* brand accent */
+  /* brand accent (match logo water drop) */
   --water-blue:#39BFEA;
 }
 
 *{box-sizing:border-box}
-
 html,body{height:100%}
 
 body{
@@ -69,21 +68,6 @@ img{max-width:100%;display:block}
   font-size:12px;
 }
 
-/* Top bar (scrolls away by default — cleaner) */
-.topbar{
-  background:var(--navy);
-  color:#fff;
-  font-weight:900;
-  font-size:14px;
-}
-.topbar .container{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 16px;
-}
-
 /* Prevent anchor/content hiding behind sticky header */
 main{scroll-margin-top:var(--sticky-offset)}
 section{scroll-margin-top:var(--sticky-offset)}
@@ -116,7 +100,7 @@ section{scroll-margin-top:var(--sticky-offset)}
     linear-gradient(90deg, rgba(7,29,47,.90) 0%, rgba(7,29,47,.70) 45%, rgba(7,29,47,.35) 100%),
     url("/assets/hero/pavers-hero.jpg") center/cover no-repeat;
   transform:scale(1.02);
-  pointer-events:none;
+  pointer-events:none; /* critical: never block clicks */
 }
 .hero2 .container{
   position:relative;
@@ -364,7 +348,12 @@ section{scroll-margin-top:var(--sticky-offset)}
 }
 .nav .container{ display:block; padding:0; }
 
-/* Dropdown Navigation (FINAL) — SINGLE SOURCE OF TRUTH */
+/* Typography: match logo vibe */
+.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Dropdown Navigation — SINGLE SOURCE OF TRUTH */
 .nav-menu{
   display:flex;
   align-items:center;
@@ -391,6 +380,7 @@ section{scroll-margin-top:var(--sticky-offset)}
   gap:8px;
   padding:8px 10px;
   border-radius:12px;
+  letter-spacing:.01em;
 }
 
 /* Brand water-drop hover color (logo matched) */
@@ -398,30 +388,40 @@ section{scroll-margin-top:var(--sticky-offset)}
   background: rgba(57,191,234,.22);
 }
 
-/* Dropdown */
+/* CTA hover for call button (light gray outline stays) */
+.header-ctas .btn-ghost{
+  border-color: var(--line);
+}
+.header-ctas .btn-ghost:hover{
+  background: rgba(57,191,234,.22);
+  border-color: var(--line);
+  color: var(--navy);
+}
+
+/* Dropdown (base) */
 .dropdown{
   position:absolute;
-  top: calc(100% + 10px);
   left: 0;
-  min-width: 240px;
-  max-width: 260px;
+  min-width: 260px;
+  max-width: 320px;
   background:#fff;
   border:1px solid var(--line);
   border-radius:16px;
   box-shadow: var(--shadow);
-  padding:8px;
+  padding:10px;
   display:none;
   z-index:3000;
 }
 
+/* Dropdown links */
 .dropdown a{
   display:block;
-  padding:9px 10px;
+  padding:12px 12px;
   border-radius:12px;
   font-weight:900;
   color:var(--text);
+  line-height:1.2;
 }
-
 .dropdown a:hover{
   background: rgba(57,191,234,.18);
 }
@@ -429,9 +429,27 @@ section{scroll-margin-top:var(--sticky-offset)}
 /* remove note text blocks if present */
 .dropdown .small-note{ display:none !important; }
 
-/* Desktop hover support */
-@media (hover:hover){
-  .nav-group:hover .dropdown{ display:block; }
+/* ===== Dropdown usability fix (no vanish) ===== */
+/* remove the hover gap that causes the dropdown to close */
+.nav-group .dropdown{
+  top: 100% !important;  /* no gap */
+  margin-top: 8px;
+}
+
+/* invisible hover buffer above dropdown so you can move down safely */
+.nav-group .dropdown::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-10px;
+  height:10px;
+}
+
+/* keep open while hovering / focusing */
+.nav-group:hover .dropdown,
+.nav-group:focus-within .dropdown{
+  display:block;
 }
 
 /* Mobile: horizontal scroll for nav items */
@@ -447,22 +465,6 @@ section{scroll-margin-top:var(--sticky-offset)}
     padding:10px 0;
   }
 }
-
-/* CTA hover for call button */
-.header-ctas .btn-ghost{
-  border-color: var(--line);
-}
-.header-ctas .btn-ghost:hover{
-  background: rgba(57,191,234,.22);
-  border-color: var(--line);
-  color: var(--navy);
-}
-
-/* Header/Nav typography */
-.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-.nav-link, .dropdown a{ letter-spacing: .01em; }
 
 /* ===== Mobile Call Bar ===== */
 .mobile-callbar{ display:none; }
