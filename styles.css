@@ -48,7 +48,7 @@ img{max-width:100%;display:block}
   border-radius:14px;
   font-weight:900;
   letter-spacing:.01em;
-  transition:opacity .15s ease, transform ..15s ease;
+  transition:opacity .15s ease, transform .15s ease; /* fixed typo */
 }
 .btn:hover{opacity:.92}
 .btn:active{transform:translateY(1px)}
@@ -236,14 +236,22 @@ section{scroll-margin-top:var(--sticky-offset)}
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   will-change: transform;
 }
-.card:hover{
-  box-shadow:var(--shadow);
-  transform:translateY(-1px);
-}
 .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted)}
 
-/* ===== Service Image Card Hover Polish (added) ===== */
+/* ===== Services thumbnails: shorter images ===== */
+.service-thumb{
+  width:100%;
+  height:210px;           /* shorter than square */
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+}
+
+/* Slight tightening for service cards */
+.card.service-card{ padding:16px; }
+
+/* ===== Premium card hover + image zoom ===== */
 .card img{
   transition: transform .35s ease;
   will-change: transform;
@@ -262,18 +270,24 @@ section{scroll-margin-top:var(--sticky-offset)}
   transform: scale(1.04);
 }
 
+/* keyboard focus ring */
 .card:focus-within{
   outline: 3px solid rgba(40,182,200,.35);
   outline-offset: 3px;
 }
 
+/* responsive tweak */
+@media (max-width:900px){
+  .service-thumb{ height:220px; }
+}
+
+/* reduced motion */
 @media (prefers-reduced-motion: reduce){
   .card,
   .card img{
     transition: none !important;
   }
 }
-/* ===== End Service Image Card Hover Polish ===== */
 
 /* Small kicker */
 .kicker{
@@ -355,11 +369,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   border-radius:12px;
 }
 
-/* Light blue hover */
-.nav-link:hover{
-  background: rgba(15,110,168,.12);
-}
-
 /* Remove boxed caret buttons entirely */
 .nav-caret-btn{ display:none !important; }
 
@@ -368,7 +377,7 @@ section{scroll-margin-top:var(--sticky-offset)}
   position:absolute;
   top: 100%;
   left: 0;
-  min-width: 210px;   /* narrower */
+  min-width: 210px;
   max-width: 240px;
   background:#fff;
   border:1px solid var(--line);
@@ -377,7 +386,7 @@ section{scroll-margin-top:var(--sticky-offset)}
   padding:8px;
   display:none;
   z-index:3000;
-  margin-top:8px; /* visual spacing without breaking hover */
+  margin-top:8px;
 }
 
 .dropdown::before{
@@ -395,11 +404,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   border-radius:12px;
   font-weight:900;
   color:var(--text);
-}
-
-/* Light blue hover inside dropdown */
-.dropdown a:hover{
-  background: rgba(15,110,168,.10);
 }
 
 .dropdown .small-note{
@@ -444,6 +448,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 
 /* Brand logo */
 .brand{ display:flex; align-items:center; }
+
 /* Nav sits in the middle and stretches */
 .header-nav{ flex:1; }
 .header-nav .nav-menu{
@@ -481,7 +486,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 
 /* ===== Brand logo sizing (50% larger) ===== */
 .brand-logo{
-  height:90px;   /* 50% larger than 60px */
+  height:90px;
   width:auto;
   display:block;
 }
@@ -493,13 +498,9 @@ section{scroll-margin-top:var(--sticky-offset)}
 .dropdown .small-note{ display:none !important; }
 
 /* ===== Brand water-drop hover color (logo matched) ===== */
-
-/* Top nav hover */
 .nav-link:hover{
   background: rgba(57,191,234,.22) !important;
 }
-
-/* Dropdown item hover */
 .dropdown a:hover{
   background: rgba(57,191,234,.18) !important;
 }
@@ -509,19 +510,18 @@ section{scroll-margin-top:var(--sticky-offset)}
   font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Tighten nav letterforms slightly (closer to logo feel) */
 .nav-link, .dropdown a{
   letter-spacing: .01em;
 }
 
 /* ===== Call button hover: water-blue fill + light gray outline ===== */
 .header-ctas .btn-ghost{
-  border-color: var(--line); /* light gray default */
+  border-color: var(--line);
 }
 .header-ctas .btn-ghost:hover{
-  background: rgba(57,191,234,.22); /* water blue */
-  border-color: var(--line);        /* light gray outline */
-  color: var(--navy);               /* navy text */
+  background: rgba(57,191,234,.22);
+  border-color: var(--line);
+  color: var(--navy);
 }
 
 /* ===== Mobile Call Bar ===== */
