@@ -3,121 +3,257 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HydroSeal Pavers — Paver Sealing & Protection</title>
-  <meta name="description" content="Paver sealing & protection in St. Johns, Duval, and Clay County. Licensed & insured. Free estimates. Call 904.537.5000." />
+  <title>Trident Certified Sealer — HydroSeal Pavers</title>
+  <meta name="description" content="Trident-certified process using pro-grade sealers, proper prep, joint sand, and clean application. Get a premium finish that holds up in Florida heat and rain. Call 904.537.5000." />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Page-only styles (keeps your global styles.css clean) -->
+  <style>
+    /* Trident page blocks */
+    .brandline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top:14px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      font-weight:1000;
+      font-size:12px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      white-space:nowrap;
+    }
+    .pill strong{letter-spacing:.02em}
+    .trident-badge{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:22px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 45px rgba(17,24,39,.20);
+      padding:16px;
+      gap:14px;
+    }
+    .trident-badge img{
+      width:74px;
+      height:74px;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.22));
+    }
+    .trident-badge h3{
+      margin:0;
+      font-size:16px;
+      line-height:1.15;
+      letter-spacing:-.01em;
+      color:#fff;
+      font-weight:1000;
+    }
+    .trident-badge p{
+      margin:6px 0 0;
+      color:rgba(255,255,255,.82);
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+    }
+
+    .sell-section{
+      padding:44px 0;
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+    .sell-grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .sell-grid{grid-template-columns:1fr}
+    }
+
+    .seal-steps{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    .step{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      padding:16px;
+      box-shadow:none;
+    }
+    .step .top{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .num{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:1000;
+      color:var(--navy);
+      background: rgba(57,191,234,.18);
+      border:1px solid rgba(57,191,234,.35);
+      flex:0 0 auto;
+    }
+    .step h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .step p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .proof-card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      background:#fff;
+      box-shadow: 0 18px 45px rgba(17,24,39,.10);
+    }
+    .proof-card h3{margin:0 0 8px;font-size:18px;letter-spacing:-.01em}
+    .proof-card .k{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .k .mini{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f9fafb;
+      font-weight:900;
+      font-size:12px;
+      color:var(--navy);
+    }
+
+    .compare{
+      margin-top:14px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+    .compare .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .compare .head{
+      background:#f9fafb;
+      font-weight:1000;
+      color:var(--navy);
+    }
+    .compare .cell{
+      padding:12px 14px;
+      border-top:1px solid var(--line);
+      font-weight:800;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.35;
+    }
+    .compare .row .cell:nth-child(2){
+      border-left:1px solid var(--line);
+    }
+    .good{color: #0b5;}
+    .bad{color: #b10;}
+    .subcopy{
+      margin-top:10px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .cta-band{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    /* Hero background image swap for this page */
+    .hero2::before{
+      background:
+        linear-gradient(90deg, rgba(7,29,47,.92) 0%, rgba(7,29,47,.72) 45%, rgba(7,29,47,.38) 100%),
+        url("/assets/hero/trident-sealer-hero.jpg") center/cover no-repeat;
+    }
+  </style>
 </head>
+
 <body>
 
   <div data-include="/partials/header.html"></div>
 
-  <!-- BIG HERO -->
-  <section class="hero2" style="position:relative; overflow:hidden;">
-    <!-- HERO BACKGROUND IMAGE -->
-    <img
-      src="/assets/hero/paver-sealing-jacksonville-driveway.png"
-      alt="Grey paver driveway sealing in Jacksonville"
-      loading="eager"
-      decoding="async"
-      style="
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        z-index:0;
-      "
-    />
-
-    <!-- light overlay for readability (keeps image bright) -->
-    <div
-      aria-hidden="true"
-      style="
-        position:absolute;
-        inset:0;
-        z-index:1;
-        background: rgba(0,0,0,.06);
-      "
-    ></div>
-
+  <!-- HERO -->
+  <section class="hero2">
     <div class="container" style="position:relative; z-index:2;">
       <div class="hero-grid">
 
         <div>
-          <h1>Bring back the color. Lock in the sand. Protect your investment.</h1>
+          <div class="kicker">Premium process • Pro materials</div>
+          <h1>Trident-certified sealing that actually holds up in Florida.</h1>
           <p>
-            Professional paver sealing for driveways, pool decks, patios, and walkways across
-            St. Johns, Duval, and Clay County.
+            Anyone can “spray sealer.” The difference is prep, sand, product, and application.
+            We follow a pro-grade process and use Trident-level materials for a clean finish, stabilized joints, and long-term protection.
           </p>
+
+          <div class="brandline">
+            <div class="pill"><strong>Trident</strong> Pro-Grade Sealer System</div>
+            <div class="pill">Proper Prep + Joint Sand</div>
+            <div class="pill">Clean, Even Finish</div>
+          </div>
+
+          <div class="cta-band">
+            <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+          </div>
         </div>
 
-        <!-- Instant Quote card (FORCED WHITE) -->
-        <aside
-          class="quote-card"
-          style="
-            background:#ffffff;
-            color:#111827;
-            border-radius:18px;
-            border:1px solid rgba(0,0,0,.12);
-            box-shadow:0 18px 45px rgba(17,24,39,.20);
-          "
-        >
-          <h3 style="color:#111827;">Instant Estimate (Fast)</h3>
-
-          <form action="get-a-quote/" method="get">
-            <div class="quote-row">
-              <div>
-                <label style="color:#111827;">Service</label>
-                <select name="service" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);">
-                  <option value="paver-sealing">Paver Sealing</option>
-                  <option value="paver-cleaning">Paver Cleaning</option>
-                  <option value="commercial">Commercial / HOA</option>
-                  <option value="soft-wash">House / Roof Soft Wash</option>
-                </select>
-              </div>
-              <div>
-                <label style="color:#111827;">County</label>
-                <select name="county" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);">
-                  <option value="st-johns">St. Johns</option>
-                  <option value="duval">Duval</option>
-                  <option value="clay">Clay</option>
-                </select>
-              </div>
+        <!-- Badge / credibility block -->
+        <aside class="quote-card" style="background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);">
+          <div class="trident-badge">
+            <!-- Replace src with your actual Trident badge image if you have it -->
+            <img src="/assets/badges/trident-master-badge.png" alt="Trident Certified Badge" loading="lazy" />
+            <div>
+              <h3>Trident Certified / Pro-Grade Materials</h3>
+              <p>
+                We use premium sealing products and the right prep to protect color,
+                lock in sand, and slow weeds + erosion.
+              </p>
             </div>
+          </div>
 
-            <label style="color:#111827;">Estimated square footage (optional)</label>
-            <input
-              name="sqft"
-              placeholder="e.g. 1200"
-              inputmode="numeric"
-              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
-            />
-
-            <label style="color:#111827;">ZIP code</label>
-            <input
-              name="zip"
-              placeholder="e.g. 32081"
-              inputmode="numeric"
-              required
-              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
-            />
-
-            <label style="color:#111827;">Best callback number</label>
-            <input
-              name="phone"
-              placeholder="e.g. 904-537-5000"
-              inputmode="tel"
-              style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.14);"
-            />
-
-            <button class="btn btn-primary btn-wide" type="submit">Get My Estimate</button>
-
-            <div class="subtle" style="color:rgba(17,24,39,.72);">
-              Prefer to talk now? Call
-              <a href="tel:+19045375000" style="font-weight:900;text-decoration:underline;color:var(--blue);">904.537.5000</a>.
-              We’ll confirm prep needs and give you a real quote.
+          <div style="margin-top:12px;">
+            <div class="badge">Licensed &amp; Insured • Free Estimates</div>
+            <div class="subtle" style="margin-top:10px;color:rgba(255,255,255,.85);">
+              Want the quote fast? Use our estimate form and we’ll confirm prep needs, surface type, and square footage.
             </div>
-          </form>
+            <div style="margin-top:12px;">
+              <a class="btn btn-primary btn-wide" href="/get-a-quote/">Get My Estimate</a>
+            </div>
+          </div>
         </aside>
 
       </div>
@@ -127,99 +263,155 @@
   <!-- TRUST BAR -->
   <div class="trustbar">
     <div class="container">
-      <div class="trust-item">Residential + Commercial</div>
+      <div class="trust-item">Trident-grade materials</div>
+      <div class="trust-item">Prep + sanding done right</div>
       <div class="trust-item">St. Johns • Duval • Clay</div>
-      <div class="trust-item">Free Estimates</div>
       <div class="trust-item">Call: 904.537.5000</div>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section class="section">
+  <!-- SELLING POINT SECTION -->
+  <section class="sell-section">
     <div class="container">
-      <h2 class="section-title">What we do</h2>
-      <p class="section-sub">
-        We focus on paver sealing and protection. If you want a clean, premium result that holds up to Florida heat and rain,
-        this is the lane.
-      </p>
+      <div class="sell-grid">
 
-      <div class="grid grid-3" style="margin-top:16px;">
+        <!-- Left: Process -->
+        <div>
+          <h2 class="section-title">What “certified / premium” actually means</h2>
+          <p class="section-sub">
+            This is the difference between a job that looks good for a few months and a job that keeps looking clean after Florida sun + rain.
+          </p>
 
-        <a class="card service-card" href="/paver-sealing/driveways.html" style="overflow:hidden;">
-          <img
-            class="service-thumb"
-            src="/assets/hero/hydroseal-paver-driveway-square.png"
-            alt="Close-up paver driveway"
-            loading="lazy"
-            width="1024"
-            height="1024"
-          />
-          <div style="margin-top:12px;">
-            <h3>Paver Driveways</h3>
-            <p>Cleaning + sanding + sealing for curb appeal and protection.</p>
+          <div class="seal-steps">
+            <div class="step">
+              <div class="top">
+                <div class="num">1</div>
+                <div>
+                  <h3>Deep clean &amp; surface prep</h3>
+                  <p>We remove grime, organic growth, and surface contamination so the sealer bonds correctly.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="top">
+                <div class="num">2</div>
+                <div>
+                  <h3>Re-sand the joints (the part most guys skip)</h3>
+                  <p>Proper joint sanding stabilizes pavers, reduces shifting, and helps slow weeds + erosion.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="top">
+                <div class="num">3</div>
+                <div>
+                  <h3>Apply Trident-grade sealer the right way</h3>
+                  <p>Even coverage, controlled application, clean edges, and a consistent finish — no blotchy “spray and pray.”</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="top">
+                <div class="num">4</div>
+                <div>
+                  <h3>Protect your investment</h3>
+                  <p>Sealing helps lock in color, improve curb appeal, and reduce long-term maintenance from stains and weathering.</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </a>
 
-        <a class="card service-card" href="/paver-sealing/pool-decks.html" style="overflow:hidden;">
-          <img
-            class="service-thumb"
-            src="/assets/hero/hydroseal-travertine-pool-deck-square.png"
-            alt="Travertine pool deck"
-            loading="lazy"
-            width="1024"
-            height="1024"
-          />
-          <div style="margin-top:12px;">
-            <h3>Pool Decks</h3>
-            <p>Cleaner finish, safer surface, long-term protection.</p>
+          <div class="cta-band">
+            <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+            <a class="btn btn-ghost" href="/paver-sealing/driveways.html">See Driveway Sealing</a>
           </div>
-        </a>
+        </div>
 
-        <a class="card service-card" href="/paver-sealing/patios-walkways.html" style="overflow:hidden;">
-          <img
-            class="service-thumb"
-            src="/assets/hero/hydroseal-paver-patio-square.png"
-            alt="Paver patio"
-            loading="lazy"
-            width="1024"
-            height="1024"
-          />
-          <div style="margin-top:12px;">
-            <h3>Patios &amp; Walkways</h3>
-            <p>Even finish, stabilized joints, reduced weed growth.</p>
+        <!-- Right: Comparison + proof -->
+        <aside>
+          <div class="proof-card">
+            <h3>Why it converts: “Premium materials + premium prep”</h3>
+            <p style="margin:0;color:var(--muted);font-weight:700;line-height:1.45;">
+              Homeowners don’t want the cheapest. They want the job done once — and done right.
+              This is how we justify premium pricing without sounding salesy.
+            </p>
+
+            <div class="k">
+              <div class="mini">✔ Clean, even finish</div>
+              <div class="mini">✔ Sand locked in</div>
+              <div class="mini">✔ Reduced weed growth</div>
+              <div class="mini">✔ Pro-grade sealer</div>
+            </div>
+
+            <div class="compare" aria-label="Premium vs cheap comparison">
+              <div class="row head">
+                <div class="cell">Cheap “seal-only” job</div>
+                <div class="cell">HydroSeal + Trident process</div>
+              </div>
+              <div class="row">
+                <div class="cell"><span class="bad">✖</span> Minimal prep</div>
+                <div class="cell"><span class="good">✔</span> Deep clean + proper prep</div>
+              </div>
+              <div class="row">
+                <div class="cell"><span class="bad">✖</span> Skips re-sanding</div>
+                <div class="cell"><span class="good">✔</span> Joint sand stabilized</div>
+              </div>
+              <div class="row">
+                <div class="cell"><span class="bad">✖</span> Blotchy application risk</div>
+                <div class="cell"><span class="good">✔</span> Controlled, even coverage</div>
+              </div>
+              <div class="row">
+                <div class="cell"><span class="bad">✖</span> Short-lived curb appeal</div>
+                <div class="cell"><span class="good">✔</span> Longer-lasting protection</div>
+              </div>
+            </div>
+
+            <div class="subcopy">
+              If you want the premium result, the materials matter — but the process matters even more.
+              We do both.
+            </div>
+
+            <div class="cta-band">
+              <a class="btn btn-primary btn-wide" href="/get-a-quote/">Get My Estimate</a>
+              <a class="btn btn-ghost btn-wide" href="tel:+19045375000">Call Now: 904.537.5000</a>
+            </div>
           </div>
-        </a>
+        </aside>
 
-      </div>
-
-      <div style="margin-top:14px;">
-        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
-        <a class="btn btn-ghost" href="/service-areas/">See Service Areas</a>
       </div>
     </div>
   </section>
 
-  <!-- PROOF / GALLERY CTA -->
+  <!-- OPTIONAL: Add this if you have specific Trident product names later -->
   <section class="section" style="border-top:1px solid var(--line);">
     <div class="container">
-      <h2 class="section-title">Results you can see</h2>
-      <p class="section-sub">We’ll build this section out with your before/after photos as you complete jobs.</p>
+      <h2 class="section-title">Materials we trust</h2>
+      <p class="section-sub">
+        We use professional-grade sealing products (Trident system) selected for Florida conditions.
+        Ask us about finish options and what’s best for your surface (pavers vs travertine).
+      </p>
 
-      <div class="grid grid-2" style="margin-top:16px;">
+      <div class="grid grid-3" style="margin-top:16px;">
         <div class="card">
-          <h3>Before / After Gallery</h3>
-          <p>Add 12–20 of your best transformations. This is what sells online.</p>
-          <div style="margin-top:12px;">
-            <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
-          </div>
+          <h3>Pro sealer system</h3>
+          <p>Chosen for durability, consistent finish, and long-term protection.</p>
         </div>
         <div class="card">
-          <h3>Reviews</h3>
-          <p>We’ll pull your best Google reviews and build a “why trust us” block.</p>
-          <div style="margin-top:12px;">
-            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
-          </div>
+          <h3>Joint sand stabilization</h3>
+          <p>Locks in sand, supports the pavers, and reduces washout over time.</p>
         </div>
+        <div class="card">
+          <h3>Clean application</h3>
+          <p>Controlled coverage with attention to edges and uniform finish.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
       </div>
     </div>
   </section>
