@@ -284,7 +284,199 @@ section{scroll-margin-top:var(--sticky-offset)}
   background:#f9fafb;
 }
 
-/* Footer */
+/* =================================================================== */
+/* ===================== SEO PAGE COMPONENT STYLES ==================== */
+/* =================================================================== */
+
+/* Breadcrumbs */
+.breadcrumbs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin: 10px 0 18px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-weight:900;
+  font-size:12px;
+}
+.breadcrumbs a{
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.breadcrumbs a:hover{ opacity:.9; }
+.breadcrumbs .sep{
+  opacity:.55;
+  font-weight:1000;
+}
+
+/* Cards wrapper (SEO pages: consistent spacing) */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:14px;
+}
+@media (max-width:900px){
+  .cards{ grid-template-columns: 1fr; }
+}
+
+/* CTA band (above fold + bottom) */
+.cta-band{
+  border:1px solid rgba(15,110,168,.22);
+  background:
+    linear-gradient(180deg, rgba(57,191,234,.14) 0%, rgba(15,110,168,.06) 100%);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 14px 35px rgba(17,24,39,.10);
+}
+.cta-band .cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+}
+.cta-band .cta-title{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 1000;
+  letter-spacing:-.02em;
+  color: var(--navy);
+  font-size: 18px;
+  margin: 0;
+}
+.cta-band .cta-sub{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 720px;
+}
+.cta-band .cta-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.cta-band .btn-primary{
+  background: var(--blue);
+}
+.cta-band .btn-ghost{
+  border-color: rgba(11,45,74,.18);
+}
+
+/* Checklist (tight, punchy, “yard-sign-like” clarity) */
+.checklist{
+  list-style:none;
+  padding:0;
+  margin: 10px 0 0;
+  display:grid;
+  gap:10px;
+}
+.checklist li{
+  position:relative;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:16px;
+  padding: 12px 12px 12px 44px;
+  box-shadow: 0 8px 18px rgba(17,24,39,.06);
+  font-weight:800;
+  color: var(--text);
+}
+.checklist li::before{
+  content:"✓";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(40,182,200,.20);
+  color: var(--navy);
+  font-weight:1000;
+  font-size:14px;
+}
+
+/* Headings inside SEO pages */
+.page h1, .page h2, .page h3{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.page h1{
+  letter-spacing:-.02em;
+  line-height:1.08;
+  margin: 8px 0 10px;
+  font-size: 40px;
+  color: var(--navy);
+}
+.page h2{
+  letter-spacing:-.02em;
+  margin: 22px 0 10px;
+  font-size: 22px;
+  color: var(--navy);
+}
+.page h3{
+  margin: 16px 0 8px;
+  font-size: 16px;
+  color: var(--text);
+}
+.page p{ color: var(--muted); margin: 10px 0 0; }
+
+/* Link list blocks (internal links to nearby areas / county hub) */
+.link-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+.link-list a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight: 900;
+  font-size: 12px;
+  color: var(--navy);
+}
+.link-list a:hover{
+  background: rgba(57,191,234,.16);
+  border-color: rgba(15,110,168,.25);
+}
+
+/* Social strip */
+.social-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 12px;
+}
+.social-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight: 900;
+  font-size: 12px;
+}
+.social-links a:hover{
+  background: rgba(57,191,234,.18);
+  border-color: rgba(15,110,168,.25);
+}
+
+/* =================================================================== */
+/* ============================ FOOTER ================================ */
+/* =================================================================== */
+
 .footer{
   margin-top:50px;
   background:var(--navy);
@@ -464,6 +656,9 @@ section{scroll-margin-top:var(--sticky-offset)}
     overflow:auto;
     padding:10px 0;
   }
+
+  /* SEO page heading scale on small screens */
+  .page h1{ font-size: 32px; }
 }
 
 /* ===== Mobile Call Bar ===== */
