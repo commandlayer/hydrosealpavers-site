@@ -199,6 +199,7 @@
           height:100%;
           padding:2px 0;
         }
+        /* Make the text "fill" the space next to image */
         .why-copy h3{
           margin:0 0 10px;
           font-size:24px;
@@ -209,7 +210,7 @@
           margin:0;
           color:var(--muted);
           font-size:16px;
-          line-height:1.62;
+          line-height:1.6;
           max-width:820px;
         }
         .why-microgrid{
@@ -234,15 +235,13 @@
           line-height:1.55;
         }
         .why-note strong{ color:var(--navy); }
-
-        /* 🔽 25% smaller image height (was ~300px min) */
         .why-img{
           border-radius:18px;
           overflow:hidden;
           border:1px solid var(--line);
           background:#f3f4f6;
           height:100%;
-          min-height:225px; /* 300 * 0.75 */
+          min-height:300px;
         }
         .why-img img{
           width:100%;
@@ -250,10 +249,9 @@
           object-fit:cover;
           display:block;
         }
-
         @media (max-width: 860px){
           .why-card-grid, .why-card-grid.reverse{ grid-template-columns: 1fr; }
-          .why-img{ min-height:165px; } /* 220 * 0.75 */
+          .why-img{ min-height:220px; }
           .why-copy h3{ font-size:22px; }
         }
       </style>
@@ -333,9 +331,340 @@
       <!-- Card 3 -->
       <div class="card" style="margin-top:14px; overflow:hidden;">
         <div class="why-card-grid">
-          <div
+          <div class="why-copy">
+            <div>
+              <h3>Restores curb appeal</h3>
+              <p class="why-desc">
+                Proper cleaning + fresh sand + a controlled sealer application can bring back depth, uniformity, and that “maintained” look.
+                The goal isn’t to make it look wet or overdone — it’s to make the surface look clean, even, and premium, without streaking,
+                blotching, or tacky spots.
+              </p>
 
+              <div class="why-microgrid">
+                <div class="why-pill">Richer color</div>
+                <div class="why-pill">Uniform finish</div>
+                <div class="why-pill">Cleaner look</div>
+                <div class="why-pill">Less faded appearance</div>
+              </div>
 
+              <div class="why-note">
+                <strong>This is where pros show:</strong> consistent coverage, clean edges, and no puddling.
+                If a surface can’t meet our standards (or the weather window isn’t right), we reschedule.
+              </div>
+            </div>
+          </div>
 
+          <div class="why-img">
+            <img
+              src="/assets/hero/why-curb-appeal-before-after.png"
+              alt="Before and after view of paver sealing restoring curb appeal"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
 
-::contentReference[oaicite:0]{index=0}
+      <div class="notice" style="margin-top:16px;">
+        <strong>Reality check:</strong> sealing does not fix base/structural issues. If pavers are sinking, rocking, or holding water,
+        we’ll tell you upfront what needs to be corrected (and what sealing can and cannot do).
+      </div>
+
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS / TRUST -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Certifications & standards</h2>
+      <p class="section-sub">
+        Anyone can “spray sealer.” Professional results come from training, repeatable process, and product knowledge.
+      </p>
+
+      <div class="grid grid-2" style="margin-top:16px;align-items:start;">
+        <div class="card">
+          <h3>Trident Master Certified</h3>
+          <p>
+            We follow a process built around proper cleaning, joint prep, and correct application.
+            That means fewer failures, fewer surprises, and a finish that holds up.
+          </p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Surface evaluation + realistic expectations</li>
+            <li>Correct prep and dry-time discipline</li>
+            <li>Product selection based on surface + conditions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Professional process (the part most companies skip)</h3>
+          <p>
+            We use a checklist-driven approach on every job. If we can’t meet our standards on a surface (or the weather window isn’t right),
+            we reschedule. That’s how you prevent callbacks.
+          </p>
+          <div class="badge" style="margin-top:12px;">Prep first. Product second. Application last.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIDENT HERO -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:center;">
+        <div>
+          <h2 class="section-title">Why we use Trident products</h2>
+          <p class="section-sub" style="margin-top:10px;">
+            Trident is known for professional-grade sealers and joint sand stabilization products designed for demanding environments.
+            We use premium materials because the labor is the expensive part — it makes zero sense to do great prep and then cut corners on product.
+          </p>
+
+          <div style="margin-top:14px;" class="grid grid-2">
+            <div class="card">
+              <h3>Built for Florida conditions</h3>
+              <p>Heat, humidity, afternoon storms, pool environments — Florida exposes weak work fast. Product choice matters.</p>
+            </div>
+            <div class="card">
+              <h3>Consistent finish</h3>
+              <p>We aim for uniformity, clean edges, and controlled application so the surface looks premium — not blotchy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="
+          border-radius:22px;
+          background:
+            radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.20), transparent 55%),
+            radial-gradient(900px 260px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+            linear-gradient(180deg, rgba(11,45,74,.06), #fff 55%);
+        ">
+          <div class="kicker">What you should expect</div>
+          <h3 style="margin-top:6px;">A professional paver sealing outcome</h3>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Clean surface (not just “rinsed”)</li>
+            <li>Refilled, stabilized joints where applicable</li>
+            <li>Controlled application (no puddling, no over-application)</li>
+            <li>Clear dry-time and cure-time instructions</li>
+            <li>A plan for maintenance, not guesswork</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP BY STEP PROCESS -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Our step-by-step paver sealing process</h2>
+      <p class="section-sub">
+        This is the difference between a job that lasts and one that fails. Most issues come from rushing prep or sealing too soon.
+      </p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>1) Inspection & surface evaluation</h3>
+          <p>We review condition, stains, drainage/standing water, joint condition, and any problem areas. We set expectations before we start.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Identify shifting/sinking (base issues)</li>
+            <li>Spot problem stains and organic growth</li>
+            <li>Confirm sealer goals (natural vs enhanced look)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2) Deep cleaning (the right way)</h3>
+          <p>Cleaning removes dirt, organic growth, and surface contamination so the sealer bonds correctly and looks uniform.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Controlled cleaning to protect joints</li>
+            <li>Targeted treatment where needed</li>
+            <li>Thorough rinse and surface check</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3) Joint prep & sanding</h3>
+          <p>We restore joints and add the correct sand to help stabilize the pavers. This is where long-term performance comes from.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Remove debris from joints</li>
+            <li>Refill to proper depth</li>
+            <li>Compact and level the joints</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>4) Dry time (non-negotiable)</h3>
+          <p>Sealer and moisture don’t mix. If conditions aren’t right, we wait. Rushing this step is the #1 reason sealers fail.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Surface dryness check</li>
+            <li>Weather window planning</li>
+            <li>Protecting against surprise rain</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>5) Professional sealer application</h3>
+          <p>We apply sealer in controlled passes and manage edges, overlap, and coverage to avoid puddling, streaking, and tacky spots.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Even coverage</li>
+            <li>Clean borders/edges</li>
+            <li>Correct coat strategy for the surface</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>6) Final walkthrough + care instructions</h3>
+          <p>We verify coverage, address any small touch-ups, and give clear cure-time and maintenance guidance so you don’t accidentally damage the finish.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Traffic timing guidance</li>
+            <li>Cleaning do’s and don’ts</li>
+            <li>Maintenance plan for long-term results</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:16px;">
+        <strong>What we will NOT do:</strong> seal wet pavers, seal right before rain, or “spray and pray.”
+        Those shortcuts create failures and callbacks.
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING FACTORS -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">What affects the price of paver sealing</h2>
+      <p class="section-sub">Square footage matters — but so do prep needs. Two driveways can be the same size and require completely different work.</p>
+
+      <div class="grid grid-3" style="margin-top:16px;">
+        <div class="card">
+          <h3>Condition & staining</h3>
+          <p>Heavier organic growth, rust, oil, and deep stains require additional treatment and time.</p>
+        </div>
+        <div class="card">
+          <h3>Joint condition</h3>
+          <p>Washed-out joints or missing sand require proper repair and stabilization to avoid shifting and weeds.</p>
+        </div>
+        <div class="card">
+          <h3>Surface type & environment</h3>
+          <p>Pool decks, shaded areas, and high-moisture conditions often require a different approach and extra dry-time planning.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>What you’ll get in your quote</h3>
+        <p style="color:var(--muted);margin-top:6px;">
+          A real quote should explain what’s included (cleaning, sanding, sealing), the surface prep plan, and any special considerations
+          (stains, drainage, pool chemical exposure, etc.).
+        </p>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+          <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAINTENANCE -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">How to maintain sealed pavers</h2>
+      <p class="section-sub">The fastest way to ruin a fresh seal is aggressive cleaning or harsh chemicals. Follow this and your surface stays cleaner longer.</p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>Do</h3>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Rinse periodically to remove dust and debris</li>
+            <li>Use mild soap and a gentle brush for small spots</li>
+            <li>Address spills quickly (especially oil)</li>
+            <li>Call us if you’re unsure how to clean a stain</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Don’t</h3>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
+            <li>Pressure wash sealed pavers aggressively</li>
+            <li>Use acids, strong degreasers, or harsh cleaners</li>
+            <li>Drag heavy furniture across the surface</li>
+            <li>Assume “more product” is better — over-application causes problems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:16px;">
+        Want the easiest maintenance plan? Ask about periodic cleaning and touch-up scheduling for high-traffic areas.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Common paver sealing questions</h2>
+      <p class="section-sub">Straight answers. No fluff.</p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>How long does it take?</h3>
+          <p>Most residential jobs are completed in a day, but proper drying/cure timing depends on weather and surface conditions.</p>
+        </div>
+        <div class="card">
+          <h3>Will it be slippery?</h3>
+          <p>We use the right approach for the surface. Pool decks and walking areas get extra attention for safe, practical results.</p>
+        </div>
+        <div class="card">
+          <h3>Do you repair sinking or loose pavers?</h3>
+          <p>We’ll identify base/structural issues and discuss the correct fix. Sealing is protection — it’s not structural repair.</p>
+        </div>
+        <div class="card">
+          <h3>What should I do before you arrive?</h3>
+          <p>We’ll give simple prep notes (move vehicles, clear furniture, secure pets). We handle the technical prep.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+        <a class="btn btn-ghost" href="/service-areas/">See Service Areas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / GALLERY CTA -->
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Results you can see</h2>
+      <p class="section-sub">We’ll build this section out with your best before/after photos and reviews as you complete jobs.</p>
+
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>Before / After Gallery</h3>
+          <p>Add 12–20 of your best transformations. This is what sells online.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Reviews</h3>
+          <p>We’ll feature your best reviews and build a trust block that drives calls and quote submissions.</p>
+          <div style="margin-top:12px;">
+            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/nav-dropdowns.js" defer></script>
+
+</body>
+</html>
