@@ -199,7 +199,6 @@
           height:100%;
           padding:2px 0;
         }
-        /* Make the text "fill" the space next to image */
         .why-copy h3{
           margin:0 0 10px;
           font-size:24px;
@@ -235,13 +234,15 @@
           line-height:1.55;
         }
         .why-note strong{ color:var(--navy); }
+
+        /* ~25% smaller than the earlier 300px */
         .why-img{
           border-radius:18px;
           overflow:hidden;
           border:1px solid var(--line);
           background:#f3f4f6;
           height:100%;
-          min-height:300px;
+          min-height:225px;
         }
         .why-img img{
           width:100%;
@@ -251,7 +252,7 @@
         }
         @media (max-width: 860px){
           .why-card-grid, .why-card-grid.reverse{ grid-template-columns: 1fr; }
-          .why-img{ min-height:220px; }
+          .why-img{ min-height:165px; }
           .why-copy h3{ font-size:22px; }
         }
       </style>
@@ -292,12 +293,12 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Card 2 (UPDATED IMAGE PATH TO stained-pavers.png) -->
       <div class="card" style="margin-top:14px; overflow:hidden;">
         <div class="why-card-grid reverse">
           <div class="why-img">
             <img
-              src="/assets/hero/why-stain-resistance.png"
+              src="/assets/hero/stained-pavers.png"
               alt="Sealed paver surface helping resist oil and organic staining"
               loading="lazy"
             />
