@@ -365,6 +365,124 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   padding:16px;
   background:#f9fafb;
 }
+/* =========================
+   Reviews snapshot section
+   ========================= */
+
+.review-snapshot{
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.14), transparent 55%),
+    radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.12), transparent 55%),
+    linear-gradient(180deg, rgba(11,45,74,.04), #fff 55%);
+  box-shadow: 0 14px 34px rgba(17,24,39,.10);
+  overflow:hidden;
+}
+
+.review-snapshot-inner{
+  padding:18px;
+}
+
+.review-stars{
+  letter-spacing:1px;
+  font-size:14px;
+  color: var(--navy);
+  opacity:.95;
+  margin: 0 0 6px;
+  font-weight:1000;
+}
+
+.review-quote{
+  margin:0;
+  color: var(--muted);
+  line-height:1.7;
+}
+
+.review-author{
+  margin:10px 0 0;
+  font-weight:1000;
+  color: var(--text);
+  font-size:13px;
+}
+
+.review-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:14px;
+  margin-top:14px;
+}
+@media (max-width:900px){
+  .review-grid{ grid-template-columns: 1fr; }
+}
+
+.review-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  padding:16px;
+  box-shadow: 0 10px 24px rgba(17,24,39,.08);
+}
+
+/* Buttons row w/ icons */
+.btn-row{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+
+.btn-icon{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-badge{
+  width:26px;
+  height:26px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:1000;
+  font-size:13px;
+  border:1px solid rgba(11,45,74,.18);
+  background:#fff;
+  color: var(--navy);
+}
+
+.icon-badge.google{
+  border-color: rgba(15,110,168,.28);
+  background: rgba(57,191,234,.12);
+}
+
+.icon-badge.facebook{
+  border-color: rgba(11,45,74,.20);
+  background: rgba(15,110,168,.10);
+}
+
+/* Optional trust line */
+.trust-line{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  color: rgba(255,255,255,.88);
+  font-weight:900;
+  font-size:12px;
+}
+.trust-line span{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+}
 
 /* =================================================================== */
 /* ===================== SEO PAGE COMPONENT STYLES ==================== */
