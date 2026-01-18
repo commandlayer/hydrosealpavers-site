@@ -55,12 +55,16 @@
             <a class="btn btn-ghost" href="/get-a-quote/">Get a Quote</a>
           </div>
 
-                 </div>
+          <p style="margin:12px auto 0; color:rgba(255,255,255,.86); font-size:13px; max-width:920px;">
+            Searching for: <strong>paver sealing St. Johns County</strong>, <strong>paver sealing Nocatee</strong>, <strong>travertine sealing Ponte Vedra</strong>,
+            <strong>pool deck sealing St. Augustine</strong>, <strong>paver joint sand stabilization</strong>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- DEEP LOCAL SEO CONTENT -->
+  <!-- DEEP LOCAL SEO CONTENT (TEXT LEFT, HERO IMAGE RIGHT) -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Why Paver Sealing Matters in St. Johns County</h2>
@@ -68,33 +72,96 @@
         Outdoor surfaces in Northeast Florida take a beating. Sealing is about protecting your investment from predictable hazards — not just shine.
       </p>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h3 style="margin-top:0;">1) UV & Heat Fade Pavers Faster Than You Think</h3>
-        <p>
-          Florida UV exposure slowly drives color fade and surface oxidation. In neighborhoods with full-sun driveways,
-          pavers can lose depth and look “washed out” long before the surface is structurally old. A quality sealer helps
-          reduce UV impact and keeps the surface looking even.
-        </p>
+      <!-- helper styles only for this split block -->
+      <style>
+        .hazard-split{
+          display:grid;
+          grid-template-columns: 1.05fr .95fr;
+          gap:14px;
+          align-items:stretch;
+          margin-top:14px;
+        }
+        .hazard-split .hazard-copy{
+          height:100%;
+        }
+        .hazard-split .hazard-copy h3{
+          margin:0 0 8px;
+        }
+        .hazard-split .hazard-copy p{
+          margin:0 0 14px;
+          color: var(--muted);
+          line-height:1.65;
+        }
+        .hazard-split .hazard-copy p:last-child{ margin-bottom:0; }
 
-        <h3>2) Rain + Humidity = Joint Washout + Organic Growth</h3>
-        <p>
-          Summer storms and humidity encourage algae and mildew, while intense downpours wash out joint sand over time.
-          Once joints open up, weeds and ants move in, and pavers can start rocking or settling unevenly.
-          A proper process restores joints and helps keep water movement under control.
-        </p>
+        .hazard-hero{
+          border-radius: var(--radius);
+          overflow:hidden;
+          border:1px solid var(--line);
+          background:#f3f4f6;
+          height:100%;
+          min-height: 360px;
+          position:relative;
+        }
+        .hazard-hero img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        }
+        .hazard-hero::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background: rgba(0,0,0,.04);
+          pointer-events:none;
+        }
+        @media (max-width:900px){
+          .hazard-split{ grid-template-columns: 1fr; }
+          .hazard-hero{ min-height: 220px; }
+        }
+      </style>
 
-        <h3>3) Storm Season Stress Tests Driveways and Pool Decks</h3>
-        <p>
-          Wind-driven rain, standing water, debris, and organic runoff show up fast during storm season.
-          That’s when staining, slippery bio-growth, and joint erosion become obvious.
-          Protective sealing helps reduce absorption and makes cleanup easier after weather events.
-        </p>
+      <div class="hazard-split">
+        <!-- LEFT: the text block -->
+        <div class="card hazard-copy" style="padding:18px;">
+          <h3 style="margin-top:0;">1) UV &amp; Heat Fade Pavers Faster Than You Think</h3>
+          <p>
+            Florida UV exposure slowly drives color fade and surface oxidation. In neighborhoods with full-sun driveways,
+            pavers can lose depth and look “washed out” long before the surface is structurally old. A quality sealer helps
+            reduce UV impact and keeps the surface looking even.
+          </p>
 
-        <h3>4) Pool Decks and Travertine Need the Right Approach</h3>
-        <p>
-          Pool decks and natural stone (like travertine) require special care. The wrong product or sloppy application can create
-          uneven sheen, “tacky” areas, or trapped moisture. The goal is a clean, premium finish that keeps traction and resists staining.
-        </p>
+          <h3>2) Rain + Humidity = Joint Washout + Organic Growth</h3>
+          <p>
+            Summer storms and humidity encourage algae and mildew, while intense downpours wash out joint sand over time.
+            Once joints open up, weeds and ants move in, and pavers can start rocking or settling unevenly. A proper process
+            restores joints and helps keep water movement under control.
+          </p>
+
+          <h3>3) Storm Season Stress Tests Driveways and Pool Decks</h3>
+          <p>
+            Wind-driven rain, standing water, debris, and organic runoff show up fast during storm season. That’s when staining,
+            slippery bio-growth, and joint erosion become obvious. Protective sealing helps reduce absorption and makes cleanup
+            easier after weather events.
+          </p>
+
+          <h3>4) Pool Decks and Travertine Need the Right Approach</h3>
+          <p>
+            Pool decks and natural stone (like travertine) require special care. The wrong product or sloppy application can create
+            uneven sheen, “tacky” areas, or trapped moisture. The goal is a clean, premium finish that keeps traction and resists staining.
+          </p>
+        </div>
+
+        <!-- RIGHT: equal-height hero image -->
+        <div class="hazard-hero">
+          <img
+            src="/assets/hero/st-johns-paver-sealing-nocatee-driveway.jpeg"
+            alt="Sealed paver driveway in Nocatee, St. Johns County"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -167,7 +234,7 @@
 
       <div style="margin-top:14px;">
         <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
-        <a class="btn btn-ghost" href="/warranty/">View Warranty</a>
+        <a class="btn btn-ghost" href="/service-areas/">See Service Areas</a>
       </div>
     </div>
   </section>
