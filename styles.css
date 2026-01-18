@@ -279,7 +279,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 }
 .card.service-card{ padding:16px; }
 
-/* ===== Premium card hover + image zoom ===== */
+/* ===== Premium card hover + image zoom (default) ===== */
 .card img{
   transition: transform .35s ease;
   will-change: transform;
@@ -300,6 +300,20 @@ section{scroll-margin-top:var(--sticky-offset)}
 .card:focus-within{
   outline: 3px solid rgba(40,182,200,.35);
   outline-offset: 3px;
+}
+
+/* ===========================
+   NEW: Green hover for Service Areas cards
+   (Nocatee / Ponte Vedra / etc.)
+   =========================== */
+a.card.service-card[href^="/service-areas/"]{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+a.card.service-card[href^="/service-areas/"]:hover,
+a.card.service-card[href^="/service-areas/"]:focus-visible{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(31,157,85,.18);
+  border-color: rgba(31,157,85,.35);
 }
 
 /* responsive tweak */
@@ -535,6 +549,53 @@ section{scroll-margin-top:var(--sticky-offset)}
 .social-links a:hover{
   background: rgba(57,191,234,.18);
   border-color: rgba(15,110,168,.25);
+}
+
+/* =================================================================== */
+/* =================== County pages: Hazard Split (MOVED) ============= */
+/* =================================================================== */
+
+.hazard-split{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:14px;
+  align-items:stretch;
+  margin-top:14px;
+}
+.hazard-split .hazard-copy{ height:100%; }
+.hazard-split .hazard-copy h3{ margin:0 0 8px; }
+.hazard-split .hazard-copy p{
+  margin:0 0 14px;
+  color: var(--muted);
+  line-height:1.65;
+}
+.hazard-split .hazard-copy p:last-child{ margin-bottom:0; }
+
+.hazard-hero{
+  border-radius: var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#f3f4f6;
+  height:100%;
+  min-height: 360px;
+  position:relative;
+}
+.hazard-hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.hazard-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.04);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  .hazard-split{ grid-template-columns: 1fr; }
+  .hazard-hero{ min-height: 220px; }
 }
 
 /* =================================================================== */
