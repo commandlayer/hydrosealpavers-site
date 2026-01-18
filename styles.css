@@ -201,6 +201,34 @@ section{scroll-margin-top:var(--sticky-offset)}
 .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted)}
 
+/* ===== Blue Gradient Card (shared premium style) ===== */
+.card-bluegrad{
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.20), transparent 55%),
+    radial-gradient(900px 260px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+    linear-gradient(180deg, rgba(11,45,74,.06), #fff 55%);
+  box-shadow: 0 14px 34px rgba(17,24,39,.10);
+  position: relative;
+  overflow: hidden;
+}
+.card-bluegrad::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%);
+  opacity:.35;
+}
+.card-bluegrad > *{
+  position: relative;
+  z-index: 1;
+}
+.card-bluegrad h3{
+  letter-spacing:-0.01em;
+}
+
 /* ===== Services thumbnails: shorter images ===== */
 .service-thumb{
   width:100%;
@@ -359,12 +387,8 @@ section{scroll-margin-top:var(--sticky-offset)}
   gap:10px;
   flex-wrap:wrap;
 }
-.cta-band .btn-primary{
-  background: var(--blue);
-}
-.cta-band .btn-ghost{
-  border-color: rgba(11,45,74,.18);
-}
+.cta-band .btn-primary{ background: var(--blue); }
+.cta-band .btn-ghost{ border-color: rgba(11,45,74,.18); }
 
 /* Checklist (tight, punchy, “yard-sign-like” clarity) */
 .checklist{
@@ -622,13 +646,10 @@ section{scroll-margin-top:var(--sticky-offset)}
 .dropdown .small-note{ display:none !important; }
 
 /* ===== Dropdown usability fix (no vanish) ===== */
-/* remove the hover gap that causes the dropdown to close */
 .nav-group .dropdown{
   top: 100% !important;  /* no gap */
   margin-top: 8px;
 }
-
-/* invisible hover buffer above dropdown so you can move down safely */
 .nav-group .dropdown::before{
   content:"";
   position:absolute;
@@ -637,8 +658,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   top:-10px;
   height:10px;
 }
-
-/* keep open while hovering / focusing */
 .nav-group:hover .dropdown,
 .nav-group:focus-within .dropdown{
   display:block;
@@ -657,7 +676,6 @@ section{scroll-margin-top:var(--sticky-offset)}
     padding:10px 0;
   }
 
-  /* SEO page heading scale on small screens */
   .page h1{ font-size: 32px; }
 }
 
@@ -684,111 +702,5 @@ section{scroll-margin-top:var(--sticky-offset)}
     box-shadow: 0 12px 30px rgba(17,24,39,.22);
   }
 
-  /* prevent content being hidden behind the callbar */
   body{ padding-bottom: 84px; }
-}
-/* ===================== SEO PAGE COMPONENT STYLES ===================== */
-
-/* Breadcrumbs */
-.breadcrumbs{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
-  margin: 10px 0 18px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--muted);
-  font-weight:900;
-  font-size:12px;
-}
-.breadcrumbs a{
-  color: var(--navy);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.breadcrumbs a:hover{ opacity:.9; }
-.breadcrumbs .sep{ opacity:.55; font-weight:1000; }
-
-/* Cards wrapper */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:14px;
-}
-@media (max-width:900px){
-  .cards{ grid-template-columns: 1fr; }
-}
-
-/* CTA band */
-.cta-band{
-  border:1px solid rgba(15,110,168,.22);
-  background: linear-gradient(180deg, rgba(57,191,234,.14) 0%, rgba(15,110,168,.06) 100%);
-  border-radius: 22px;
-  padding: 18px;
-  box-shadow: 0 14px 35px rgba(17,24,39,.10);
-}
-.cta-band .cta-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-}
-.cta-band .cta-title{
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight: 1000;
-  letter-spacing:-.02em;
-  color: var(--navy);
-  font-size: 18px;
-  margin: 0;
-}
-.cta-band .cta-sub{
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  max-width: 720px;
-}
-.cta-band .cta-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-/* Checklist */
-.checklist{
-  list-style:none;
-  padding:0;
-  margin: 10px 0 0;
-  display:grid;
-  gap:10px;
-}
-.checklist li{
-  position:relative;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:16px;
-  padding: 12px 12px 12px 44px;
-  box-shadow: 0 8px 18px rgba(17,24,39,.06);
-  font-weight:800;
-  color: var(--text);
-}
-.checklist li::before{
-  content:"✓";
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  width:22px;
-  height:22px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(40,182,200,.20);
-  color: var(--navy);
-  font-weight:1000;
-  font-size:14px;
 }
