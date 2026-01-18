@@ -41,8 +41,6 @@
             text-align: center;
           "
         >
-         
-
           <h1 style="margin:0; font-size:40px; line-height:1.08; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
             St. Johns County Paver Sealing
           </h1>
@@ -66,35 +64,86 @@
     </div>
   </section>
 
-   <!-- QUICK TRUST STRIP (MATCHING GREEN GRADIENT) -->
+  <!-- QUICK TRUST STRIP (GREEN GRADIENT - INLINE, SO IT CANNOT "DISAPPEAR") -->
   <section class="section" style="padding-top:28px;">
     <div class="container">
-      <di/* ===== Green Gradient Card (shared premium style) ===== */
-.card-greengrad{
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:
-    radial-gradient(900px 260px at 20% 0%, rgba(40,182,200,.22), transparent 55%),
-    radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.16), transparent 55%),
-    linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
-  box-shadow: 0 14px 34px rgba(17,24,39,.10);
-  position: relative;
-  overflow: hidden;
-}
-.card-greengrad::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  pointer-events:none;
-  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%);
-  opacity:.35;
-}
-.card-greengrad > *{
-  position: relative;
-  z-index: 1;
-}
+      <div class="grid grid-3" style="gap:14px;">
 
+        <div
+          class="card"
+          style="
+            padding:16px;
+            border-radius:22px;
+            border:1px solid var(--line);
+            background:
+              radial-gradient(900px 260px at 20% 0%, rgba(40,182,200,.22), transparent 55%),
+              radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.16), transparent 55%),
+              linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
+            box-shadow: 0 14px 34px rgba(17,24,39,.10);
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div aria-hidden="true" style="position:absolute; inset:-2px; pointer-events:none; background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%); opacity:.35;"></div>
+          <div style="position:relative; z-index:1;">
+            <h2 style="margin:0 0 6px; font-size:18px;">Built for Florida Conditions</h2>
+            <p style="margin:0;">
+              UV exposure, humidity, heavy rain, and storm season are the real test. Our process focuses on protection, not gimmicks.
+            </p>
+          </div>
+        </div>
 
+        <div
+          class="card"
+          style="
+            padding:16px;
+            border-radius:22px;
+            border:1px solid var(--line);
+            background:
+              radial-gradient(900px 260px at 20% 0%, rgba(40,182,200,.22), transparent 55%),
+              radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.16), transparent 55%),
+              linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
+            box-shadow: 0 14px 34px rgba(17,24,39,.10);
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div aria-hidden="true" style="position:absolute; inset:-2px; pointer-events:none; background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%); opacity:.35;"></div>
+          <div style="position:relative; z-index:1;">
+            <h2 style="margin:0 0 6px; font-size:18px;">Joint Sand Is the Weak Point</h2>
+            <p style="margin:0;">
+              Most paver problems start in the joints. Proper cleaning + re-sand + stabilization prevents washout, weeds, and shifting.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="card"
+          style="
+            padding:16px;
+            border-radius:22px;
+            border:1px solid var(--line);
+            background:
+              radial-gradient(900px 260px at 20% 0%, rgba(40,182,200,.22), transparent 55%),
+              radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.16), transparent 55%),
+              linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
+            box-shadow: 0 14px 34px rgba(17,24,39,.10);
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div aria-hidden="true" style="position:absolute; inset:-2px; pointer-events:none; background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%); opacity:.35;"></div>
+          <div style="position:relative; z-index:1;">
+            <h2 style="margin:0 0 6px; font-size:18px;">Looks Premium — Stays Functional</h2>
+            <p style="margin:0;">
+              We aim for a clean, uniform finish. No puddling, no sticky spots, no “over-wet” look — just controlled protection.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- DEEP LOCAL SEO CONTENT -->
   <section class="section">
@@ -135,7 +184,7 @@
     </div>
   </section>
 
-  <!-- WHAT WE DO (USES THE SAME IMAGE PATHS AS INDEX) -->
+  <!-- WHAT WE DO (SAME IMAGE PATHS AS INDEX) -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">What We Do</h2>
@@ -178,7 +227,7 @@
     </div>
   </section>
 
-  <!-- KEYWORD / EXPECTATION BOXES (MAKE THEM BLUE GRADIENT LIKE INDEX) -->
+  <!-- KEYWORD / EXPECTATION BOXES (BLUE GRADIENT) -->
   <section class="section">
     <div class="container">
       <div class="grid grid-2" style="gap:14px;">
