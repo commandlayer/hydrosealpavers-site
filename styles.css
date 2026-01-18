@@ -136,6 +136,7 @@ section{scroll-margin-top:var(--sticky-offset)}
   font-size:18px;
   max-width:720px;
 }
+
 .hero2 .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
 .chip{
   display:inline-flex;
@@ -149,6 +150,7 @@ section{scroll-margin-top:var(--sticky-offset)}
   font-weight:900;
   font-size:12px;
 }
+
 .hero-grid{
   display:grid;
   grid-template-columns:1.25fr .85fr;
@@ -303,7 +305,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 }
 
 /* ===========================
-   NEW: Green hover for Service Areas cards
+   Green hover for Service Areas cards
    (Nocatee / Ponte Vedra / etc.)
    =========================== */
 a.card.service-card[href^="/service-areas/"]{
@@ -365,6 +367,7 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   padding:16px;
   background:#f9fafb;
 }
+
 /* =========================
    Reviews snapshot section
    ========================= */
@@ -379,7 +382,6 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   box-shadow: 0 14px 34px rgba(17,24,39,.10);
   overflow:hidden;
 }
-
 .review-snapshot-inner{
   padding:18px;
 }
@@ -392,13 +394,11 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   margin: 0 0 6px;
   font-weight:1000;
 }
-
 .review-quote{
   margin:0;
   color: var(--muted);
   line-height:1.7;
 }
-
 .review-author{
   margin:10px 0 0;
   font-weight:1000;
@@ -424,21 +424,7 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   box-shadow: 0 10px 24px rgba(17,24,39,.08);
 }
 
-/* Buttons row w/ icons */
-.btn-row{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-}
-
-.btn-icon{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
-
+/* Icon badges */
 .icon-badge{
   width:26px;
   height:26px;
@@ -452,36 +438,52 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   background:#fff;
   color: var(--navy);
 }
-
 .icon-badge.google{
   border-color: rgba(15,110,168,.28);
   background: rgba(57,191,234,.12);
 }
-
 .icon-badge.facebook{
   border-color: rgba(11,45,74,.20);
   background: rgba(15,110,168,.10);
 }
 
-/* Optional trust line */
-.trust-line{
-  margin-top:10px;
-  display:flex;
-  flex-wrap:wrap;
+/* NEW: Reviews action row — 5 across w/ center CTA + trust chips */
+.review-actions{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap:10px;
-  justify-content:center;
-  color: rgba(255,255,255,.88);
-  font-weight:900;
-  font-size:12px;
 }
-.trust-line span{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.08);
+.review-actions .chip{
+  justify-content:center;
+  text-align:center;
+  width:100%;
+}
+.review-actions a.chip{ text-decoration:none; }
+
+.review-actions .chip-cta{
+  background: rgba(34,197,94,.16);
+  border-color: rgba(34,197,94,.45);
+  color: var(--navy);
+}
+.review-actions .chip-cta:hover{
+  background: rgba(34,197,94,.22);
+  border-color: rgba(34,197,94,.60);
+}
+
+.review-actions .chip-trust{
+  background: rgba(11,45,74,.06);
+  border-color: rgba(11,45,74,.18);
+  color: var(--navy);
+}
+
+@media (max-width:980px){
+  .review-actions{
+    grid-template-columns: 1fr 1fr;
+  }
+  .review-actions .chip-cta{
+    grid-column: 1 / -1;
+  }
 }
 
 /* =================================================================== */
@@ -562,7 +564,7 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
 .cta-band .btn-primary{ background: var(--blue); }
 .cta-band .btn-ghost{ border-color: rgba(11,45,74,.18); }
 
-/* Checklist (tight, punchy, “yard-sign-like” clarity) */
+/* Checklist */
 .checklist{
   list-style:none;
   padding:0;
@@ -596,77 +598,6 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   color: var(--navy);
   font-weight:1000;
   font-size:14px;
-}
-
-/* Headings inside SEO pages */
-.page h1, .page h2, .page h3{
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-.page h1{
-  letter-spacing:-.02em;
-  line-height:1.08;
-  margin: 8px 0 10px;
-  font-size: 40px;
-  color: var(--navy);
-}
-.page h2{
-  letter-spacing:-.02em;
-  margin: 22px 0 10px;
-  font-size: 22px;
-  color: var(--navy);
-}
-.page h3{
-  margin: 16px 0 8px;
-  font-size: 16px;
-  color: var(--text);
-}
-.page p{ color: var(--muted); margin: 10px 0 0; }
-
-/* Link list blocks (internal links to nearby areas / county hub) */
-.link-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:12px;
-}
-.link-list a{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border:1px solid var(--line);
-  background:#fff;
-  font-weight: 900;
-  font-size: 12px;
-  color: var(--navy);
-}
-.link-list a:hover{
-  background: rgba(57,191,234,.16);
-  border-color: rgba(15,110,168,.25);
-}
-
-/* Social strip */
-.social-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top: 12px;
-}
-.social-links a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 10px 12px;
-  border-radius: 14px;
-  border:1px solid var(--line);
-  background:#fff;
-  font-weight: 900;
-  font-size: 12px;
-}
-.social-links a:hover{
-  background: rgba(57,191,234,.18);
-  border-color: rgba(15,110,168,.25);
 }
 
 /* =================================================================== */
@@ -894,8 +825,6 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
     overflow:auto;
     padding:10px 0;
   }
-
-  .page h1{ font-size: 32px; }
 }
 
 /* ===== Mobile Call Bar ===== */
