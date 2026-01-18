@@ -3,11 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Paver Sealing Nocatee FL 32081 | Deep Clean • Re-Sand • Seal | HydroSeal Pavers</title>
-  <meta name="description" content="Elite paver sealing in Nocatee, FL 32081. Deep cleaning, joint re-sanding, and controlled sealing for a richer, even finish that holds up in Florida heat and storms. Call 904.537.5000." />
+  <title>Paver Sealing Nocatee FL 32081 | Licensed & Insured | HydroSeal Pavers</title>
+  <meta name="description" content="Elite paver sealing in Nocatee, FL 32081. Licensed & insured. Deep cleaning, joint re-sanding, and controlled sealing for an even, premium finish that holds up. Call 904.537.5000." />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Local SEO: Service + FAQ Schema (kept lightweight, no fake reviews) -->
+  <!-- Page-only helpers (keeps your global CSS untouched) -->
+  <style>
+    /* Lime/green gradient card that complements your blue gradient system */
+    .card-limegrad{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(900px 260px at 20% 0%, rgba(153,246,228,.24), transparent 55%),
+        radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.14), transparent 55%),
+        linear-gradient(180deg, rgba(16,185,129,.08), #fff 58%);
+      box-shadow: 0 14px 34px rgba(17,24,39,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .card-limegrad::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%);
+      opacity:.32;
+    }
+    .card-limegrad > *{ position:relative; z-index:1; }
+
+    /* Split grid for the "prep game" block */
+    .prep-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .prep-grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Bold trust strip inside cards */
+    .trust-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .trust-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(57,191,234,.14);
+      border: 1px solid rgba(15,110,168,.18);
+      font-weight:1000;
+      color: var(--navy);
+      font-size:12px;
+    }
+    .trust-pill strong{ font-weight:1000; }
+
+    /* Image card in the prep block */
+    .prep-img{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#f3f4f6;
+      height:100%;
+      min-height:320px;
+    }
+    .prep-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+  </style>
+
+  <!-- Local SEO: Service + FAQ Schema (no fake reviews) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -24,11 +97,11 @@
       "@type":"LocalBusiness",
       "name":"HydroSeal Pavers",
       "telephone":"+1-904-537-5000",
+      "url":"https://hydrosealpavers.com/",
       "areaServed":[
         {"@type":"AdministrativeArea","name":"St. Johns County, FL"},
         {"@type":"PostalCode","postalCode":"32081","addressRegion":"FL","addressCountry":"US"}
-      ],
-      "url":"https://hydrosealpavers.com/"
+      ]
     },
     "url":"https://hydrosealpavers.com/service-areas/st-johns-county/nocatee.html"
   }
@@ -79,7 +152,7 @@
 
   <div data-include="/partials/header.html"></div>
 
-  <!-- HERO (premium: strong local + outcome + fast quote) -->
+  <!-- HERO -->
   <section class="hero2" style="position:relative; overflow:hidden;">
     <img
       src="/assets/hero/paver-sealing-jacksonville-driveway.png"
@@ -100,15 +173,14 @@
             Nocatee paver sealing that looks even, feels solid, and holds up.
           </h1>
 
-          <p style="max-width:780px;">
-            If you want a premium finish — not streaks, puddling, or tacky spots — the difference is
-            <strong>prep + joint sand discipline + controlled application</strong>.
-            That’s the system we run on every job in <strong>Nocatee (32081)</strong>.
+          <p style="max-width:820px;">
+            The difference is <strong>prep + joint sand discipline + controlled application</strong>.
+            We build premium surfaces across <strong>Nocatee (32081)</strong> with a repeatable, checklist-driven process.
           </p>
 
           <div class="chips" style="margin-top:14px;">
             <div class="chip">Trident Master Certified</div>
-            <div class="chip">Joint Sand Stabilization</div>
+            <div class="chip">Licensed &amp; Insured</div>
             <div class="chip">Driveways • Patios • Pool Areas</div>
           </div>
 
@@ -117,32 +189,31 @@
             <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
           </div>
 
-          <div style="margin-top:10px;color:rgba(255,255,255,.86);font-weight:900;font-size:13px;max-width:820px;">
+          <div style="margin-top:10px;color:rgba(255,255,255,.86);font-weight:900;font-size:13px;max-width:860px;">
             Fast quote: send your <strong>address + 2 photos</strong> (wide shot + close-up of joints). We’ll reply with a real prep plan + real number.
           </div>
         </div>
 
-        <!-- Quick Quote / What’s Included (white card so it pops) -->
+        <!-- Quick Proof card -->
         <aside class="quote-card" style="background:#fff;color:#111827;border:1px solid rgba(0,0,0,.12);box-shadow:0 18px 45px rgba(17,24,39,.20);">
-          <h3 style="color:#111827;margin:0;">What a “real” Nocatee paver sealing job includes</h3>
+          <h3 style="color:#111827;margin:0;">What a “real” Nocatee job includes</h3>
+
+          <div class="trust-strip" aria-label="Trust badges">
+            <div class="trust-pill">Trident Master Certified</div>
+            <div class="trust-pill"><strong>Licensed</strong></div>
+            <div class="trust-pill"><strong>Insured</strong></div>
+            <div class="trust-pill">Serving 32081</div>
+          </div>
 
           <div style="margin-top:12px;display:grid;gap:10px;">
-            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">
-              Deep clean (not a quick rinse)
-            </div>
-            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">
-              Joint re-sand to correct depth
-            </div>
-            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">
-              Dry-time discipline (non-negotiable)
-            </div>
-            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">
-              Controlled sealing (no puddling)
-            </div>
+            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">Deep clean (not a quick rinse)</div>
+            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">Joint re-sand to correct depth</div>
+            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">Dry-time discipline (non-negotiable)</div>
+            <div class="badge" style="background:#eef6ff;color:var(--navy);border:1px solid rgba(15,110,168,.18);">Controlled sealing (no puddling)</div>
           </div>
 
           <div class="notice" style="margin-top:12px;background:#f9fafb;">
-            <strong>Pricing:</strong> paver sealing often starts around <strong>$1.50/sq ft</strong>, but prep and condition drive the final number.
+            <strong>Pricing:</strong> paver sealing often starts around <strong>$1.50/sq ft</strong>, but condition and prep drive the final number.
             We’ll be direct about what your surface needs.
           </div>
 
@@ -152,7 +223,7 @@
           </div>
 
           <div class="subtle" style="color:rgba(17,24,39,.72);">
-            Serving <strong>32081</strong>. If you’re in Nocatee, you’re in our lane.
+            If you’re in <strong>32081</strong>, you’re in our core service lane.
           </div>
         </aside>
 
@@ -164,7 +235,7 @@
   <div class="trustbar">
     <div class="container">
       <div class="trust-item">Nocatee • 32081</div>
-      <div class="trust-item">St. Johns County</div>
+      <div class="trust-item">Licensed &amp; Insured</div>
       <div class="trust-item">Trident Master Certified</div>
       <div class="trust-item">Call: 904.537.5000</div>
     </div>
@@ -185,58 +256,66 @@
         <span>Nocatee (32081)</span>
       </nav>
 
-      <!-- Local intro + quick links -->
-      <div class="grid grid-2" style="margin-top:8px;align-items:stretch;">
-        <div class="card card-bluegrad">
-          <div class="kicker">Local results, not generic promises</div>
-          <h2 style="margin:6px 0 8px;">Paver sealing in Nocatee is a prep game.</h2>
-          <p style="margin:0;color:var(--muted);max-width:880px;">
-            Nocatee surfaces take constant UV, sudden storms, and humidity swings. That combination exposes sloppy work fast:
-            streaks, white haze, sand washout, and early failure. Our focus is the boring stuff that makes the finish last —
-            correct cleaning, joint sand depth/compaction, and a controlled sealing plan.
-          </p>
+      <!-- Local intro + image next to the "prep game" headline -->
+      <section style="margin-top:10px;">
+        <div class="prep-grid">
+          <div class="card card-bluegrad">
+            <div class="kicker">Local results, not generic promises</div>
+            <h2 style="margin:6px 0 8px;">Paver sealing in Nocatee is a prep game.</h2>
+            <p style="margin:0;color:var(--muted);max-width:980px;">
+              Between intense UV, sudden storms, and humidity swings, Nocatee surfaces expose sloppy work fast.
+              A premium finish comes from the unsexy details: correct cleaning, joint sand depth/compaction, full dry-time,
+              and an even application plan.
+            </p>
 
-          <div class="link-list" style="margin-top:12px;">
-            <a href="/get-a-quote/">Get a Quote</a>
-            <a href="tel:+19045375000">Call 904.537.5000</a>
-            <a href="/paver-sealing/pool-decks.html">Pool Deck Sealing</a>
-            <a href="/paver-sealing/driveways.html">Driveway Sealing</a>
-            <a href="/paver-sealing/patios-walkways.html">Patios & Walkways</a>
+            <!-- Bold, high-visibility “Licensed & Insured” announcement -->
+            <div class="notice" style="margin-top:12px;border:1px solid rgba(34,197,94,.22);background:linear-gradient(180deg, rgba(34,197,94,.14), rgba(57,191,234,.10));">
+              <strong style="font-weight:1000;">Licensed &amp; Insured.</strong>
+              You’re hiring a pro service — not a “spray-and-pray” operation.
+            </div>
+
+            <div class="link-list" style="margin-top:12px;">
+              <a href="/get-a-quote/">Get a Quote</a>
+              <a href="tel:+19045375000">Call 904.537.5000</a>
+              <a href="/paver-sealing/driveways.html">Driveway Sealing</a>
+              <a href="/paver-sealing/pool-decks.html">Pool Deck Sealing</a>
+              <a href="/paver-sealing/patios-walkways.html">Patios &amp; Walkways</a>
+            </div>
+          </div>
+
+          <!-- NEW IMAGE: nocatee-paver-sealing -->
+          <div class="prep-img" aria-label="Nocatee paver sealing photo">
+            <img
+              src="/assets/hero/nocatee-paver-sealing.png"
+              alt="Paver sealing project in Nocatee, FL 32081 with clean joints and even finish"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
+      </section>
 
-        <div class="card" style="overflow:hidden;padding:0;">
-          <img
-            src="/assets/hero/hydroseal-paver-driveway-square.png"
-            alt="Close-up sealed paver driveway finish in Nocatee, FL 32081"
-            loading="lazy"
-            decoding="async"
-            style="width:100%;height:100%;object-fit:cover;display:block;min-height:300px;"
-          />
-        </div>
-      </div>
-
-      <!-- “What you get” (high conviction, conversion-focused) -->
+      <!-- What you get -->
       <section style="margin-top:18px;">
         <div class="card">
           <h2 style="margin:0 0 8px;">What sealing should do for your Nocatee pavers</h2>
           <p style="margin:0;color:var(--muted);max-width:980px;">
-            A premium job isn’t about “making it shiny.” It’s about stability, uniformity, and making the surface easier to keep clean —
-            without creating tacky spots or blotches. Here’s what you should expect when it’s done correctly.
+            A premium job isn’t about “making it shiny.” It’s about stability, uniformity, and easier maintenance — without
+            streaking, puddling, or tacky spots.
           </p>
 
           <div class="grid grid-3" style="margin-top:14px;">
             <div class="card card-bluegrad" style="box-shadow:none;">
               <h3>Richer, more even finish</h3>
-              <p>Uniform coverage with clean edges — no puddling, no striping, no “wet look” overload unless you want it.</p>
+              <p>Uniform coverage with clean edges — no striping, no blotches, no over-application.</p>
             </div>
             <div class="card card-bluegrad" style="box-shadow:none;">
               <h3>Stronger joints</h3>
-              <p>Re-sanded joints reduce washout, weeds, and ant tunneling. The surface feels tighter underfoot (and under tires).</p>
+              <p>Re-sanded joints reduce washout, weeds, and ant tunneling — key for Florida storms.</p>
             </div>
             <div class="card card-bluegrad" style="box-shadow:none;">
               <h3>Easier maintenance</h3>
-              <p>Quality sealer helps reduce absorption from grime and organics so routine rinsing and spot cleaning is easier.</p>
+              <p>Quality sealer helps reduce absorption so routine rinsing and spot cleaning is easier.</p>
             </div>
           </div>
 
@@ -246,21 +325,21 @@
         </div>
       </section>
 
-      <!-- Signature “why we win” section: checklist + image -->
+      <!-- Standard section -->
       <section style="margin-top:18px;">
         <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch;">
           <div class="card">
             <div class="kicker">The difference between lasting and failing</div>
             <h2 style="margin:6px 0 10px;">The HydroSeal standard (Nocatee, 32081)</h2>
             <p style="margin:0;color:var(--muted);max-width:900px;">
-              Most “paver sealing” failures come from shortcuts: sealing damp pavers, skipping joint restoration, or flooding the surface with product.
+              Most failures come from shortcuts: sealing damp pavers, skipping joint restoration, or flooding the surface with product.
               We run a consistent process so the finish looks premium and the joints stay stable.
             </p>
 
             <ul class="checklist" style="margin-top:14px;">
-              <li>Surface evaluation (old coatings, problem stains, drainage, joint condition)</li>
+              <li>Surface evaluation (old coatings, stains, drainage, joint condition)</li>
               <li>Deep cleaning that lifts organics without destroying joints</li>
-              <li>Joint re-sanding to proper depth + compaction (critical in Florida storms)</li>
+              <li>Joint re-sanding to proper depth + compaction</li>
               <li>Dry-time discipline (we don’t seal wet pavers — period)</li>
               <li>Controlled application (even passes, clean edges, no puddles)</li>
             </ul>
@@ -283,39 +362,39 @@
         </div>
       </section>
 
-      <!-- Nocatee-specific section: common problems + fixes -->
+      <!-- Nocatee realities -->
       <section style="margin-top:18px;">
         <div class="card card-bluegrad">
           <div class="kicker">Nocatee realities</div>
           <h2 style="margin:6px 0 10px;">Common Nocatee paver issues (and what we do about them)</h2>
           <p style="margin:0;color:var(--muted);max-width:980px;">
-            If you’re seeing any of these, it’s usually a sign that joint sand needs attention, organics are building up,
-            or an old coating is failing. We’ll be straightforward about what’s cleanable, what’s permanent, and what requires a different fix.
+            If you’re seeing sand washout, weeds, organic staining, or uneven color, it’s usually a sign that joints need restoration,
+            the surface needs proper cleaning, or an old coating is failing. We’ll be straightforward about what’s cleanable and what’s permanent.
           </p>
 
           <div class="grid grid-3" style="margin-top:14px;">
             <div class="card" style="box-shadow:none;">
               <h3>Sand washout + weeds</h3>
-              <p>We clean correctly, restore joint depth, and stabilize the joints so storms don’t undo the work in a month.</p>
+              <p>We restore joint depth, compact correctly, and stabilize — so storms don’t undo the work.</p>
             </div>
             <div class="card" style="box-shadow:none;">
               <h3>Organic staining</h3>
-              <p>We treat growth and grime before sealing. Sealing over organics traps it and makes the finish look blotchy.</p>
+              <p>We treat and lift organics before sealing. Sealing over it traps it and ruins the finish.</p>
             </div>
             <div class="card" style="box-shadow:none;">
               <h3>Blotchy / uneven finish</h3>
-              <p>Usually from over-application or moisture. Our approach is controlled passes with a plan for edges and overlap.</p>
+              <p>Usually from moisture or over-application. We apply in controlled passes with an edge/overlap plan.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Services in Nocatee (internal links) -->
+      <!-- Services in Nocatee -->
       <section style="margin-top:18px;">
         <div class="card">
           <h2 style="margin:0 0 8px;">Nocatee paver sealing services</h2>
           <p style="margin:0;color:var(--muted);max-width:980px;">
-            Pick the page closest to what you have. Each one has process details and surface-specific considerations.
+            Pick the page closest to what you have. Each includes surface-specific guidance and expectations.
           </p>
 
           <div class="grid grid-3" style="margin-top:14px;">
@@ -346,15 +425,16 @@
         </div>
       </section>
 
-      <!-- Nearby areas / cluster links -->
+      <!-- Nearby areas (NEW: lime/green gradient card) -->
       <section style="margin-top:18px;">
-        <div class="card">
-          <h2 style="margin:0 0 8px;">Nearby service areas</h2>
+        <div class="card card-limegrad">
+          <div class="kicker" style="color: var(--navy);">Local cluster</div>
+          <h2 style="margin:6px 0 8px;">Nearby service areas</h2>
           <p style="margin:0;color:var(--muted);max-width:980px;">
-            If you’re close to Nocatee but not in 32081, use the nearest page — or visit the county hub.
+            If you’re near Nocatee but not in 32081, use the nearest page — or visit the county hub.
           </p>
 
-          <div class="link-list">
+          <div class="link-list" style="margin-top:12px;">
             <a href="/service-areas/st-johns-county/ponte-vedra.html">Ponte Vedra</a>
             <a href="/service-areas/st-johns-county/st-augustine.html">St. Augustine</a>
             <a href="/service-areas/st-johns-county/julington-creek.html">Julington Creek</a>
@@ -365,7 +445,7 @@
         </div>
       </section>
 
-      <!-- FAQ (tight, confident, non-fluffy) -->
+      <!-- FAQ -->
       <section style="margin-top:18px;">
         <h2 class="section-title">Nocatee paver sealing FAQ (32081)</h2>
         <p class="section-sub">Straight answers so you know what you’re buying.</p>
@@ -404,14 +484,13 @@
         </div>
       </section>
 
-      <!-- Final CTA (premium, simple, not spammy) -->
+      <!-- Final CTA -->
       <section style="margin-top:18px;">
         <div class="card card-bluegrad" style="text-align:center;">
           <div class="kicker">Ready when you are</div>
           <h2 style="margin:6px 0 0;">Get your Nocatee paver sealing quote today</h2>
           <p style="margin:10px auto 0;color:var(--muted);max-width:920px;">
-            If you’re in <strong>Nocatee (32081)</strong>, we’ll tell you exactly what prep is needed and what it should cost.
-            No vague promises — just a clean plan and a premium finish.
+            Licensed &amp; insured. Trident Master Certified. If you’re in <strong>Nocatee (32081)</strong>, we’ll tell you exactly what prep is needed and what it should cost.
           </p>
 
           <div style="margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;">
