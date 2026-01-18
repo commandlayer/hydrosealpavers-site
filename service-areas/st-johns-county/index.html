@@ -69,32 +69,31 @@
    <!-- QUICK TRUST STRIP (MATCHING GREEN GRADIENT) -->
   <section class="section" style="padding-top:28px;">
     <div class="container">
-      <div class="grid grid-3" style="gap:14px;">
+      <di/* ===== Green Gradient Card (shared premium style) ===== */
+.card-greengrad{
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(900px 260px at 20% 0%, rgba(40,182,200,.22), transparent 55%),
+    radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.16), transparent 55%),
+    linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
+  box-shadow: 0 14px 34px rgba(17,24,39,.10);
+  position: relative;
+  overflow: hidden;
+}
+.card-greengrad::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%);
+  opacity:.35;
+}
+.card-greengrad > *{
+  position: relative;
+  z-index: 1;
+}
 
-        <div class="card card-bluegrad" style="padding:16px;">
-          <h2 style="margin:0 0 6px; font-size:18px;">Built for Florida Conditions</h2>
-          <p style="margin:0;">
-            UV exposure, humidity, heavy rain, and storm season are the real test. Our process focuses on protection, not gimmicks.
-          </p>
-        </div>
-
-        <div class="card card-bluegrad" style="padding:16px;">
-          <h2 style="margin:0 0 6px; font-size:18px;">Joint Sand Is the Weak Point</h2>
-          <p style="margin:0;">
-            Most paver problems start in the joints. Proper cleaning + re-sand + stabilization prevents washout, weeds, and shifting.
-          </p>
-        </div>
-
-        <div class="card card-bluegrad" style="padding:16px;">
-          <h2 style="margin:0 0 6px; font-size:18px;">Looks Premium — Stays Functional</h2>
-          <p style="margin:0;">
-            We aim for a clean, uniform finish. No puddling, no sticky spots, no “over-wet” look — just controlled protection.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 
   <!-- DEEP LOCAL SEO CONTENT -->
