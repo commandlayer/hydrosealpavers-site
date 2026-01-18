@@ -21,6 +21,7 @@
       src="/assets/hero/paversealing-stjohns.png"
       alt="St. Johns County paver sealing service area"
       loading="eager"
+      fetchpriority="high"
       decoding="async"
       style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"
     />
@@ -55,7 +56,6 @@
             <a class="btn btn-ghost" href="/get-a-quote/">Get a Quote</a>
           </div>
 
-      
         </div>
       </div>
     </div>
@@ -68,56 +68,6 @@
       <p class="section-sub">
         Outdoor surfaces in Northeast Florida take a beating. Sealing is about protecting your investment from predictable hazards — not just shine.
       </p>
-
-      <!-- helper styles only for this split block -->
-      <style>
-        .hazard-split{
-          display:grid;
-          grid-template-columns: 1.05fr .95fr;
-          gap:14px;
-          align-items:stretch;
-          margin-top:14px;
-        }
-        .hazard-split .hazard-copy{
-          height:100%;
-        }
-        .hazard-split .hazard-copy h3{
-          margin:0 0 8px;
-        }
-        .hazard-split .hazard-copy p{
-          margin:0 0 14px;
-          color: var(--muted);
-          line-height:1.65;
-        }
-        .hazard-split .hazard-copy p:last-child{ margin-bottom:0; }
-
-        .hazard-hero{
-          border-radius: var(--radius);
-          overflow:hidden;
-          border:1px solid var(--line);
-          background:#f3f4f6;
-          height:100%;
-          min-height: 360px;
-          position:relative;
-        }
-        .hazard-hero img{
-          width:100%;
-          height:100%;
-          object-fit:cover;
-          display:block;
-        }
-        .hazard-hero::after{
-          content:"";
-          position:absolute;
-          inset:0;
-          background: rgba(0,0,0,.04);
-          pointer-events:none;
-        }
-        @media (max-width:900px){
-          .hazard-split{ grid-template-columns: 1fr; }
-          .hazard-hero{ min-height: 220px; }
-        }
-      </style>
 
       <div class="hazard-split">
         <!-- LEFT: the text block -->
