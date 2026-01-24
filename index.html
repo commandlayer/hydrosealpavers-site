@@ -11,32 +11,39 @@
 
   <div data-include="/partials/header.html"></div>
 
-  <!-- BIG HERO -->
-  <section class="hero2" style="position:relative; overflow:hidden;">
-    <img
-      src="/assets/hero/paver-sealing-jacksonville-driveway.png"
-      alt="Grey paver driveway sealing in Jacksonville"
-      loading="eager"
-      decoding="async"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
-    />
-    <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;background: rgba(0,0,0,.06);"></div>
+<div>
+  <!-- GLASS PANEL BEHIND TEXT -->
+  <div
+    style="
+      display:inline-block;
+      max-width: 900px;
+      width: 100%;
+      padding: 18px 18px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    "
+  >
+    <h1
+      style="
+        margin-top:10px;
+        margin-bottom:0;
+        color:#fff;
+        text-shadow: 0 12px 34px rgba(0,0,0,.45);
+      "
+    >
+      Bring back the color. Lock in the sand. Protect your investment.
+    </h1>
 
-    <div class="container" style="position:relative; z-index:2;">
-      <div class="hero-grid" style="align-items:center;">
-
-        <div>
-
-          <h1 style="margin-top:10px;">Bring back the color. Lock in the sand. Protect your investment.</h1>
-
-          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;">
-           
-          </div>
-
-         
-        </div>
-      
+    <!-- if you have other hero text / badges / buttons, keep them INSIDE this panel -->
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;">
+      <!-- your buttons/badges here -->
     </div>
+  </div>
+</div>
+
   </section>
 
   <!-- TRUST BAR -->
