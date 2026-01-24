@@ -25,50 +25,45 @@
     <!-- super-light wash -->
     <div aria-hidden="true" style="position:absolute; inset:0; z-index:1; background: rgba(0,0,0,.06);"></div>
 
-    <!-- content -->
+    <!-- content (FULL-WIDTH CENTER, NOT hero-grid) -->
     <div class="container" style="position:relative; z-index:2;">
-      <div class="hero-grid" style="align-items:center; justify-items:center;">
-        <div style="width:100%; display:flex; justify-content:center;">
+      <div style="min-height:78vh; display:flex; align-items:center; justify-content:center; padding:56px 0;">
+        <div
+          class="hero-panel"
+          style="
+            width: min(920px, 100%);
+            margin: 0 auto;
+            padding: 18px 18px 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.18);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            text-align: center;
+          "
+        >
+          <h1 style="margin:0 auto; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
+            Bring back the color. Lock in the sand. Protect your investment.
+          </h1>
 
-          <!-- GLASS PANEL (CENTERED) -->
-          <!-- KEY FIX: hero-panel class -->
-          <div
-            class="hero-panel"
+          <p
             style="
-              width:min(920px, 100%);
-              padding: 18px 18px 16px;
-              border-radius: 18px;
-              background: rgba(255,255,255,.10);
-              border: 1px solid rgba(255,255,255,.18);
-              backdrop-filter: blur(8px);
-              -webkit-backdrop-filter: blur(8px);
-              text-align: center;
+              margin:10px auto 0;
+              color: rgba(255,255,255,.92);
+              font-weight: 800;
+              text-shadow: 0 10px 28px rgba(0,0,0,.35);
+              max-width: 62ch;
+              line-height: 1.45;
             "
           >
-            <h1 style="margin:0; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
-              Bring back the color. Lock in the sand. Protect your investment.
-            </h1>
+            Deep clean + re-sand + a controlled sealer application for a clean, premium finish that holds up in Florida heat and rain.
+          </p>
 
-            <p
-              style="
-                margin:10px auto 0;
-                color: rgba(255,255,255,.92);
-                font-weight: 800;
-                text-shadow: 0 10px 28px rgba(0,0,0,.35);
-                max-width: 62ch;
-                line-height: 1.45;
-              "
-            >
-              Deep clean + re-sand + a controlled sealer application for a clean, premium finish that holds up in Florida heat and rain.
-            </p>
-
-            <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
-              <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
-              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-              <a class="btn btn-ghost" href="/warranty/">View Warranty</a>
-            </div>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+            <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+            <a class="btn btn-ghost" href="/warranty/">View Warranty</a>
           </div>
-
         </div>
       </div>
     </div>
@@ -136,78 +131,22 @@
         The real value isn’t “shine.” It’s protection, stability, and easier maintenance — when the job is done correctly.
       </p>
 
-      <!-- helper styles ONLY for these 3 boxes -->
       <style>
-        .why-card-grid{
-          display:grid;
-          grid-template-columns: 1.08fr .92fr;
-          gap:16px;
-          align-items:stretch;
-        }
-        .why-card-grid.reverse{
-          grid-template-columns: .92fr 1.08fr;
-        }
-        .why-copy{
-          display:flex;
-          flex-direction:column;
-          justify-content:space-between;
-          height:100%;
-          padding:2px 0;
-        }
-        .why-copy h3{
-          margin:0 0 10px;
-          font-size:24px;
-          line-height:1.15;
-          letter-spacing:-0.01em;
-        }
-        .why-copy .why-desc{
-          margin:0;
-          color:var(--muted);
-          font-size:16px;
-          line-height:1.6;
-          max-width:820px;
-        }
-        .why-microgrid{
-          display:grid;
-          grid-template-columns: 1fr 1fr;
-          gap:10px;
-          margin-top:14px;
-        }
-        .why-pill{
-          border:1px solid var(--line);
-          border-radius:999px;
-          padding:8px 12px;
-          font-weight:900;
-          font-size:13px;
-          line-height:1;
-          background:#fff;
-        }
-        .why-note{
-          margin-top:14px;
-          color:var(--muted);
-          font-size:15px;
-          line-height:1.55;
-        }
-        .why-note strong{ color:var(--navy); }
-
-        .why-img{
-          border-radius:18px;
-          overflow:hidden;
-          border:1px solid var(--line);
-          background:#f3f4f6;
-          height:100%;
-          min-height:225px;
-        }
-        .why-img img{
-          width:100%;
-          height:100%;
-          object-fit:cover;
-          display:block;
-        }
-        @media (max-width: 860px){
-          .why-card-grid, .why-card-grid.reverse{ grid-template-columns: 1fr; }
-          .why-img{ min-height:165px; }
-          .why-copy h3{ font-size:22px; }
+        .why-card-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:16px;align-items:stretch;}
+        .why-card-grid.reverse{grid-template-columns:.92fr 1.08fr;}
+        .why-copy{display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:2px 0;}
+        .why-copy h3{margin:0 0 10px;font-size:24px;line-height:1.15;letter-spacing:-0.01em;}
+        .why-copy .why-desc{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:820px;}
+        .why-microgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+        .why-pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;line-height:1;background:#fff;}
+        .why-note{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.55;}
+        .why-note strong{color:var(--navy);}
+        .why-img{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#f3f4f6;height:100%;min-height:225px;}
+        .why-img img{width:100%;height:100%;object-fit:cover;display:block;}
+        @media (max-width:860px){
+          .why-card-grid,.why-card-grid.reverse{grid-template-columns:1fr;}
+          .why-img{min-height:165px;}
+          .why-copy h3{font-size:22px;}
         }
       </style>
 
@@ -238,11 +177,7 @@
           </div>
 
           <div class="why-img">
-            <img
-              src="/assets/hero/joint-sand.png"
-              alt="Close-up of paver joints with clean, properly filled joint sand"
-              loading="lazy"
-            />
+            <img src="/assets/hero/joint-sand.png" alt="Close-up of paver joints with clean, properly filled joint sand" loading="lazy" />
           </div>
         </div>
       </div>
@@ -251,11 +186,7 @@
       <div class="card" style="margin-top:14px; overflow:hidden;">
         <div class="why-card-grid reverse">
           <div class="why-img">
-            <img
-              src="/assets/hero/stained-pavers.png"
-              alt="Sealed paver surface helping resist oil and organic staining"
-              loading="lazy"
-            />
+            <img src="/assets/hero/stained-pavers.png" alt="Sealed paver surface helping resist oil and organic staining" loading="lazy" />
           </div>
 
           <div class="why-copy">
@@ -310,27 +241,20 @@
           </div>
 
           <div class="why-img">
-            <img
-              src="/assets/hero/backyard-pavers.jpg"
-              alt="Before and after view of paver sealing restoring curb appeal"
-              loading="lazy"
-            />
+            <img src="/assets/hero/backyard-pavers.jpg" alt="Before and after view of paver sealing restoring curb appeal" loading="lazy" />
           </div>
         </div>
       </div>
 
-      <div
-        class="notice"
-        style="
-          margin-top:16px;
-          border:1px solid rgba(245,158,11,.35);
-          background:
-            radial-gradient(900px 260px at 20% 0%, rgba(251,191,36,.22), transparent 55%),
-            radial-gradient(900px 260px at 90% 0%, rgba(217,119,6,.16), transparent 55%),
-            linear-gradient(180deg, rgba(251,191,36,.14), #fff 58%);
-          color:#78350f;
-        "
-      >
+      <div class="notice" style="
+        margin-top:16px;
+        border:1px solid rgba(245,158,11,.35);
+        background:
+          radial-gradient(900px 260px at 20% 0%, rgba(251,191,36,.22), transparent 55%),
+          radial-gradient(900px 260px at 90% 0%, rgba(217,119,6,.16), transparent 55%),
+          linear-gradient(180deg, rgba(251,191,36,.14), #fff 58%);
+        color:#78350f;
+      ">
         <strong style="color:#92400e;">Reality check:</strong>
         sealing does not fix base/structural issues. If pavers are sinking, rocking, or holding water,
         we’ll tell you upfront what needs to be corrected (and what sealing can and cannot do).
@@ -342,21 +266,17 @@
   <!-- FAQ -->
   <section class="section" style="border-top:1px solid var(--line);">
     <div class="container">
-
-      <div
-        class="card"
-        style="
-          margin-bottom:14px;
-          border-radius:22px;
-          border:1px solid var(--line);
-          background:
-            radial-gradient(900px 260px at 20% 0%, rgba(34,197,94,.18), transparent 55%),
-            radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.16), transparent 55%),
-            linear-gradient(180deg, rgba(11,45,74,.85), rgba(15,110,168,.75));
-          box-shadow: 0 14px 34px rgba(17,24,39,.14);
-          overflow:hidden;
-        "
-      >
+      <div class="card" style="
+        margin-bottom:14px;
+        border-radius:22px;
+        border:1px solid var(--line);
+        background:
+          radial-gradient(900px 260px at 20% 0%, rgba(34,197,94,.18), transparent 55%),
+          radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.16), transparent 55%),
+          linear-gradient(180deg, rgba(11,45,74,.85), rgba(15,110,168,.75));
+        box-shadow: 0 14px 34px rgba(17,24,39,.14);
+        overflow:hidden;
+      ">
         <h2 class="section-title" style="margin:0;color:#fff;">Common paver sealing questions</h2>
       </div>
 
@@ -381,7 +301,6 @@
           <p>We’ll give simple prep notes (move vehicles, clear furniture, secure pets). We handle the technical prep.</p>
         </div>
       </div>
-
     </div>
   </section>
 
