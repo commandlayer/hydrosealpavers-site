@@ -372,15 +372,15 @@
       </div>
     </div>
   </section>
-
- <!-- CERTS / TRUST (COMBINED INTO ONE + IMAGE ON RIGHT) -->
+<!-- CERTS / TRUST (COMBINED INTO ONE + IMAGE ON RIGHT) -->
 <section class="section" style="border-top:1px solid var(--line);">
   <div class="container">
-    <h2 class="section-title">Certifications & standards</h2>
+    <h2 class="section-title">Certifications &amp; standards</h2>
     <p class="section-sub">
       Anyone can “spray sealer.” Professional results come from training, repeatable process, and product knowledge.
     </p>
 
+    <!-- FIX: remove gradient + remove drop-shadow + force solid white interior -->
     <style>
       .cert-hero{
         display:grid;
@@ -395,30 +395,34 @@
         justify-content:space-between;
         height:100%;
       }
+
+      /* SOLID WHITE interior (kills the ghosting) */
       .cert-img{
         border-radius:22px;
         border:1px solid var(--line);
         overflow:hidden;
-        background:
-          radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.16), transparent 55%),
-          radial-gradient(900px 260px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
-          linear-gradient(180deg, rgba(11,45,74,.04), #fff 60%);
+        background:#ffffff !important;   /* force white, no gradients */
         display:flex;
         align-items:center;
         justify-content:center;
-        padding:16px;
+        padding:22px;
+        box-shadow:0 18px 45px rgba(17,24,39,.18);
       }
+
+      /* IMPORTANT: no drop-shadow (it makes the “old badge” show through) */
       .cert-img img{
-        width:70%;
+        width:91%;
         height:auto;
         max-height:100%;
         object-fit:contain;
         display:block;
-        filter: drop-shadow(0 18px 45px rgba(17,24,39,.18));
+        background:#ffffff;
+        filter:none !important;
       }
+
       @media (max-width: 900px){
         .cert-hero{ grid-template-columns: 1fr; }
-        .cert-img img{ width:82%; }
+        .cert-img img{ width:92%; }
       }
     </style>
 
@@ -459,35 +463,20 @@
           <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
         </div>
       </div>
-<!-- RIGHT: Trident image hero (SOLID WHITE INTERIOR, border only) -->
-<div
-  class="cert-img"
-  style="
-    border-radius:22px;
-    border:1px solid var(--line);
-    overflow:hidden;
-    background:#ffffff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:22px;
-    box-shadow:0 18px 45px rgba(17,24,39,.18);
-  "
->
-  <img
-    src="/assets/hero/Trident-Master-white.png"
-    alt="Trident Master Certified badge"
-    loading="lazy"
-    decoding="async"
-    style="
-      width:91%;
-      height:auto;
-      object-fit:contain;
-      display:block;
-      background:#ffffff;
-    "
-  />
-</div>
+
+      <!-- RIGHT: Trident image hero (SOLID WHITE INTERIOR, border only) -->
+      <div class="cert-img" aria-label="Trident Master Certified">
+        <img
+          src="/assets/hero/Trident-Master-white.png"
+          alt="Trident Master Certified badge"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 
