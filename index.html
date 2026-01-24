@@ -398,17 +398,27 @@
   </section>
 
 
-  <!-- STEP BY STEP PROCESS -->
-  <section class="section" style="border-top:1px solid var(--line);">
-    <div class="container">
-      <h2 class="section-title">Our step-by-step paver sealing process</h2>
-      <p class="section-sub">
-        This is the difference between a job that lasts and one that fails. Most issues come from rushing prep or sealing too soon.
-      </p>
+ <!-- STEP BY STEP PROCESS (ORDER: 1,2,3 DOWN LEFT • 4,5,6 DOWN RIGHT) -->
+<section class="section" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <h2 class="section-title">Our step-by-step paver sealing process</h2>
+    <p class="section-sub">
+      This is the difference between a job that lasts and one that fails. Most issues come from rushing prep or sealing too soon.
+    </p>
 
-      <div class="grid grid-2" style="margin-top:16px;">
-        <div class="card">
-          <h3>1) Inspection & surface evaluation</h3>
+    <style>
+      @media (max-width: 900px){
+        .process-two-col{
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+
+    <div class="process-two-col" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;">
+      <!-- LEFT COLUMN: 1,2,3 -->
+      <div style="display:grid;gap:14px;">
+        <div class="card card-bluegrad">
+          <h3>1) Inspection &amp; surface evaluation</h3>
           <p>We review condition, stains, drainage/standing water, joint condition, and any problem areas. We set expectations before we start.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
             <li>Identify shifting/sinking (base issues)</li>
@@ -417,7 +427,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card card-bluegrad">
           <h3>2) Deep cleaning (the right way)</h3>
           <p>Cleaning removes dirt, organic growth, and surface contamination so the sealer bonds correctly and looks uniform.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
@@ -427,8 +437,8 @@
           </ul>
         </div>
 
-        <div class="card">
-          <h3>3) Joint prep & sanding</h3>
+        <div class="card card-bluegrad">
+          <h3>3) Joint prep &amp; sanding</h3>
           <p>We restore joints and add the correct sand to help stabilize the pavers. This is where long-term performance comes from.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
             <li>Remove debris from joints</li>
@@ -436,8 +446,11 @@
             <li>Compact and level the joints</li>
           </ul>
         </div>
+      </div>
 
-        <div class="card">
+      <!-- RIGHT COLUMN: 4,5,6 -->
+      <div style="display:grid;gap:14px;">
+        <div class="card card-bluegrad">
           <h3>4) Dry time (non-negotiable)</h3>
           <p>Sealer and moisture don’t mix. If conditions aren’t right, we wait. Rushing this step is the #1 reason sealers fail.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
@@ -447,7 +460,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card card-bluegrad">
           <h3>5) Professional sealer application</h3>
           <p>We apply sealer in controlled passes and manage edges, overlap, and coverage to avoid puddling, streaking, and tacky spots.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
@@ -457,7 +470,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card card-bluegrad">
           <h3>6) Final walkthrough + care instructions</h3>
           <p>We verify coverage, address any small touch-ups, and give clear cure-time and maintenance guidance so you don’t accidentally damage the finish.</p>
           <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
@@ -467,13 +480,15 @@
           </ul>
         </div>
       </div>
-
-      <div class="notice" style="margin-top:16px;">
-        <strong>What we will NOT do:</strong> seal wet pavers, seal right before rain, or “spray and pray.”
-        Those shortcuts create failures and callbacks.
-      </div>
     </div>
-  </section>
+
+    <div class="notice" style="margin-top:16px;">
+      <strong>What we will NOT do:</strong> seal wet pavers, seal right before rain, or “spray and pray.”
+      Those shortcuts create failures and callbacks.
+    </div>
+  </div>
+</section>
+
 
   <!-- PRICING FACTORS -->
   <section class="section" style="border-top:1px solid var(--line);">
