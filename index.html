@@ -373,38 +373,106 @@
     </div>
   </section>
 
-  <!-- CERTS / TRUST -->
-  <section class="section" style="border-top:1px solid var(--line);">
-    <div class="container">
-      <h2 class="section-title">Certifications & standards</h2>
-      <p class="section-sub">
-        Anyone can “spray sealer.” Professional results come from training, repeatable process, and product knowledge.
-      </p>
+ <!-- CERTS / TRUST (COMBINED INTO ONE + IMAGE ON RIGHT) -->
+<section class="section" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <h2 class="section-title">Certifications & standards</h2>
+    <p class="section-sub">
+      Anyone can “spray sealer.” Professional results come from training, repeatable process, and product knowledge.
+    </p>
 
-      <div class="grid grid-2" style="margin-top:16px;align-items:start;">
-        <!-- UPDATED: blue gradient -->
-        <div class="card card-bluegrad">
-          <h3>Trident Master Certified</h3>
-          <p>
-            We follow a process built around proper cleaning, joint prep, and correct application.
-            That means fewer failures, fewer surprises, and a finish that holds up.
+    <style>
+      .cert-hero{
+        display:grid;
+        grid-template-columns: 1.08fr .92fr;
+        gap:14px;
+        align-items:stretch;
+        margin-top:16px;
+      }
+      .cert-copy{
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        height:100%;
+      }
+      .cert-img{
+        border-radius:22px;
+        border:1px solid var(--line);
+        overflow:hidden;
+        background:
+          radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.16), transparent 55%),
+          radial-gradient(900px 260px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+          linear-gradient(180deg, rgba(11,45,74,.04), #fff 60%);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:16px;
+      }
+      .cert-img img{
+        width:70%;
+        height:auto;
+        max-height:100%;
+        object-fit:contain;
+        display:block;
+        filter: drop-shadow(0 18px 45px rgba(17,24,39,.18));
+      }
+      @media (max-width: 900px){
+        .cert-hero{ grid-template-columns: 1fr; }
+        .cert-img img{ width:82%; }
+      }
+    </style>
+
+    <div class="cert-hero">
+      <!-- LEFT: combined content -->
+      <div class="card card-bluegrad cert-copy">
+        <div>
+          <div class="kicker">Trident Master Certified</div>
+          <h3 style="margin-top:6px;">Training + repeatable process = fewer failures</h3>
+          <p style="margin-top:8px;">
+            We don’t “spray and pray.” We follow a process built around proper cleaning, joint prep, dry-time discipline,
+            and controlled application — so the finish looks even and holds up.
           </p>
-          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);">
-            <li>Surface evaluation + realistic expectations</li>
-            <li>Correct prep and dry-time discipline</li>
-            <li>Product selection based on surface + conditions</li>
-          </ul>
+
+          <div class="grid grid-2" style="margin-top:12px;">
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 6px;">What certification means</h3>
+              <ul style="margin:0;padding-left:18px;color:var(--muted);">
+                <li>Surface evaluation + realistic expectations</li>
+                <li>Correct prep and dry-time discipline</li>
+                <li>Product selection based on surface + conditions</li>
+              </ul>
+            </div>
+
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 6px;">Professional process (what most skip)</h3>
+              <p style="margin:0;color:var(--muted);">
+                We use a checklist-driven approach on every job. If conditions aren’t right (or the surface can’t meet our standards),
+                we reschedule. That’s how you prevent callbacks.
+              </p>
+              <div class="badge" style="margin-top:12px;">Prep first. Product second. Application last.</div>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Professional process (the part most companies skip)</h3>
-          <p>
-            We use a checklist-driven approach on every job. If we can’t meet our standards on a surface (or the weather window isn’t right),
-            we reschedule. That’s how you prevent callbacks.
-          </p>
-          <div class="badge" style="margin-top:12px;">Prep first. Product second. Application last.</div>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+          <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+          <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
         </div>
       </div>
+
+      <!-- RIGHT: Trident image centered, ~70% -->
+      <div class="cert-img">
+        <img
+          src="/assets/hero/Trident-Master.jpg"
+          alt="Trident Master Certified badge"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+</div>
 
      
     </div>
