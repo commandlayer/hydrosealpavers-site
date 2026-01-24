@@ -591,29 +591,87 @@
   </div>
 </section>
 
-    <!-- PROOF / GALLERY CTA -->
-  <section class="section" style="border-top:1px solid var(--line);">
-    <div class="container">
-      <h2 class="section-title">Results you can see</h2>
+<!-- PROOF / GALLERY CTA (IMAGE LEFT + CARDS RIGHT) -->
+<section class="section" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <h2 class="section-title">Results you can see</h2>
 
-      <div class="grid grid-2" style="margin-top:16px;">
-        <div class="card">
+    <style>
+      .proof-grid{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap:14px;
+        align-items:stretch;
+        margin-top:16px;
+      }
+      .proof-hero{
+        border-radius:22px;
+        border:1px solid var(--line);
+        overflow:hidden;
+        background:#f3f4f6;
+        position:relative;
+        min-height:360px; /* fills the “hero” */
+      }
+      .proof-hero img{
+        width:100%;
+        height:100%;
+        object-fit:cover; /* fill the hero */
+        display:block;
+      }
+      .proof-hero::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background: rgba(0,0,0,.04);
+        pointer-events:none;
+      }
+
+      .proof-cards{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:14px;
+        height:100%;
+      }
+
+      @media (max-width: 900px){
+        .proof-grid{ grid-template-columns: 1fr; }
+        .proof-hero{ min-height:220px; }
+      }
+    </style>
+
+    <div class="proof-grid">
+      <!-- LEFT: Before/After hero image (links to Reviews) -->
+      <a class="proof-hero" href="https://www.hydrosealpavers.com/reviews/" aria-label="See reviews">
+        <img
+          src="/assets/hero/Before-After-Why-should-I-seal.png"
+          alt="Before and after paver sealing results"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <!-- RIGHT: CTAs -->
+      <div class="proof-cards">
+        <div class="card card-bluegrad">
           <h3>Before / After Gallery</h3>
           <p>Add 12–20 of your best transformations. This is what sells online.</p>
           <div style="margin-top:12px;">
             <a class="btn btn-ghost" href="/gallery/">View Gallery</a>
           </div>
         </div>
-        <div class="card">
+
+        <div class="card card-greengrad">
           <h3>Reviews</h3>
-          <p>We’ll feature your best reviews and build a trust block that drives calls and quote submissions.</p>
+          <p>See what customers say — and how the finish holds up after curing.</p>
           <div style="margin-top:12px;">
-            <a class="btn btn-ghost" href="/reviews/">Read Reviews</a>
+            <a class="btn btn-ghost" href="https://www.hydrosealpavers.com/reviews/">Read Reviews</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- FAQ -->
 <section class="section" style="border-top:1px solid var(--line);">
