@@ -669,7 +669,7 @@ a.pill{ text-decoration:none; }
 
 /* Bigger header logo (safe-capped) */
 .brand-logo{
-  height:62px;     /* was ~44–48 */
+  height:85px;     /* was ~44–48 */
   width:auto;
   max-width:320px; /* prevents monster stretching */
   object-fit:contain;
