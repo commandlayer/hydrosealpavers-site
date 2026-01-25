@@ -1,11 +1,9 @@
 /* nav-dropdowns.js — HydroSeal dropdown nav (desktop hover + mobile tap)
    - Parents are <button.nav-parent>
    - Mobile dropdown becomes FIXED panel under the header (prevents clipping)
+   - SAFE to call initNavDropdowns() multiple times (includes)
 */
 (function () {
-  if (window.__HYDROSEAL_NAV_INIT__) return;
-  window.__HYDROSEAL_NAV_INIT__ = true;
-
   function isMobile() {
     return window.matchMedia("(max-width: 980px)").matches;
   }
@@ -15,6 +13,7 @@
       if (g !== except) g.classList.remove("open");
       const p = g.querySelector(".nav-parent");
       if (p) p.setAttribute("aria-expanded", g.classList.contains("open") ? "true" : "false");
+      if (g !== except) clearMobileDropdownPosition(g);
     });
   }
 
@@ -28,7 +27,6 @@
     const rect = header.getBoundingClientRect();
     const top = Math.round(rect.bottom + 8);
 
-    // Fixed panel under header (full width with margins)
     dd.style.position = "fixed";
     dd.style.left = "12px";
     dd.style.right = "12px";
@@ -54,66 +52,79 @@
     const groups = Array.from(document.querySelectorAll(".nav-group"));
     if (!groups.length) return;
 
+    // Bind once PER BUTTON
     groups.forEach((group) => {
       const parent = group.querySelector(".nav-parent");
       const dropdown = group.querySelector(".dropdown");
       if (!parent || !dropdown) return;
 
-      parent.setAttribute("aria-haspopup", "true");
-      parent.setAttribute("aria-expanded", "false");
+      if (!parent.dataset.bound) {
+        parent.dataset.bound = "1";
+        parent.setAttribute("aria-haspopup", "true");
+        parent.setAttribute("aria-expanded", "false");
 
-      // Use pointerdown for better mobile reliability than click
-      parent.addEventListener("pointerdown", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        // Use pointerdown for better mobile reliability
+        parent.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
 
-        const wasOpen = group.classList.contains("open");
-        closeAll(groups, group);
+          const wasOpen = group.classList.contains("open");
+          closeAll(groups, null);
 
-        // toggle
-        if (wasOpen) {
-          group.classList.remove("open");
-          parent.setAttribute("aria-expanded", "false");
-          clearMobileDropdownPosition(group);
-        } else {
-          group.classList.add("open");
-          parent.setAttribute("aria-expanded", "true");
-          positionMobileDropdown(group);
-        }
-      });
+          if (wasOpen) {
+            group.classList.remove("open");
+            parent.setAttribute("aria-expanded", "false");
+            clearMobileDropdownPosition(group);
+          } else {
+            group.classList.add("open");
+            parent.setAttribute("aria-expanded", "true");
+            positionMobileDropdown(group);
+          }
+        });
+      }
 
       // prevent dropdown clicks from closing
-      dropdown.addEventListener("pointerdown", (e) => e.stopPropagation());
-    });
-
-    // click/tap outside closes
-    document.addEventListener("pointerdown", () => {
-      groups.forEach(clearMobileDropdownPosition);
-      closeAll(groups, null);
-    });
-
-    // ESC closes
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        groups.forEach(clearMobileDropdownPosition);
-        closeAll(groups, null);
+      if (!dropdown.dataset.bound) {
+        dropdown.dataset.bound = "1";
+        dropdown.addEventListener("pointerdown", (e) => e.stopPropagation());
       }
     });
 
-    // Reposition if you rotate/resize while open
-    window.addEventListener("resize", () => {
-      groups.forEach((g) => {
-        if (g.classList.contains("open")) {
-          if (isMobile()) positionMobileDropdown(g);
-          else clearMobileDropdownPosition(g);
+    // Bind outside-close ONCE globally
+    if (!document.body.dataset.navOutsideBound) {
+      document.body.dataset.navOutsideBound = "1";
+
+      document.addEventListener("pointerdown", (e) => {
+        // If the click is inside the header/nav, don’t close.
+        if (e.target.closest(".header")) return;
+        groups.forEach(clearMobileDropdownPosition);
+        closeAll(groups, null);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          groups.forEach(clearMobileDropdownPosition);
+          closeAll(groups, null);
         }
       });
-    });
+
+      window.addEventListener("resize", () => {
+        groups.forEach((g) => {
+          if (g.classList.contains("open")) {
+            if (isMobile()) positionMobileDropdown(g);
+            else clearMobileDropdownPosition(g);
+          }
+        });
+      });
+    }
   }
 
-  // If header already exists, init now
-  if (document.querySelector(".header .nav-group")) initNavDropdowns();
+  // Expose for include.js hook
+  window.initNavDropdowns = initNavDropdowns;
 
-  // Otherwise wait for include.js
-  document.addEventListener("includes:ready", initNavDropdowns, { once: true });
+  // Init now if header already exists
+  initNavDropdowns();
+
+  // Also init after includes
+  document.addEventListener("includes:ready", initNavDropdowns);
 })();
