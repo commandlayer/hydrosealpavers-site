@@ -1,40 +1,39 @@
-/* Static HTML includes for header/footer */
-(async function(){
+/* Static HTML includes for header/footer + global trust strip */
+(async function () {
+  // ---- 1) Load includes
   const nodes = document.querySelectorAll("[data-include]");
-  for (const el of nodes){
+  for (const el of nodes) {
     const url = el.getAttribute("data-include");
-    try{
-      const res = await fetch(url, { cache:"no-cache" });
-      if(!res.ok) throw new Error("Fetch failed: " + url);
+    try {
+      const res = await fetch(url, { cache: "no-cache" });
+      if (!res.ok) throw new Error("Fetch failed: " + url);
       const html = await res.text();
       el.outerHTML = html;
-    }catch(err){
+    } catch (err) {
       console.error(err);
       el.outerHTML = "<!-- include failed: " + url + " -->";
     }
   }
-})();
 
-/* After includes load, set footer year if present */
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
-  }, 50);
-});
-// ---- GLOBAL TRUST STRIP INJECTOR
-(async () => {
+  // ---- 2) Wait a tick so the new HTML is in the DOM
+  await new Promise((r) => setTimeout(r, 0));
+
+  // ---- 3) Footer year
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+
+  // ---- 4) GLOBAL TRUST STRIP INJECTOR (runs AFTER includes)
   try {
+    // Avoid duplicates
+    if (document.querySelector(".trust-strip")) return;
+
     const res = await fetch("/partials/trust-strip.html", { cache: "no-cache" });
     if (!res.ok) return;
     const html = await res.text();
 
-    // Put it right under the first H1 on the page (best universal placement)
+    // Best universal placement: right under the first H1
     const h1 = document.querySelector("main h1, .hero2 h1, h1");
     if (!h1) return;
-
-    // Avoid duplicates
-    if (document.querySelector(".trust-strip")) return;
 
     const wrap = document.createElement("div");
     wrap.style.display = "flex";
