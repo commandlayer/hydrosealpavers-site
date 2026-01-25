@@ -696,7 +696,11 @@ a.pill{ text-decoration:none; }
   position:relative;
 }
 
-/* Desktop CTAs visible */
+/* =========================
+   HEADER + NAV (NO DUPLICATE CTAs)
+   ========================= */
+
+/* Desktop CTAs visible (desktop only; hidden in mobile MQ below) */
 .header-ctas{
   display:flex;
   gap:10px;
@@ -705,7 +709,10 @@ a.pill{ text-decoration:none; }
   margin-left:auto;
 }
 
-.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
+/* Mobile CTAs hidden on desktop; shown in mobile MQ */
+.nav-mobile-ctas{ display:none; }
+
+.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn, .nav-mobile-ctas .btn{
   font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
@@ -863,11 +870,13 @@ button.nav-link,
     justify-content:flex-end;
   }
 
-  /* show hamburger, hide desktop CTAs */
+  /* show hamburger */
   .nav-toggle{
     display:flex;
     flex:0 0 auto;
   }
+
+  /* IMPORTANT: hide desktop CTAs so they don't duplicate the mobile CTAs */
   .header-ctas{ display:none !important; }
 
   /* nav panel closed by default */
@@ -927,11 +936,12 @@ button.nav-link,
     margin-top:6px;
   }
 
-  /* mobile CTAs */
+  /* Mobile-only CTAs (shown ONLY inside the opened menu) */
   .nav-mobile-ctas{
     display:flex;
     gap:10px;
     padding:10px 6px 6px;
+    margin-top:6px;
   }
   .nav-mobile-ctas .btn{
     flex:1;
