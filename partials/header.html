@@ -1,4 +1,3 @@
-
 <!-- Header (logo + nav + CTAs on one row) -->
 <header class="header">
   <div class="container header-row">
@@ -13,57 +12,80 @@
       />
     </a>
 
-    <!-- Nav -->
-    <nav class="nav header-nav" aria-label="Primary">
-      <div class="nav-menu" id="navMenu">
+    <!-- Nav shell (hamburger + menu + overlay) -->
+    <div class="nav-shell">
 
-       <!-- Paver Sealing -->
-<div class="nav-group">
-  <button class="nav-link nav-parent" type="button" aria-expanded="false">
-    Paver Sealing
-  </button>
-  <div class="dropdown">
-    <a href="/paver-sealing/driveways.html">Driveways</a>
-    <a href="/paver-sealing/pool-decks.html">Pool Decks</a>
-    <a href="/paver-sealing/travertine-sealing.html">Travertine Sealing</a>
-  </div>
-</div>
+      <!-- Mobile hamburger -->
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
 
-<!-- Commercial -->
-<div class="nav-group">
-  <button class="nav-link nav-parent" type="button" aria-expanded="false">
-    Commercial
-  </button>
-  <div class="dropdown">
-    <a href="/commercial/hoa-communities.html">HOA Communities</a>
-    <a href="/commercial/apartment-complexes.html">Apartments</a>
-    <a href="/commercial/builders-new-construction.html">Builders / New Construction</a>
-    <a href="/commercial/retail-centers.html">Retail Centers</a>
-    <a href="/commercial/office-buildings.html">Office Buildings</a>
-  </div>
-</div>
+      <!-- Nav -->
+      <nav class="nav header-nav" aria-label="Primary">
+        <div class="nav-menu" id="navMenu">
 
-<!-- Service Areas -->
-<div class="nav-group">
-  <button class="nav-link nav-parent" type="button" aria-expanded="false">
-    Service Areas
-  </button>
-  <div class="dropdown">
-    <a href="/service-areas/st-johns-county/">St. Johns County</a>
-    <a href="/service-areas/duval-county/">Duval County</a>
-    <a href="/service-areas/clay-county/">Clay County</a>
-  </div>
-</div>
+          <!-- Paver Sealing -->
+          <div class="nav-group">
+            <button class="nav-link nav-parent" type="button" aria-expanded="false">
+              Paver Sealing
+            </button>
+            <div class="dropdown" role="menu" aria-label="Paver Sealing">
+              <a role="menuitem" href="/paver-sealing/driveways.html">Driveways</a>
+              <a role="menuitem" href="/paver-sealing/pool-decks.html">Pool Decks</a>
+              <a role="menuitem" href="/paver-sealing/travertine-sealing.html">Travertine Sealing</a>
+            </div>
+          </div>
 
+          <!-- Commercial -->
+          <div class="nav-group">
+            <button class="nav-link nav-parent" type="button" aria-expanded="false">
+              Commercial
+            </button>
+            <div class="dropdown" role="menu" aria-label="Commercial">
+              <a role="menuitem" href="/commercial/hoa-communities.html">HOA Communities</a>
+              <a role="menuitem" href="/commercial/apartment-complexes.html">Apartments</a>
+              <a role="menuitem" href="/commercial/builders-new-construction.html">Builders / New Construction</a>
+              <a role="menuitem" href="/commercial/retail-centers.html">Retail Centers</a>
+              <a role="menuitem" href="/commercial/office-buildings.html">Office Buildings</a>
+            </div>
+          </div>
 
-        <!-- Proof -->
-        <a class="nav-link" href="/reviews/">Reviews</a>
-        <a class="nav-link" href="/warranty/">Warranty</a>
+          <!-- Service Areas -->
+          <div class="nav-group">
+            <button class="nav-link nav-parent" type="button" aria-expanded="false">
+              Service Areas
+            </button>
+            <div class="dropdown" role="menu" aria-label="Service Areas">
+              <a role="menuitem" href="/service-areas/st-johns-county/">St. Johns County</a>
+              <a role="menuitem" href="/service-areas/duval-county/">Duval County</a>
+              <a role="menuitem" href="/service-areas/clay-county/">Clay County</a>
+            </div>
+          </div>
 
-      </div>
-    </nav>
+          <!-- Proof -->
+          <a class="nav-link" href="/reviews/">Reviews</a>
+          <a class="nav-link" href="/warranty/">Warranty</a>
 
-    <!-- Header CTAs -->
+          <!-- Mobile-only CTAs inside menu -->
+          <div class="nav-mobile-ctas">
+            <a class="btn btn-ghost" href="tel:+19045375000">Call</a>
+            <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
+          </div>
+
+        </div>
+      </nav>
+
+      <!-- Mobile overlay -->
+      <div class="nav-overlay" hidden></div>
+    </div>
+
+    <!-- Desktop CTAs (hidden on mobile via CSS) -->
     <div class="header-ctas">
       <a class="btn btn-ghost" href="tel:+19045375000">Call</a>
       <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
