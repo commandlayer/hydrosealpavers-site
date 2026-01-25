@@ -709,6 +709,39 @@ a.pill{ text-decoration:none; }
   .hazard-split{ grid-template-columns: 1fr; }
   .hazard-hero{ min-height: 220px; }
 }
+/* ===== Service-page split + media helpers (Driveway/Pool/etc.) ===== */
+
+/* Split stacks on mobile */
+@media (max-width: 900px){
+  .pool-split,
+  .pool-split-rev,
+  .driveway-split,
+  .driveway-split-rev{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Media box prevents stretched images */
+.media-box{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #f3f4f6;
+}
+.media-box > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controlled media height */
+.media-h-md{ height: 360px; }
+@media (max-width: 900px){
+  .media-h-md{ height: 240px; }
+  .ba-img{ height: 220px !important; }
+}
 
 /* =================================================================== */
 /* ============================ FOOTER ================================ */
