@@ -895,6 +895,18 @@ button.nav-link,
     max-height: calc(100vh - 96px);
     overflow:auto;
   }
+.nav-parent{
+  background: none;
+  border: 0;
+  padding: 0;            /* or match .nav-link padding */
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+.nav-parent:focus{
+  outline: none;         /* optional, but add your own focus style if you remove this */
+}
 
   /* open state */
   .nav-shell.open .header-nav{ display:block; }
