@@ -1,58 +1,56 @@
-/* include.js — FAST static includes (header/footer only) */
+/* Static HTML includes for header/footer + global trust bar (below hero) */
 (async function () {
-  if (window.__HYDROSEAL_INCLUDES_INIT__) return;
-  window.__HYDROSEAL_INCLUDES_INIT__ = true;
-
-  document.body.classList.add("includes-loading");
-
-  const nodes = Array.from(document.querySelectorAll("[data-include]"));
-  if (!nodes.length) {
-    document.body.classList.remove("includes-loading");
-    document.body.classList.add("includes-ready");
-    document.dispatchEvent(new CustomEvent("includes:ready"));
-    return;
+  // 1) Load includes
+  const nodes = document.querySelectorAll("[data-include]");
+  for (const el of nodes) {
+    const url = el.getAttribute("data-include");
+    try {
+      const res = await fetch(url, { cache: "no-cache" });
+      if (!res.ok) throw new Error("Fetch failed: " + url);
+      const html = await res.text();
+      el.outerHTML = html;
+    } catch (err) {
+      console.error(err);
+      el.outerHTML = "<!-- include failed: " + url + " -->";
+    }
   }
 
+  // 2) Let the DOM settle
+  await new Promise((r) => setTimeout(r, 0));
+
+  // 3) Footer year
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+
+  // 4) Inject trust bar BELOW HERO IMAGE
   try {
-    const results = await Promise.allSettled(
-      nodes.map(async (el) => {
-        const url = el.getAttribute("data-include");
-        const res = await fetch(url, { cache: "force-cache" });
-        if (!res.ok) throw new Error("Fetch failed: " + url);
-        const html = (await res.text()).trim();
-        return { el, url, html };
-      })
-    );
+    // Don’t add if page already has one (home page does)
+    if (document.querySelector(".trustbar.trust-strip")) return;
 
-    for (const r of results) {
-      if (r.status !== "fulfilled") continue;
-      const { el, url, html } = r.value;
+    const res = await fetch("/partials/trustbar.html", { cache: "no-cache" });
+    if (!res.ok) return;
+    const html = (await res.text()).trim();
+    if (!html) return;
 
-      if (!html) {
-        el.outerHTML = `<!-- include empty: ${url} -->`;
-        continue;
-      }
+    const tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    const trustbar = tmp.firstElementChild;
+    if (!trustbar) return;
 
-      const wrap = document.createElement("div");
-      wrap.innerHTML = html;
-      const node = wrap.firstElementChild;
-
-      if (node) el.replaceWith(node);
-      else el.outerHTML = `<!-- include parse failed: ${url} -->`;
-
-      // ✅ one-line hook: if header was injected, re-init nav logic
-      if (url === "/partials/header.html" && window.initNavDropdowns) window.initNavDropdowns();
-      if (url === "/partials/header.html" && window.initHeaderNav) window.initHeaderNav(); // if you add hamburger later
+    const hero = document.querySelector(".hero2");
+    if (hero) {
+      hero.insertAdjacentElement("afterend", trustbar);
+      return;
     }
 
-    // footer year (if footer exists)
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
+    const header = document.querySelector(".header, header");
+    if (header) {
+      header.insertAdjacentElement("afterend", trustbar);
+      return;
+    }
+
+    document.body.insertAdjacentElement("afterbegin", trustbar);
   } catch (e) {
     // fail silently
   }
-
-  document.body.classList.remove("includes-loading");
-  document.body.classList.add("includes-ready");
-  document.dispatchEvent(new CustomEvent("includes:ready"));
 })();
