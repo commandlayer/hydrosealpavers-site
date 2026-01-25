@@ -1,4 +1,4 @@
-/* Static HTML includes for header/footer + global trust strip */
+/* Static HTML includes for header/footer + global trust strip (FULL-WIDTH, below hero) */
 (async function () {
   // ---- 1) Load includes (header/footer/etc.)
   const nodes = document.querySelectorAll("[data-include]");
@@ -22,37 +22,40 @@
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 
-  // ---- 4) GLOBAL TRUST STRIP INJECTOR (BELOW HERO IMAGE, not in hero text)
+  // ---- 4) GLOBAL TRUST BAR INJECTOR (full-width, below hero image)
   try {
-    // Avoid duplicates
-    if (document.querySelector(".trust-strip")) return;
+    // Avoid duplicates (match either the wrapper or the bar itself)
+    if (document.querySelector(".trustbar.trust-strip, .trust-strip, .trustbar")) return;
 
-    const res = await fetch("/partials/trust-strip.html", { cache: "no-cache" });
+    // NOTE: this partial should contain the FULL-WIDTH markup:
+    // <div class="trustbar trust-strip"><div class="container">...</div></div>
+    const res = await fetch("/partials/trustbar.html", { cache: "no-cache" });
     if (!res.ok) return;
-    const html = await res.text();
+    const html = (await res.text()).trim();
+    if (!html) return;
 
     // Turn the partial into a real element
     const tmp = document.createElement("div");
-    tmp.innerHTML = html.trim();
-    const strip = tmp.firstElementChild;
-    if (!strip) return;
+    tmp.innerHTML = html;
+    const trustbar = tmp.firstElementChild;
+    if (!trustbar) return;
 
     // 1) Ideal placement: immediately after the big hero section
     const hero = document.querySelector(".hero2");
     if (hero) {
-      hero.insertAdjacentElement("afterend", strip);
+      hero.insertAdjacentElement("afterend", trustbar);
       return;
     }
 
     // 2) Fallback: immediately after the header (if present)
     const header = document.querySelector(".header");
     if (header) {
-      header.insertAdjacentElement("afterend", strip);
+      header.insertAdjacentElement("afterend", trustbar);
       return;
     }
 
     // 3) Last fallback: top of body
-    document.body.insertAdjacentElement("afterbegin", strip);
+    document.body.insertAdjacentElement("afterbegin", trustbar);
   } catch (e) {
     // fail silently
   }
