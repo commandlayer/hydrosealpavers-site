@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,6 +6,41 @@
   <title>Paver Sealing for Driveways | HydroSeal Pavers</title>
   <meta name="description" content="Paver sealing for driveways in St. Johns, Duval, and Clay County. Deep clean, re-sand, seal. Call 904.537.5000 for a free estimate." />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- PAGE-ONLY FIXES (you can move these into styles.css) -->
+  <style>
+    /* Split grids stack on mobile */
+    @media (max-width: 900px){
+      .driveway-split,
+      .driveway-split-rev{
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Media box prevents “stretch to match text column” */
+    .media-box{
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+    }
+    .media-box > img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .media-h-md{ height: 360px; }
+    @media (max-width: 900px){
+      .media-h-md{ height: 240px; }
+    }
+
+    /* Before/After image height on mobile */
+    @media (max-width: 900px){
+      .ba-img{ height: 220px !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -104,8 +138,6 @@
   <section class="section">
     <div class="container">
 
-    
-
       <!-- INTRO -->
       <div style="margin-top:18px;color:var(--muted);max-width:920px;">
         <p>
@@ -117,6 +149,7 @@
       <!-- PHOTO + TEXT (BLOCK 1) -->
       <section style="margin-top:22px;">
         <div
+          class="driveway-split"
           style="
             display:grid;
             grid-template-columns: 1.1fr .9fr;
@@ -124,14 +157,13 @@
             align-items: stretch;
           "
         >
-          <!-- PHOTO -->
-          <div class="card" style="padding:0; overflow:hidden;">
+          <!-- PHOTO (fixed-height media box prevents stretching) -->
+          <div class="media-box media-h-md">
             <img
               src="/assets/hero/hydroseal-driveway.png"
               alt="Sealed paver driveway close-up"
               loading="lazy"
               decoding="async"
-              style="width:100%; height:100%; object-fit:cover; display:block;"
             />
           </div>
 
@@ -149,10 +181,6 @@
               <li>Helps resist oil, rust, and dirt staining</li>
               <li>Reduced weed growth in joints</li>
             </ul>
-
-            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
-             
-            </div>
           </div>
         </div>
       </section>
@@ -160,6 +188,7 @@
       <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
       <section style="margin-top:18px;">
         <div
+          class="driveway-split-rev"
           style="
             display:grid;
             grid-template-columns: .9fr 1.1fr;
@@ -191,14 +220,13 @@
             </div>
           </div>
 
-          <!-- PHOTO (PLACEHOLDER YOU CAN SWAP) -->
-          <div class="card" style="padding:0; overflow:hidden;">
+          <!-- PHOTO (fixed-height media box prevents stretching) -->
+          <div class="media-box media-h-md">
             <img
               src="/assets/hero/paver-sealing-jacksonville-driveway.png"
               alt="Paver driveway after sealing"
               loading="lazy"
               decoding="async"
-              style="width:100%; height:100%; object-fit:cover; display:block;"
             />
           </div>
         </div>
@@ -222,6 +250,7 @@
           >
             <div class="card" style="padding:0; overflow:hidden; border:1px dashed rgba(0,0,0,.15);">
               <img
+                class="ba-img"
                 src="/assets/hero/placeholder-before.png"
                 alt="Before photo placeholder"
                 loading="lazy"
@@ -233,6 +262,7 @@
 
             <div class="card" style="padding:0; overflow:hidden; border:1px dashed rgba(0,0,0,.15);">
               <img
+                class="ba-img"
                 src="/assets/hero/placeholder-after.png"
                 alt="After photo placeholder"
                 loading="lazy"
@@ -241,9 +271,6 @@
               />
               <div style="padding:10px; font-weight:900;">After</div>
             </div>
-          </div>
-
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
           </div>
         </div>
       </section>
@@ -296,13 +323,6 @@
           </div>
         </div>
       </section>
-
-      <!-- responsive helper (keeps blocks clean on mobile) -->
-      <style>
-        @media (max-width: 900px){
-          .service-split, .service-split-rev { grid-template-columns: 1fr !important; }
-        }
-      </style>
 
     </div>
   </section>
