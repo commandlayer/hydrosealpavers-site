@@ -896,31 +896,3 @@ a.pill{ text-decoration:none; }
   body{ padding-bottom: 84px; }
 }
 
-/* Trust strip (inline credibility bar) */
-.trust-strip{
-  margin: 14px 0 0;
-  padding: 10px 14px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-
-  font-weight: 900;
-  font-size: 12px;
-  letter-spacing: .02em;
-
-  color: var(--navy);
-  background:
-    radial-gradient(700px 160px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
-    linear-gradient(180deg, #ffffff, #f8fafc);
-
-  border: 1px solid var(--line);
-  box-shadow: 0 6px 18px rgba(17,24,39,.08);
-}
-
-/* Center helper when used under hero copy */
-.trust-strip.center{
-  margin-left: auto;
-  margin-right: auto;
-}
