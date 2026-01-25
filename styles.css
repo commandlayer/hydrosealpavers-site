@@ -131,6 +131,25 @@ section{scroll-margin-top:var(--sticky-offset)}
 .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted)}
 
+/* Prevent header “pop-in” layout shift */
+[data-include="/partials/header.html"]{
+  min-height: 112px; /* adjust to your real header height */
+  display: block;
+}
+
+/* Smooth reveal after includes load */
+body.includes-loading .header{
+  opacity: 0;
+  transform: translateY(-6px);
+}
+body.includes-ready .header{
+  opacity: 1;
+  transform: none;
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+
+
 /* ===== Blue Gradient Card (shared premium style) ===== */
 .card-bluegrad{
   border-radius:22px;
