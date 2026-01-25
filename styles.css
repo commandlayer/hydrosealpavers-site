@@ -420,7 +420,6 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   align-items:stretch;
   padding:16px;
 }
-
 /* Individual trust items */
 .trust-item{
   display:flex;
@@ -432,38 +431,22 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   border-radius:16px;
 
   font-weight:1000;
-  font-size:16px;           /* +3–5px bump */
+  font-size:16px;           /* still +3–5px bump */
   line-height:1.2;
   letter-spacing:.01em;
   color:var(--navy);
 
-  /* NOTICEABLE green → light green gradient (TOP → BOTTOM) */
+  /* HydroSeal “water blue” → near-white (TOP → BOTTOM) */
   background:
     linear-gradient(
       180deg,
-      rgba(34,197,94,.32) 0%,
-      rgba(167,243,208,.65) 55%,
-      rgba(236,253,245,.95) 100%
+      rgba(57,191,234,.34) 0%,
+      rgba(185,242,255,.62) 55%,
+      rgba(245,253,255,.96) 100%
     );
 
-  border:1px solid rgba(34,197,94,.35);
+  border:1px solid rgba(57,191,234,.38);
   box-shadow: 0 8px 20px rgba(17,24,39,.10);
-}
-
-/* Mobile cleanup */
-@media (max-width: 900px){
-  .trustbar .container{
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 520px){
-  .trustbar .container{
-    grid-template-columns: 1fr;
-  }
-  .trust-item{
-    font-size:15px;
-  }
 }
 
 
