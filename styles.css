@@ -839,6 +839,17 @@ a.pill{ text-decoration:none; }
   height:10px;
 }
 
+/* --- Mobile/JS dropdown support (REQUIRED) --- */
+.nav-group.open .dropdown{ display:block; }
+
+/* Optional: make parents obviously tappable */
+.nav-parent{ cursor:pointer; }
+
+/* On touch devices, disable hover-open to avoid weird flicker */
+@media (hover: none){
+  .nav-group:hover .dropdown{ display:none; }
+}
+
 /* Desktop hover (only when a mouse exists) */
 @media (hover:hover) and (pointer:fine){
   .nav-group:hover .dropdown,
