@@ -402,90 +402,67 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   font-size:12px;
 }
 
-/* =========================
-   TRUST BAR — equal items across page
-   - Desktop: 4 equal columns
-   - Mobile: 2 columns, then 1 if needed
-   ========================= */
-
+/* Trust bar — 4 equal "green grad" pills/cards */
 .trustbar{
   background:#fff;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 
-/* KEY CHANGE: grid instead of flex */
 .trustbar .container{
   display:grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap:12px;
-  align-items:stretch;
   padding:14px 16px;
+  align-items:stretch;
 }
 
-/* Each item fills its grid cell */
+/* Each item = its own green gradient “chip card” */
 .trust-item{
   position:relative;
-  width:100%;
-  min-height:44px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
-  padding:10px 12px;
-  border-radius:999px;
-
-  border:0;               /* no outer ring */
-  color:var(--navy);
-  font-weight:900;
-  font-size:13px;
-  line-height:1.1;
   text-align:center;
 
-  background: rgba(57,191,234,.10);
-  overflow:hidden;        /* keeps gradient clean inside pill */
+  min-height:44px;
+  padding:10px 12px;
+
+  font-weight:1000;
+  font-size:12.5px;
+  line-height:1.15;
+  color:var(--navy);
+
+  border-radius:999px;
+  border:1px solid rgba(11,45,74,.10);
+
+  background:
+    radial-gradient(700px 180px at 50% 0%, rgba(40,182,200,.22), transparent 58%),
+    radial-gradient(700px 180px at 50% 100%, rgba(34,197,94,.16), transparent 58%),
+    linear-gradient(180deg, rgba(40,182,200,.07), #fff 55%);
+
+  box-shadow: 0 10px 24px rgba(17,24,39,.08);
+  overflow:hidden;
 }
 
-/* Animated vertical gradient wash */
-.trust-item::before{
+/* Subtle highlight sheen */
+.trust-item::after{
   content:"";
   position:absolute;
-  inset:0;
-  border-radius:inherit;
-
-  background: linear-gradient(
-    180deg,
-    rgba(57,191,234,.18) 0%,
-    rgba(15,110,168,.10) 45%,
-    rgba(57,191,234,.18) 100%
-  );
-
-  background-size: 100% 220%;
-  background-position: 50% 0%;
-  animation: trustGlowY 3.2s ease-in-out infinite;
-  opacity: 1;
+  inset:-2px;
+  pointer-events:none;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 55%);
+  opacity:.28;
 }
 
-/* Text above the animated layer */
-.trust-item > *{
-  position:relative;
-  z-index:1;
-}
-
-/* Optional: subtle hover */
+/* Hover (optional) */
 .trust-item:hover{
+  border-color: rgba(34,197,94,.35);
+  box-shadow: 0 14px 30px rgba(17,24,39,.12);
   transform: translateY(-1px);
 }
 
-/* Vertical keyframes */
-@keyframes trustGlowY{
-  0%   { background-position: 50% 0%; }
-  50%  { background-position: 50% 100%; }
-  100% { background-position: 50% 0%; }
-}
-
-/* Responsive */
+/* Make it responsive */
 @media (max-width: 980px){
   .trustbar .container{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -496,6 +473,7 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
     grid-template-columns: 1fr;
   }
 }
+
 
 
 /* Headings helpers */
