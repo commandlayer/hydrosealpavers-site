@@ -839,9 +839,16 @@ a.pill{ text-decoration:none; }
   height:10px;
 }
 
-/* Desktop hover open */
-.nav-group:hover .dropdown,
-.nav-group:focus-within .dropdown{
+/* Desktop hover (only when a mouse exists) */
+@media (hover:hover) and (pointer:fine){
+  .nav-group:hover .dropdown,
+  .nav-group:focus-within .dropdown{
+    display:block;
+  }
+}
+
+/* Tap/click open state (mobile + desktop) */
+.nav-group.open .dropdown{
   display:block;
 }
 
