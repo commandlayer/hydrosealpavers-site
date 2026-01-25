@@ -663,28 +663,27 @@ a.pill{ text-decoration:none; }
   display:flex;
   align-items:center;
   gap:14px;
-  padding:14px 16px;
-  min-height:72px;
+  padding:12px 16px;
+  min-height:86px;
 }
 
-/* ✅ LOGO FIX: hard cap size so it can’t blow up the header */
-.brand{
-  display:flex;
-  align-items:center;
-  flex:0 0 auto;
-  gap:10px;
-  min-width: 0;
-}
+/* Bigger header logo (safe-capped) */
 .brand-logo{
-  height:44px;
+  height:62px;     /* was ~44–48 */
   width:auto;
-  max-width:240px;
+  max-width:320px; /* prevents monster stretching */
   object-fit:contain;
   display:block;
 }
-@media (min-width:981px){
-  .brand-logo{ height:48px; max-width:260px; }
+
+/* Keep it slightly smaller on very small phones */
+@media (max-width:420px){
+  .brand-logo{
+    height:54px;
+    max-width:260px;
+  }
 }
+
 
 .header-nav{ width:100%; }
 
