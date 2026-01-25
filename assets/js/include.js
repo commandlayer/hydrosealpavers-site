@@ -22,3 +22,28 @@ window.addEventListener("DOMContentLoaded", () => {
     if (y) y.textContent = new Date().getFullYear();
   }, 50);
 });
+// ---- GLOBAL TRUST STRIP INJECTOR
+(async () => {
+  try {
+    const res = await fetch("/partials/trust-strip.html", { cache: "no-cache" });
+    if (!res.ok) return;
+    const html = await res.text();
+
+    // Put it right under the first H1 on the page (best universal placement)
+    const h1 = document.querySelector("main h1, .hero2 h1, h1");
+    if (!h1) return;
+
+    // Avoid duplicates
+    if (document.querySelector(".trust-strip")) return;
+
+    const wrap = document.createElement("div");
+    wrap.style.display = "flex";
+    wrap.style.justifyContent = "center";
+    wrap.style.marginTop = "10px";
+    wrap.innerHTML = html;
+
+    h1.insertAdjacentElement("afterend", wrap);
+  } catch (e) {
+    // fail silently
+  }
+})();
