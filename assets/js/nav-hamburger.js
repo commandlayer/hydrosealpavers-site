@@ -1,25 +1,25 @@
-/* nav-hamburger.js — HydroSeal mobile hamburger + panel open/close */
+/* nav-hamburger.js — minimal hamburger toggle for your exact header markup */
 (function () {
-  function initHeaderNav() {
+  function initHeaderHamburger() {
     const shell = document.querySelector(".nav-shell");
-    const toggle = document.querySelector(".nav-toggle");
+    const btn = document.querySelector(".nav-toggle");
     const overlay = document.querySelector(".nav-overlay");
     const nav = document.querySelector(".header-nav");
-    if (!shell || !toggle || !overlay || !nav) return;
+    if (!shell || !btn || !overlay || !nav) return;
 
-    // prevent double-binding
-    if (shell.dataset.hamburgerBound) return;
-    shell.dataset.hamburgerBound = "1";
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = "1";
 
     const setOpen = (open) => {
       shell.classList.toggle("open", open);
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
       overlay.hidden = !open;
       document.documentElement.classList.toggle("nav-lock", open);
       document.body.classList.toggle("nav-lock", open);
     };
 
-    toggle.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       setOpen(!shell.classList.contains("open"));
     });
 
@@ -29,19 +29,14 @@
       if (e.key === "Escape") setOpen(false);
     });
 
-    // Close when clicking a normal link inside the menu
+    // Close menu when clicking any normal link
     nav.addEventListener("click", (e) => {
       const a = e.target.closest("a");
       if (a) setOpen(false);
     });
   }
 
-  // Run now
-  initHeaderNav();
-
-  // Expose for include.js hook
-  window.initHeaderNav = initHeaderNav;
-
-  // Also init after includes
-  document.addEventListener("includes:ready", initHeaderNav);
+  initHeaderHamburger();
+  document.addEventListener("includes:ready", initHeaderHamburger);
+  window.initHeaderHamburger = initHeaderHamburger; // optional
 })();
