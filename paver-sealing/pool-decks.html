@@ -6,6 +6,39 @@
   <title>Paver Sealing for Pool Decks | HydroSeal Pavers</title>
   <meta name="description" content="Paver sealing for pool decks in St. Johns, Duval, and Clay County. Deep clean, treat efflorescence, re-sand, and seal. Optional SharkGrip® anti-slip additive. Call 904.537.5000." />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- PAGE FIXES: safe to move into /styles.css if you want -->
+  <style>
+    /* Split stacks on mobile */
+    @media (max-width: 900px){
+      .pool-split,
+      .pool-split-rev{
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Media box prevents images stretching to match text column height */
+    .media-box{
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+    }
+    .media-box > img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Controlled media height */
+    .media-h-md{ height: 360px; }
+    @media (max-width: 900px){
+      .media-h-md{ height: 240px; }
+      .ba-img{ height: 220px !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -122,6 +155,7 @@
       <!-- PHOTO + TEXT (BLOCK 1) -->
       <section style="margin-top:22px;">
         <div
+          class="pool-split"
           style="
             display:grid;
             grid-template-columns: 1.1fr .9fr;
@@ -129,14 +163,13 @@
             align-items: stretch;
           "
         >
-          <!-- PHOTO -->
-          <div class="card" style="padding:0; overflow:hidden;">
+          <!-- PHOTO (fixed-height media box prevents stretching) -->
+          <div class="media-box media-h-md">
             <img
               src="/assets/hero/hydroseal-patio-pavers.png"
               alt="Paver pool deck after sealing"
               loading="lazy"
               decoding="async"
-              style="width:100%; height:100%; object-fit:cover; display:block;"
             />
           </div>
 
@@ -166,6 +199,7 @@
       <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
       <section style="margin-top:18px;">
         <div
+          class="pool-split-rev"
           style="
             display:grid;
             grid-template-columns: .9fr 1.1fr;
@@ -197,14 +231,13 @@
             </div>
           </div>
 
-          <!-- PHOTO (swap later) -->
-          <div class="card" style="padding:0; overflow:hidden;">
+          <!-- PHOTO -->
+          <div class="media-box media-h-md">
             <img
               src="/assets/hero/hydroseal-travertine-pool-deck-square.png"
               alt="Pool deck pavers detail"
               loading="lazy"
               decoding="async"
-              style="width:100%; height:100%; object-fit:cover; display:block;"
             />
           </div>
         </div>
@@ -255,9 +288,6 @@
                 Review results and give clear guidance on dry time, return-to-use, and maintenance.
               </p>
             </div>
-          </div>
-
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
           </div>
         </div>
       </section>
@@ -313,6 +343,7 @@
           >
             <div class="card" style="padding:0; overflow:hidden; border:1px dashed rgba(0,0,0,.15);">
               <img
+                class="ba-img"
                 src="/assets/hero/placeholder-before.png"
                 alt="Before photo placeholder"
                 loading="lazy"
@@ -324,6 +355,7 @@
 
             <div class="card" style="padding:0; overflow:hidden; border:1px dashed rgba(0,0,0,.15);">
               <img
+                class="ba-img"
                 src="/assets/hero/placeholder-after.png"
                 alt="After photo placeholder"
                 loading="lazy"
@@ -332,9 +364,6 @@
               />
               <div style="padding:10px; font-weight:900;">After</div>
             </div>
-          </div>
-
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
           </div>
         </div>
       </section>
@@ -388,13 +417,6 @@
           </div>
         </div>
       </section>
-
-      <!-- mobile stacking helper -->
-      <style>
-        @media (max-width: 900px){
-          .service-split, .service-split-rev { grid-template-columns: 1fr !important; }
-        }
-      </style>
 
     </div>
   </section>
