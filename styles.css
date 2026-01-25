@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap");
 
-/* HydroSeal Pavers — styles.css (CLEAN FULL FILE + MOBILE WRAP NAV + FIXED DROPDOWN PANEL) */
+/* HydroSeal Pavers — styles.css (FULL FILE)
+   - Montserrat header/nav
+   - Sticky header offset
+   - Desktop hover dropdowns
+   - Mobile hamburger nav panel (your .nav-shell markup)
+   - Safe defaults + your existing components (hero/cards/reviews/etc)
+*/
 
 :root{
   --navy:#0B2D4A;
@@ -221,7 +227,7 @@ body.includes-ready .header{
 }
 .card-greengrad > *{ position:relative; z-index:1; }
 
-/* Basic hero (simple) */
+/* Basic hero */
 .hero{
   background:var(--navy);
   color:#fff;
@@ -241,8 +247,6 @@ body.includes-ready .header{
   overflow:hidden;
   padding-top:18px;
 }
-
-/* Only apply default CSS hero background when you add .use-css-hero */
 .hero2.use-css-hero::before{
   content:"";
   position:absolute;
@@ -253,7 +257,6 @@ body.includes-ready .header{
   transform:scale(1.02);
   pointer-events:none;
 }
-
 .hero2 .container{
   position:relative;
   z-index:2;
@@ -273,8 +276,6 @@ body.includes-ready .header{
   font-size:18px;
   max-width:720px;
 }
-
-/* Centered glass hero panels */
 .hero2 .hero-panel{
   text-align:center;
   margin:0 auto;
@@ -285,8 +286,6 @@ body.includes-ready .header{
   margin-left:auto !important;
   margin-right:auto !important;
 }
-
-/* HERO chips */
 .hero2 .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
 .chip{
   display:inline-flex;
@@ -300,7 +299,6 @@ body.includes-ready .header{
   font-weight:900;
   font-size:12px;
 }
-
 .hero-grid{
   display:grid;
   grid-template-columns:1.25fr .85fr;
@@ -313,7 +311,7 @@ body.includes-ready .header{
   .hero2 h1{font-size:40px}
 }
 
-/* Instant Quote card (homepage) */
+/* Instant Quote card */
 .quote-card{
   border-radius:22px;
   border:1px solid rgba(255,255,255,.18);
@@ -497,31 +495,7 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   box-shadow: 0 10px 24px rgba(17,24,39,.08);
 }
 
-/* Icon badges */
-.icon-badge{
-  width:26px;
-  min-width:26px;
-  height:26px;
-  border-radius:999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:1000;
-  font-size:13px;
-  border:1px solid rgba(11,45,74,.18);
-  background:#fff;
-  color: var(--navy);
-}
-.icon-badge.google{
-  border-color: rgba(15,110,168,.28);
-  background: rgba(57,191,234,.12);
-}
-.icon-badge.facebook{
-  border-color: rgba(11,45,74,.20);
-  background: rgba(15,110,168,.10);
-}
-
-/* Reviews action row */
+/* Review actions row */
 .review-actions{
   margin-top:14px;
   display:grid;
@@ -549,15 +523,12 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
 }
 a.pill{ text-decoration:none; }
-
 .pill:hover{
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(17,24,39,.10);
   border-color: rgba(15,110,168,.28);
 }
-
 .pill-link:hover{ background: rgba(57,191,234,.10); }
-
 .pill-cta{
   background: rgba(34,197,94,.16);
   border-color: rgba(34,197,94,.45);
@@ -567,7 +538,6 @@ a.pill{ text-decoration:none; }
   background: rgba(34,197,94,.22);
   border-color: rgba(34,197,94,.60);
 }
-
 .pill-trust{
   color:#fff;
   border-color: rgba(15,110,168,.35);
@@ -580,7 +550,6 @@ a.pill{ text-decoration:none; }
   border-color: rgba(57,191,234,.45);
   box-shadow: 0 14px 30px rgba(11,45,74,.22);
 }
-
 @media (max-width:980px){
   .review-actions{ grid-template-columns: 1fr 1fr; }
   .pill-cta{ grid-column: 1 / -1; }
@@ -635,7 +604,6 @@ a.pill{ text-decoration:none; }
   line-height:1.65;
 }
 .hazard-split .hazard-copy p:last-child{ margin-bottom:0; }
-
 .hazard-hero{
   border-radius: var(--radius);
   overflow:hidden;
@@ -675,9 +643,10 @@ a.pill{ text-decoration:none; }
 .footer a{color:rgba(255,255,255,.85)}
 .small{font-size:13px;color:rgba(255,255,255,.75)}
 .hr{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:18px}
+
 /* =================================================================== */
 /* ====================== HEADER + DROPDOWN NAV ======================= */
-/* =================== (HAMBURGER MOBILE + TAP DROPDOWNS) ============= */
+/* =============== (WORKS WITH .nav-shell HAMBURGER MARKUP) =========== */
 /* =================================================================== */
 
 .header{
@@ -697,19 +666,19 @@ a.pill{ text-decoration:none; }
   padding:14px 16px;
 }
 
-/* Logo */
 .brand{ display:flex; align-items:center; flex:0 0 auto; }
-.brand-logo{ height:90px; width:auto; display:block; }
-@media (max-width:980px){
-  .brand-logo{ height:68px; }
+.header-nav{ width:100%; }
+
+/* Center desktop nav */
+.nav-shell{
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
 
-/* Use Montserrat in header/nav */
-.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-/* Desktop CTAs (hide on mobile) */
+/* Desktop CTAs visible */
 .header-ctas{
   display:flex;
   gap:10px;
@@ -717,41 +686,25 @@ a.pill{ text-decoration:none; }
   flex:0 0 auto;
   margin-left:auto;
 }
-@media (max-width:980px){
-  .header-ctas{ display:none; }
+
+.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Nav shell holds hamburger + nav + overlay */
-.nav-shell{
-  flex:1 1 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center; /* centers desktop nav */
-  position:relative;
-}
-
-/* NAV */
-.nav{
-  background:transparent;
-  position:relative;
-  z-index:9999;
-  width:100%;
-}
-
-/* Menu row (desktop): centered + wrap-safe */
+/* Desktop menu row */
 .nav-menu{
   display:flex;
   align-items:center;
-  justify-content:center;     /* centers even if it wraps */
-  flex-wrap:wrap;             /* allow 2 rows cleanly */
+  justify-content:center;
+  flex-wrap:wrap;
   gap:10px 16px;
   padding:10px 16px;
   font-weight:900;
   font-size:14px;
-  white-space:normal;         /* allow wrapping */
+  white-space:normal;
 }
 
-/* Top-level links + dropdown triggers */
+.nav-group{ position:relative; display:inline-flex; align-items:center; }
 .nav-link{
   display:inline-flex;
   align-items:center;
@@ -763,7 +716,7 @@ a.pill{ text-decoration:none; }
 }
 .nav-link:hover{ background: rgba(57,191,234,.22); }
 
-/* Make button nav-parent look identical */
+/* Button triggers match links */
 button.nav-link,
 .nav-link.nav-parent{
   border:0;
@@ -776,10 +729,7 @@ button.nav-link,
   touch-action: manipulation;
 }
 
-/* Group wrapper */
-.nav-group{ position:relative; display:inline-flex; align-items:center; }
-
-/* Dropdown base (desktop) */
+/* Dropdown (desktop) */
 .dropdown{
   position:absolute;
   top:100%;
@@ -796,17 +746,13 @@ button.nav-link,
   display:none;
   z-index:10000;
 }
-
-/* Hover bridge so desktop hover doesn’t “disconnect” */
 .dropdown::before{
   content:"";
   position:absolute;
-  left:0;
-  right:0;
+  left:0; right:0;
   top:-12px;
   height:12px;
 }
-
 .dropdown a{
   display:block;
   padding:12px 12px;
@@ -817,34 +763,24 @@ button.nav-link,
 }
 .dropdown a:hover{ background: rgba(57,191,234,.18); }
 
-/* Desktop hover only on real mouse */
+/* Desktop hover dropdowns */
 @media (hover:hover) and (pointer:fine){
   .nav-group:hover .dropdown,
   .nav-group:focus-within .dropdown{ display:block; }
 }
 
-/* Touch devices: hover is unreliable — use JS .open */
+/* JS open state (mobile taps) */
 .nav-group.open .dropdown{ display:block; }
+
+/* Touch devices: don't depend on hover */
 @media (hover:none){
   .nav-group:hover .dropdown{ display:none; }
 }
 
-/* CTA hover */
-.header-ctas .btn-ghost{ border-color: var(--line); }
-.header-ctas .btn-ghost:hover{
-  background: rgba(57,191,234,.22);
-  border-color: var(--line);
-  color: var(--navy);
-}
-
-/* ========================= */
-/* ===== HAMBURGER UI ====== */
-/* ========================= */
-
+/* ===== Hamburger UI ===== */
 .nav-toggle{
   display:none;
-  width:44px;
-  height:44px;
+  width:44px; height:44px;
   border-radius:12px;
   border:1px solid var(--line);
   background:#fff;
@@ -880,19 +816,23 @@ button.nav-link,
   display:none;
 }
 
-/* Mobile panel behavior */
+/* lock scroll when menu open */
+.nav-lock{ overflow:hidden !important; }
+
+/* Mobile hamburger panel */
 @media (max-width:980px){
   .nav-shell{ justify-content:flex-end; }
 
-  /* show hamburger */
-  .nav-toggle{ display:flex; margin-left:auto; }
+  /* show hamburger, hide desktop CTAs (use .nav-mobile-ctas in menu) */
+  .nav-toggle{ display:flex; }
+  .header-ctas{ display:none !important; }
 
-  /* nav becomes a dropdown panel */
+  /* nav panel closed by default */
   .header-nav{
+    display:none;
     position:fixed;
-    left:12px;
-    right:12px;
-    top:72px; /* adjust if your header is taller */
+    left:12px; right:12px;
+    top:72px; /* adjust if needed */
     z-index:9999;
     background:#fff;
     border:1px solid var(--line);
@@ -901,14 +841,13 @@ button.nav-link,
     padding:10px;
     max-height: calc(100vh - 92px);
     overflow:auto;
-    display:none; /* closed */
   }
 
   /* open state */
   .nav-shell.open .header-nav{ display:block; }
   .nav-shell.open .nav-overlay{ display:block; }
 
-  /* menu becomes vertical */
+  /* vertical menu */
   .nav-menu{
     flex-direction:column;
     align-items:stretch;
@@ -923,7 +862,7 @@ button.nav-link,
     padding:12px 12px;
   }
 
-  /* dropdown becomes inline stack (no absolute positioning) */
+  /* dropdowns become inline stacks */
   .dropdown{
     position:static;
     transform:none;
@@ -937,29 +876,22 @@ button.nav-link,
   }
   .nav-group.open .dropdown{ display:block; }
 
-  .nav-group .dropdown a{
+  .dropdown a{
     padding:12px 12px;
     background: rgba(11,45,74,.04);
     border:1px solid rgba(0,0,0,.06);
     margin-top:6px;
   }
 
-  /* mobile-only CTAs inside the panel */
   .nav-mobile-ctas{
     display:flex;
     gap:10px;
     padding:10px 6px 6px;
   }
-  .nav-mobile-ctas .btn{
-    flex:1;
-    text-align:center;
-  }
+  .nav-mobile-ctas .btn{ flex:1; text-align:center; }
 }
 
-/* Lock background scroll when menu open (JS adds .nav-lock) */
-.nav-lock{ overflow:hidden !important; }
-
-/* Mobile callbar (keep yours) */
+/* Mobile callbar */
 .mobile-callbar{ display:none; }
 @media (max-width: 900px){
   .mobile-callbar{
@@ -981,4 +913,3 @@ button.nav-link,
   }
   body{ padding-bottom: 84px; }
 }
-
