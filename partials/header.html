@@ -27,8 +27,8 @@
       </button>
 
       <!-- Nav -->
-      <nav class="nav header-nav" aria-label="Primary">
-        <div class="nav-menu" id="navMenu">
+      <nav id="navMenu" class="nav header-nav" aria-label="Primary">
+        <div class="nav-menu">
 
           <!-- Paver Sealing -->
           <div class="nav-group">
@@ -72,8 +72,8 @@
           <a class="nav-link" href="/reviews/">Reviews</a>
           <a class="nav-link" href="/warranty/">Warranty</a>
 
-          <!-- Mobile-only CTAs inside menu -->
-          <div class="nav-mobile-ctas">
+          <!-- Mobile-only CTAs -->
+          <div class="nav-mobile-ctas" role="presentation">
             <a class="btn btn-ghost" href="tel:+19045375000">Call</a>
             <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
           </div>
@@ -82,10 +82,10 @@
       </nav>
 
       <!-- Mobile overlay -->
-      <div class="nav-overlay" hidden></div>
+      <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
     </div>
 
-    <!-- Desktop CTAs (hidden on mobile via CSS) -->
+    <!-- Desktop CTAs -->
     <div class="header-ctas">
       <a class="btn btn-ghost" href="tel:+19045375000">Call</a>
       <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
