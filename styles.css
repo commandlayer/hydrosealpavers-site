@@ -402,92 +402,101 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   font-size:12px;
 }
 
-/* Trust bar */
+/* =========================
+   TRUST BAR — equal items across page
+   - Desktop: 4 equal columns
+   - Mobile: 2 columns, then 1 if needed
+   ========================= */
+
 .trustbar{
   background:#fff;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 
-/* keep it full-width but nicely spaced */
+/* KEY CHANGE: grid instead of flex */
 .trustbar .container{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
+  align-items:stretch;
   padding:14px 16px;
 }
 
-/* each item becomes its own “badge” */
+/* Each item fills its grid cell */
 .trust-item{
   position:relative;
-  display:inline-flex;
+  width:100%;
+  min-height:44px;
+
+  display:flex;
   align-items:center;
   justify-content:center;
-  padding:10px 14px;
+
+  padding:10px 12px;
   border-radius:999px;
-  font-weight:1000;
+
+  border:0;               /* no outer ring */
   color:var(--navy);
+  font-weight:900;
   font-size:13px;
-  line-height:1;
-  border:1px solid rgba(15,110,168,.18);
-  background:#fff;
-  overflow:hidden;
-  white-space:nowrap;
+  line-height:1.1;
+  text-align:center;
+
+  background: rgba(57,191,234,.10);
+  overflow:hidden;        /* keeps gradient clean inside pill */
 }
 
-/* the light-blue gradient “circle” behind EACH item */
+/* Animated vertical gradient wash */
 .trust-item::before{
   content:"";
   position:absolute;
-  left:-22px;
-  top:50%;
-  transform:translateY(-50%);
-  width:62px;
-  height:62px;
-  border-radius:999px;
-  background:
-    radial-gradient(circle at 30% 30%,
-      rgba(57,191,234,.42),
-      rgba(57,191,234,.16) 45%,
-      rgba(57,191,234,0) 70%);
-  pointer-events:none;
+  inset:0;
+  border-radius:inherit;
+
+  background: linear-gradient(
+    180deg,
+    rgba(57,191,234,.18) 0%,
+    rgba(15,110,168,.10) 45%,
+    rgba(57,191,234,.18) 100%
+  );
+
+  background-size: 100% 220%;
+  background-position: 50% 0%;
+  animation: trustGlowY 3.2s ease-in-out infinite;
+  opacity: 1;
 }
 
-/* subtle second orb for depth */
-.trust-item::after{
-  content:"";
-  position:absolute;
-  right:-26px;
-  top:50%;
-  transform:translateY(-50%);
-  width:74px;
-  height:74px;
-  border-radius:999px;
-  background:
-    radial-gradient(circle at 40% 40%,
-      rgba(15,110,168,.20),
-      rgba(15,110,168,.08) 45%,
-      rgba(15,110,168,0) 72%);
-  pointer-events:none;
-  opacity:.9;
+/* Text above the animated layer */
+.trust-item > *{
+  position:relative;
+  z-index:1;
 }
 
-/* keep text above orbs */
-.trust-item > *{ position:relative; z-index:1; }
+/* Optional: subtle hover */
+.trust-item:hover{
+  transform: translateY(-1px);
+}
 
-/* mobile: make them evenly spaced and not cramped */
-@media (max-width: 900px){
+/* Vertical keyframes */
+@keyframes trustGlowY{
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* Responsive */
+@media (max-width: 980px){
   .trustbar .container{
-    justify-content:center;
-    gap:10px;
-  }
-  .trust-item{
-    font-size:12px;
-    padding:10px 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+@media (max-width: 520px){
+  .trustbar .container{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Headings helpers */
 .section-title{font-size:28px;margin:0;letter-spacing:-.02em}
