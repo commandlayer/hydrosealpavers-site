@@ -675,9 +675,9 @@ a.pill{ text-decoration:none; }
 .footer a{color:rgba(255,255,255,.85)}
 .small{font-size:13px;color:rgba(255,255,255,.75)}
 .hr{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:18px}
-
 /* =================================================================== */
 /* ====================== HEADER + DROPDOWN NAV ======================= */
+/* =================== (HAMBURGER MOBILE + TAP DROPDOWNS) ============= */
 /* =================================================================== */
 
 .header{
@@ -688,59 +688,74 @@ a.pill{ text-decoration:none; }
   border-bottom:1px solid var(--line);
   box-shadow:0 8px 20px rgba(17,24,39,.08);
 }
-.header .container{padding:0;}
+.header .container{ padding:0; }
 
 .header-row{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:16px;
+  gap:14px;
   padding:14px 16px;
 }
 
-.brand{ display:flex; align-items:center; }
+/* Logo */
+.brand{ display:flex; align-items:center; flex:0 0 auto; }
 .brand-logo{ height:90px; width:auto; display:block; }
 @media (max-width:980px){
   .brand-logo{ height:68px; }
 }
 
-.header-nav{ flex:1; }
+/* Use Montserrat in header/nav */
+.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
 
+/* Desktop CTAs (hide on mobile) */
 .header-ctas{
   display:flex;
   gap:10px;
   align-items:center;
   flex:0 0 auto;
+  margin-left:auto;
+}
+@media (max-width:980px){
+  .header-ctas{ display:none; }
 }
 
+/* Nav shell holds hamburger + nav + overlay */
+.nav-shell{
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* centers desktop nav */
+  position:relative;
+}
+
+/* NAV */
 .nav{
   background:transparent;
   position:relative;
   z-index:9999;
+  width:100%;
 }
 
-.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn{
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-/* Menu row (desktop) */
+/* Menu row (desktop): centered + wrap-safe */
 .nav-menu{
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:18px;
+  justify-content:center;     /* centers even if it wraps */
+  flex-wrap:wrap;             /* allow 2 rows cleanly */
+  gap:10px 16px;
   padding:10px 16px;
   font-weight:900;
   font-size:14px;
-  white-space:nowrap;
-  position:relative;
+  white-space:normal;         /* allow wrapping */
 }
 
-.nav-group{ position:relative; display:inline-flex; align-items:center; }
-
+/* Top-level links + dropdown triggers */
 .nav-link{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:8px;
   padding:8px 10px;
   border-radius:12px;
@@ -748,7 +763,7 @@ a.pill{ text-decoration:none; }
 }
 .nav-link:hover{ background: rgba(57,191,234,.22); }
 
-/* Make <button class="nav-link nav-parent"> look identical */
+/* Make button nav-parent look identical */
 button.nav-link,
 .nav-link.nav-parent{
   border:0;
@@ -761,22 +776,18 @@ button.nav-link,
   touch-action: manipulation;
 }
 
-/* CTA hover */
-.header-ctas .btn-ghost{ border-color: var(--line); }
-.header-ctas .btn-ghost:hover{
-  background: rgba(57,191,234,.22);
-  border-color: var(--line);
-  color: var(--navy);
-}
+/* Group wrapper */
+.nav-group{ position:relative; display:inline-flex; align-items:center; }
 
-/* Dropdown base (DESKTOP) — JS will override to fixed on mobile */
+/* Dropdown base (desktop) */
 .dropdown{
   position:absolute;
-  left:0;
   top:100%;
-  margin-top:8px;
+  left:50%;
+  transform:translateX(-50%);
+  margin-top:10px;
   min-width:260px;
-  max-width:320px;
+  max-width:340px;
   background:#fff;
   border:1px solid var(--line);
   border-radius:16px;
@@ -786,7 +797,7 @@ button.nav-link,
   z-index:10000;
 }
 
-/* Hover bridge so desktop hover doesn't “disconnect” */
+/* Hover bridge so desktop hover doesn’t “disconnect” */
 .dropdown::before{
   content:"";
   position:absolute;
@@ -806,51 +817,149 @@ button.nav-link,
 }
 .dropdown a:hover{ background: rgba(57,191,234,.18); }
 
-/* JS open state */
-.nav-group.open .dropdown{ display:block; }
-
-/* Desktop hover ONLY when a real mouse exists */
+/* Desktop hover only on real mouse */
 @media (hover:hover) and (pointer:fine){
   .nav-group:hover .dropdown,
   .nav-group:focus-within .dropdown{ display:block; }
 }
 
-/* Touch devices: never rely on hover */
+/* Touch devices: hover is unreliable — use JS .open */
+.nav-group.open .dropdown{ display:block; }
 @media (hover:none){
   .nav-group:hover .dropdown{ display:none; }
 }
 
-/* MOBILE:
-   - show all links (wrap)
-   - dropdown should NOT be clipped (we do not set overflow hidden)
-   - actual dropdown positioning is handled by nav-dropdowns.js (fixed panel)
-*/
-@media (max-width:980px){
-  .header-row{ flex-wrap:wrap; }
-  .header-nav{ flex: 1 1 100%; order: 3; }
-  .header-ctas{ order: 2; margin-left:auto; }
-  .brand{ order: 1; }
+/* CTA hover */
+.header-ctas .btn-ghost{ border-color: var(--line); }
+.header-ctas .btn-ghost:hover{
+  background: rgba(57,191,234,.22);
+  border-color: var(--line);
+  color: var(--navy);
+}
 
-  .header-nav .nav-menu{
+/* ========================= */
+/* ===== HAMBURGER UI ====== */
+/* ========================= */
+
+.nav-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#fff;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+.nav-toggle-bars{
+  width:18px;
+  height:2px;
+  background: var(--navy);
+  display:block;
+  position:relative;
+}
+.nav-toggle-bars::before,
+.nav-toggle-bars::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:18px;
+  height:2px;
+  background: var(--navy);
+}
+.nav-toggle-bars::before{ top:-6px; }
+.nav-toggle-bars::after{ top:6px; }
+
+.nav-overlay{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.45);
+  z-index:9998;
+  display:none;
+}
+
+/* Mobile panel behavior */
+@media (max-width:980px){
+  .nav-shell{ justify-content:flex-end; }
+
+  /* show hamburger */
+  .nav-toggle{ display:flex; margin-left:auto; }
+
+  /* nav becomes a dropdown panel */
+  .header-nav{
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:72px; /* adjust if your header is taller */
+    z-index:9999;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow: var(--shadow);
+    padding:10px;
+    max-height: calc(100vh - 92px);
+    overflow:auto;
+    display:none; /* closed */
+  }
+
+  /* open state */
+  .nav-shell.open .header-nav{ display:block; }
+  .nav-shell.open .nav-overlay{ display:block; }
+
+  /* menu becomes vertical */
+  .nav-menu{
+    flex-direction:column;
+    align-items:stretch;
     justify-content:flex-start;
-    flex-wrap:wrap;
-    gap:10px;
-    padding:10px 0;
-    white-space:normal;
-    overflow:visible;
+    gap:6px;
+    padding:6px;
   }
 
   .nav-link{
-    padding:10px 12px;
+    width:100%;
+    justify-content:space-between;
+    padding:12px 12px;
   }
 
-  /* keep CSS out of the way of JS fixed-panel positioning */
+  /* dropdown becomes inline stack (no absolute positioning) */
   .dropdown{
+    position:static;
+    transform:none;
     margin-top:0;
+    min-width:unset;
+    max-width:unset;
+    border:none;
+    box-shadow:none;
+    padding:6px 0 0;
+    display:none;
+  }
+  .nav-group.open .dropdown{ display:block; }
+
+  .nav-group .dropdown a{
+    padding:12px 12px;
+    background: rgba(11,45,74,.04);
+    border:1px solid rgba(0,0,0,.06);
+    margin-top:6px;
+  }
+
+  /* mobile-only CTAs inside the panel */
+  .nav-mobile-ctas{
+    display:flex;
+    gap:10px;
+    padding:10px 6px 6px;
+  }
+  .nav-mobile-ctas .btn{
+    flex:1;
+    text-align:center;
   }
 }
 
-/* Mobile callbar */
+/* Lock background scroll when menu open (JS adds .nav-lock) */
+.nav-lock{ overflow:hidden !important; }
+
+/* Mobile callbar (keep yours) */
 .mobile-callbar{ display:none; }
 @media (max-width: 900px){
   .mobile-callbar{
@@ -872,3 +981,4 @@ button.nav-link,
   }
   body{ padding-bottom: 84px; }
 }
+
