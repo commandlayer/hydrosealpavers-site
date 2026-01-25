@@ -741,6 +741,17 @@ a.pill{ text-decoration:none; }
 }
 .nav-link:hover{ background: rgba(57,191,234,.22); }
 
+/* Desktop header CTAs: MATCH NAV TEXT + SIZE */
+.header-ctas .btn{
+  font-size:14px;          /* same as .nav-menu */
+  font-weight:900;         /* same weight */
+  letter-spacing:.01em;
+  padding:8px 10px;        /* match .nav-link hit area */
+  border-radius:12px;      /* match nav rounding */
+  line-height:1.1;
+  min-height:unset;
+}
+
 /* Button triggers match links (RESET DEFAULT BUTTON STYLES) */
 button.nav-link,
 .nav-link.nav-parent{
@@ -938,30 +949,30 @@ button.nav-link,
   }
 
   /* ===========================
-     MOBILE MENU CTAs (FIX: NOT HUGE)
+     MOBILE MENU CTAs (SMALLER + COMPACT)
      =========================== */
 
   .nav-mobile-ctas{
     display:grid;
-    grid-template-columns:1fr;   /* stack (clean + compact) */
-    gap:10px;
-    padding:12px 6px 6px;
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:10px 6px 6px;
     margin-top:8px;
     border-top:1px solid var(--line);
   }
 
-  /* Override the global .btn sizing ONLY inside the mobile nav menu */
   .nav-mobile-ctas .btn{
     width:100%;
-    padding:10px 12px;        /* smaller */
-    font-size:14px;           /* smaller */
-    line-height:1.15;
-    border-radius:14px;
+    padding:8px 10px;     /* smaller */
+    font-size:13px;       /* smaller */
+    line-height:1.1;
+    border-radius:12px;   /* smaller */
+    min-height:38px;      /* cap height */
   }
 
-  /* Make phone CTA slightly less “big button” */
   .nav-mobile-ctas .btn-ghost{
-    padding:9px 12px;
+    padding:7px 10px;
+    min-height:36px;
   }
 }
 
