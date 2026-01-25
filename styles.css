@@ -838,24 +838,35 @@ a.pill{ text-decoration:none; }
   .header-ctas{ order: 2; margin-left:auto; }
   .brand{ order: 1; }
 
+  /* Mobile nav: WRAP into rows so all links are visible */
   .header-nav .nav-menu{
+    display:flex;
+    flex-wrap:wrap;          /* key */
     justify-content:flex-start;
-    flex-wrap:nowrap;        /* horizontal */
-    gap:12px;
+    gap:10px;
     padding:10px 0;
-    overflow-x:auto;         /* scroll */
-    overflow-y:visible;      /* DO NOT CLIP DROPDOWNS */
-    white-space:nowrap;
-    -webkit-overflow-scrolling:touch;
+    overflow: visible;       /* key: do NOT clip dropdown */
+    white-space: normal;     /* key */
   }
 
-  .nav-group{ flex:0 0 auto; }
+  .nav-group{ position:relative; }
 
+  /* Keep items looking like pills */
+  .nav-link{
+    padding:10px 12px;
+    border-radius:12px;
+  }
+
+  /* Dropdown overlays below */
   .dropdown{
+    position:absolute;
+    top:100%;
+    left:0;
     width:260px;
-    max-width:82vw;
+    max-width:88vw;
   }
 }
+
 
 /* Mobile callbar */
 .mobile-callbar{ display:none; }
