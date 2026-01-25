@@ -716,25 +716,25 @@ a.pill{ text-decoration:none; }
 .header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn, .nav-mobile-ctas .btn{
   font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
-
 /* Desktop menu row */
 .nav-menu{
   display:flex;
   align-items:center;
   justify-content:center;
 
-  /* FIX: stop wrapping so Warranty doesn't drop to row 2 */
-  flex-wrap:nowrap;            /* was wrap */
-  white-space:nowrap;          /* was normal */
+  flex-wrap:nowrap;
+  white-space:nowrap;
 
-  /* tighten spacing so everything fits */
-  gap:8px 12px;                /* was 10px 16px */
-  padding:10px 10px;           /* was 10px 16px */
+  gap:8px 12px;
+  padding:10px 10px;
 
   font-weight:900;
   font-size:14px;
-  overflow:hidden;             /* prevents second row */
+
+  /* FIX: allow dropdowns to render outside the menu */
+  overflow: visible;   /* was hidden */
 }
+
 
 .nav-group{ position:relative; display:inline-flex; align-items:center; flex:0 0 auto; }
 
