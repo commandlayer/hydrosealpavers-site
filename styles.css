@@ -693,6 +693,7 @@ a.pill{ text-decoration:none; }
 /* Center desktop nav */
 .nav-shell{
   flex:1 1 auto;
+  min-width:0;                 /* IMPORTANT: allow center to shrink */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -706,6 +707,7 @@ a.pill{ text-decoration:none; }
   align-items:center;
   flex:0 0 auto;
   margin-left:auto;
+  white-space:nowrap;          /* keep CTAs on one line */
 }
 
 /* Mobile CTAs hidden on desktop */
@@ -720,36 +722,46 @@ a.pill{ text-decoration:none; }
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-wrap:wrap;
-  gap:10px 16px;
-  padding:10px 16px;
+
+  /* FIX: stop wrapping so Warranty doesn't drop to row 2 */
+  flex-wrap:nowrap;            /* was wrap */
+  white-space:nowrap;          /* was normal */
+
+  /* tighten spacing so everything fits */
+  gap:8px 12px;                /* was 10px 16px */
+  padding:10px 10px;           /* was 10px 16px */
+
   font-weight:900;
   font-size:14px;
-  white-space:normal;
+  overflow:hidden;             /* prevents second row */
 }
 
-.nav-group{ position:relative; display:inline-flex; align-items:center; }
+.nav-group{ position:relative; display:inline-flex; align-items:center; flex:0 0 auto; }
 
 .nav-link{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-  padding:8px 10px;
+
+  /* slightly tighter hit area */
+  padding:8px 9px;             /* was 8px 10px */
   border-radius:12px;
   letter-spacing:.01em;
+  flex:0 0 auto;
 }
 .nav-link:hover{ background: rgba(57,191,234,.22); }
 
-/* Desktop header CTAs: MATCH NAV TEXT + SIZE */
+/* Desktop header CTAs: MATCH NAV TEXT + SIZE (and stay compact) */
 .header-ctas .btn{
-  font-size:14px;          /* same as .nav-menu */
-  font-weight:900;         /* same weight */
+  font-size:14px;
+  font-weight:900;
   letter-spacing:.01em;
-  padding:8px 10px;        /* match .nav-link hit area */
-  border-radius:12px;      /* match nav rounding */
+  padding:8px 9px;             /* match nav-link tightness */
+  border-radius:12px;
   line-height:1.1;
   min-height:unset;
+  flex:0 0 auto;
 }
 
 /* Button triggers match links (RESET DEFAULT BUTTON STYLES) */
@@ -757,7 +769,7 @@ button.nav-link,
 .nav-link.nav-parent{
   border:0;
   background:transparent;
-  padding:8px 10px;         /* match .nav-link */
+  padding:8px 9px;             /* match .nav-link */
   font:inherit;
   color:inherit;
   cursor:pointer;
@@ -919,6 +931,10 @@ button.nav-link,
     justify-content:flex-start;
     gap:6px;
     padding:6px;
+
+    /* restore normal wrapping behavior inside the panel */
+    white-space:normal;
+    overflow:visible;
   }
 
   .nav-link{
@@ -963,11 +979,11 @@ button.nav-link,
 
   .nav-mobile-ctas .btn{
     width:100%;
-    padding:8px 10px;     /* smaller */
-    font-size:13px;       /* smaller */
+    padding:8px 10px;
+    font-size:13px;
     line-height:1.1;
-    border-radius:12px;   /* smaller */
-    min-height:38px;      /* cap height */
+    border-radius:12px;
+    min-height:38px;
   }
 
   .nav-mobile-ctas .btn-ghost{
