@@ -3,8 +3,12 @@
   if (window.__HYDROSEAL_INCLUDES_INIT__) return;
   window.__HYDROSEAL_INCLUDES_INIT__ = true;
 
+  document.body.classList.add("includes-loading");
+
   const nodes = Array.from(document.querySelectorAll("[data-include]"));
   if (!nodes.length) {
+    document.body.classList.remove("includes-loading");
+    document.body.classList.add("includes-ready");
     document.dispatchEvent(new CustomEvent("includes:ready"));
     return;
   }
@@ -35,6 +39,10 @@
 
       if (node) el.replaceWith(node);
       else el.outerHTML = `<!-- include parse failed: ${url} -->`;
+
+      // ✅ one-line hook: if header was injected, re-init nav logic
+      if (url === "/partials/header.html" && window.initNavDropdowns) window.initNavDropdowns();
+      if (url === "/partials/header.html" && window.initHeaderNav) window.initHeaderNav(); // if you add hamburger later
     }
 
     // footer year (if footer exists)
@@ -44,5 +52,7 @@
     // fail silently
   }
 
+  document.body.classList.remove("includes-loading");
+  document.body.classList.add("includes-ready");
   document.dispatchEvent(new CustomEvent("includes:ready"));
 })();
