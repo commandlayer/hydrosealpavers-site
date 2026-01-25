@@ -1,83 +1,87 @@
-/* Static HTML includes for header/footer + global trustbar (FULL-WIDTH, below hero) */
+/* Static HTML includes for header/footer + global trustbar (FAST + NO FLICKER) */
 (async function () {
+  // Add body classes so CSS can prevent header “pop-in” flicker
+  document.body.classList.add("includes-loading");
+
   // ---- 1) Load includes (header/footer/etc.)
-  const nodes = document.querySelectorAll("[data-include]");
+  const nodes = Array.from(document.querySelectorAll("[data-include]"));
+
   for (const el of nodes) {
     const url = el.getAttribute("data-include");
     try {
-      const res = await fetch(url, { cache: "no-cache" });
+      // ✅ Faster: allow caching (no forced refetch on every page load)
+      const res = await fetch(url, { cache: "force-cache" });
       if (!res.ok) throw new Error("Fetch failed: " + url);
-      const html = await res.text();
-      el.outerHTML = html;
+
+      const html = (await res.text()).trim();
+      if (!html) {
+        el.outerHTML = `<!-- include empty: ${url} -->`;
+        continue;
+      }
+
+      // ✅ Replace node safely (avoids weird reflow quirks vs outerHTML)
+      const wrap = document.createElement("div");
+      wrap.innerHTML = html;
+      const node = wrap.firstElementChild;
+
+      if (node) el.replaceWith(node);
+      else el.outerHTML = `<!-- include parse failed: ${url} -->`;
     } catch (err) {
       console.error(err);
-      el.outerHTML = "<!-- include failed: " + url + " -->";
+      el.outerHTML = `<!-- include failed: ${url} -->`;
     }
   }
 
-  // ---- 2) Wait a tick so the new HTML is in the DOM
-  await new Promise((r) => setTimeout(r, 0));
-
-  // ---- 3) Footer year
+  // ---- 2) Footer year
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 
-  // ---- 4) GLOBAL TRUST BAR INJECTOR (full-width, below hero image)
+  // ---- 3) GLOBAL TRUST BAR INJECTOR (full-width, below hero image)
   try {
     // Avoid duplicates: if ANY trustbar already exists, do nothing
-    if (document.querySelector(".trustbar")) return;
+    if (!document.querySelector(".trustbar")) {
+      const res = await fetch("/partials/trustbar.html", { cache: "force-cache" });
+      if (res.ok) {
+        const html = (await res.text()).trim();
+        if (html) {
+          const tmp = document.createElement("div");
+          tmp.innerHTML = html;
 
-    // Fetch partial (should contain a trustbar)
-    const res = await fetch("/partials/trustbar.html", { cache: "no-cache" });
-    if (!res.ok) return;
-    const html = (await res.text()).trim();
-    if (!html) return;
+          const trustbar = tmp.querySelector(".trustbar") || tmp.firstElementChild;
+          if (trustbar) {
+            // ---- CRITICAL FIXES ----
+            trustbar.classList.remove("trust-strip");
+            trustbar.removeAttribute("style");
+            trustbar.style.display = "block";
+            trustbar.style.width = "100%";
 
-    // Parse partial into real node(s)
-    const tmp = document.createElement("div");
-    tmp.innerHTML = html;
+            // Ensure internal container exists
+            if (!trustbar.querySelector(".container")) {
+              const inner = document.createElement("div");
+              inner.className = "container";
+              while (trustbar.firstChild) inner.appendChild(trustbar.firstChild);
+              trustbar.appendChild(inner);
+            }
 
-    // Prefer the element that actually has .trustbar
-    const trustbar = tmp.querySelector(".trustbar") || tmp.firstElementChild;
-    if (!trustbar) return;
-
-    // ---- CRITICAL FIXES ----
-    // 1) Remove any wrapper class that could style it like one giant pill/oval
-    trustbar.classList.remove("trust-strip");
-
-    // 2) Remove inline styles that could force centering/oval effects
-    trustbar.removeAttribute("style");
-
-    // 3) Make sure it’s block-level and full width
-    trustbar.style.display = "block";
-    trustbar.style.width = "100%";
-
-    // 4) Ensure the internal container exists; if not, wrap children
-    // (prevents “all items in one blob” if partial markup is off)
-    if (!trustbar.querySelector(".container")) {
-      const inner = document.createElement("div");
-      inner.className = "container";
-      while (trustbar.firstChild) inner.appendChild(trustbar.firstChild);
-      trustbar.appendChild(inner);
+            // Placement: immediately after hero if present
+            const hero = document.querySelector(".hero2");
+            if (hero) {
+              hero.insertAdjacentElement("afterend", trustbar);
+            } else {
+              // Fallback: after header if present
+              const header = document.querySelector(".header");
+              if (header) header.insertAdjacentElement("afterend", trustbar);
+              else document.body.insertAdjacentElement("afterbegin", trustbar);
+            }
+          }
+        }
+      }
     }
-
-    // Placement: immediately after hero if present
-    const hero = document.querySelector(".hero2");
-    if (hero) {
-      hero.insertAdjacentElement("afterend", trustbar);
-      return;
-    }
-
-    // Fallback: after header if present
-    const header = document.querySelector(".header");
-    if (header) {
-      header.insertAdjacentElement("afterend", trustbar);
-      return;
-    }
-
-    // Last fallback: top of body
-    document.body.insertAdjacentElement("afterbegin", trustbar);
   } catch (e) {
     // fail silently
   }
+
+  // ---- 4) Mark ready (lets CSS fade header in smoothly)
+  document.body.classList.remove("includes-loading");
+  document.body.classList.add("includes-ready");
 })();
