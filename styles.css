@@ -664,9 +664,28 @@ a.pill{ text-decoration:none; }
   align-items:center;
   gap:14px;
   padding:14px 16px;
+  min-height:72px;
 }
 
-.brand{ display:flex; align-items:center; flex:0 0 auto; }
+/* ✅ LOGO FIX: hard cap size so it can’t blow up the header */
+.brand{
+  display:flex;
+  align-items:center;
+  flex:0 0 auto;
+  gap:10px;
+  min-width: 0;
+}
+.brand-logo{
+  height:44px;
+  width:auto;
+  max-width:240px;
+  object-fit:contain;
+  display:block;
+}
+@media (min-width:981px){
+  .brand-logo{ height:48px; max-width:260px; }
+}
+
 .header-nav{ width:100%; }
 
 /* Center desktop nav */
@@ -832,7 +851,7 @@ button.nav-link,
     display:none;
     position:fixed;
     left:12px; right:12px;
-    top:72px; /* adjust if needed */
+    top:76px;
     z-index:9999;
     background:#fff;
     border:1px solid var(--line);
@@ -889,6 +908,9 @@ button.nav-link,
     padding:10px 6px 6px;
   }
   .nav-mobile-ctas .btn{ flex:1; text-align:center; }
+
+  /* tighten logo on small screens */
+  .brand-logo{ max-width:190px; }
 }
 
 /* Mobile callbar */
