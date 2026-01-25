@@ -1,6 +1,6 @@
 /* Static HTML includes for header/footer + global trust strip */
 (async function () {
-  // ---- 1) Load includes
+  // ---- 1) Load includes (header/footer/etc.)
   const nodes = document.querySelectorAll("[data-include]");
   for (const el of nodes) {
     const url = el.getAttribute("data-include");
@@ -22,7 +22,7 @@
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 
-  // ---- 4) GLOBAL TRUST STRIP INJECTOR (runs AFTER includes)
+  // ---- 4) GLOBAL TRUST STRIP INJECTOR (BELOW HERO IMAGE, not in hero text)
   try {
     // Avoid duplicates
     if (document.querySelector(".trust-strip")) return;
@@ -31,17 +31,28 @@
     if (!res.ok) return;
     const html = await res.text();
 
-    // Best universal placement: right under the first H1
-    const h1 = document.querySelector("main h1, .hero2 h1, h1");
-    if (!h1) return;
+    // Turn the partial into a real element
+    const tmp = document.createElement("div");
+    tmp.innerHTML = html.trim();
+    const strip = tmp.firstElementChild;
+    if (!strip) return;
 
-    const wrap = document.createElement("div");
-    wrap.style.display = "flex";
-    wrap.style.justifyContent = "center";
-    wrap.style.marginTop = "10px";
-    wrap.innerHTML = html;
+    // 1) Ideal placement: immediately after the big hero section
+    const hero = document.querySelector(".hero2");
+    if (hero) {
+      hero.insertAdjacentElement("afterend", strip);
+      return;
+    }
 
-    h1.insertAdjacentElement("afterend", wrap);
+    // 2) Fallback: immediately after the header (if present)
+    const header = document.querySelector(".header");
+    if (header) {
+      header.insertAdjacentElement("afterend", strip);
+      return;
+    }
+
+    // 3) Last fallback: top of body
+    document.body.insertAdjacentElement("afterbegin", strip);
   } catch (e) {
     // fail silently
   }
