@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap");
 
 /* HydroSeal Pavers — styles.css (FULL FILE)
-   Fixes in this rewrite:
-   - Mobile menu CTAs are now compact (not giant) + stacked
-   - Desktop CTAs hidden on mobile; mobile CTAs hidden on desktop (no duplicates)
-   - Button reset for nav-parent buttons (prevents weird sizing)
-   - Mobile nav panel spacing tuned so it never feels “blown up”
+   - Single, consistent Hero2 system (background via <img>)
+   - Fixes desktop hero not showing (removed conflicting .hero2 blocks)
+   - Cert stack is larger + isolated (won’t affect hero images)
+   - Keeps dropdown nav + hamburger behavior
 */
 
 :root{
@@ -24,13 +23,11 @@
 
   /* sticky header sizing (used to prevent overlap) */
   --sticky-offset: 116px;
-   
-  --h2-blue:#2FA8CF;   /* lighter blue for section headers */
-  --h3-blue:#1B4E63;   /* darker, more serious sub-sections */
 
+  /* section header colors */
+  --h2-blue:#2FA8CF;
+  --h3-blue:#1B4E63;
 
-
-   
   /* brand accent */
   --water-blue:#39BFEA;
 }
@@ -57,6 +54,13 @@ img{max-width:100%;display:block}
 main{scroll-margin-top:var(--sticky-offset)}
 section{scroll-margin-top:var(--sticky-offset)}
 
+/* Typography */
+.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn, .nav-mobile-ctas .btn{
+  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+h2{ color: var(--h2-blue); }
+h3{ color: var(--h3-blue); }
+
 /* Buttons */
 .btn{
   display:inline-flex;
@@ -82,7 +86,7 @@ section{scroll-margin-top:var(--sticky-offset)}
 .btn-ghost{border:1px solid var(--line);background:#fff;color:var(--text)}
 .btn-wide{width:100%;text-align:center}
 
-/* Warranty button hover (green lift + glow + tint) */
+/* Warranty button hover */
 .btn.btn-ghost[href="/warranty/"]:hover{
   background: rgba(34,197,94,.14);
   border-color: rgba(34,197,94,.45);
@@ -90,100 +94,6 @@ section{scroll-margin-top:var(--sticky-offset)}
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(31,157,85,.25);
 }
-
-h2{ color: var(--h2-blue); }
-h3{ color: var(--h3-blue); }
-
-.why-pill{
-  border-color: rgba(34,197,94,.45) !important;
-  background:
-    radial-gradient(420px 120px at 15% 0%, rgba(34,197,94,.18), transparent 60%),
-    radial-gradient(420px 120px at 90% 0%, rgba(40,182,200,.16), transparent 60%),
-    linear-gradient(180deg, rgba(11,45,74,.06), #fff 72%) !important;
-  color: var(--navy) !important;
-  text-align: center;
-
-  /* tighter text-to-border spacing */
-  padding: 6px 10px !important;
-  line-height: 1.05 !important;
-}
-
-/* CERT STACK (scoped + safe) */
-.cert-img.cert-stack{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
-  padding:28px 12px;
-}
-
-/* Only target IMG badges inside the cert stack (prevents bleed) */
-.cert-img.cert-stack img.cert-badge{
-  width:min(260px, 82%);
-  height:auto;
-  max-height:140px;
-  object-fit:contain;
-  display:block;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
-}
-
-/* Middle (Trident) 30% larger */
-.cert-img.cert-stack img.cert-badge.cert-badge--main{
-  width:min(494px, 96%);
-  max-height:247px;
-}
-
-/* Top a bit higher */
-.cert-img.cert-stack img.cert-badge:first-child{
-  margin-top:-14px;
-}
-
-/* Bottom a bit lower */
-.cert-img.cert-stack img.cert-badge:last-child{
-  margin-bottom:-14px;
-}
-
-
-
-
-
-.badge-green{
-  background: linear-gradient(180deg, #dcfce7, #bbf7d0);
-  color:#065f46;
-  border:1px solid rgba(16,185,129,.35);
-  border-radius:999px;
-  padding:8px 14px;
-  font-weight:800;
-}
-
-.hero2{ min-height: clamp(560px, 78vh, 920px); }
-
-
-/* HERO: force visible height on desktop + mobile */
-.hero2{
-  position:relative;
-  min-height: clamp(560px, 78vh, 920px);
-  overflow:hidden;
-}
-
-/* Hero background image only */
-.hero2 > img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
-}
-
-/* Make sure the hero content sits above the image */
-.hero2 .container{ position:relative; z-index:2; }
-
-
-
-
-
 
 /* Pills / badges */
 .badge{
@@ -196,6 +106,25 @@ h3{ color: var(--h3-blue); }
   color:var(--navy);
   font-weight:900;
   font-size:12px;
+}
+
+/* Green badge */
+.badge-green{
+  background: linear-gradient(180deg, #dcfce7, #bbf7d0);
+  color:#065f46;
+  border:1px solid rgba(16,185,129,.35);
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:800;
+}
+
+/* Sections / grids */
+.section{padding:44px 0}
+.grid{display:grid;gap:14px}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
 }
 
 /* Headings helpers */
@@ -219,15 +148,6 @@ h3{ color: var(--h3-blue); }
   font-size:12px;
 }
 
-/* Sections / grids */
-.section{padding:44px 0}
-.grid{display:grid;gap:14px}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:900px){
-  .grid-3,.grid-2{grid-template-columns:1fr}
-}
-
 /* Cards */
 .card{
   border:1px solid var(--line);
@@ -240,7 +160,7 @@ h3{ color: var(--h3-blue); }
 }
 .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted)}
-
+.card ul{color:var(--muted)}
 
 /* Premium card hover + image zoom */
 .card img{
@@ -258,34 +178,13 @@ h3{ color: var(--h3-blue); }
 .card:focus-within img{
   transform: scale(1.04);
 }
-
-/* keyboard focus ring */
 .card:focus-within{
   outline: 3px solid rgba(40,182,200,.35);
   outline-offset: 3px;
 }
-
-/* reduced motion */
 @media (prefers-reduced-motion: reduce){
   .card,
   .card img{ transition:none !important; }
-}
-
-/* Prevent header “pop-in” layout shift (placeholder div before include loads) */
-[data-include="/partials/header.html"]{
-  min-height:112px;
-  display:block;
-}
-
-/* Smooth reveal after includes load */
-body.includes-loading .header{
-  opacity:0;
-  transform:translateY(-6px);
-}
-body.includes-ready .header{
-  opacity:1;
-  transform:none;
-  transition: opacity .16s ease, transform .16s ease;
 }
 
 /* ===== Gradient cards ===== */
@@ -309,7 +208,6 @@ body.includes-ready .header{
   opacity:.35;
 }
 .card-bluegrad > *{ position:relative; z-index:1; }
-.card-bluegrad h3{ letter-spacing:-0.01em; }
 
 .card-greengrad{
   border-radius:22px;
@@ -332,122 +230,65 @@ body.includes-ready .header{
 }
 .card-greengrad > *{ position:relative; z-index:1; }
 
-/* Basic hero */
-.hero{
-  background:var(--navy);
-  color:#fff;
-  padding:56px 0;
+/* Prevent header “pop-in” layout shift */
+[data-include="/partials/header.html"]{
+  min-height:112px;
+  display:block;
 }
-.hero h1{margin:0;font-size:42px;line-height:1.1;letter-spacing:-.02em}
-.hero p{margin:14px 0 0;color:rgba(255,255,255,.85);font-size:18px;max-width:720px}
-.hero .cta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
+body.includes-loading .header{
+  opacity:0;
+  transform:translateY(-6px);
+}
+body.includes-ready .header{
+  opacity:1;
+  transform:none;
+  transition: opacity .16s ease, transform .16s ease;
+}
 
-/* BIG HERO (photo opener) */
+/* ============================================================
+   HERO2 (BACKGROUND VIA <img>) — SINGLE SOURCE OF TRUTH
+   ============================================================ */
 .hero2{
   position:relative;
-  min-height:78vh;
+  min-height: clamp(560px, 78vh, 920px);
+  overflow:hidden;
+  background:#071d2f;
   display:flex;
   align-items:center;
-  background:#071d2f;
-  overflow:hidden;
-  padding-top:18px;
 }
-.hero2.use-css-hero::before{
-  content:"";
+
+.hero2 > img{
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(90deg, rgba(7,29,47,.90) 0%, rgba(7,29,47,.70) 45%, rgba(7,29,47,.35) 100%),
-    url("/assets/hero/pavers-hero.jpg") center/cover no-repeat;
-  transform:scale(1.02);
-  pointer-events:none;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
 }
+
+/* wash overlay: use class OR aria-hidden div */
+.hero2 .hero-wash,
+.hero2 > div[aria-hidden="true"]{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background: rgba(0,0,0,.06);
+}
+
 .hero2 .container{
   position:relative;
   z-index:2;
   padding:56px 16px;
 }
-.hero2 h1{
-  margin:10px 0 0;
-  font-size:50px;
-  line-height:1.05;
-  letter-spacing:-.02em;
-  color:#fff;
-  max-width:760px;
-}
-.hero2 p{
-  margin:14px 0 0;
-  color:rgba(255,255,255,.86);
-  font-size:18px;
-  max-width:720px;
-}
+
 .hero2 .hero-panel{
   text-align:center;
   margin:0 auto;
 }
-.hero2 .hero-panel h1,
-.hero2 .hero-panel p{
-  max-width:none !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-}
-.hero2 .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border:1px solid rgba(255,255,255,.20);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:999px;
-  font-weight:900;
-  font-size:12px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.25fr .85fr;
-  gap:18px;
-  align-items:start;
-}
+
 @media (max-width:980px){
   :root{ --sticky-offset: 128px; }
-  .hero-grid{grid-template-columns:1fr}
-  .hero2 h1{font-size:40px}
 }
-
-/* Instant Quote card */
-.quote-card{
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.10);
-  backdrop-filter:blur(10px);
-  padding:16px;
-  color:#fff;
-}
-.quote-card h3{margin:0;font-size:18px}
-.quote-card label{
-  display:block;
-  margin-top:12px;
-  font-weight:900;
-  font-size:12px;
-  opacity:.9;
-}
-.quote-card input,
-.quote-card select{
-  width:100%;
-  margin-top:6px;
-  padding:12px 12px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(7,29,47,.55);
-  color:#fff;
-  outline:none;
-}
-.quote-card input::placeholder{color:rgba(255,255,255,.65)}
-.quote-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media (max-width:520px){ .quote-row{grid-template-columns:1fr} }
-.subtle{opacity:.82;font-size:12px;margin-top:10px;line-height:1.35}
 
 /* Services thumbnails */
 .service-thumb{
@@ -457,11 +298,10 @@ body.includes-ready .header{
   border-radius:14px;
   display:block;
 }
-.card.service-card{ padding:16px; }
+.card.service-card{ padding:16px; overflow:hidden; }
 @media (max-width:900px){
   .service-thumb{ height:220px; }
 }
-/* FORCE service card image sizing (prevents “top 10% only” crop issues) */
 .card.service-card .service-thumb{
   display:block !important;
   width:100% !important;
@@ -469,22 +309,10 @@ body.includes-ready .header{
   object-fit:cover !important;
   object-position:center !important;
 }
-
 @media (max-width:900px){
   .card.service-card .service-thumb{
     height:220px !important;
   }
-}
-
-/* Service Areas card hover */
-a.card.service-card[href^="/service-areas/"]{
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-a.card.service-card[href^="/service-areas/"]:hover,
-a.card.service-card[href^="/service-areas/"]:focus-visible{
-  transform: translateY(-4px);
-  box-shadow: 0 18px 45px rgba(31,157,85,.18);
-  border-color: rgba(31,157,85,.35);
 }
 
 /* Certifications hero */
@@ -501,28 +329,56 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   justify-content:space-between;
   height:100%;
 }
+
+/* Cert image panel (base) */
 .cert-img{
   border-radius:22px;
   border:1px solid var(--line);
-  overflow:hidden;
   background:#ffffff !important;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:22px;
   box-shadow:0 18px 45px rgba(17,24,39,.18);
+  overflow:hidden; /* base panels */
 }
+
+/* IMPORTANT: do NOT set width:91% for all images in .cert-img */
 .cert-img img{
-  width:91%;
   height:auto;
   object-fit:contain;
   display:block;
   background:#ffffff;
   filter:none !important;
 }
+
+/* CERT STACK (only affects the 3 badge images) */
+.cert-img.cert-stack{
+  overflow:visible;           /* allow drop-shadows */
+  padding:28px 18px;
+  gap:16px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.cert-img.cert-stack img.cert-badge{
+  width:min(340px, 92%);      /* bigger than before */
+  max-height:185px;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+}
+
+.cert-img.cert-stack img.cert-badge.cert-badge--main{
+  width:min(520px, 96%);      /* big middle badge */
+  max-height:285px;
+}
+
+/* small positional bias: top slightly higher, bottom slightly lower */
+.cert-img.cert-stack img.cert-badge:first-child{ margin-top:-8px; }
+.cert-img.cert-stack img.cert-badge:last-child{ margin-bottom:-8px; }
+
 @media (max-width: 900px){
   .cert-hero{ grid-template-columns: 1fr; }
-  .cert-img img{ width:92%; }
 }
 
 /* Global trust bar */
@@ -567,113 +423,6 @@ a.card.service-card[href^="/service-areas/"]:focus-visible{
   .trust-item{ font-size:15px; }
 }
 
-/* Reviews snapshot */
-.review-snapshot{
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:
-    radial-gradient(900px 260px at 20% 0%, rgba(57,191,234,.14), transparent 55%),
-    radial-gradient(900px 260px at 90% 0%, rgba(34,197,94,.12), transparent 55%),
-    linear-gradient(180deg, rgba(11,45,74,.04), #fff 55%);
-  box-shadow: 0 14px 34px rgba(17,24,39,.10);
-  overflow:hidden;
-}
-.review-snapshot-inner{ padding:18px; }
-
-.review-stars{
-  letter-spacing:1px;
-  font-size:14px;
-  color: var(--navy);
-  opacity:.95;
-  margin: 0 0 6px;
-  font-weight:1000;
-}
-.review-quote{ margin:0; color: var(--muted); line-height:1.7; }
-.review-author{
-  margin:10px 0 0;
-  font-weight:1000;
-  color: var(--text);
-  font-size:13px;
-}
-
-.review-grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:14px;
-  margin-top:14px;
-}
-@media (max-width:900px){
-  .review-grid{ grid-template-columns: 1fr; }
-}
-
-.review-card{
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#fff;
-  padding:16px;
-  box-shadow: 0 10px 24px rgba(17,24,39,.08);
-}
-
-/* Review actions row */
-.review-actions{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap:10px;
-  align-items:stretch;
-}
-
-/* Review pills */
-.pill{
-  width:100%;
-  min-height:46px;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#fff;
-  color: var(--navy);
-  font-weight:1000;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  text-align:center;
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
-}
-a.pill{ text-decoration:none; }
-.pill:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(17,24,39,.10);
-  border-color: rgba(15,110,168,.28);
-}
-.pill-link:hover{ background: rgba(57,191,234,.10); }
-.pill-cta{
-  background: rgba(34,197,94,.16);
-  border-color: rgba(34,197,94,.45);
-  color: var(--navy);
-}
-.pill-cta:hover{
-  background: rgba(34,197,94,.22);
-  border-color: rgba(34,197,94,.60);
-}
-.pill-trust{
-  color:#fff;
-  border-color: rgba(15,110,168,.35);
-  background:
-    radial-gradient(700px 180px at 20% 0%, rgba(57,191,234,.35), transparent 55%),
-    linear-gradient(180deg, rgba(15,110,168,.95), rgba(11,45,74,.92));
-  box-shadow: 0 10px 24px rgba(11,45,74,.18);
-}
-.pill-trust:hover{
-  border-color: rgba(57,191,234,.45);
-  box-shadow: 0 14px 30px rgba(11,45,74,.22);
-}
-@media (max-width:980px){
-  .review-actions{ grid-template-columns: 1fr 1fr; }
-  .pill-cta{ grid-column: 1 / -1; }
-}
-
 /* Service-page media helpers */
 .media-box{
   position: relative;
@@ -692,19 +441,6 @@ a.pill{ text-decoration:none; }
 @media (max-width: 900px){
   .media-h-md{ height: 240px; }
   .ba-img{ height: 220px !important; }
-}
-
-/* Split stacks on mobile */
-@media (max-width: 900px){
-  .driveway-split,
-  .driveway-split-rev,
-  .pool-split,
-  .pool-split-rev,
-  .trav-split,
-  .trav-split-rev,
-  .trav-maint{
-    grid-template-columns: 1fr !important;
-  }
 }
 
 /* County pages: Hazard Split */
@@ -765,9 +501,7 @@ a.pill{ text-decoration:none; }
 
 /* =================================================================== */
 /* ====================== HEADER + DROPDOWN NAV ======================= */
-/* =============== (WORKS WITH .nav-shell HAMBURGER MARKUP) =========== */
 /* =================================================================== */
-
 .header{
   position:sticky;
   top:0;
@@ -794,8 +528,6 @@ a.pill{ text-decoration:none; }
   object-fit:contain;
   display:block;
 }
-
-/* Keep it slightly smaller on very small phones */
 @media (max-width:420px){
   .brand-logo{
     height:54px;
@@ -808,7 +540,7 @@ a.pill{ text-decoration:none; }
 /* Center desktop nav */
 .nav-shell{
   flex:1 1 auto;
-  min-width:0;                 /* IMPORTANT: allow center to shrink */
+  min-width:0;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -822,34 +554,25 @@ a.pill{ text-decoration:none; }
   align-items:center;
   flex:0 0 auto;
   margin-left:auto;
-  white-space:nowrap;          /* keep CTAs on one line */
+  white-space:nowrap;
 }
 
 /* Mobile CTAs hidden on desktop */
 .nav-mobile-ctas{ display:none; }
 
-.header, .nav, .nav-menu, .nav-link, .dropdown a, .header-ctas .btn, .nav-mobile-ctas .btn{
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
 /* Desktop menu row */
 .nav-menu{
   display:flex;
   align-items:center;
   justify-content:center;
-
   flex-wrap:nowrap;
   white-space:nowrap;
-
   gap:8px 12px;
   padding:10px 10px;
-
   font-weight:900;
   font-size:14px;
-
-  /* FIX: allow dropdowns to render outside the menu */
-  overflow: visible;   /* was hidden */
+  overflow: visible;
 }
-
 
 .nav-group{ position:relative; display:inline-flex; align-items:center; flex:0 0 auto; }
 
@@ -858,33 +581,31 @@ a.pill{ text-decoration:none; }
   align-items:center;
   justify-content:center;
   gap:8px;
-
-  /* slightly tighter hit area */
-  padding:8px 9px;             /* was 8px 10px */
+  padding:8px 9px;
   border-radius:12px;
   letter-spacing:.01em;
   flex:0 0 auto;
 }
 .nav-link:hover{ background: rgba(57,191,234,.22); }
 
-/* Desktop header CTAs: MATCH NAV TEXT + SIZE (and stay compact) */
+/* Desktop header CTAs: match nav */
 .header-ctas .btn{
   font-size:14px;
   font-weight:900;
   letter-spacing:.01em;
-  padding:8px 9px;             /* match nav-link tightness */
+  padding:8px 9px;
   border-radius:12px;
   line-height:1.1;
   min-height:unset;
   flex:0 0 auto;
 }
 
-/* Button triggers match links (RESET DEFAULT BUTTON STYLES) */
+/* Button triggers match links (reset button styles) */
 button.nav-link,
 .nav-link.nav-parent{
   border:0;
   background:transparent;
-  padding:8px 9px;             /* match .nav-link */
+  padding:8px 9px;
   font:inherit;
   color:inherit;
   cursor:pointer;
@@ -986,7 +707,6 @@ button.nav-link,
 /* ================= MOBILE HAMBURGER PANEL ================= */
 @media (max-width:980px){
 
-  /* Force proper header layout on mobile */
   .header-row{
     justify-content:space-between;
     gap:10px;
@@ -997,7 +717,6 @@ button.nav-link,
     min-width:0;
   }
 
-  /* Bigger logo, but capped so it never hides hamburger */
   .brand-logo{
     height:58px;
     max-width:min(230px, 62vw);
@@ -1015,7 +734,7 @@ button.nav-link,
     flex:0 0 auto;
   }
 
-  /* hide desktop CTAs so they don't duplicate the mobile CTAs */
+  /* hide desktop CTAs */
   .header-ctas{ display:none !important; }
 
   /* nav panel closed by default */
@@ -1046,8 +765,6 @@ button.nav-link,
     justify-content:flex-start;
     gap:6px;
     padding:6px;
-
-    /* restore normal wrapping behavior inside the panel */
     white-space:normal;
     overflow:visible;
   }
@@ -1079,10 +796,7 @@ button.nav-link,
     margin-top:6px;
   }
 
-  /* ===========================
-     MOBILE MENU CTAs (SMALLER + COMPACT)
-     =========================== */
-
+  /* MOBILE MENU CTAs */
   .nav-mobile-ctas{
     display:grid;
     grid-template-columns:1fr;
@@ -1109,7 +823,6 @@ button.nav-link,
 
 /* ================= MOBILE CALL BAR ================= */
 .mobile-callbar{ display:none; }
-
 @media (max-width:900px){
   .mobile-callbar{
     position:fixed;
@@ -1129,4 +842,17 @@ button.nav-link,
     box-shadow: 0 12px 30px rgba(17,24,39,.22);
   }
   body{ padding-bottom:84px; }
+}
+
+/* Small helper used earlier */
+.why-pill{
+  border-color: rgba(34,197,94,.45) !important;
+  background:
+    radial-gradient(420px 120px at 15% 0%, rgba(34,197,94,.18), transparent 60%),
+    radial-gradient(420px 120px at 90% 0%, rgba(40,182,200,.16), transparent 60%),
+    linear-gradient(180deg, rgba(11,45,74,.06), #fff 72%) !important;
+  color: var(--navy) !important;
+  text-align:center;
+  padding: 6px 10px !important;
+  line-height: 1.05 !important;
 }
