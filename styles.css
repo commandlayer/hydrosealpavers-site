@@ -148,6 +148,19 @@ h3{ color: var(--h3-blue); }
   font-size:12px;
 }
 
+.card-bluegrad{
+  background: linear-gradient(135deg, #0f6ea8 0%, #39bfea 100%);
+  color:#ffffff;
+  border:none;
+}
+.card-bluegrad h3{ color:#fff; }
+.card-bluegrad p,
+.card-bluegrad li{ color:rgba(255,255,255,.95); }
+
+
+
+
+
 /* Cards */
 .card{
   border:1px solid var(--line);
