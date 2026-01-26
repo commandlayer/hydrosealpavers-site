@@ -856,3 +856,6 @@ button.nav-link,
   padding: 6px 10px !important;
   line-height: 1.05 !important;
 }
+.hero, .hero2, header, section, .container, .card{
+  overflow: visible !important;
+}
