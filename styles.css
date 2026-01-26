@@ -25,7 +25,7 @@
   /* sticky header sizing (used to prevent overlap) */
   --sticky-offset: 116px;
    
---water-blue-dark:#2797BE;
+--h2-blue:#1D4159;
 
    
   /* brand accent */
@@ -88,9 +88,8 @@ section{scroll-margin-top:var(--sticky-offset)}
   box-shadow: 0 6px 18px rgba(31,157,85,.25);
 }
 
-h2{
-  color: var(--water-blue-dark);
-}
+h2{ color: var(--h2-blue); }
+
 
 
 
