@@ -593,7 +593,7 @@
     <h2>Common Paver Sealing Questions</h2>
 
     <div class="stack" style="margin-top:16px;">
-      <details class="card">
+      <details class="card" open>
         <summary><strong>How long does it take?</strong></summary>
         <p class="muted" style="margin-top:10px;">
           Most residential jobs are completed in a day, but proper drying and cure timing depends on weather and surface conditions.
@@ -622,6 +622,25 @@
       </details>
     </div>
   </div>
+
+  <script>
+    // FAQ accordion: only one <details> open at a time
+    (function () {
+      const faq = document.querySelector('#faq');
+      if (!faq) return;
+
+      const items = faq.querySelectorAll('details');
+
+      items.forEach((d) => {
+        d.addEventListener('toggle', () => {
+          if (!d.open) return;
+          items.forEach((other) => {
+            if (other !== d) other.removeAttribute('open');
+          });
+        });
+      });
+    })();
+  </script>
 </section>
 
     <div data-include="/partials/footer.html"></div>
