@@ -102,7 +102,12 @@ h3{ color: var(--h3-blue); }
     linear-gradient(180deg, rgba(11,45,74,.06), #fff 72%) !important;
   color: var(--navy) !important;
   text-align: center;
+
+  /* tighter text-to-border spacing */
+  padding: 6px 10px !important;
+  line-height: 1.05 !important;
 }
+
 
 
 
