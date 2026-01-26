@@ -390,6 +390,20 @@ body.includes-ready .header{
 @media (max-width:900px){
   .service-thumb{ height:220px; }
 }
+/* FORCE service card image sizing (prevents “top 10% only” crop issues) */
+.card.service-card .service-thumb{
+  display:block !important;
+  width:100% !important;
+  height:210px !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}
+
+@media (max-width:900px){
+  .card.service-card .service-thumb{
+    height:220px !important;
+  }
+}
 
 /* Service Areas card hover */
 a.card.service-card[href^="/service-areas/"]{
