@@ -170,8 +170,9 @@ h3{ color: var(--h3-blue); }
 .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted)}
 
-/* Premium card hover + image zoom (exclude service cards) */
-.card:not(.service-card) img{
+
+/* Premium card hover + image zoom */
+.card img{
   transition: transform .35s ease;
   will-change: transform;
   transform: scale(1);
@@ -182,12 +183,10 @@ h3{ color: var(--h3-blue); }
   box-shadow: 0 18px 45px rgba(17,24,39,.16);
   border-color: rgba(15,110,168,.35);
 }
-.card:not(.service-card):hover img,
-.card:not(.service-card):focus-within img{
+.card:hover img,
+.card:focus-within img{
   transform: scale(1.04);
 }
-
-.service-thumb{ transform:none !important; }
 
 /* keyboard focus ring */
 .card:focus-within{
