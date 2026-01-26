@@ -593,38 +593,38 @@
     <h2>Common Paver Sealing Questions</h2>
 
     <div class="stack" style="margin-top:16px;">
-      <details class="card faq-item">
+      <details class="faq-item">
         <summary><strong>How long does it take?</strong></summary>
         <div class="faq-body">
-          <p class="muted" style="margin:0;">
+          <p class="muted">
             Most residential jobs are completed in a day, but proper drying and cure timing depends on weather and surface conditions.
           </p>
         </div>
       </details>
 
-      <details class="card faq-item">
+      <details class="faq-item">
         <summary><strong>Will it be slippery?</strong></summary>
         <div class="faq-body">
-          <p class="muted" style="margin:0;">
-            We choose the right approach for the surface. Pool decks and walking areas get extra attention for safe, practical results.
+          <p class="muted">
+            We select the right approach for each surface. Pool decks and walking areas receive added attention for safety and traction.
           </p>
         </div>
       </details>
 
-      <details class="card faq-item">
+      <details class="faq-item">
         <summary><strong>Do you repair sinking or loose pavers?</strong></summary>
         <div class="faq-body">
-          <p class="muted" style="margin:0;">
-            We’ll identify base or structural issues and explain the correct fix. Sealing is protection — not structural repair.
+          <p class="muted">
+            We identify base or structural issues and explain the correct fix. Sealing protects the surface but does not correct settlement.
           </p>
         </div>
       </details>
 
-      <details class="card faq-item">
+      <details class="faq-item">
         <summary><strong>What should I do before you arrive?</strong></summary>
         <div class="faq-body">
-          <p class="muted" style="margin:0;">
-            We’ll give simple prep notes (move vehicles, clear furniture, secure pets). We handle the technical prep.
+          <p class="muted">
+            We provide simple prep guidance such as moving vehicles and furniture. We handle all technical preparation.
           </p>
         </div>
       </details>
@@ -632,95 +632,84 @@
   </div>
 
   <style>
-    /* Square / not rounded */
+    /* FAQ shell (square, white) */
     #faq details.faq-item{
-      border-radius: 10px; /* change to 0 if you want perfectly square */
-      padding: 0;
-      overflow: hidden;
-      transform: none !important;
-      box-shadow: none;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
     }
 
-    /* clickable header row */
+    /* Question row */
     #faq details.faq-item > summary{
       cursor:pointer;
       list-style:none;
+      padding:16px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
+      font-weight:900;
       user-select:none;
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.16), transparent 55%),
-        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
-        linear-gradient(180deg, rgba(11,45,74,.03), #fff 70%);
     }
-    #faq details.faq-item > summary::-webkit-details-marker{ display:none; }
+    #faq summary::-webkit-details-marker{ display:none; }
 
-    /* blue outline + shadow when open */
-    #faq details.faq-item[open]{
-      border-color: rgba(57,191,234,.55);
-      box-shadow:
-        0 16px 40px rgba(17,24,39,.12),
-        0 0 0 3px rgba(57,191,234,.14);
-    }
-    #faq details.faq-item[open] > summary{
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-        linear-gradient(180deg, rgba(57,191,234,.10), #fff 70%);
-    }
-
-    /* chevron */
-    #faq details.faq-item > summary::after{
+    /* Chevron */
+    #faq summary::after{
       content:"▾";
       font-weight:1000;
       color: var(--navy);
-      opacity:.75;
-      transition: transform .18s ease, opacity .18s ease;
+      transition: transform .18s ease;
     }
-    #faq details.faq-item[open] > summary::after{
+    #faq details[open] summary::after{
       transform: rotate(180deg);
-      opacity: 1;
     }
 
-    /* sliding body (animated) */
+    /* Sliding answer panel (blue only here) */
     #faq .faq-body{
-      padding: 0 16px 16px;
-      border-top: 1px solid rgba(11,45,74,.08);
+      max-height:0;
       overflow:hidden;
-      max-height: 0;
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: max-height .25s ease, opacity .2s ease, transform .2s ease;
+      opacity:0;
+      padding:0 16px;
+      transform: translateY(-6px);
+      transition:
+        max-height .28s ease,
+        opacity .22s ease,
+        transform .22s ease;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.25);
     }
-    #faq details.faq-item[open] .faq-body{
-      max-height: 240px;  /* increase if answers get longer */
-      opacity: 1;
-      transform: none;
+
+    #faq details[open] .faq-body{
+      max-height:220px;
+      opacity:1;
+      padding:16px;
+      transform:none;
     }
   </style>
 
   <script>
-    // Accordion (only one open at a time, none open by default)
+    // Only one FAQ open at a time
     (function () {
       const faq = document.querySelector('#faq');
       if (!faq) return;
 
-      const items = faq.querySelectorAll('details.faq-item');
+      const items = faq.querySelectorAll('details');
 
-      items.forEach((d) => {
-        d.addEventListener('toggle', () => {
-          if (!d.open) return;
-          items.forEach((other) => {
-            if (other !== d) other.removeAttribute('open');
+      items.forEach(item => {
+        item.addEventListener('toggle', () => {
+          if (!item.open) return;
+          items.forEach(other => {
+            if (other !== item) other.removeAttribute('open');
           });
         });
       });
     })();
   </script>
 </section>
+
 
 
 
