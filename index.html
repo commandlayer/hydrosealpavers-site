@@ -484,52 +484,98 @@
 
   </div>
 </section>
-
 <!-- =========================
-     RESULTS
+     RESULTS + REVIEWS (SIDE BY SIDE)
 ========================== -->
-<section class="section" id="results">
+<section class="section" id="results-reviews" style="border-top:1px solid var(--line);">
   <div class="container">
-    <h2>Results You Can See</h2>
-    <p class="muted">Before and after paver sealing results</p>
-    <!-- swap in your real gallery component/slider -->
-    <div class="gallery">
-      <img src="/assets/results/before-after-1.jpg" alt="Before and after paver sealing results" />
-    </div>
-  </div>
-</section>
+    <style>
+      .rr-grid{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap:16px;
+        align-items:start;
+        margin-top:16px;
+      }
+      @media (max-width: 980px){
+        .rr-grid{ grid-template-columns: 1fr; }
+      }
 
-<!-- =========================
-     REVIEWS
-========================== -->
-<section class="section" id="reviews">
-  <div class="container">
-    <h2>Reviews</h2>
+      /* Results gallery sizing */
+      .rr-gallery{
+        border-radius:22px;
+        border:1px solid var(--line);
+        overflow:hidden;
+        background:#f3f4f6;
+      }
+      .rr-gallery img{
+        width:100%;
+        height:auto;
+        display:block;
+      }
 
-    <div class="stack" style="margin-top:16px;">
-      <article class="card">
-        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-          <strong>Melissa R.</strong>
-          <span class="muted">Nocatee • Driveway + walkway</span>
+      /* Review header wrap fix */
+      #results-reviews .review-head{
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        flex-wrap:wrap;
+        align-items:baseline;
+      }
+      #results-reviews .review-head > *{ min-width:0; }
+      #results-reviews .review-meta{
+        white-space:normal;
+        overflow-wrap:anywhere;
+        word-break:break-word;
+        text-align:right;
+        flex:1 1 260px;
+      }
+      @media (max-width:560px){
+        #results-reviews .review-meta{ text-align:left; flex-basis:100%; }
+      }
+    </style>
+
+    <div class="rr-grid">
+      <!-- LEFT: RESULTS -->
+      <div>
+        <h2>Results You Can See</h2>
+        <p class="muted">Before and after paver sealing results</p>
+
+        <div class="rr-gallery" style="margin-top:12px;">
+          <img src="/assets/results/before-after-1.jpg" alt="Before and after paver sealing results" />
         </div>
-        <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">Google review</span></div>
-        <p style="margin-top:10px;">
-          “They actually cared about prep. Explained what was causing the sand to wash out, cleaned it the right way, re-sanded, then sealed evenly.
-          No streaks, no sticky spots — just a clean, premium finish. Looks brand new.”
-        </p>
-      </article>
+      </div>
 
-      <article class="card">
-        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-          <strong>James T.</strong>
-          <span class="muted">St. Johns County • Pool deck</span>
+      <!-- RIGHT: REVIEWS -->
+      <div>
+        <h2>Reviews</h2>
+
+        <div class="stack" style="margin-top:12px;">
+          <article class="card">
+            <div class="review-head">
+              <strong>Melissa R.</strong>
+              <span class="muted review-meta">Nocatee • Driveway + walkway</span>
+            </div>
+            <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">Google review</span></div>
+            <p style="margin-top:10px;">
+              “They actually cared about prep. Explained what was causing the sand to wash out, cleaned it the right way, re-sanded, then sealed evenly.
+              No streaks, no sticky spots — just a clean, premium finish. Looks brand new.”
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="review-head">
+              <strong>James T.</strong>
+              <span class="muted review-meta">St. Johns County • Pool deck</span>
+            </div>
+            <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">Google review</span></div>
+            <p style="margin-top:10px;">
+              “On time, professional, and the results are obvious. Our pool area had grime and uneven color. After cleaning and sealing it looks uniform and maintained again.
+              Clear cure-time instructions too.”
+            </p>
+          </article>
         </div>
-        <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">Google review</span></div>
-        <p style="margin-top:10px;">
-          “On time, professional, and the results are obvious. Our pool area had grime and uneven color. After cleaning and sealing it looks uniform and maintained again.
-          Clear cure-time instructions too.”
-        </p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
