@@ -157,6 +157,38 @@ h3{ color: var(--h3-blue); }
 .card-bluegrad p,
 .card-bluegrad li{ color:rgba(255,255,255,.95); }
 
+/* Match the Trident cert card: light blue -> white */
+.card.card-bluegrad.cert-copy{
+  background: linear-gradient(135deg, rgba(57,191,234,.22) 0%, #ffffff 68%);
+  border: 1px solid rgba(57,191,234,.28);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+/* Keep text dark on the light gradient */
+.card.card-bluegrad.cert-copy h3{ color: var(--navy); }
+.card.card-bluegrad.cert-copy p,
+.card.card-bluegrad.cert-copy li{ color: var(--muted); }
+
+/* Kicker styling (same vibe) */
+.card.card-bluegrad.cert-copy .kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(11,45,74,.10);
+  border: 1px solid rgba(11,45,74,.12);
+  color: var(--navy);
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+/* If you have badges inside, keep them readable */
+.card.card-bluegrad.cert-copy .badge{
+  border:1px solid rgba(57,191,234,.28);
+  background: rgba(57,191,234,.10);
+}
 
 
 
