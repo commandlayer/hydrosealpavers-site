@@ -25,10 +25,9 @@
   /* sticky header sizing (used to prevent overlap) */
   --sticky-offset: 116px;
    
-:root{
   --h2-blue:#2FA8CF;   /* lighter blue for section headers */
   --h3-blue:#1B4E63;   /* darker, more serious sub-sections */
-}
+
 
 
    
