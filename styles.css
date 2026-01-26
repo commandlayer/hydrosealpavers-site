@@ -86,14 +86,22 @@ h3{ color: var(--h3-blue); }
 .btn-ghost{border:1px solid var(--line);background:#fff;color:var(--text)}
 .btn-wide{width:100%;text-align:center}
 
-/* Warranty button hover */
-.btn.btn-ghost[href="/warranty/"]:hover{
+/* Warranty button — green by default */
+.btn.btn-ghost[href="/warranty/"]{
   background: rgba(34,197,94,.14);
   border-color: rgba(34,197,94,.45);
   color: var(--navy);
+  font-weight: 900;
+}
+
+/* Slight lift on hover (optional, keeps it premium) */
+.btn.btn-ghost[href="/warranty/"]:hover{
+  background: rgba(34,197,94,.22);
+  border-color: rgba(34,197,94,.60);
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(31,157,85,.25);
 }
+
 
 /* Pills / badges */
 .badge{
