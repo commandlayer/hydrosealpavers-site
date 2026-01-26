@@ -326,34 +326,51 @@
       Most failures happen when companies rush cleaning, skip sanding details, or seal too soon.
     </p>
 
-    <style>
-      /* Process layout */
-      .process-grid{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap:16px;
-        margin-top:16px;
-        align-items:start;
-      }
-      .process-col{ display:flex; flex-direction:column; gap:16px; }
+   <style>
+  /* Process layout */
+  .process-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:16px;
+    margin-top:16px;
+    align-items:start;
+  }
+  .process-col{ display:flex; flex-direction:column; gap:16px; }
 
-      @media (max-width: 900px){
-        .process-grid{ grid-template-columns: 1fr; }
-      }
+  @media (max-width: 900px){
+    .process-grid{ grid-template-columns: 1fr; }
+  }
 
-      /* Make gradient cards readable */
-      #process .card.card-bluegrad{
-        background: linear-gradient(135deg, #0f6ea8 0%, #39bfea 100%);
-        color:#fff;
-        border:none;
-      }
-      #process .card.card-bluegrad h3{ color:#fff; }
-      #process .card.card-bluegrad p,
-      #process .card.card-bluegrad li{ color: rgba(255,255,255,.95); }
+  /* LIGHT Trident-style gradient cards */
+  #process .card.card-bluegrad.cert-copy{
+    background: linear-gradient(135deg, rgba(57,191,234,.22) 0%, #ffffff 68%);
+    border: 1px solid rgba(57,191,234,.28);
+    box-shadow: var(--shadow);
+    color: var(--text);
+  }
 
-      /* Optional: slightly tighter spacing for cert-copy cards */
-      #process .card.cert-copy ul{ margin-top:10px; }
-    </style>
+  #process .card.card-bluegrad.cert-copy h3{ color: var(--navy); }
+  #process .card.card-bluegrad.cert-copy p,
+  #process .card.card-bluegrad.cert-copy li{ color: var(--muted); }
+
+  /* Optional: slightly tighter spacing for lists */
+  #process .card.cert-copy ul{ margin-top:10px; }
+
+  /* If you use the kicker inside any of these cards later */
+  #process .card.card-bluegrad.cert-copy .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    background: rgba(11,45,74,.10);
+    border: 1px solid rgba(11,45,74,.12);
+    color: var(--navy);
+    font-weight:900;
+    letter-spacing:.02em;
+  }
+</style>
+
 
     <div class="process-grid">
       <!-- LEFT: 1,2,3 -->
