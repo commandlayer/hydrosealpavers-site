@@ -127,12 +127,13 @@ h3{ color: var(--h3-blue); }
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
 }
 
-/* Trident in the middle (make it smaller so all 3 fit) */
+/* Trident in the middle (normal size) */
 .cert-badge--main{
-  width:min(260px, 82%);
-  max-height:150px;
+  width:min(320px, 90%);
+  max-height:170px;
   object-fit:contain;
 }
+
 
 
 
