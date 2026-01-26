@@ -160,15 +160,14 @@ h3{ color: var(--h3-blue); }
 
 
 
-/* BIG HERO: force height so the absolute background image is visible */
+/* HERO: force visible height on desktop + mobile */
 .hero2{
   position:relative;
-  min-height: clamp(520px, 72vh, 820px);
-  padding: clamp(90px, 12vh, 160px) 0;
+  min-height: clamp(560px, 78vh, 920px);
   overflow:hidden;
 }
 
-/* ensure hero background image always covers */
+/* Hero background image only */
 .hero2 > img{
   position:absolute;
   inset:0;
@@ -177,6 +176,10 @@ h3{ color: var(--h3-blue); }
   object-fit:cover;
   z-index:0;
 }
+
+/* Make sure the hero content sits above the image */
+.hero2 .container{ position:relative; z-index:2; }
+
 
 
 
