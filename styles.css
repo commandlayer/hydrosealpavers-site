@@ -85,6 +85,11 @@ section{scroll-margin-top:var(--sticky-offset)}
   box-shadow: 0 6px 18px rgba(31,157,85,.25);
 }
 
+h2{
+  color: var(--water-blue);
+}
+
+
 /* Pills / badges */
 .badge{
   display:inline-flex;
