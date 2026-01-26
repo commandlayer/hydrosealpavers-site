@@ -190,6 +190,35 @@ h3{ color: var(--h3-blue); }
   background: rgba(57,191,234,.10);
 }
 
+/* Make the 3 service cards equal height on desktop */
+.grid.grid-3{
+  align-items: stretch; /* each grid item stretches to same row height */
+}
+
+/* Make each service card fill that height */
+.grid.grid-3 > a.card.service-card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep thumbnails uniform */
+.grid.grid-3 > a.card.service-card .service-thumb{
+  height: 210px; /* pick the height you want */
+  flex: 0 0 auto;
+}
+
+/* Let the text area take remaining space (and keep bottoms aligned) */
+.grid.grid-3 > a.card.service-card > div{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: push the paragraph down for consistent spacing */
+.grid.grid-3 > a.card.service-card > div p{
+  margin-top: auto;
+}
 
 
 
