@@ -113,7 +113,7 @@ h3{ color: var(--h3-blue); }
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:0;              /* IMPORTANT: no gap when we use margins */
   padding:12px;
   height:100%;
 }
@@ -127,28 +127,24 @@ h3{ color: var(--h3-blue); }
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
 }
 
-/* Trident in the middle (bigger than the others) */
-.cert-badge--main{
-  width:min(380px, 96%);
-  max-height:190px;
-  object-fit:contain;
-}
-
-/* Move top + bottom badges inward */
+/* Top and bottom: pull them toward the center by reducing spacing */
 .cert-img.cert-stack .cert-badge:first-child{
-  transform: translateY(50%);
+  margin-bottom:-28px; /* increase magnitude to move closer */
 }
 
 .cert-img.cert-stack .cert-badge:last-child{
-  transform: translateY(-50%);
+  margin-top:-28px;    /* increase magnitude to move closer */
 }
 
-/* Make the middle (Trident) badge 30% larger than it is now */
-.cert-img.cert-stack .cert-badge--main{
-  transform: scale(1.3);
-  transform-origin: center;
-  z-index: 2;
+/* Middle (Trident): 30% larger */
+.cert-badge--main{
+  width:min(494px, 96%); /* 380 * 1.3 = 494 */
+  max-height:247px;      /* 190 * 1.3 = 247 */
+  object-fit:contain;
+  margin:0;              /* keep it centered */
+  z-index:2;
 }
+
 
 .badge-green{
   background: linear-gradient(180deg, #dcfce7, #bbf7d0);
