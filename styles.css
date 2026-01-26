@@ -94,6 +94,9 @@ section{scroll-margin-top:var(--sticky-offset)}
 h2{ color: var(--h2-blue); }
 h3{ color: var(--h3-blue); }
 
+.why-pill{
+  text-align: center;
+}
 
 
 
