@@ -157,6 +157,7 @@ h3{ color: var(--h3-blue); }
   font-weight:800;
 }
 
+.hero2{ min-height: clamp(560px, 78vh, 920px); }
 
 
 /* HERO: force visible height on desktop + mobile */
