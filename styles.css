@@ -113,37 +113,39 @@ h3{ color: var(--h3-blue); }
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:0;              /* IMPORTANT: no gap when we use margins */
+  gap:12px;
   padding:12px;
   height:100%;
 }
 
+/* Base badge (top + bottom) slightly smaller */
 .cert-badge{
-  width:min(320px, 90%);
+  width:min(280px, 86%);
   height:auto;
-  max-height:170px;
+  max-height:150px;
   object-fit:contain;
   display:block;
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
 }
 
-/* Top and bottom: pull them toward the center by reducing spacing */
+/* Top badge: a bit higher */
 .cert-img.cert-stack .cert-badge:first-child{
-  margin-bottom:-28px; /* increase magnitude to move closer */
+  margin-top:-18px;   /* higher = more negative */
 }
 
+/* Bottom badge: a bit lower */
 .cert-img.cert-stack .cert-badge:last-child{
-  margin-top:-28px;    /* increase magnitude to move closer */
+  margin-bottom:-18px; /* lower = more negative */
 }
 
-/* Middle (Trident): 30% larger */
+/* Middle (Trident): 30% larger than your prior 380/190 */
 .cert-badge--main{
-  width:min(494px, 96%); /* 380 * 1.3 = 494 */
-  max-height:247px;      /* 190 * 1.3 = 247 */
+  width:min(494px, 96%); /* 380 * 1.3 */
+  max-height:247px;      /* 190 * 1.3 */
   object-fit:contain;
-  margin:0;              /* keep it centered */
   z-index:2;
 }
+
 
 
 .badge-green{
