@@ -228,20 +228,7 @@ h3{ color: var(--h3-blue); }
   margin-top: auto;
 }
 
-/* Header primary CTA — force white */
-.header .btn-primary,
-.header-ctas .btn-primary{
-  background:#ffffff;
-  color:#0B2D4A;          /* your navy */
-  border:1px solid #ffffff;
-  font-weight:900;
-}
 
-.header .btn-primary:hover,
-.header-ctas .btn-primary:hover{
-  background:#f8fafc;
-  color:#0B2D4A;
-}
 
 
 /* Cards */
