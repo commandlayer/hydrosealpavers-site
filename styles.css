@@ -134,6 +134,14 @@ h3{ color: var(--h3-blue); }
   object-fit:contain;
 }
 
+.badge-green{
+  background: linear-gradient(180deg, #dcfce7, #bbf7d0);
+  color:#065f46;
+  border:1px solid rgba(16,185,129,.35);
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:800;
+}
 
 
 
