@@ -108,6 +108,25 @@ h3{ color: var(--h3-blue); }
   line-height: 1.05 !important;
 }
 
+.cert-img.cert-stack{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:18px;
+}
+
+.cert-badge{
+  width:min(340px, 92%);
+  height:auto;
+  display:block;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+}
+
+.cert-badge--main{
+  width:min(380px, 96%);
+}
 
 
 
