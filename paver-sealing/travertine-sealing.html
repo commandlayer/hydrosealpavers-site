@@ -3,100 +3,140 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
- <title>Travertine Sealing Ponte Vedra FL | HydroSeal Pavers</title>
- <meta name="description" content="Travertine sealing in Ponte Vedra & Jacksonville, FL. Stone-safe cleaning + breathable sealer for pool decks, patios & walkways. Optional anti-slip upgrade. Call 904.537.5000." />
-
+  <title>Travertine Sealing Ponte Vedra FL | HydroSeal Pavers</title>
+  <meta name="description" content="Travertine sealing in Ponte Vedra & Jacksonville, FL. Stone-safe cleaning + breathable sealer for pool decks, patios & walkways. Optional anti-slip upgrade. Call 904.537.5000." />
   <link rel="stylesheet" href="/styles.css" />
 
- 
+  <!-- MOBILE WRAP + IMAGE FRAME FIXES -->
+  <style>
+    /* Never allow images to overflow */
+    img{ max-width:100%; height:auto; }
+
+    /* HERO sizing on mobile */
+    @media (max-width: 720px){
+      .hero2{ padding:40px 0 !important; }
+      .hero2 h1{ font-size:30px !important; }
+      .hero2 p{ font-size:15px !important; }
+    }
+
+    /* Split sections: force stacking on mobile */
+    .trav-split, .trav-split-rev{
+      display:grid;
+      gap:18px;
+      align-items:stretch;
+    }
+    .trav-split{ grid-template-columns: 1.05fr .95fr; }
+    .trav-split-rev{ grid-template-columns: .95fr 1.05fr; }
+
+    @media (max-width: 860px){
+      .trav-split, .trav-split-rev{
+        grid-template-columns: 1fr !important;
+        gap:12px !important;
+      }
+      /* reversed: show image first on mobile */
+      .trav-split-rev .media-box{ order:-1; }
+    }
+
+    /* Media frame: consistent crop + no stretching */
+    .media-box{
+      width:100%;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#f3f4f6;
+    }
+    .media-h-md{ height:360px; }
+    @media (max-width: 860px){
+      .media-h-md{ height:260px; }
+    }
+    .media-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Maintenance two-column: stack on mobile */
+    .trav-maint{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 720px){
+      .trav-maint{ grid-template-columns: 1fr !important; }
+    }
+
+    /* Before/After: stack on mobile */
+    .ba-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 720px){
+      .ba-grid{ grid-template-columns: 1fr !important; }
+      .ba-img{ height:220px !important; }
+    }
+  </style>
 </head>
+
 <body>
 
   <div data-include="/partials/header.html"></div>
 
   <!-- BIG HERO (FULL WIDTH) — CENTERED GLASS PANEL -->
-  <section
-    class="hero2"
-    style="
-      position: relative;
-      padding: 64px 0;
-      overflow: hidden;
-    "
-  >
+  <section class="hero2" style="position:relative; padding:64px 0; overflow:hidden;">
     <!-- background image -->
     <img
       src="/assets/hero/hydroseal-tavertine.png"
       alt="Travertine pool deck"
       loading="eager"
       decoding="async"
-      style="
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 0;
-      "
+      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"
     />
 
     <!-- super-light wash (keeps image bright) -->
-    <div
-      aria-hidden="true"
-      style="
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: rgba(0,0,0,.06);
-      "
-    ></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; z-index:1; background:rgba(0,0,0,.06);"></div>
 
     <!-- content -->
-    <div class="container" style="position: relative; z-index: 2;">
+    <div class="container" style="position:relative; z-index:2;">
       <div style="display:flex; justify-content:center;">
         <div
           style="
-            display: inline-block;
-            max-width: 920px;
-            width: 100%;
-            padding: 16px 16px 14px;
-            border-radius: 18px;
-            background: rgba(255,255,255,.10);
-            border: 1px solid rgba(255,255,255,.18);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            text-align: center;
+            display:inline-block;
+            max-width:920px;
+            width:100%;
+            padding:16px 16px 14px;
+            border-radius:18px;
+            background:rgba(255,255,255,.10);
+            border:1px solid rgba(255,255,255,.18);
+            backdrop-filter:blur(8px);
+            -webkit-backdrop-filter:blur(8px);
+            text-align:center;
           "
         >
-          <h1
-            style="
-              margin: 0;
-              font-size: 40px;
-              line-height: 1.08;
-              color: #fff;
-              text-shadow: 0 12px 34px rgba(0,0,0,.45);
-            "
-          >
+          <h1 style="margin:0; font-size:40px; line-height:1.08; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
             Travertine Sealing
           </h1>
 
           <p
             style="
-              margin: 10px auto 0;
-              color: rgba(255,255,255,.92);
-              font-size: 16px;
-              max-width: 900px;
-              text-shadow: 0 10px 28px rgba(0,0,0,.35);
+              margin:10px auto 0;
+              color:rgba(255,255,255,.92);
+              font-size:16px;
+              max-width:900px;
+              text-shadow:0 10px 28px rgba(0,0,0,.35);
             "
           >
             Travertine Sealing in Ponte Vedra, FL — Expert Stone Care for Pool Decks, Patios & Walkways
           </p>
 
-          <div style="margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;">
+          <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
             <a class="btn btn-ghost" href="/get-a-quote/">Get a Quote</a>
           </div>
 
-          <div style="margin-top:10px;color:rgba(255,255,255,.85);font-weight:800;font-size:13px;">
+          <div style="margin-top:10px; color:rgba(255,255,255,.85); font-weight:800; font-size:13px;">
             Optional anti-slip upgrade available for pool decks.
           </div>
         </div>
@@ -109,7 +149,7 @@
     <div class="container">
 
       <!-- INTRO -->
-      <div style="margin-top:18px;color:var(--muted);max-width:980px;">
+      <div style="margin-top:18px; color:var(--muted); max-width:980px;">
         <p>
           Travertine is porous natural stone. If it’s treated like concrete pavers, you can end up with harsh etching, uneven color,
           or a sealed-in problem that looks worse over time. Our approach is simple: the right chemistry, a controlled clean,
@@ -119,16 +159,8 @@
 
       <!-- PHOTO + TEXT (BLOCK 1) -->
       <section style="margin-top:22px;">
-        <div
-          class="trav-split"
-          style="
-            display:grid;
-            grid-template-columns: 1.05fr .95fr;
-            gap: 18px;
-            align-items: stretch;
-          "
-        >
-          <!-- PHOTO (fixed-height media box prevents stretching) -->
+        <div class="trav-split">
+          <!-- PHOTO -->
           <div class="media-box media-h-md">
             <img
               src="/assets/hero/hydroseal-tavertine.png"
@@ -141,7 +173,7 @@
           <!-- TEXT -->
           <div class="card">
             <h2 style="margin:0 0 6px;">What sealing travertine actually does</h2>
-            <p style="margin:0;color:var(--muted);">
+            <p style="margin:0; color:var(--muted);">
               The goal is protection—not shine. A quality stone sealer helps prevent staining and water intrusion while keeping
               the natural look of the stone. It also makes routine cleaning faster because dirt and organics don’t bond as easily.
             </p>
@@ -153,7 +185,7 @@
               <li>Maintains a natural finish (no “wet glossy” look unless requested)</li>
             </ul>
 
-            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+            <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
               <a class="btn btn-primary" href="/get-a-quote/?service=travertine-sealing">Get a Travertine Quote</a>
               <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
             </div>
@@ -163,19 +195,11 @@
 
       <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
       <section style="margin-top:18px;">
-        <div
-          class="trav-split-rev"
-          style="
-            display:grid;
-            grid-template-columns: .95fr 1.05fr;
-            gap: 18px;
-            align-items: stretch;
-          "
-        >
+        <div class="trav-split-rev">
           <!-- TEXT -->
           <div class="card">
             <h2 style="margin:0 0 6px;">Stone-safe cleaning (no harsh shortcuts)</h2>
-            <p style="margin:0;color:var(--muted);">
+            <p style="margin:0; color:var(--muted);">
               Travertine can etch if the wrong chemicals are used. We use a stone-appropriate process designed to clean without
               damaging the surface or creating uneven tone.
             </p>
@@ -196,8 +220,6 @@
             </div>
           </div>
 
-
-          
           <!-- PHOTO -->
           <div class="media-box media-h-md">
             <img
@@ -210,55 +232,55 @@
         </div>
       </section>
 
-      <!-- PROCESS (STRUCTURED, PROFESSIONAL) -->
+      <!-- PROCESS -->
       <section style="margin-top:18px;">
         <div class="card">
           <h2 style="margin:0 0 8px;">Our travertine sealing process</h2>
-          <p style="margin:0;color:var(--muted);max-width:980px;">
+          <p style="margin:0; color:var(--muted); max-width:980px;">
             Clean correctly. Let it dry properly. Seal with a breathable product. That’s the formula for results that last.
           </p>
 
           <div class="grid grid-3" style="margin-top:14px;">
             <div class="card">
               <h3 style="margin:0 0 6px;">1) Inspect</h3>
-              <p style="margin:0;color:var(--muted);">Check surface condition, problem areas, old coatings, and moisture issues.</p>
+              <p style="margin:0; color:var(--muted);">Check surface condition, problem areas, old coatings, and moisture issues.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">2) Stone-safe clean</h3>
-              <p style="margin:0;color:var(--muted);">Use appropriate chemistry + rinse to lift organics and grime without etching.</p>
+              <p style="margin:0; color:var(--muted);">Use appropriate chemistry + rinse to lift organics and grime without etching.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">3) Detail work</h3>
-              <p style="margin:0;color:var(--muted);">Spot treatment for staining, edges, corners, and areas that hold water.</p>
+              <p style="margin:0; color:var(--muted);">Spot treatment for staining, edges, corners, and areas that hold water.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">4) Proper dry-down</h3>
-              <p style="margin:0;color:var(--muted);">We don’t seal wet stone. Dry time matters for adhesion and long-term performance.</p>
+              <p style="margin:0; color:var(--muted);">We don’t seal wet stone. Dry time matters for adhesion and long-term performance.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">5) Seal (breathable)</h3>
-              <p style="margin:0;color:var(--muted);">Apply a consistent coat designed for natural stone—no streaks or blotches.</p>
+              <p style="margin:0; color:var(--muted);">Apply a consistent coat designed for natural stone—no streaks or blotches.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">6) Walkthrough</h3>
-              <p style="margin:0;color:var(--muted);">Clear guidance on dry time, return-to-use, and simple maintenance habits.</p>
+              <p style="margin:0; color:var(--muted);">Clear guidance on dry time, return-to-use, and simple maintenance habits.</p>
             </div>
           </div>
 
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="/get-a-quote/?service=travertine-sealing">Get a Quote</a>
             <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
           </div>
         </div>
       </section>
 
-      <!-- ANTI-SLIP UPSELL (POOL DECKS) -->
+      <!-- ANTI-SLIP -->
       <section style="margin-top:18px;">
         <div class="card" style="border:1px solid rgba(15,110,168,.22);">
           <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
             <div style="min-width:260px;">
               <h2 style="margin:0 0 6px;">Anti-slip upgrade (recommended around pools)</h2>
-              <p style="margin:0;color:var(--muted);max-width:940px;">
+              <p style="margin:0; color:var(--muted); max-width:940px;">
                 If your travertine is around a pool, traction matters. We can add a professional anti-slip additive (like SharkGrip®)
                 to improve grip without making the surface feel rough.
               </p>
@@ -271,30 +293,23 @@
           <div class="grid grid-3" style="margin-top:14px;">
             <div class="card">
               <h3 style="margin:0 0 6px;">More traction</h3>
-              <p style="margin:0;color:var(--muted);">Helps reduce slickness when the surface stays wet.</p>
+              <p style="margin:0; color:var(--muted);">Helps reduce slickness when the surface stays wet.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">Still looks premium</h3>
-              <p style="margin:0;color:var(--muted);">Maintains a clean finish while adding grip.</p>
+              <p style="margin:0; color:var(--muted);">Maintains a clean finish while adding grip.</p>
             </div>
             <div class="card">
               <h3 style="margin:0 0 6px;">Smart add-on</h3>
-              <p style="margin:0;color:var(--muted);">Great for families and frequent pool use.</p>
+              <p style="margin:0; color:var(--muted);">Great for families and frequent pool use.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- MAINTENANCE (VALUE SECTION) -->
+      <!-- MAINTENANCE (STACKS ON MOBILE VIA .trav-maint) -->
       <section style="margin-top:18px;">
-        <div
-          class="trav-maint"
-          style="
-            display:grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-          "
-        >
+        <div class="trav-maint">
           <div class="card">
             <h2 style="margin:0 0 8px;">Maintenance basics</h2>
             <ul style="margin:0; padding-left:18px; color:var(--muted);">
@@ -317,22 +332,15 @@
         </div>
       </section>
 
-      <!-- BEFORE/AFTER STRIP (DROP-IN READY) -->
+      <!-- BEFORE/AFTER (STACKS ON MOBILE VIA .ba-grid) -->
       <section style="margin-top:18px;">
         <div class="card">
           <h2 style="margin:0 0 8px;">Before / After (add your job photos)</h2>
-          <p style="margin:0;color:var(--muted);max-width:920px;">
+          <p style="margin:0; color:var(--muted); max-width:920px;">
             Add 6–12 of your best travertine transformations here. This is what converts.
           </p>
 
-          <div
-            style="
-              margin-top:14px;
-              display:grid;
-              grid-template-columns: 1fr 1fr;
-              gap: 12px;
-            "
-          >
+          <div class="ba-grid">
             <div class="card" style="padding:0; overflow:hidden; border:1px dashed rgba(0,0,0,.15);">
               <img
                 class="ba-img"
@@ -358,44 +366,9 @@
             </div>
           </div>
 
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;">
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="/get-a-quote/?service=travertine-sealing">Get a Quote</a>
             <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section style="margin-top:18px;">
-        <h2 class="section-title">Travertine sealing FAQ</h2>
-
-        <div class="grid grid-2" style="margin-top:12px;">
-          <div class="card">
-            <h3 style="margin:0 0 6px;">Will it be glossy?</h3>
-            <p style="margin:0;color:var(--muted);">
-              By default, we aim for a natural finish. If you want more enhancement, we’ll discuss finish options up front.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 style="margin:0 0 6px;">Will it be slippery?</h3>
-            <p style="margin:0;color:var(--muted);">
-              Stone + water can get slick. For pool decks, we often recommend an anti-slip additive for extra traction.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 style="margin:0 0 6px;">How soon can we use the area?</h3>
-            <p style="margin:0;color:var(--muted);">
-              Dry time depends on humidity and product choice. We’ll give you a clear, simple timeline on service day.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 style="margin:0 0 6px;">What do you need for a quote?</h3>
-            <p style="margin:0;color:var(--muted);">
-              Address + a couple photos is enough to start. If you know sqft, even better.
-            </p>
           </div>
         </div>
       </section>
@@ -404,10 +377,10 @@
       <section style="margin-top:18px;">
         <div class="card" style="text-align:center;">
           <h2 style="margin:0;">Get a real travertine quote today</h2>
-          <p style="margin:8px auto 0;color:var(--muted);max-width:860px;">
+          <p style="margin:8px auto 0; color:var(--muted); max-width:860px;">
             Call now or send your address + photos. We’ll confirm prep needs, finish options, and give you a real estimate.
           </p>
-          <div style="margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;">
+          <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="/get-a-quote/?service=travertine-sealing">Get a Quote</a>
             <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
           </div>
@@ -419,8 +392,8 @@
 
   <div data-include="/partials/footer.html"></div>
 
-<script src="/assets/js/include.js" defer></script>
-<script src="/assets/js/nav-dropdowns.js" defer></script>
+  <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/nav-dropdowns.js" defer></script>
 
 </body>
 </html>
