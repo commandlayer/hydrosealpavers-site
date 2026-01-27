@@ -376,7 +376,8 @@
             </div>
           </div>
         </div>
-      </section>
+      </section
+        
 <!-- PROCESS STRIP (STRUCTURED) — DRIVEWAY -->
 <section style="margin-top:18px;">
   <div class="card">
@@ -385,7 +386,7 @@
       Driveways take the most wear from tires, heat, and sand loss. The goal: a clean surface, stable joints, and an even finish that holds up.
     </p>
 
-    <div class="grid grid-3" style="margin-top:14px;">
+    <div class="grid grid-3 driveway-process" style="margin-top:14px;">
       <div class="card">
         <h3 style="margin:0 0 6px;">1) Inspect</h3>
         <p style="margin:0;color:var(--muted);">
@@ -429,6 +430,35 @@
       </div>
     </div>
   </div>
+
+  <style>
+    /* Light blue gradient in each of the 6 boxes (page-only) */
+    .driveway-process > .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(15,110,168,.18);
+      background:
+        radial-gradient(650px 220px at 18% 0%, rgba(57,191,234,.24), transparent 60%),
+        radial-gradient(650px 220px at 88% 0%, rgba(15,110,168,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,252,255,.98));
+    }
+
+    /* subtle inner edge for a premium look */
+    .driveway-process > .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.40);
+      pointer-events:none;
+    }
+
+    /* tiny lift on hover (optional) */
+    .driveway-process > .card:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(17,24,39,.12);
+    }
+  </style>
 </section>
 
 
