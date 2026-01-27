@@ -413,6 +413,164 @@
         </div>
       </section>
 
+<!-- ==========================
+     DRIVEWAY FAQ (same layout)
+========================== -->
+<section class="section" id="driveway-faq">
+  <div class="container">
+    <h2>Driveway Sealing Questions</h2>
+
+    <div class="stack" style="margin-top:16px;">
+
+      <details class="faq-item">
+        <summary><strong>How long before I can park on my driveway after sealing?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            Most driveways need <strong>at least 24 hours</strong> before vehicle traffic, depending on humidity, shade,
+            and product used. We’ll give you a clear “park time” on the day of service so you don’t risk tire marks or
+            tracking.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>Will sealing help prevent tire marks, oil spots, and rust stains?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            Sealing helps <strong>reduce absorption</strong> and makes cleanup easier, especially for oil and organic grime.
+            It won’t make pavers “stain-proof,” but it buys you time and improves how the surface handles everyday driveway
+            wear.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>Do you re-sand the joints on driveways (and do you use polymeric sand)?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            Yes. Driveways lose joint sand fast from tires and rainfall. We remove failing joint material and re-sand using
+            <strong>Trident ASTM-C144 joint sand</strong>. If polymeric is appropriate for your joints and conditions, we’ll
+            recommend it — the goal is stability, clean joints, and long-term performance.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>Can you clean and seal my driveway the same day?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            Often, yes — especially in <strong>spring and summer</strong> when conditions are right. If the pavers hold
+            moisture, there’s shade, or rain is nearby, we extend dry time. Rushing a driveway seal is how you get
+            whitening, tacky spots, and failures.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>Does driveway sealing make pavers slippery?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            Driveways are usually not a traction problem, but application matters. We apply evenly, avoid over-application,
+            and choose the right finish for your surface so it looks clean and performs without feeling slick.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>What if my driveway has sinking pavers, low spots, or drainage issues?</strong></summary>
+        <div class="faq-body">
+          <p class="muted">
+            We inspect for rocking, sinking, and drainage problems and tell you the right fix first. Sealing protects the
+            surface and helps stabilize joints — it does <strong>not</strong> correct base or structural issues. If repairs
+            are needed, we’ll be upfront before sealing begins.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* FAQ shell (square, white) */
+  #driveway-faq details.faq-item{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:0;
+    overflow:hidden;
+  }
+
+  /* Question row */
+  #driveway-faq details.faq-item > summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-weight:900;
+    user-select:none;
+  }
+  #driveway-faq summary::-webkit-details-marker{ display:none; }
+
+  /* Chevron */
+  #driveway-faq summary::after{
+    content:"▾";
+    font-weight:1000;
+    color: var(--navy);
+    transition: transform .18s ease;
+  }
+  #driveway-faq details[open] summary::after{
+    transform: rotate(180deg);
+  }
+
+  /* Sliding answer panel (blue only here) */
+  #driveway-faq .faq-body{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    padding:0 16px;
+    transform: translateY(-6px);
+    transition:
+      max-height .28s ease,
+      opacity .22s ease,
+      transform .22s ease;
+    background:
+      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+      linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+    border-top:1px solid rgba(15,110,168,.25);
+  }
+
+  #driveway-faq details[open] .faq-body{
+    max-height:240px;
+    opacity:1;
+    padding:16px;
+    transform:none;
+  }
+</style>
+
+<script>
+  // Only one FAQ open at a time
+  (function () {
+    const faq = document.querySelector('#driveway-faq');
+    if (!faq) return;
+
+    const items = faq.querySelectorAll('details');
+
+    items.forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        items.forEach(other => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      });
+    });
+  })();
+</script>
+
+
+      
       <!-- FINAL CTA -->
       <section style="margin-top:18px;">
         <div class="card" style="text-align:center;">
