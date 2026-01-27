@@ -405,7 +405,7 @@
         </div>
       </section>
 
-      <!-- PROCESS -->
+<!-- PROCESS -->
 <section style="margin-top:18px;">
   <div class="card">
     <h2 style="margin:0 0 8px;">Our travertine sealing process</h2>
@@ -414,58 +414,85 @@
       Rushing any step leads to blotching, trapped moisture, and early failure.
     </p>
 
-    <div class="grid grid-3" style="margin-top:14px;">
+    <div class="grid grid-3 travertine-process" style="margin-top:14px;">
       <div class="card">
         <h3 style="margin:0 0 6px;">1) Inspect</h3>
         <p style="margin:0; color:var(--muted);">
-          Evaluate surface condition, porosity, joint depth, drainage, staining,
-          previous coatings, and any areas that hold moisture.
+          Evaluate surface condition, porosity, joint depth, drainage, staining, previous coatings,
+          and any areas that hold moisture.
         </p>
       </div>
 
       <div class="card">
         <h3 style="margin:0 0 6px;">2) Stone-safe clean</h3>
         <p style="margin:0; color:var(--muted);">
-          Use travertine-appropriate chemistry and controlled pressure to lift
-          organics, dirt, and residue without etching or damaging the stone.
+          Use travertine-appropriate chemistry and controlled pressure to lift organics, dirt, and residue
+          without etching or damaging the stone.
         </p>
       </div>
 
       <div class="card">
         <h3 style="margin:0 0 6px;">3) Detail & treatment</h3>
         <p style="margin:0; color:var(--muted);">
-          Address problem areas individually—edges, corners, shaded zones,
-          rust or organic staining—without over-treating the entire surface.
+          Address problem areas individually—edges, corners, shaded zones, rust or organic staining—without
+          over-treating the entire surface.
         </p>
       </div>
 
       <div class="card">
         <h3 style="margin:0 0 6px;">4) Proper dry-down</h3>
         <p style="margin:0; color:var(--muted);">
-          Travertine must be fully dry before sealing. We allow the time needed
-          based on weather, shade, and stone density to prevent trapped moisture.
+          Travertine must be fully dry before sealing. We allow the time needed based on weather, shade,
+          and stone density to prevent trapped moisture.
         </p>
       </div>
 
       <div class="card">
         <h3 style="margin:0 0 6px;">5) Seal (breathable)</h3>
         <p style="margin:0; color:var(--muted);">
-          Apply a breathable, penetrating sealer designed for natural stone.
-          Even coverage, clean edges, no puddling, and no artificial shine.
+          Apply a breathable, penetrating sealer designed for natural stone. Even coverage, clean edges,
+          no puddling, and no artificial shine.
         </p>
       </div>
 
       <div class="card">
         <h3 style="margin:0 0 6px;">6) Walkthrough</h3>
         <p style="margin:0; color:var(--muted);">
-          Review results and provide clear guidance on dry time, return-to-use,
-          and simple maintenance to keep the surface performing as intended.
+          Review results and provide clear guidance on dry time, return-to-use, and simple maintenance
+          to keep the surface performing as intended.
         </p>
       </div>
     </div>
   </div>
-</section>
 
+  <style>
+    /* Green/Blue gradient inside each of the 6 boxes (page-only) */
+    .travertine-process > .card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(15,110,168,.18);
+      background:
+        radial-gradient(650px 220px at 15% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(650px 220px at 85% 0%, rgba(57,191,234,.22), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,252,255,.98));
+    }
+
+    /* subtle inner edge for a premium look */
+    .travertine-process > .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.40);
+      pointer-events:none;
+    }
+
+    .travertine-process > .card:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(17,24,39,.12);
+    }
+  </style>
+</section>
 
   
 
