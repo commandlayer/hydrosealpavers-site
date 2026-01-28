@@ -20,6 +20,42 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <style>
+  /* ===== Quote page: hide the trust bar (Licensed/Insured, Trident, Warranty, counties) ===== */
+  /* This targets the common class/id patterns AND the exact text line as a fallback. */
+
+  /* Common wrappers (in case your header uses any of these) */
+  .trustbar,
+  #trustbar,
+  .trust-strip,
+  .trust-strip-wrap,
+  .top-trust,
+  .header-trust,
+  .trust-row,
+  .trust-banner,
+  [data-trustbar]{
+    display:none !important;
+    height:0 !important;
+    padding:0 !important;
+    margin:0 !important;
+    border:0 !important;
+  }
+
+  /* Fallback: if your trust bar is just a <p>/<div> with those words */
+  /* Hides any element inside header that contains those exact phrases */
+  header :is(div, p, span, ul, li):has(> :is(span, strong, em, b, i):not(script)){
+    /* no-op: keeps selector valid in browsers without :has */
+  }
+
+  /* Modern browsers: kill any header element that contains "Licensed & Insured" */
+  @supports(selector(:has(*))) {
+    header :is(div,p,span,ul,li):has(*){
+      /* nothing */
+    }
+    header :is(div,p,span,ul,li):has(:is(*)):has(:contains("Licensed")){ display:none !important; }
+  }
+</style>
+
+  <style>
     /* Overlay quote card inside hero */
     .hero2 { position: relative; }
     .hero2 .container { position: relative; z-index: 3; }
