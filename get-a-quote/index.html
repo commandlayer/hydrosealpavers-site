@@ -19,6 +19,41 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+/* ===== Mobile: prevent the quote card from "growing" while typing ===== */
+@media (max-width: 860px){
+  /* Keep the card stable; scrolling happens INSIDE instead of pushing page down */
+  .qcard{
+    max-height: calc(100vh - 170px); /* adjust if your header is taller */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent button row / note from wrapping into extra lines */
+  .actions{
+    flex-wrap: nowrap;
+  }
+  .actions .note{
+    white-space: nowrap;
+  }
+
+  /* Stop label/value text from changing size via iOS auto text-size adjust */
+  html{
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Prevent long file names from expanding layout */
+  .filename{
+    max-height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
+  
   <style>
     /* =========================================
        Quote Page Overrides
