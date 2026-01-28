@@ -22,19 +22,17 @@
   <style>
     /* =========================================
        Quote Page Overrides
-       - Hide trust bar (page only)
-       - Desktop: 2-col (hero card + form)
-       - Mobile: stacked
+       - Hide trust bar (this page only)
+       - 2-column hero + form on desktop
+       - Stack on mobile
        - Progress bar:
-         - Desktop: LIVE % for ENTIRE desktop form (both steps combined)
-         - Mobile: LIVE % for ENTIRE mobile form (sticky header + progress)
-       - Mobile typing "grows" fix:
-         - force 16px input font-size (prevents iOS zoom)
-       - Mobile scrolling:
-         - NO internal scrolling inside qcard (page scroll only)
+         - Desktop: LIVE % across ENTIRE desktop form (both steps)
+         - Mobile: LIVE % across ENTIRE mobile form (sticky header inside card)
+       - Mobile typing "grows" fix: force 16px inputs (prevents iOS zoom)
+       - Mobile: NO internal scroll in card; sticky header only sticks while card is in view
     ==========================================*/
 
-    /* Trust bar hide (page-only best effort) */
+    /* Trust bar (best is to add a wrapper class in header partial; this covers common patterns) */
     .trustbar, #trustbar, .trust-strip, .trust-strip-wrap, .top-trust, .header-trust,
     .trust-row, .trust-banner, [data-trustbar], .site-trust, .trust, .trust-bar{
       display:none !important;
@@ -42,6 +40,12 @@
       padding:0 !important;
       margin:0 !important;
       border:0 !important;
+    }
+
+    /* Reduce mobile font auto-resize weirdness */
+    html{
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     /* Hero */
@@ -77,7 +81,7 @@
     }
 
     /* Make this match your H2 blue */
-    .hero-h2{
+    .hero-copy-card .hero-title{
       margin:0;
       font-size: clamp(34px, 4vw, 54px);
       line-height:1.02;
@@ -102,7 +106,7 @@
       line-height:1.35;
     }
 
-    /* Form card (NO internal scroll) */
+    /* Form card */
     .qcard{
       width:100%;
       background:#fff;
@@ -110,9 +114,8 @@
       border-radius:18px;
       box-shadow: var(--shadow);
       padding:18px;
-      overflow: visible;
-      max-height:none;
-      height:auto;
+      overflow: visible; /* important for sticky to behave */
+      position: relative;
     }
 
     .qlead{
@@ -142,14 +145,14 @@
       overflow:hidden;
       position:relative;
     }
-    .qprogress .bar{
+    .qprogress > .bar{
       height:100%;
       width:0%;
       background:#1f78b4;
       border-radius: 999px;
       transition: width .20s ease;
     }
-    .qprogress .label{
+    .qprogress > .label{
       position:absolute;
       inset:0;
       display:flex;
@@ -203,6 +206,7 @@
       color: var(--text);
       outline:none;
     }
+
     textarea{ min-height:110px; resize:vertical; }
 
     input:focus,
@@ -212,7 +216,7 @@
       box-shadow: 0 0 0 4px rgba(57,191,234,.18);
     }
 
-    /* Address grid rows */
+    /* Address grids */
     .addr-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -323,7 +327,7 @@
     .desktop-only{ display:block; }
     .mobile-only{ display:none; }
 
-    /* Mobile sticky header INSIDE the mobile form */
+    /* Mobile sticky header (ONLY on mobile, and only within the card) */
     .m-sticky-head{ display:none; }
 
     /* Responsive */
@@ -337,29 +341,32 @@
         padding-top: clamp(14px, 8vh, 90px);
         padding-bottom: 18px;
       }
-
-      .hero-h2{ font-size: clamp(30px, 8vw, 44px); }
+      .hero-copy-card .hero-title{ font-size: clamp(30px, 8vw, 44px); }
       .hero-copy-card p{ font-size: 16px; }
-
       .qcard{ padding:16px; }
 
       .desktop-only{ display:none; }
       .mobile-only{ display:block; }
 
-      /* SHOW sticky header on mobile */
+      /* Sticky header inside card:
+         - sticks while card is in view
+         - does NOT create an internal scroll
+         - top value should clear your site header height
+      */
       .m-sticky-head{
         display:block;
         position: sticky;
-        top: 76px; /* adjust if your header is taller/shorter */
-        z-index: 30;
-
-        background:#fff;
-        padding: 10px 0 12px;
-        margin: 0 0 14px;
+        top: 74px;          /* adjust if your site header height differs */
+        z-index: 20;
+        background: #fff;
+        margin: -16px -16px 14px; /* full-bleed inside padded card */
+        padding: 12px 16px 12px;
         border-bottom: 1px solid var(--line);
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
       }
 
-      /* Prevent iOS zoom/reflow while typing */
+      /* Mobile typing "grows" fix (iOS zoom + reflow) */
       #quoteFormMobile input[type="text"],
       #quoteFormMobile input[type="tel"],
       #quoteFormMobile input[type="email"],
@@ -368,7 +375,6 @@
         font-size: 16px !important;
         line-height: 1.2;
       }
-
       #quoteFormMobile input[type="text"],
       #quoteFormMobile input[type="tel"],
       #quoteFormMobile input[type="email"],
@@ -378,12 +384,7 @@
         padding-bottom: 0;
       }
 
-      html{
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-      }
-
-      /* Mobile address grids */
+      /* Mobile address grids stack cleanly */
       .addr-grid{ grid-template-columns: 1fr; }
       .addr-grid-3{ grid-template-columns: 1fr 1fr; }
       .addr-grid-3 .row:nth-child(3){ grid-column: span 2; }
@@ -420,10 +421,10 @@
 
           <!-- LEFT -->
           <div class="hero-copy-card">
-            <h1 class="hero-h2">Contact Us Today</h1>
+            <h1 class="hero-title">Contact Us Today</h1>
             <p>
-              We Welcome The Opportunity To Exceed Your Expectations.
-              Share A Few Details And We’ll Prepare An Estimate For Your Project.
+              We welcome the opportunity to exceed your expectations.
+              Share a few details and we’ll prepare an estimate for your project.
             </p>
             <div class="hero-mini">
               Tip: Upload photos for the quickest quote. Most requests get a same-day response.
@@ -433,11 +434,11 @@
           <!-- RIGHT -->
           <div class="qcard" id="quote-form">
 
-            <!-- DESKTOP HEADER + PROGRESS (ALWAYS VISIBLE ON DESKTOP) -->
+            <!-- DESKTOP HEADER + PROGRESS -->
             <div class="desktop-only">
               <div class="qlead">
                 <strong>Request Quote Form</strong>
-                <span>Clear Estimate. Proper Preparation. Professional Results.</span>
+                <span>Clear estimate. Proper preparation. Professional results.</span>
               </div>
 
               <div class="qprogress" aria-hidden="true">
@@ -448,11 +449,27 @@
               <div class="qstep-sub" id="qStepSub">0 of 0 required fields complete.</div>
             </div>
 
+            <!-- MOBILE STICKY HEADER (inside card, above the form) -->
+            <div class="m-sticky-head" aria-hidden="true">
+              <div class="qlead">
+                <strong>Request Quote Form</strong>
+                <span>Clear estimate. Proper preparation. Professional results.</span>
+              </div>
+
+              <div class="qprogress">
+                <div class="bar" id="mBar"></div>
+                <div class="label" id="mPct">0%</div>
+              </div>
+              <div class="qstep-title">Quote Progress</div>
+              <div class="qstep-sub" id="mSub">0 of 0 required fields complete.</div>
+            </div>
+
             <!-- DESKTOP: 2-STEP FORM -->
             <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
 
-              <!-- STEP 1 -->
+              <!-- STEP 1 (7 required fields) -->
               <div class="step" data-step="1">
+
                 <div class="row">
                   <label for="d-name">Name</label>
                   <input id="d-name" name="name" type="text" autocomplete="name" required placeholder="Name">
@@ -470,7 +487,7 @@
                   </div>
                   <div class="row">
                     <label for="d-state">State</label>
-                    <input id="d-state" name="state" type="text" autocomplete="address-level1" required placeholder="State (FL)" maxlength="2">
+                    <input id="d-state" name="state" type="text" autocomplete="address-level1" required placeholder="FL" maxlength="2">
                   </div>
                   <div class="row">
                     <label for="d-zip">ZIP</label>
@@ -498,8 +515,9 @@
                 <div class="step-hint">Step 1 Of 2</div>
               </div>
 
-              <!-- STEP 2 -->
+              <!-- STEP 2 (3 required fields: service, paver, consent) -->
               <div class="step" data-step="2" style="display:none;">
+
                 <div class="row">
                   <label for="d-service">What Area Do You Need Serviced?</label>
                   <select id="d-service" name="service_area" required>
@@ -575,22 +593,6 @@
             <!-- MOBILE: SINGLE-PAGE FORM -->
             <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
 
-              <!-- MOBILE STICKY HEADER (VISIBLE + STICKY ON PAGE SCROLL) -->
-              <div class="m-sticky-head">
-                <div class="qlead">
-                  <strong>Request Quote Form</strong>
-                  <span>Clear estimate. Proper preparation. Professional results.</span>
-                </div>
-
-                <div class="qprogress" aria-hidden="true">
-                  <div class="bar" id="mBar"></div>
-                  <div class="label" id="mPct">0%</div>
-                </div>
-
-                <div class="qstep-title">Quote Progress</div>
-                <div class="qstep-sub" id="mSub">0 of 0 required fields complete.</div>
-              </div>
-
               <div class="row">
                 <label for="m-name">Name</label>
                 <input id="m-name" name="name" type="text" autocomplete="name" required placeholder="Name">
@@ -608,7 +610,7 @@
                 </div>
                 <div class="row">
                   <label for="m-state">State</label>
-                  <input id="m-state" name="state" type="text" autocomplete="address-level1" required placeholder="State (FL)" maxlength="2">
+                  <input id="m-state" name="state" type="text" autocomplete="address-level1" required placeholder="FL" maxlength="2">
                 </div>
                 <div class="row">
                   <label for="m-zip">ZIP</label>
@@ -738,6 +740,7 @@
       }
 
       const pct = clamp(Math.round((complete / total) * 100), 0, 100);
+
       if (barEl) barEl.style.width = pct + "%";
       if (pctEl) pctEl.textContent = pct + "%";
 
@@ -752,7 +755,7 @@
       });
     }
 
-    /* ========= Desktop: 2-step behavior + ENTIRE FORM progress ========= */
+    /* ========= Desktop: 2-step behavior + ENTIRE FORM progress (10 required fields total) ========= */
     (function(){
       const form = document.getElementById('quoteFormDesktop');
       if (!form) return;
@@ -764,17 +767,19 @@
 
       const bar = document.getElementById('qBar');
       const pctEl = document.getElementById('qPct');
+      const title = document.getElementById('qStepTitle');
       const sub = document.getElementById('qStepSub');
 
+      // Step 1 required fields (7)
       const fieldsStep1 = ['d-name','d-street','d-city','d-state','d-zip','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
       function updateDesktop(){
-        const r = updateProgress(form, bar, pctEl); // ENTIRE FORM (both steps)
+        const r = updateProgress(form, bar, pctEl); // ENTIRE form (counts step2 required too)
+        if (title) title.textContent = 'Quote Progress';
         if (sub){
-          sub.textContent = (r.pct < 100)
-            ? `${r.complete} of ${r.total} required fields complete.`
-            : 'Ready to send.';
+          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
+          else sub.textContent = 'Ready to send.';
         }
       }
 
@@ -810,7 +815,7 @@
       updateDesktop();
     })();
 
-    /* ========= Mobile: sticky header + ENTIRE FORM progress ========= */
+    /* ========= Mobile: ENTIRE FORM progress + sticky header ========= */
     (function(){
       const form = document.getElementById('quoteFormMobile');
       if (!form) return;
@@ -822,9 +827,8 @@
       function updateMobile(){
         const r = updateProgress(form, bar, pctEl);
         if (sub){
-          sub.textContent = (r.pct < 100)
-            ? `${r.complete} of ${r.total} required fields complete.`
-            : 'Ready to send.';
+          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
+          else sub.textContent = 'Ready to send.';
         }
       }
 
