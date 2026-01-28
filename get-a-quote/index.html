@@ -26,29 +26,15 @@
        - 2-column hero + form on desktop
        - Stack on mobile
        - Progress bar:
-         - Desktop: live % for visible step (step 1 or step 2 required fields)
-         - Mobile: sticky live % (whole form required fields)
-       - Mobile "grows while typing" fix:
-         - NO max-height / overflow on qcard (keeps it from changing behavior)
-         - force 16px inputs to prevent iOS zoom/reflow
+         - Desktop: LIVE % for ENTIRE desktop form (both steps combined)
+         - Mobile: LIVE % for ENTIRE mobile form (sticky header + progress)
+       - Mobile input "grows" fix:
+         - force 16px input font-size (prevents iOS zoom)
     ==========================================*/
 
-    /* --- Hide the trust bar on THIS page only ---
-       This targets common wrapper class/id patterns used for the trust strip.
-       Best practice: add a specific class to the trust bar in your header partial and target it here.
-    */
-    .trustbar,
-    #trustbar,
-    .trust-strip,
-    .trust-strip-wrap,
-    .top-trust,
-    .header-trust,
-    .trust-row,
-    .trust-banner,
-    [data-trustbar],
-    .site-trust,
-    .trust,
-    .trust-bar{
+    /* Trust bar (page-only hide; best if you add a single wrapper class in header partial) */
+    .trustbar, #trustbar, .trust-strip, .trust-strip-wrap, .top-trust, .header-trust,
+    .trust-row, .trust-banner, [data-trustbar], .site-trust, .trust, .trust-bar{
       display:none !important;
       height:0 !important;
       padding:0 !important;
@@ -56,17 +42,11 @@
       border:0 !important;
     }
 
-    /* --- HERO base --- */
+    /* Hero */
     .hero2{ position:relative; }
     .hero2 .container{ position:relative; z-index:3; }
-    .hero2 img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+    .hero2 img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-    /* --- Overlay layout (no translate hacks) --- */
     .hero2 .quote-overlay{
       display:flex;
       justify-content:center;
@@ -78,12 +58,12 @@
     .quote-grid{
       width: min(1080px, 100%);
       display:grid;
-      grid-template-columns: 1fr 560px; /* hero card + form */
+      grid-template-columns: 1fr 560px;
       gap: 18px;
       align-items: start;
     }
 
-    /* Left hero card */
+    /* Left hero copy card */
     .hero-copy-card{
       border-radius: 28px;
       padding: 26px 24px;
@@ -125,7 +105,7 @@
       border-radius:18px;
       box-shadow: var(--shadow);
       padding:18px;
-      overflow: visible; /* IMPORTANT: don't trap sticky inside overflow */
+      overflow: visible; /* keep sticky working */
     }
 
     .qlead{
@@ -158,7 +138,7 @@
     .qprogress > .bar{
       height:100%;
       width:0%;
-      background: #1f78b4;
+      background:#1f78b4;
       border-radius: 999px;
       transition: width .20s ease;
     }
@@ -186,11 +166,6 @@
       color: var(--muted);
       font-weight:700;
       font-size:12px;
-    }
-
-    /* Mobile sticky progress (inside the form, not fixed) */
-    .m-progress-sticky{
-      display:none; /* desktop hidden */
     }
 
     /* Fields */
@@ -230,6 +205,23 @@
       box-shadow: 0 0 0 4px rgba(57,191,234,.18);
     }
 
+    /* Address grid rows */
+    .addr-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .addr-grid .row{ margin-top:0; }
+
+    .addr-grid-3{
+      display:grid;
+      grid-template-columns: 1fr 120px 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .addr-grid-3 .row{ margin-top:0; }
+
     /* File upload */
     .drop{
       border:1px dashed rgba(15,110,168,.40);
@@ -262,7 +254,6 @@
       user-select:none;
     }
     input[type="file"]{ display:none; }
-
     .filename{
       margin-top:10px;
       font-size:13px;
@@ -313,7 +304,6 @@
       font-weight: 700;
     }
 
-    /* Steps */
     .step{ display:block; }
     .step-hint{
       margin:10px 0 0;
@@ -323,9 +313,11 @@
       font-weight: 700;
     }
 
-    /* Desktop-only stepper */
     .desktop-only{ display:block; }
     .mobile-only{ display:none; }
+
+    /* Mobile sticky header inside the form (locks title + progress + X of Y) */
+    .m-sticky-head{ display:none; }
 
     /* Responsive */
     @media (max-width: 980px){
@@ -338,18 +330,14 @@
         padding-top: clamp(14px, 8vh, 90px);
         padding-bottom: 18px;
       }
-      .hero-copy-card h1{
-        font-size: clamp(30px, 8vw, 44px);
-      }
-      .hero-copy-card p{
-        font-size: 16px;
-      }
+      .hero-copy-card h1{ font-size: clamp(30px, 8vw, 44px); }
+      .hero-copy-card p{ font-size: 16px; }
       .qcard{ padding:16px; }
+
       .desktop-only{ display:none; }
       .mobile-only{ display:block; }
-      .actions{ justify-content:flex-start; }
 
-      /* Mobile typing "grows" fix (prevents iOS zoom/reflow) */
+      /* Prevent iOS zoom/reflow while typing */
       #quoteFormMobile input[type="text"],
       #quoteFormMobile input[type="tel"],
       #quoteFormMobile input[type="email"],
@@ -366,25 +354,33 @@
         padding-top: 0;
         padding-bottom: 0;
       }
-
       html{
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
       }
 
-      /* Mobile sticky progress visible + sticky under your header */
-      .m-progress-sticky{
+      /* Mobile address grids stack cleanly */
+      .addr-grid{ grid-template-columns: 1fr; }
+      .addr-grid-3{ grid-template-columns: 1fr 1fr; }
+      .addr-grid-3 .row:nth-child(2){ grid-column: span 1; }
+      .addr-grid-3 .row:nth-child(3){ grid-column: span 2; }
+
+      /* Sticky header inside mobile form */
+      .m-sticky-head{
         display:block;
         position: sticky;
-        top: 76px; /* adjust if needed for your header height */
-        z-index: 20;
-        background: #fff;
-        padding: 10px 0 8px;
+        top: 76px;              /* adjust to your header height */
+        z-index: 30;
+        background:#fff;
+        padding: 10px 0 10px;
         margin: 0 0 10px;
         border-bottom: 1px solid var(--line);
       }
+      .m-sticky-head .qlead{
+        margin: 0 0 8px;
+      }
 
-      /* Keep long filenames from expanding the page */
+      /* Keep long filenames from expanding layout */
       #m-file-name{
         max-height: 38px;
         overflow: hidden;
@@ -401,7 +397,6 @@
 
   <div data-include="/partials/header.html"></div>
 
-  <!-- HERO + (LEFT) COPY CARD + (RIGHT) FORM -->
   <section class="hero2">
     <img
       src="/assets/hero/paver-sealing-jacksonville-driveway.png"
@@ -415,7 +410,7 @@
       <div class="quote-overlay">
         <div class="quote-grid">
 
-          <!-- LEFT: HERO COPY -->
+          <!-- LEFT -->
           <div class="hero-copy-card">
             <h1>Contact Us Today</h1>
             <p>
@@ -427,46 +422,64 @@
             </div>
           </div>
 
-          <!-- RIGHT: FORM -->
+          <!-- RIGHT -->
           <div class="qcard" id="quote-form">
-            <div class="qlead">
-              <strong>Request Quote Form</strong>
-              <span>Clear estimate. Proper preparation. Professional results.</span>
-            </div>
 
-            <!-- DESKTOP PROGRESS (desktop only) -->
+            <!-- DESKTOP HEADER + PROGRESS -->
             <div class="desktop-only">
+              <div class="qlead">
+                <strong>Request Quote Form</strong>
+                <span>Clear estimate. Proper preparation. Professional results.</span>
+              </div>
+
               <div class="qprogress" aria-hidden="true">
                 <div class="bar" id="qBar"></div>
                 <div class="label" id="qPct">0%</div>
               </div>
-              <div class="qstep-title" id="qStepTitle">Step 1 of 2 — Contact Info</div>
-              <div class="qstep-sub" id="qStepSub">Complete required fields to reach 100%.</div>
+              <div class="qstep-title" id="qStepTitle">Quote Progress</div>
+              <div class="qstep-sub" id="qStepSub">0 of 0 required fields complete.</div>
             </div>
 
             <!-- DESKTOP: 2-STEP FORM -->
             <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
 
-              <!-- STEP 1 -->
+              <!-- STEP 1 (now 7 required fields) -->
               <div class="step" data-step="1">
+
                 <div class="row">
                   <label for="d-name">Name</label>
-                  <input id="d-name" name="name" type="text" autocomplete="name" required>
+                  <input id="d-name" name="name" type="text" autocomplete="name" required placeholder="Name">
                 </div>
 
                 <div class="row">
-                  <label for="d-address">Address</label>
-                  <input id="d-address" name="address" type="text" autocomplete="street-address" required>
+                  <label for="d-street">Street Address</label>
+                  <input id="d-street" name="street" type="text" autocomplete="street-address" required placeholder="Street Address">
                 </div>
 
-                <div class="row">
-                  <label for="d-phone">Phone</label>
-                  <input id="d-phone" name="phone" type="tel" autocomplete="tel" required>
+                <div class="addr-grid-3">
+                  <div class="row">
+                    <label for="d-city">City</label>
+                    <input id="d-city" name="city" type="text" autocomplete="address-level2" required placeholder="City">
+                  </div>
+                  <div class="row">
+                    <label for="d-state">State</label>
+                    <input id="d-state" name="state" type="text" autocomplete="address-level1" required placeholder="State (FL)" maxlength="2">
+                  </div>
+                  <div class="row">
+                    <label for="d-zip">ZIP</label>
+                    <input id="d-zip" name="zip" type="text" autocomplete="postal-code" required placeholder="ZIP">
+                  </div>
                 </div>
 
-                <div class="row">
-                  <label for="d-email">Email</label>
-                  <input id="d-email" name="email" type="email" autocomplete="email" required>
+                <div class="addr-grid">
+                  <div class="row">
+                    <label for="d-phone">Cell Phone</label>
+                    <input id="d-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Cell Phone">
+                  </div>
+                  <div class="row">
+                    <label for="d-email">Email</label>
+                    <input id="d-email" name="email" type="email" autocomplete="email" required placeholder="Email">
+                  </div>
                 </div>
 
                 <div class="actions" style="justify-content:flex-end;">
@@ -480,6 +493,7 @@
 
               <!-- STEP 2 -->
               <div class="step" data-step="2" style="display:none;">
+
                 <div class="row">
                   <label for="d-service">What Area Do You Need Serviced?</label>
                   <select id="d-service" name="service_area" required>
@@ -555,34 +569,55 @@
             <!-- MOBILE: SINGLE-PAGE FORM -->
             <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
 
-              <!-- MOBILE STICKY PROGRESS -->
-              <div class="m-progress-sticky" aria-hidden="true">
+              <!-- MOBILE STICKY HEADER (locks title + progress + X of Y) -->
+              <div class="m-sticky-head" aria-hidden="true">
+                <div class="qlead">
+                  <strong>Request Quote Form</strong>
+                  <span>Clear estimate. Proper preparation. Professional results.</span>
+                </div>
+
                 <div class="qprogress">
                   <div class="bar" id="mBar"></div>
                   <div class="label" id="mPct">0%</div>
                 </div>
                 <div class="qstep-title">Quote Progress</div>
-                <div class="qstep-sub" id="mSub">Complete required fields to reach 100%.</div>
+                <div class="qstep-sub" id="mSub">0 of 0 required fields complete.</div>
               </div>
 
               <div class="row">
                 <label for="m-name">Name</label>
-                <input id="m-name" name="name" type="text" autocomplete="name" required>
+                <input id="m-name" name="name" type="text" autocomplete="name" required placeholder="Name">
               </div>
 
               <div class="row">
-                <label for="m-address">Address</label>
-                <input id="m-address" name="address" type="text" autocomplete="street-address" required>
+                <label for="m-street">Street Address</label>
+                <input id="m-street" name="street" type="text" autocomplete="street-address" required placeholder="Street Address">
               </div>
 
-              <div class="row">
-                <label for="m-phone">Phone</label>
-                <input id="m-phone" name="phone" type="tel" autocomplete="tel" required>
+              <div class="addr-grid-3">
+                <div class="row">
+                  <label for="m-city">City</label>
+                  <input id="m-city" name="city" type="text" autocomplete="address-level2" required placeholder="City">
+                </div>
+                <div class="row">
+                  <label for="m-state">State</label>
+                  <input id="m-state" name="state" type="text" autocomplete="address-level1" required placeholder="State (FL)" maxlength="2">
+                </div>
+                <div class="row">
+                  <label for="m-zip">ZIP</label>
+                  <input id="m-zip" name="zip" type="text" autocomplete="postal-code" required placeholder="ZIP">
+                </div>
               </div>
 
-              <div class="row">
-                <label for="m-email">Email</label>
-                <input id="m-email" name="email" type="email" autocomplete="email" required>
+              <div class="addr-grid">
+                <div class="row">
+                  <label for="m-phone">Cell Phone</label>
+                  <input id="m-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Cell Phone">
+                </div>
+                <div class="row">
+                  <label for="m-email">Email</label>
+                  <input id="m-email" name="email" type="email" autocomplete="email" required placeholder="Email">
+                </div>
               </div>
 
               <div class="row">
@@ -666,7 +701,7 @@
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
   <script>
-    /* ========= Shared helpers ========= */
+    /* ========= Progress helpers ========= */
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
     function isFilled(el){
@@ -712,14 +747,9 @@
       });
     }
 
-    /* ========= Desktop 2-step behavior + step-scoped progress ========= */
+    /* ========= Desktop: 2-step behavior + ENTIRE FORM progress ========= */
     (function(){
       const form = document.getElementById('quoteFormDesktop');
-      const bar = document.getElementById('qBar');
-      const pctEl = document.getElementById('qPct');
-      const title = document.getElementById('qStepTitle');
-      const sub = document.getElementById('qStepSub');
-
       if (!form) return;
 
       const step1 = form.querySelector('[data-step="1"]');
@@ -727,40 +757,33 @@
       const nextBtn = document.getElementById('desktopNext');
       const backBtn = document.getElementById('desktopBack');
 
-      const fieldsStep1 = ['d-name','d-address','d-phone','d-email']
+      const bar = document.getElementById('qBar');
+      const pctEl = document.getElementById('qPct');
+      const title = document.getElementById('qStepTitle');
+      const sub = document.getElementById('qStepSub');
+
+      // Step 1 required fields (now 7)
+      const fieldsStep1 = ['d-name','d-street','d-city','d-state','d-zip','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
-      let currentStep = 1;
-
-      function setStepText(step){
-        if (!title || !sub) return;
-        if (step === 1){
-          title.textContent = 'Step 1 of 2 — Contact Info';
-          sub.textContent = 'Complete required fields to reach 100%.';
-        } else {
-          title.textContent = 'Step 2 of 2 — Project Details';
-          sub.textContent = 'Complete required fields to reach 100%.';
+      function updateDesktop(){
+        const r = updateProgress(form, bar, pctEl); // ENTIRE FORM (both steps)
+        if (title) title.textContent = 'Quote Progress';
+        if (sub){
+          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
+          else sub.textContent = 'Ready to send.';
         }
-      }
-
-      function updateStepProgress(){
-        const scope = (currentStep === 1) ? step1 : step2;
-        if (!scope) return;
-        updateProgress(scope, bar, pctEl);
       }
 
       function showStep(n){
-        currentStep = n;
         if (n === 1){
           step1.style.display = 'block';
           step2.style.display = 'none';
-          setStepText(1);
         } else {
           step1.style.display = 'none';
           step2.style.display = 'block';
-          setStepText(2);
         }
-        updateStepProgress();
+        updateDesktop();
       }
 
       function validateStep1(){
@@ -776,17 +799,16 @@
       nextBtn && nextBtn.addEventListener('click', () => {
         if (validateStep1()) showStep(2);
       });
-
       backBtn && backBtn.addEventListener('click', () => showStep(1));
 
-      // Live progress on whichever step is visible
-      bindLive(step1, updateStepProgress);
-      bindLive(step2, updateStepProgress);
+      // Live update when ANY field changes (including hidden step2 fields once visible)
+      bindLive(form, updateDesktop);
 
       showStep(1);
+      updateDesktop();
     })();
 
-    /* ========= Mobile: sticky progress + full-form required fields ========= */
+    /* ========= Mobile: sticky header + ENTIRE FORM progress ========= */
     (function(){
       const form = document.getElementById('quoteFormMobile');
       if (!form) return;
@@ -799,7 +821,7 @@
         const r = updateProgress(form, bar, pctEl);
         if (sub){
           if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
-          else sub.textContent = `Ready to send.`;
+          else sub.textContent = 'Ready to send.';
         }
       }
 
