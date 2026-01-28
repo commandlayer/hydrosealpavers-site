@@ -978,13 +978,11 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
   </script>
   
 <!-- =========================
-     SIMPLE QUOTE FORM (COPY/PASTE)
-     - White, clean, conversion-focused
-     - Small checkbox boxes (Driveway/Pool Deck/etc.)
-     - File upload UI
-     - Promo code
-     - Required consent + SMS disclosure
-     - Single-column on mobile, 2-col on desktop
+     SIMPLE QUOTE FORM (UPDATED)
+     - Dropdowns for: Service Area + Paver Type
+     - Adds Email after Phone
+     - Removes Promo Code
+     - Desktop: centered + ~50% narrower
 ========================== -->
 
 <section class="section" id="quote-form">
@@ -997,26 +995,22 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         border-radius:18px;
         box-shadow: var(--shadow);
         padding:18px;
+        margin: 0 auto;
+        max-width: 560px; /* ~50% smaller on desktop */
       }
 
-      #quote-form h2{ margin:0; font-size: clamp(22px, 2.4vw, 30px); line-height:1.1; }
-      #quote-form .sub{ margin:8px 0 0; color: var(--muted); max-width: 70ch; }
+      #quote-form h2{ margin:0; font-size: clamp(22px, 2.4vw, 30px); line-height:1.1; text-align:center; }
+      #quote-form .sub{ margin:8px auto 0; color: var(--muted); max-width: 56ch; text-align:center; }
 
       #quote-form form{ margin-top:16px; }
-
-      #quote-form .grid{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap:12px;
-        align-items:start;
-      }
-      #quote-form .full{ grid-column: 1 / -1; }
 
       #quote-form .row{
         display:flex;
         flex-direction:column;
         gap:6px;
+        margin-top:12px;
       }
+      #quote-form .row:first-child{ margin-top:0; }
 
       #quote-form label{
         font-weight:900;
@@ -1027,6 +1021,7 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       #quote-form input[type="text"],
       #quote-form input[type="tel"],
       #quote-form input[type="email"],
+      #quote-form select,
       #quote-form textarea{
         width:100%;
         padding:12px 12px;
@@ -1039,35 +1034,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       #quote-form textarea{ min-height:110px; resize:vertical; }
 
       #quote-form input:focus,
+      #quote-form select:focus,
       #quote-form textarea:focus{
         border-color: rgba(57,191,234,.65);
         box-shadow: 0 0 0 4px rgba(57,191,234,.18);
-      }
-
-      /* Checkbox groups */
-      #quote-form .checkgrid{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap:10px 12px;
-        margin-top:6px;
-      }
-
-      #quote-form .check{
-        display:flex;
-        align-items:center;
-        gap:10px;
-        padding:10px 12px;
-        border:1px solid var(--line);
-        border-radius:12px;
-        background:#fff;
-      }
-
-      /* small boxes (native checkboxes made a bit tighter) */
-      #quote-form input[type="checkbox"]{
-        width:16px;
-        height:16px;
-        margin:0;
-        accent-color: var(--water-blue, #39BFEA);
       }
 
       #quote-form .help{
@@ -1142,25 +1112,28 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         text-underline-offset: 2px;
       }
 
-      /* Submit row */
+      /* Actions */
       #quote-form .actions{
         margin-top:14px;
         display:flex;
         gap:10px;
         align-items:center;
-        justify-content:flex-start;
+        justify-content:center;
         flex-wrap:wrap;
       }
       #quote-form .note{
         color: var(--muted);
         font-size:12px;
+        text-align:center;
+        width:100%;
       }
 
-      /* Mobile */
-      @media (max-width: 860px){
-        #quote-form .grid{ grid-template-columns: 1fr; }
-        #quote-form .checkgrid{ grid-template-columns: 1fr; }
-        #quote-form .qcard{ padding:16px; }
+      /* Mobile: let it breathe a bit */
+      @media (max-width: 560px){
+        #quote-form .qcard{ max-width: 100%; padding:16px; }
+        #quote-form h2, #quote-form .sub{ text-align:left; }
+        #quote-form .actions{ justify-content:flex-start; }
+        #quote-form .note{ text-align:left; }
       }
     </style>
 
@@ -1170,103 +1143,98 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
 
       <form action="/get-a-quote/" method="POST" enctype="multipart/form-data">
 
-        <div class="grid">
-          <!-- Name -->
-          <div class="row full">
-            <label for="q-name">Name</label>
-            <input id="q-name" name="name" type="text" placeholder="Your Name" autocomplete="name" required>
-          </div>
+        <div class="row">
+          <label for="q-name">Name</label>
+          <input id="q-name" name="name" type="text" placeholder="Your Name" autocomplete="name" required>
+        </div>
 
-          <!-- Address -->
-          <div class="row full">
-            <label for="q-address">Address</label>
-            <input id="q-address" name="address" type="text" placeholder="Street Address, City" autocomplete="street-address" required>
-          </div>
+        <div class="row">
+          <label for="q-address">Address</label>
+          <input id="q-address" name="address" type="text" placeholder="Street Address, City" autocomplete="street-address" required>
+        </div>
 
-          <!-- Phone -->
-          <div class="row full">
-            <label for="q-phone">Phone</label>
-            <input id="q-phone" name="phone" type="tel" placeholder="(904) 555-1234" autocomplete="tel" required>
-          </div>
+        <div class="row">
+          <label for="q-phone">Phone</label>
+          <input id="q-phone" name="phone" type="tel" placeholder="(904) 555-1234" autocomplete="tel" required>
+        </div>
 
-          <!-- Areas to be serviced -->
-          <div class="row full">
-            <label>What Area Do You Need Serviced?</label>
-            <div class="checkgrid">
-              <label class="check"><input type="checkbox" name="service_area[]" value="Driveway"> Driveway</label>
-              <label class="check"><input type="checkbox" name="service_area[]" value="Pool Deck"> Pool Deck</label>
-              <label class="check"><input type="checkbox" name="service_area[]" value="Patio"> Patio</label>
-              <label class="check"><input type="checkbox" name="service_area[]" value="Walkways"> Walkways</label>
-              <label class="check"><input type="checkbox" name="service_area[]" value="Other"> Other</label>
-            </div>
-          </div>
+        <div class="row">
+          <label for="q-email">Email</label>
+          <input id="q-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+        </div>
 
-          <!-- Paver type -->
-          <div class="row full">
-            <label>What Type Of Pavers Do You Have?</label>
-            <div class="checkgrid">
-              <label class="check"><input type="checkbox" name="paver_type[]" value="Concrete Brick Paver"> Concrete Brick Paver</label>
-              <label class="check"><input type="checkbox" name="paver_type[]" value="Travertine"> Travertine</label>
-              <label class="check"><input type="checkbox" name="paver_type[]" value="Marble"> Marble</label>
-              <label class="check"><input type="checkbox" name="paver_type[]" value="Other"> Other</label>
-            </div>
-          </div>
+        <!-- Dropdown: Service Area -->
+        <div class="row">
+          <label for="q-service">What Area Do You Need Serviced?</label>
+          <select id="q-service" name="service_area" required>
+            <option value="" selected disabled>Select One</option>
+            <option value="Driveway">Driveway</option>
+            <option value="Pool Deck">Pool Deck</option>
+            <option value="Patio">Patio</option>
+            <option value="Walkways">Walkways</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
-          <!-- How can we help -->
-          <div class="row full">
-            <label for="q-help">How Can We Help You?</label>
-            <textarea id="q-help" name="help" placeholder="Tell us what you want done (stains, weeds/ants, shifting pavers, finish preference, timing, etc.)"></textarea>
-          </div>
+        <!-- Dropdown: Paver Type -->
+        <div class="row">
+          <label for="q-paver">What Type Of Pavers Do You Have?</label>
+          <select id="q-paver" name="paver_type" required>
+            <option value="" selected disabled>Select One</option>
+            <option value="Concrete Brick Paver">Concrete Brick Paver</option>
+            <option value="Travertine">Travertine</option>
+            <option value="Marble">Marble</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
-          <!-- File upload -->
-          <div class="row full">
-            <label>Send Photo</label>
-            <div class="drop" id="drop-zone">
-              <div class="drop-top">
-                <div>
-                  <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
-                  <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
-                </div>
+        <div class="row">
+          <label for="q-help">How Can We Help You?</label>
+          <textarea id="q-help" name="help" placeholder="Tell us what you want done (stains, weeds/ants, shifting pavers, finish preference, timing, etc.)"></textarea>
+        </div>
 
-                <label class="file-btn" for="q-files">Select Files</label>
-                <input id="q-files" name="photos" type="file" accept="image/*" multiple>
-              </div>
-
-              <div class="filename" id="file-name">No File Chosen</div>
-            </div>
-          </div>
-
-          <!-- Promo code -->
-          <div class="row full">
-            <label for="q-promo">Enter Promo Code</label>
-            <input id="q-promo" name="promo_code" type="text" placeholder="Optional">
-          </div>
-
-          <!-- Consent -->
-          <div class="row full">
-            <label>Consent (Required)</label>
-            <div class="consent">
-              <input id="q-consent" type="checkbox" name="consent" value="agree" required>
+        <!-- File upload -->
+        <div class="row">
+          <label>Send Photo</label>
+          <div class="drop" id="drop-zone">
+            <div class="drop-top">
               <div>
-                <p style="margin:0;">
-                  <strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong>
-                </p>
-                <p style="margin-top:6px;">
-                  By submitting this form, you agree to receive SMS updates from <strong>HydroSeal Pavers</strong>.
-                  You can opt-out at any time by replying <strong>"STOP"</strong>.
-                </p>
-                <p style="margin-top:6px;">
-                  <a href="/privacy-policy/" target="_blank" rel="noopener">View Privacy Policy</a>
-                </p>
+                <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
+                <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
               </div>
+
+              <label class="file-btn" for="q-files">Select Files</label>
+              <input id="q-files" name="photos" type="file" accept="image/*" multiple>
+            </div>
+
+            <div class="filename" id="file-name">No File Chosen</div>
+          </div>
+        </div>
+
+        <!-- Consent -->
+        <div class="row">
+          <label>Consent (Required)</label>
+          <div class="consent">
+            <input id="q-consent" type="checkbox" name="consent" value="agree" required>
+            <div>
+              <p style="margin:0;">
+                <strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong>
+              </p>
+              <p style="margin-top:6px;">
+                By submitting this form, you agree to receive SMS updates from <strong>HydroSeal Pavers</strong>.
+                You can opt-out at any time by replying <strong>"STOP"</strong>.
+              </p>
+              <p style="margin-top:6px;">
+                <a href="/privacy-policy/" target="_blank" rel="noopener">View Privacy Policy</a>
+              </p>
             </div>
           </div>
+        </div>
 
-          <!-- CAPTCHA placeholder -->
-          <div class="row full">
-            <label>CAPTCHA</label>
-            <div class="help">Insert your CAPTCHA here (reCAPTCHA/Turnstile).</div>
-          </div>
+        <!-- CAPTCHA placeholder -->
+        <div class="row">
+          <label>CAPTCHA</label>
+          <div class="help">Insert your CAPTCHA here (reCAPTCHA/Turnstile).</div>
         </div>
 
         <div class="actions">
@@ -1293,17 +1261,14 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         });
       })();
 
-      // Simple drag & drop (visual + assigns files)
+      // Drag & drop assigns files (modern browsers)
       (function(){
         const zone = document.getElementById('drop-zone');
         const input = document.getElementById('q-files');
         if (!zone || !input) return;
 
         const prevent = (e) => { e.preventDefault(); e.stopPropagation(); };
-
-        ['dragenter','dragover','dragleave','drop'].forEach(ev => {
-          zone.addEventListener(ev, prevent, false);
-        });
+        ['dragenter','dragover','dragleave','drop'].forEach(ev => zone.addEventListener(ev, prevent, false));
 
         zone.addEventListener('dragenter', () => zone.style.borderColor = 'rgba(57,191,234,.85)');
         zone.addEventListener('dragleave', () => zone.style.borderColor = 'rgba(15,110,168,.40)');
@@ -1311,8 +1276,6 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
           zone.style.borderColor = 'rgba(15,110,168,.40)';
           const files = e.dataTransfer.files;
           if (!files || files.length === 0) return;
-
-          // Assign dropped files to input (works in modern browsers)
           input.files = files;
           input.dispatchEvent(new Event('change', { bubbles:true }));
         });
