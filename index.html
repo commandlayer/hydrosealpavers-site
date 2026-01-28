@@ -978,84 +978,56 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
   </script>
   
 <!-- =========================
-     FINAL CTA — QUOTE FORM (WHITE, SIMPLE, HIGH-CONVERTING)
-     - No call link
-     - Mobile-first, clean
-     - Uses your existing .card / .btn styles
+     SIMPLE QUOTE FORM (COPY/PASTE)
+     - White, clean, conversion-focused
+     - Small checkbox boxes (Driveway/Pool Deck/etc.)
+     - File upload UI
+     - Promo code
+     - Required consent + SMS disclosure
+     - Single-column on mobile, 2-col on desktop
 ========================== -->
-<section class="section" id="final-quote" style="margin-top:18px;">
+
+<section class="section" id="quote-form">
   <div class="container">
 
     <style>
-      /* Quote form shell */
-      #final-quote .quote-card{
+      #quote-form .qcard{
         background:#fff;
         border:1px solid var(--line);
-        box-shadow: var(--shadow);
         border-radius:18px;
+        box-shadow: var(--shadow);
         padding:18px;
       }
 
-      #final-quote .quote-top{
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap:16px;
-        flex-wrap:wrap;
-      }
+      #quote-form h2{ margin:0; font-size: clamp(22px, 2.4vw, 30px); line-height:1.1; }
+      #quote-form .sub{ margin:8px 0 0; color: var(--muted); max-width: 70ch; }
 
-      #final-quote .quote-title{
-        margin:0;
-        font-size: clamp(22px, 2.4vw, 30px);
-        line-height:1.1;
-      }
+      #quote-form form{ margin-top:16px; }
 
-      #final-quote .quote-sub{
-        margin:8px 0 0;
-        color: var(--muted);
-        max-width: 72ch;
-      }
-
-      #final-quote .quote-badges{
-        display:flex;
-        gap:10px;
-        flex-wrap:wrap;
-        align-items:center;
-        justify-content:flex-start;
-        margin-top:12px;
-      }
-
-      #final-quote .mini-pill{
-        display:inline-flex;
-        align-items:center;
-        gap:8px;
-        padding:8px 12px;
-        border:1px solid var(--line);
-        border-radius:999px;
-        font-weight:900;
-        font-size:13px;
-        line-height:1;
-        background:#fff;
-        color: var(--navy);
-        white-space:nowrap;
-      }
-
-      /* Form layout */
-      #final-quote form{ margin-top:16px; }
-      #final-quote .form-grid{
+      #quote-form .grid{
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap:12px;
+        align-items:start;
       }
-      #final-quote .form-row{ display:flex; flex-direction:column; gap:6px; }
-      #final-quote label{
+      #quote-form .full{ grid-column: 1 / -1; }
+
+      #quote-form .row{
+        display:flex;
+        flex-direction:column;
+        gap:6px;
+      }
+
+      #quote-form label{
         font-weight:900;
         font-size:13px;
         color: var(--navy);
       }
-      #final-quote input,
-      #final-quote select,
-      #final-quote textarea{
+
+      #quote-form input[type="text"],
+      #quote-form input[type="tel"],
+      #quote-form input[type="email"],
+      #quote-form textarea{
         width:100%;
         padding:12px 12px;
         border:1px solid var(--line);
@@ -1064,138 +1036,291 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         color: var(--text);
         outline:none;
       }
-      #final-quote textarea{ min-height:110px; resize:vertical; }
+      #quote-form textarea{ min-height:110px; resize:vertical; }
 
-      #final-quote input:focus,
-      #final-quote select:focus,
-      #final-quote textarea:focus{
+      #quote-form input:focus,
+      #quote-form textarea:focus{
         border-color: rgba(57,191,234,.65);
         box-shadow: 0 0 0 4px rgba(57,191,234,.18);
       }
 
-      #final-quote .full{ grid-column: 1 / -1; }
+      /* Checkbox groups */
+      #quote-form .checkgrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:10px 12px;
+        margin-top:6px;
+      }
 
-      #final-quote .helper{
+      #quote-form .check{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding:10px 12px;
+        border:1px solid var(--line);
+        border-radius:12px;
+        background:#fff;
+      }
+
+      /* small boxes (native checkboxes made a bit tighter) */
+      #quote-form input[type="checkbox"]{
+        width:16px;
+        height:16px;
+        margin:0;
+        accent-color: var(--water-blue, #39BFEA);
+      }
+
+      #quote-form .help{
         margin-top:8px;
         color: var(--muted);
         font-size:13px;
         line-height:1.4;
       }
 
-      #final-quote .submit-row{
+      /* File upload drop area */
+      #quote-form .drop{
+        border:1px dashed rgba(15,110,168,.40);
+        border-radius:14px;
+        padding:14px;
+        background:
+          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.12), transparent 55%),
+          linear-gradient(180deg, rgba(57,191,234,.06), #fff 70%);
+      }
+
+      #quote-form .drop-top{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      #quote-form .drop strong{ color: var(--navy); }
+      #quote-form .drop small{ color: var(--muted); }
+
+      #quote-form .file-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px 12px;
+        border-radius:12px;
+        border:1px solid rgba(15,110,168,.30);
+        background:#fff;
+        font-weight:900;
+        cursor:pointer;
+        user-select:none;
+      }
+
+      #quote-form input[type="file"]{ display:none; }
+
+      #quote-form .filename{
+        margin-top:10px;
+        font-size:13px;
+        color: var(--muted);
+        overflow-wrap:anywhere;
+      }
+
+      /* Consent */
+      #quote-form .consent{
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+        padding:12px;
+        border:1px solid var(--line);
+        border-radius:12px;
+        background:#fff;
+      }
+      #quote-form .consent p{
+        margin:0;
+        color: var(--muted);
+        font-size:13px;
+        line-height:1.4;
+      }
+      #quote-form .consent a{
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      /* Submit row */
+      #quote-form .actions{
         margin-top:14px;
         display:flex;
         gap:10px;
         align-items:center;
-        justify-content:space-between;
+        justify-content:flex-start;
         flex-wrap:wrap;
       }
-
-      #final-quote .privacy{
+      #quote-form .note{
         color: var(--muted);
         font-size:12px;
       }
 
       /* Mobile */
       @media (max-width: 860px){
-        #final-quote .form-grid{ grid-template-columns: 1fr; }
-        #final-quote .quote-card{ padding:16px; }
-        #final-quote .submit-row{ justify-content:flex-start; }
+        #quote-form .grid{ grid-template-columns: 1fr; }
+        #quote-form .checkgrid{ grid-template-columns: 1fr; }
+        #quote-form .qcard{ padding:16px; }
       }
     </style>
 
-    <div class="quote-card">
-      <div class="quote-top">
-        <div>
-          <h2 class="quote-title">Get A Paver Sealing Quote</h2>
-          <p class="quote-sub">
-            Send Your Address + A Few Details. We’ll Confirm Prep Needs, Finish Options, And Give You A Real Estimate.
-          </p>
+    <div class="qcard">
+      <h2>Get A Paver Quote Today!</h2>
+      <p class="sub">Fast Estimate. Clear Prep Plan. No Spam.</p>
 
-          <div class="quote-badges" aria-label="Trust highlights">
-            <span class="mini-pill">Trident Master Certified</span>
-            <span class="mini-pill">Prep-First Process</span>
-            <span class="mini-pill">2-Year Warranty</span>
-          </div>
-        </div>
-      </div>
+      <form action="/get-a-quote/" method="POST" enctype="multipart/form-data">
 
-      <!--
-        ACTION:
-        - If you already have /get-a-quote/ handler, keep action="/get-a-quote/"
-        - If you use Formspree, Jobber, Markate, etc., replace action with that endpoint.
-      -->
-      <form action="/get-a-quote/" method="POST">
-        <div class="form-grid">
-
-          <div class="form-row">
+        <div class="grid">
+          <!-- Name -->
+          <div class="row full">
             <label for="q-name">Name</label>
             <input id="q-name" name="name" type="text" placeholder="Your Name" autocomplete="name" required>
           </div>
 
-          <div class="form-row">
+          <!-- Address -->
+          <div class="row full">
+            <label for="q-address">Address</label>
+            <input id="q-address" name="address" type="text" placeholder="Street Address, City" autocomplete="street-address" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="row full">
             <label for="q-phone">Phone</label>
             <input id="q-phone" name="phone" type="tel" placeholder="(904) 555-1234" autocomplete="tel" required>
           </div>
 
-          <div class="form-row">
-            <label for="q-address">Property Address</label>
-            <input id="q-address" name="address" type="text" placeholder="Street Address, City" autocomplete="street-address" required>
-          </div>
-
-          <div class="form-row">
-            <label for="q-service">What Do You Want Sealed?</label>
-            <select id="q-service" name="service" required>
-              <option value="" selected disabled>Select One</option>
-              <option value="Paver Driveway">Paver Driveway</option>
-              <option value="Pool Deck">Pool Deck</option>
-              <option value="Patio / Walkway">Patio / Walkway</option>
-              <option value="Travertine">Travertine</option>
-              <option value="Multiple Areas">Multiple Areas</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label for="q-finish">Finish Preference</label>
-            <select id="q-finish" name="finish">
-              <option value="" selected>No Preference</option>
-              <option value="Natural / Matte">Natural / Matte</option>
-              <option value="Color-Enhanced">Color-Enhanced</option>
-              <option value="Not Sure">Not Sure</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label for="q-timing">When Do You Want This Done?</label>
-            <select id="q-timing" name="timing">
-              <option value="" selected>No Preference</option>
-              <option value="ASAP">ASAP</option>
-              <option value="1-2 Weeks">1–2 Weeks</option>
-              <option value="This Month">This Month</option>
-              <option value="Next Month">Next Month</option>
-            </select>
-          </div>
-
-          <div class="form-row full">
-            <label for="q-notes">Notes (Optional)</label>
-            <textarea id="q-notes" name="notes" placeholder="Anything we should know? (Oil stains, weeds/ants, shifting pavers, shaded areas, HOA timing, etc.)"></textarea>
-            <div class="helper">
-              Want The Fastest Quote? Include Square Footage If You Know It And Upload Photos On The Quote Page (Or We’ll Request Them After You Submit).
+          <!-- Areas to be serviced -->
+          <div class="row full">
+            <label>What Area Do You Need Serviced?</label>
+            <div class="checkgrid">
+              <label class="check"><input type="checkbox" name="service_area[]" value="Driveway"> Driveway</label>
+              <label class="check"><input type="checkbox" name="service_area[]" value="Pool Deck"> Pool Deck</label>
+              <label class="check"><input type="checkbox" name="service_area[]" value="Patio"> Patio</label>
+              <label class="check"><input type="checkbox" name="service_area[]" value="Walkways"> Walkways</label>
+              <label class="check"><input type="checkbox" name="service_area[]" value="Other"> Other</label>
             </div>
           </div>
 
+          <!-- Paver type -->
+          <div class="row full">
+            <label>What Type Of Pavers Do You Have?</label>
+            <div class="checkgrid">
+              <label class="check"><input type="checkbox" name="paver_type[]" value="Concrete Brick Paver"> Concrete Brick Paver</label>
+              <label class="check"><input type="checkbox" name="paver_type[]" value="Travertine"> Travertine</label>
+              <label class="check"><input type="checkbox" name="paver_type[]" value="Marble"> Marble</label>
+              <label class="check"><input type="checkbox" name="paver_type[]" value="Other"> Other</label>
+            </div>
+          </div>
+
+          <!-- How can we help -->
+          <div class="row full">
+            <label for="q-help">How Can We Help You?</label>
+            <textarea id="q-help" name="help" placeholder="Tell us what you want done (stains, weeds/ants, shifting pavers, finish preference, timing, etc.)"></textarea>
+          </div>
+
+          <!-- File upload -->
+          <div class="row full">
+            <label>Send Photo</label>
+            <div class="drop" id="drop-zone">
+              <div class="drop-top">
+                <div>
+                  <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
+                  <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
+                </div>
+
+                <label class="file-btn" for="q-files">Select Files</label>
+                <input id="q-files" name="photos" type="file" accept="image/*" multiple>
+              </div>
+
+              <div class="filename" id="file-name">No File Chosen</div>
+            </div>
+          </div>
+
+          <!-- Promo code -->
+          <div class="row full">
+            <label for="q-promo">Enter Promo Code</label>
+            <input id="q-promo" name="promo_code" type="text" placeholder="Optional">
+          </div>
+
+          <!-- Consent -->
+          <div class="row full">
+            <label>Consent (Required)</label>
+            <div class="consent">
+              <input id="q-consent" type="checkbox" name="consent" value="agree" required>
+              <div>
+                <p style="margin:0;">
+                  <strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong>
+                </p>
+                <p style="margin-top:6px;">
+                  By submitting this form, you agree to receive SMS updates from <strong>HydroSeal Pavers</strong>.
+                  You can opt-out at any time by replying <strong>"STOP"</strong>.
+                </p>
+                <p style="margin-top:6px;">
+                  <a href="/privacy-policy/" target="_blank" rel="noopener">View Privacy Policy</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAPTCHA placeholder -->
+          <div class="row full">
+            <label>CAPTCHA</label>
+            <div class="help">Insert your CAPTCHA here (reCAPTCHA/Turnstile).</div>
+          </div>
         </div>
 
-        <div class="submit-row">
-          <button class="btn btn-primary" type="submit">Request My Quote</button>
-          <div class="privacy">No Spam. Your Info Stays Private.</div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Get My Quote</button>
+          <div class="note">We Typically Respond Same Day.</div>
         </div>
       </form>
     </div>
 
+    <script>
+      // File name display
+      (function(){
+        const input = document.getElementById('q-files');
+        const out = document.getElementById('file-name');
+        if (!input || !out) return;
+
+        input.addEventListener('change', () => {
+          if (!input.files || input.files.length === 0) {
+            out.textContent = 'No File Chosen';
+            return;
+          }
+          const names = Array.from(input.files).map(f => f.name);
+          out.textContent = names.join(', ');
+        });
+      })();
+
+      // Simple drag & drop (visual + assigns files)
+      (function(){
+        const zone = document.getElementById('drop-zone');
+        const input = document.getElementById('q-files');
+        if (!zone || !input) return;
+
+        const prevent = (e) => { e.preventDefault(); e.stopPropagation(); };
+
+        ['dragenter','dragover','dragleave','drop'].forEach(ev => {
+          zone.addEventListener(ev, prevent, false);
+        });
+
+        zone.addEventListener('dragenter', () => zone.style.borderColor = 'rgba(57,191,234,.85)');
+        zone.addEventListener('dragleave', () => zone.style.borderColor = 'rgba(15,110,168,.40)');
+        zone.addEventListener('drop', (e) => {
+          zone.style.borderColor = 'rgba(15,110,168,.40)';
+          const files = e.dataTransfer.files;
+          if (!files || files.length === 0) return;
+
+          // Assign dropped files to input (works in modern browsers)
+          input.files = files;
+          input.dispatchEvent(new Event('change', { bubbles:true }));
+        });
+      })();
+    </script>
+
   </div>
 </section>
-
 
   
   <div data-include="/partials/footer.html"></div>
