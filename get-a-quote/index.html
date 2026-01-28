@@ -18,84 +18,24 @@
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
   <link rel="stylesheet" href="/styles.css" />
-  <style>
-/* ===== Mobile typing "grows" fix (prevents iOS/Android input zoom + reflow) ===== */
-@media (max-width: 860px){
-  /* Force >=16px so Safari doesn't zoom when typing */
-  #quote-form input[type="text"],
-  #quote-form input[type="tel"],
-  #quote-form input[type="email"],
-  #quote-form select,
-  #quote-form textarea{
-    font-size: 16px !important;
-    line-height: 1.2;
-  }
 
-  /* Optional: make input heights consistent so nothing shifts */
-  #quote-form input[type="text"],
-  #quote-form input[type="tel"],
-  #quote-form input[type="email"],
-  #quote-form select{
-    height: 46px;              /* stable height */
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  /* Keep iOS from doing weird text-resize */
-  html{
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-}
-
-/* ===== Mobile: prevent the quote card from "growing" while typing ===== */
-@media (max-width: 860px){
-  /* Keep the card stable; scrolling happens INSIDE instead of pushing page down */
-  .qcard{
-    max-height: calc(100vh - 170px); /* adjust if your header is taller */
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Prevent button row / note from wrapping into extra lines */
-  .actions{
-    flex-wrap: nowrap;
-  }
-  .actions .note{
-    white-space: nowrap;
-  }
-
-  /* Stop label/value text from changing size via iOS auto text-size adjust */
-  html{
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  /* Prevent long file names from expanding layout */
-  .filename{
-    max-height: 38px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-}
-
-  
   <style>
     /* =========================================
        Quote Page Overrides
        - Hide trust bar (this page only)
        - 2-column hero + form on desktop
        - Stack on mobile
-       - Progress bar: LIVE % based on required fields completed
+       - Progress bar:
+         - Desktop: live % for visible step (step 1 or step 2 required fields)
+         - Mobile: sticky live % (whole form required fields)
+       - Mobile "grows while typing" fix:
+         - NO max-height / overflow on qcard (keeps it from changing behavior)
+         - force 16px inputs to prevent iOS zoom/reflow
     ==========================================*/
 
     /* --- Hide the trust bar on THIS page only ---
-       IMPORTANT: CSS cannot reliably "find text" in elements.
-       This hides common trust-bar wrappers/classes.
-       If your header uses a different wrapper, tell me its class/id and I’ll target it precisely.
+       This targets common wrapper class/id patterns used for the trust strip.
+       Best practice: add a specific class to the trust bar in your header partial and target it here.
     */
     .trustbar,
     #trustbar,
@@ -143,7 +83,7 @@
       align-items: start;
     }
 
-    /* Left hero card (like screenshot) */
+    /* Left hero card */
     .hero-copy-card{
       border-radius: 28px;
       padding: 26px 24px;
@@ -185,6 +125,7 @@
       border-radius:18px;
       box-shadow: var(--shadow);
       padding:18px;
+      overflow: visible; /* IMPORTANT: don't trap sticky inside overflow */
     }
 
     .qlead{
@@ -205,7 +146,7 @@
       font-weight: 700;
     }
 
-    /* Progress bar (like screenshot) */
+    /* Progress bar */
     .qprogress{
       margin: 12px 0 6px;
       height: 16px;
@@ -219,7 +160,7 @@
       width:0%;
       background: #1f78b4;
       border-radius: 999px;
-      transition: width .25s ease;
+      transition: width .20s ease;
     }
     .qprogress > .label{
       position:absolute;
@@ -245,6 +186,11 @@
       color: var(--muted);
       font-weight:700;
       font-size:12px;
+    }
+
+    /* Mobile sticky progress (inside the form, not fixed) */
+    .m-progress-sticky{
+      display:none; /* desktop hidden */
     }
 
     /* Fields */
@@ -316,6 +262,7 @@
       user-select:none;
     }
     input[type="file"]{ display:none; }
+
     .filename{
       margin-top:10px;
       font-size:13px;
@@ -401,6 +348,51 @@
       .desktop-only{ display:none; }
       .mobile-only{ display:block; }
       .actions{ justify-content:flex-start; }
+
+      /* Mobile typing "grows" fix (prevents iOS zoom/reflow) */
+      #quoteFormMobile input[type="text"],
+      #quoteFormMobile input[type="tel"],
+      #quoteFormMobile input[type="email"],
+      #quoteFormMobile select,
+      #quoteFormMobile textarea{
+        font-size: 16px !important;
+        line-height: 1.2;
+      }
+      #quoteFormMobile input[type="text"],
+      #quoteFormMobile input[type="tel"],
+      #quoteFormMobile input[type="email"],
+      #quoteFormMobile select{
+        height: 46px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      html{
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      /* Mobile sticky progress visible + sticky under your header */
+      .m-progress-sticky{
+        display:block;
+        position: sticky;
+        top: 76px; /* adjust if needed for your header height */
+        z-index: 20;
+        background: #fff;
+        padding: 10px 0 8px;
+        margin: 0 0 10px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      /* Keep long filenames from expanding the page */
+      #m-file-name{
+        max-height: 38px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
     }
   </style>
 </head>
@@ -426,8 +418,9 @@
           <!-- LEFT: HERO COPY -->
           <div class="hero-copy-card">
             <h1>Contact Us Today</h1>
-            We Welcome The Opportunity To Exceed Your Expectations.
-            Share A Few Details And We’ll Prepare An Estimate For Your Project.
+            <p>
+              We welcome the opportunity to exceed your expectations.
+              Share a few details and we’ll prepare an estimate for your project.
             </p>
             <div class="hero-mini">
               Tip: Upload photos for the quickest quote. Most requests get a same-day response.
@@ -438,16 +431,18 @@
           <div class="qcard" id="quote-form">
             <div class="qlead">
               <strong>Request Quote Form</strong>
-        <span>Clear estimate. Proper preparation. Professional results.</span>
+              <span>Clear estimate. Proper preparation. Professional results.</span>
             </div>
 
-            <!-- Progress bar (LIVE % of required fields completed) -->
-            <div class="qprogress" aria-hidden="true">
-              <div class="bar" id="qBar"></div>
-              <div class="label" id="qPct">0%</div>
+            <!-- DESKTOP PROGRESS (desktop only) -->
+            <div class="desktop-only">
+              <div class="qprogress" aria-hidden="true">
+                <div class="bar" id="qBar"></div>
+                <div class="label" id="qPct">0%</div>
+              </div>
+              <div class="qstep-title" id="qStepTitle">Step 1 of 2 — Contact Info</div>
+              <div class="qstep-sub" id="qStepSub">Complete required fields to reach 100%.</div>
             </div>
-            <div class="qstep-title" id="qStepTitle">Step 1 of 2 — Contact Info</div>
-            <div class="qstep-sub" id="qStepSub">Complete required fields to reach 100%.</div>
 
             <!-- DESKTOP: 2-STEP FORM -->
             <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
@@ -560,6 +555,16 @@
             <!-- MOBILE: SINGLE-PAGE FORM -->
             <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
 
+              <!-- MOBILE STICKY PROGRESS -->
+              <div class="m-progress-sticky" aria-hidden="true">
+                <div class="qprogress">
+                  <div class="bar" id="mBar"></div>
+                  <div class="label" id="mPct">0%</div>
+                </div>
+                <div class="qstep-title">Quote Progress</div>
+                <div class="qstep-sub" id="mSub">Complete required fields to reach 100%.</div>
+              </div>
+
               <div class="row">
                 <label for="m-name">Name</label>
                 <input id="m-name" name="name" type="text" autocomplete="name" required>
@@ -661,17 +666,14 @@
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
   <script>
-    /* ========= Desktop 2-step behavior + LIVE progress ========= */
-
+    /* ========= Shared helpers ========= */
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
     function isFilled(el){
       if (!el) return false;
       const type = (el.type || "").toLowerCase();
-
       if (type === "checkbox" || type === "radio") return el.checked === true;
       if (type === "file") return !!(el.files && el.files.length > 0);
-
       return String(el.value || "").trim().length > 0;
     }
 
@@ -680,13 +682,13 @@
       return (typeof el.checkValidity === "function") ? el.checkValidity() : true;
     }
 
-    function getRequiredFields(form){
-      return Array.from(form.querySelectorAll("[required]"))
+    function getRequiredFields(scopeEl){
+      return Array.from(scopeEl.querySelectorAll("[required]"))
         .filter(el => !el.disabled);
     }
 
-    function updateProgressForForm(form, barEl, pctEl){
-      const req = getRequiredFields(form);
+    function updateProgress(scopeEl, barEl, pctEl){
+      const req = getRequiredFields(scopeEl);
       const total = req.length || 1;
 
       let complete = 0;
@@ -702,41 +704,23 @@
       return { pct, complete, total };
     }
 
-    function wireLiveProgress(){
-      const desktopForm = document.getElementById("quoteFormDesktop");
-      const mobileForm  = document.getElementById("quoteFormMobile");
-
-      const bar   = document.getElementById("qBar");
-      const pctEl = document.getElementById("qPct");
-
-      const updateAll = () => {
-        // Desktop shows the bar (mobile can share it if you keep it visible)
-        if (desktopForm && bar && pctEl) updateProgressForForm(desktopForm, bar, pctEl);
-        // If you ever add a second bar for mobile, wire it here too.
-      };
-
-      const bind = (form) => {
-        if (!form) return;
-        ["input","change","blur","keyup"].forEach(evt => {
-          form.addEventListener(evt, updateAll, true);
-        });
-      };
-
-      bind(desktopForm);
-      bind(mobileForm);
-
-      updateAll();
+    function bindLive(scopeEl, onUpdate){
+      if (!scopeEl) return;
+      const handler = () => onUpdate && onUpdate();
+      ["input","change","blur","keyup"].forEach(evt => {
+        scopeEl.addEventListener(evt, handler, true);
+      });
     }
 
+    /* ========= Desktop 2-step behavior + step-scoped progress ========= */
     (function(){
       const form = document.getElementById('quoteFormDesktop');
+      const bar = document.getElementById('qBar');
+      const pctEl = document.getElementById('qPct');
       const title = document.getElementById('qStepTitle');
       const sub = document.getElementById('qStepSub');
 
-      if (!form){
-        wireLiveProgress();
-        return;
-      }
+      if (!form) return;
 
       const step1 = form.querySelector('[data-step="1"]');
       const step2 = form.querySelector('[data-step="2"]');
@@ -746,18 +730,27 @@
       const fieldsStep1 = ['d-name','d-address','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
+      let currentStep = 1;
+
       function setStepText(step){
         if (!title || !sub) return;
         if (step === 1){
           title.textContent = 'Step 1 of 2 — Contact Info';
-          sub.textContent = 'Name, address, phone, email.';
+          sub.textContent = 'Complete required fields to reach 100%.';
         } else {
           title.textContent = 'Step 2 of 2 — Project Details';
-          sub.textContent = 'Surface type, photos, notes, consent.';
+          sub.textContent = 'Complete required fields to reach 100%.';
         }
       }
 
+      function updateStepProgress(){
+        const scope = (currentStep === 1) ? step1 : step2;
+        if (!scope) return;
+        updateProgress(scope, bar, pctEl);
+      }
+
       function showStep(n){
+        currentStep = n;
         if (n === 1){
           step1.style.display = 'block';
           step2.style.display = 'none';
@@ -767,6 +760,7 @@
           step2.style.display = 'block';
           setStepText(2);
         }
+        updateStepProgress();
       }
 
       function validateStep1(){
@@ -785,8 +779,32 @@
 
       backBtn && backBtn.addEventListener('click', () => showStep(1));
 
+      // Live progress on whichever step is visible
+      bindLive(step1, updateStepProgress);
+      bindLive(step2, updateStepProgress);
+
       showStep(1);
-      wireLiveProgress();
+    })();
+
+    /* ========= Mobile: sticky progress + full-form required fields ========= */
+    (function(){
+      const form = document.getElementById('quoteFormMobile');
+      if (!form) return;
+
+      const bar = document.getElementById('mBar');
+      const pctEl = document.getElementById('mPct');
+      const sub = document.getElementById('mSub');
+
+      function updateMobile(){
+        const r = updateProgress(form, bar, pctEl);
+        if (sub){
+          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
+          else sub.textContent = `Ready to send.`;
+        }
+      }
+
+      bindLive(form, updateMobile);
+      updateMobile();
     })();
 
     /* ========= File name + drag/drop (desktop + mobile) ========= */
@@ -811,8 +829,6 @@
         const files = e.dataTransfer.files;
         if (!files || files.length === 0) return;
 
-        /* Note: some browsers don't allow setting input.files programmatically.
-           Still works in Chromium-based most of the time. If it doesn't, click upload still works. */
         try{
           input.files = files;
           input.dispatchEvent(new Event('change', { bubbles:true }));
