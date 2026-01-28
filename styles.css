@@ -229,14 +229,11 @@ h3{ color: var(--h3-blue); }
 }
 
 .driveway-cta-blue{
-  background: linear-gradient(
-    180deg,
-    rgba(57,191,234,.12),
-    rgba(57,191,234,.04)
-  );
-  border: 1px solid rgba(57,191,234,.28);
+  background: rgba(57,191,234,.08);
+  border: 1px solid rgba(57,191,234,.22);
   color: #0B2D4A;
 }
+
 
 
 
