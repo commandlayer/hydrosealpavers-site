@@ -365,20 +365,28 @@
       .addr-grid-3 .row:nth-child(2){ grid-column: span 1; }
       .addr-grid-3 .row:nth-child(3){ grid-column: span 2; }
 
-      /* Sticky header inside mobile form */
-      .m-sticky-head{
-        display:block;
-        position: sticky;
-        top: 76px;              /* adjust to your header height */
-        z-index: 30;
-        background:#fff;
-        padding: 10px 0 10px;
-        margin: 0 0 10px;
-        border-bottom: 1px solid var(--line);
-      }
-      .m-sticky-head .qlead{
-        margin: 0 0 8px;
-      }
+     @media (max-width: 860px){
+  .m-sticky-head{
+    position: sticky;
+    top: 76px; /* adjust if header height changes */
+    z-index: 30;
+
+    background: #fff;
+    padding: 10px 0 12px;
+    margin-bottom: 14px;
+
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+/* ===== Mobile: make the form part of the page (NO internal scrolling) ===== */
+@media (max-width: 860px){
+  .qcard{
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
 
       /* Keep long filenames from expanding layout */
       #m-file-name{
@@ -390,6 +398,8 @@
         -webkit-box-orient: vertical;
       }
     }
+
+    
   </style>
 </head>
 
