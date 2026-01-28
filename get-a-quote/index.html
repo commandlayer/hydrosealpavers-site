@@ -25,12 +25,13 @@
        - Hide trust bar (this page only)
        - 2-column hero + form on desktop
        - Stack on mobile
-       - Step progress bar: 50% on step 1, 100% on step 2
+       - Progress bar: LIVE % based on required fields completed
     ==========================================*/
 
     /* --- Hide the trust bar on THIS page only ---
-       NOTE: Since header is included via /partials/header.html,
-       we can’t guarantee exact selectors. This set covers common patterns.
+       IMPORTANT: CSS cannot reliably "find text" in elements.
+       This hides common trust-bar wrappers/classes.
+       If your header uses a different wrapper, tell me its class/id and I’ll target it precisely.
     */
     .trustbar,
     #trustbar,
@@ -43,7 +44,7 @@
     [data-trustbar],
     .site-trust,
     .trust,
-    .trust-bar {
+    .trust-bar{
       display:none !important;
       height:0 !important;
       padding:0 !important;
@@ -78,7 +79,7 @@
       align-items: start;
     }
 
-    /* Left hero card (like your screenshot) */
+    /* Left hero card (like screenshot) */
     .hero-copy-card{
       border-radius: 28px;
       padding: 26px 24px;
@@ -103,16 +104,6 @@
       color: rgba(17,24,39,.72);
       font-weight: 700;
       max-width: 52ch;
-    }
-    .hero-copy-card .hero-cta{
-      margin-top:18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .hero-copy-card .hero-cta .btn{
-      white-space:nowrap;
     }
     .hero-copy-card .hero-mini{
       margin-top:14px;
@@ -161,8 +152,8 @@
     }
     .qprogress > .bar{
       height:100%;
-      width:50%;
-      background: #1f78b4; /* nice blue */
+      width:0%;
+      background: #1f78b4;
       border-radius: 999px;
       transition: width .25s ease;
     }
@@ -370,14 +361,11 @@
 
           <!-- LEFT: HERO COPY -->
           <div class="hero-copy-card">
-            <h1>Contact Us Today</h1>
+            <h1>Contact Our Office Today</h1>
             <p>
               We welcome the opportunity to exceed your expectations.
               Share a few details and we’ll send a fast estimate.
             </p>
-
-          
-
             <div class="hero-mini">
               Tip: Upload photos for the quickest quote. Most requests get a same-day response.
             </div>
@@ -386,17 +374,17 @@
           <!-- RIGHT: FORM -->
           <div class="qcard" id="quote-form">
             <div class="qlead">
-              <strong>Request A Quote</strong>
+              <strong>Request Quote Form</strong>
               <span>Fast Estimate. Clear Prep Plan. No Spam.</span>
             </div>
 
-            <!-- Progress bar (changes per step) -->
+            <!-- Progress bar (LIVE % of required fields completed) -->
             <div class="qprogress" aria-hidden="true">
               <div class="bar" id="qBar"></div>
-              <div class="label" id="qPct">50%</div>
+              <div class="label" id="qPct">0%</div>
             </div>
             <div class="qstep-title" id="qStepTitle">Step 1 of 2 — Contact Info</div>
-            <div class="qstep-sub" id="qStepSub">Name, address, phone, email.</div>
+            <div class="qstep-sub" id="qStepSub">Complete required fields to reach 100%.</div>
 
             <!-- DESKTOP: 2-STEP FORM -->
             <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
@@ -508,6 +496,7 @@
 
             <!-- MOBILE: SINGLE-PAGE FORM -->
             <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
+
               <div class="row">
                 <label for="m-name">Name</label>
                 <input id="m-name" name="name" type="text" autocomplete="name" required>
@@ -609,34 +598,97 @@
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
   <script>
-    /* ========= Desktop 2-step behavior + progress ========= */
+    /* ========= Desktop 2-step behavior + LIVE progress ========= */
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    function isFilled(el){
+      if (!el) return false;
+      const type = (el.type || "").toLowerCase();
+
+      if (type === "checkbox" || type === "radio") return el.checked === true;
+      if (type === "file") return !!(el.files && el.files.length > 0);
+
+      return String(el.value || "").trim().length > 0;
+    }
+
+    function isCompleteRequired(el){
+      if (!isFilled(el)) return false;
+      return (typeof el.checkValidity === "function") ? el.checkValidity() : true;
+    }
+
+    function getRequiredFields(form){
+      return Array.from(form.querySelectorAll("[required]"))
+        .filter(el => !el.disabled);
+    }
+
+    function updateProgressForForm(form, barEl, pctEl){
+      const req = getRequiredFields(form);
+      const total = req.length || 1;
+
+      let complete = 0;
+      for (const el of req){
+        if (isCompleteRequired(el)) complete++;
+      }
+
+      const pct = clamp(Math.round((complete / total) * 100), 0, 100);
+
+      if (barEl) barEl.style.width = pct + "%";
+      if (pctEl) pctEl.textContent = pct + "%";
+
+      return { pct, complete, total };
+    }
+
+    function wireLiveProgress(){
+      const desktopForm = document.getElementById("quoteFormDesktop");
+      const mobileForm  = document.getElementById("quoteFormMobile");
+
+      const bar   = document.getElementById("qBar");
+      const pctEl = document.getElementById("qPct");
+
+      const updateAll = () => {
+        // Desktop shows the bar (mobile can share it if you keep it visible)
+        if (desktopForm && bar && pctEl) updateProgressForForm(desktopForm, bar, pctEl);
+        // If you ever add a second bar for mobile, wire it here too.
+      };
+
+      const bind = (form) => {
+        if (!form) return;
+        ["input","change","blur","keyup"].forEach(evt => {
+          form.addEventListener(evt, updateAll, true);
+        });
+      };
+
+      bind(desktopForm);
+      bind(mobileForm);
+
+      updateAll();
+    }
+
     (function(){
       const form = document.getElementById('quoteFormDesktop');
-      if (!form) return;
+      const title = document.getElementById('qStepTitle');
+      const sub = document.getElementById('qStepSub');
+
+      if (!form){
+        wireLiveProgress();
+        return;
+      }
 
       const step1 = form.querySelector('[data-step="1"]');
       const step2 = form.querySelector('[data-step="2"]');
       const nextBtn = document.getElementById('desktopNext');
       const backBtn = document.getElementById('desktopBack');
 
-      const bar = document.getElementById('qBar');
-      const pct = document.getElementById('qPct');
-      const title = document.getElementById('qStepTitle');
-      const sub = document.getElementById('qStepSub');
-
       const fieldsStep1 = ['d-name','d-address','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
-      function setProgress(step){
-        if (!bar || !pct || !title || !sub) return;
+      function setStepText(step){
+        if (!title || !sub) return;
         if (step === 1){
-          bar.style.width = '50%';
-          pct.textContent = '50%';
           title.textContent = 'Step 1 of 2 — Contact Info';
           sub.textContent = 'Name, address, phone, email.';
         } else {
-          bar.style.width = '100%';
-          pct.textContent = '100%';
           title.textContent = 'Step 2 of 2 — Project Details';
           sub.textContent = 'Surface type, photos, notes, consent.';
         }
@@ -646,11 +698,11 @@
         if (n === 1){
           step1.style.display = 'block';
           step2.style.display = 'none';
-          setProgress(1);
+          setStepText(1);
         } else {
           step1.style.display = 'none';
           step2.style.display = 'block';
-          setProgress(2);
+          setStepText(2);
         }
       }
 
@@ -670,8 +722,8 @@
 
       backBtn && backBtn.addEventListener('click', () => showStep(1));
 
-      // init
       showStep(1);
+      wireLiveProgress();
     })();
 
     /* ========= File name + drag/drop (desktop + mobile) ========= */
@@ -696,6 +748,8 @@
         const files = e.dataTransfer.files;
         if (!files || files.length === 0) return;
 
+        /* Note: some browsers don't allow setting input.files programmatically.
+           Still works in Chromium-based most of the time. If it doesn't, click upload still works. */
         try{
           input.files = files;
           input.dispatchEvent(new Event('change', { bubbles:true }));
