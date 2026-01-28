@@ -22,17 +22,19 @@
   <style>
     /* =========================================
        Quote Page Overrides
-       - Hide trust bar (this page only)
-       - 2-column hero + form on desktop
-       - Stack on mobile
+       - Hide trust bar (page only)
+       - Desktop: 2-col (hero card + form)
+       - Mobile: stacked
        - Progress bar:
          - Desktop: LIVE % for ENTIRE desktop form (both steps combined)
          - Mobile: LIVE % for ENTIRE mobile form (sticky header + progress)
-       - Mobile input "grows" fix:
+       - Mobile typing "grows" fix:
          - force 16px input font-size (prevents iOS zoom)
+       - Mobile scrolling:
+         - NO internal scrolling inside qcard (page scroll only)
     ==========================================*/
 
-    /* Trust bar (page-only hide; best if you add a single wrapper class in header partial) */
+    /* Trust bar hide (page-only best effort) */
     .trustbar, #trustbar, .trust-strip, .trust-strip-wrap, .top-trust, .header-trust,
     .trust-row, .trust-banner, [data-trustbar], .site-trust, .trust, .trust-bar{
       display:none !important;
@@ -73,14 +75,17 @@
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 16px 50px rgba(0,0,0,.25);
     }
-    .hero-copy-card h1{
+
+    /* Make this match your H2 blue */
+    .hero-h2{
       margin:0;
       font-size: clamp(34px, 4vw, 54px);
       line-height:1.02;
       letter-spacing:-0.02em;
       font-weight: 1000;
-      color:#0b1220;
+      color: var(--blue);
     }
+
     .hero-copy-card p{
       margin: 16px 0 0;
       font-size: 18px;
@@ -97,7 +102,7 @@
       line-height:1.35;
     }
 
-    /* Form card */
+    /* Form card (NO internal scroll) */
     .qcard{
       width:100%;
       background:#fff;
@@ -105,7 +110,9 @@
       border-radius:18px;
       box-shadow: var(--shadow);
       padding:18px;
-      overflow: visible; /* keep sticky working */
+      overflow: visible;
+      max-height:none;
+      height:auto;
     }
 
     .qlead{
@@ -135,14 +142,14 @@
       overflow:hidden;
       position:relative;
     }
-    .qprogress > .bar{
+    .qprogress .bar{
       height:100%;
       width:0%;
       background:#1f78b4;
       border-radius: 999px;
       transition: width .20s ease;
     }
-    .qprogress > .label{
+    .qprogress .label{
       position:absolute;
       inset:0;
       display:flex;
@@ -316,7 +323,7 @@
     .desktop-only{ display:block; }
     .mobile-only{ display:none; }
 
-    /* Mobile sticky header inside the form (locks title + progress + X of Y) */
+    /* Mobile sticky header INSIDE the mobile form */
     .m-sticky-head{ display:none; }
 
     /* Responsive */
@@ -330,12 +337,27 @@
         padding-top: clamp(14px, 8vh, 90px);
         padding-bottom: 18px;
       }
-      .hero-copy-card h1{ font-size: clamp(30px, 8vw, 44px); }
+
+      .hero-h2{ font-size: clamp(30px, 8vw, 44px); }
       .hero-copy-card p{ font-size: 16px; }
+
       .qcard{ padding:16px; }
 
       .desktop-only{ display:none; }
       .mobile-only{ display:block; }
+
+      /* SHOW sticky header on mobile */
+      .m-sticky-head{
+        display:block;
+        position: sticky;
+        top: 76px; /* adjust if your header is taller/shorter */
+        z-index: 30;
+
+        background:#fff;
+        padding: 10px 0 12px;
+        margin: 0 0 14px;
+        border-bottom: 1px solid var(--line);
+      }
 
       /* Prevent iOS zoom/reflow while typing */
       #quoteFormMobile input[type="text"],
@@ -346,6 +368,7 @@
         font-size: 16px !important;
         line-height: 1.2;
       }
+
       #quoteFormMobile input[type="text"],
       #quoteFormMobile input[type="tel"],
       #quoteFormMobile input[type="email"],
@@ -354,39 +377,16 @@
         padding-top: 0;
         padding-bottom: 0;
       }
+
       html{
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
       }
 
-      /* Mobile address grids stack cleanly */
+      /* Mobile address grids */
       .addr-grid{ grid-template-columns: 1fr; }
       .addr-grid-3{ grid-template-columns: 1fr 1fr; }
-      .addr-grid-3 .row:nth-child(2){ grid-column: span 1; }
       .addr-grid-3 .row:nth-child(3){ grid-column: span 2; }
-
-     @media (max-width: 860px){
-  .m-sticky-head{
-    position: sticky;
-    top: 76px; /* adjust if header height changes */
-    z-index: 30;
-
-    background: #fff;
-    padding: 10px 0 12px;
-    margin-bottom: 14px;
-
-    border-bottom: 1px solid var(--line);
-  }
-}
-
-/* ===== Mobile: make the form part of the page (NO internal scrolling) ===== */
-@media (max-width: 860px){
-  .qcard{
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-}
 
       /* Keep long filenames from expanding layout */
       #m-file-name{
@@ -398,11 +398,6 @@
         -webkit-box-orient: vertical;
       }
     }
-.hero-h2{
-  color: var(--blue); /* same blue used on your H2s */
-}
-
-    
   </style>
 </head>
 
@@ -425,10 +420,9 @@
 
           <!-- LEFT -->
           <div class="hero-copy-card">
-<h1 class="hero-h2">Contact Us Today</h1>
-            
+            <h1 class="hero-h2">Contact Us Today</h1>
             <p>
-              We Welcome The Opportunity To Exceed Your Expectations. 
+              We Welcome The Opportunity To Exceed Your Expectations.
               Share A Few Details And We’ll Prepare An Estimate For Your Project.
             </p>
             <div class="hero-mini">
@@ -439,7 +433,7 @@
           <!-- RIGHT -->
           <div class="qcard" id="quote-form">
 
-            <!-- DESKTOP HEADER + PROGRESS -->
+            <!-- DESKTOP HEADER + PROGRESS (ALWAYS VISIBLE ON DESKTOP) -->
             <div class="desktop-only">
               <div class="qlead">
                 <strong>Request Quote Form</strong>
@@ -457,9 +451,8 @@
             <!-- DESKTOP: 2-STEP FORM -->
             <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
 
-              <!-- STEP 1 (now 7 required fields) -->
+              <!-- STEP 1 -->
               <div class="step" data-step="1">
-
                 <div class="row">
                   <label for="d-name">Name</label>
                   <input id="d-name" name="name" type="text" autocomplete="name" required placeholder="Name">
@@ -507,7 +500,6 @@
 
               <!-- STEP 2 -->
               <div class="step" data-step="2" style="display:none;">
-
                 <div class="row">
                   <label for="d-service">What Area Do You Need Serviced?</label>
                   <select id="d-service" name="service_area" required>
@@ -583,17 +575,18 @@
             <!-- MOBILE: SINGLE-PAGE FORM -->
             <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
 
-              <!-- MOBILE STICKY HEADER (locks title + progress + X of Y) -->
-              <div class="m-sticky-head" aria-hidden="true">
+              <!-- MOBILE STICKY HEADER (VISIBLE + STICKY ON PAGE SCROLL) -->
+              <div class="m-sticky-head">
                 <div class="qlead">
                   <strong>Request Quote Form</strong>
                   <span>Clear estimate. Proper preparation. Professional results.</span>
                 </div>
 
-                <div class="qprogress">
+                <div class="qprogress" aria-hidden="true">
                   <div class="bar" id="mBar"></div>
                   <div class="label" id="mPct">0%</div>
                 </div>
+
                 <div class="qstep-title">Quote Progress</div>
                 <div class="qstep-sub" id="mSub">0 of 0 required fields complete.</div>
               </div>
@@ -732,8 +725,7 @@
     }
 
     function getRequiredFields(scopeEl){
-      return Array.from(scopeEl.querySelectorAll("[required]"))
-        .filter(el => !el.disabled);
+      return Array.from(scopeEl.querySelectorAll("[required]")).filter(el => !el.disabled);
     }
 
     function updateProgress(scopeEl, barEl, pctEl){
@@ -746,7 +738,6 @@
       }
 
       const pct = clamp(Math.round((complete / total) * 100), 0, 100);
-
       if (barEl) barEl.style.width = pct + "%";
       if (pctEl) pctEl.textContent = pct + "%";
 
@@ -773,19 +764,17 @@
 
       const bar = document.getElementById('qBar');
       const pctEl = document.getElementById('qPct');
-      const title = document.getElementById('qStepTitle');
       const sub = document.getElementById('qStepSub');
 
-      // Step 1 required fields (now 7)
       const fieldsStep1 = ['d-name','d-street','d-city','d-state','d-zip','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
       function updateDesktop(){
         const r = updateProgress(form, bar, pctEl); // ENTIRE FORM (both steps)
-        if (title) title.textContent = 'Quote Progress';
         if (sub){
-          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
-          else sub.textContent = 'Ready to send.';
+          sub.textContent = (r.pct < 100)
+            ? `${r.complete} of ${r.total} required fields complete.`
+            : 'Ready to send.';
         }
       }
 
@@ -815,7 +804,6 @@
       });
       backBtn && backBtn.addEventListener('click', () => showStep(1));
 
-      // Live update when ANY field changes (including hidden step2 fields once visible)
       bindLive(form, updateDesktop);
 
       showStep(1);
@@ -834,8 +822,9 @@
       function updateMobile(){
         const r = updateProgress(form, bar, pctEl);
         if (sub){
-          if (r.pct < 100) sub.textContent = `${r.complete} of ${r.total} required fields complete.`;
-          else sub.textContent = 'Ready to send.';
+          sub.textContent = (r.pct < 100)
+            ? `${r.complete} of ${r.total} required fields complete.`
+            : 'Ready to send.';
         }
       }
 
