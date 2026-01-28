@@ -343,6 +343,7 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
     </div>
   </section>
 <p class="section-sub">
+  
 Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p>
   <!-- CERTS / TRUST -->
   <section class="section" style="border-top:1px solid var(--line);">
@@ -417,8 +418,11 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
   </section>
 
 <!-- =========================
-     STEP-BY-STEP PROCESS
+     STEP-BY-STEP PROCESS (COPY/PASTE)
+     - Desktop: 2 columns, 6 equal-height cards, black text
+     - Mobile: accordion (only 1 open at a time)
 ========================== -->
+
 <section class="section" id="process">
   <div class="container">
     <h2>Our Paver Sealing Process</h2>
@@ -427,29 +431,55 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
     </p>
 
     <style>
-      /* Desktop cards */
-      .process-grid{
+      /* ===== PROCESS: Desktop equal-height cards + black text ===== */
+      #process .process-grid{
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap:16px;
         margin-top:16px;
-        align-items:start;
+        align-items:stretch;
       }
-      .process-col{ display:flex; flex-direction:column; gap:16px; }
 
-      /* LIGHT Trident-style gradient cards */
+      /* 3 equal rows per column */
+      #process .process-col{
+        display:grid;
+        grid-template-rows: repeat(3, 1fr);
+        gap:16px;
+        align-items:stretch;
+      }
+
+      /* Card fills row */
+      #process .process-col .card{
+        height:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+      }
+
+      /* Light gradient + BLACK text */
       #process .card.card-bluegrad{
-        background: linear-gradient(135deg, rgba(57,191,234,.22) 0%, #ffffff 68%);
+        background: linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);
         border: 1px solid rgba(57,191,234,.28);
         box-shadow: var(--shadow);
-        color: var(--text);
+        color:#111827;
       }
-      #process .card.card-bluegrad h3{ color: var(--navy); margin:0 0 8px; }
-      #process .card.card-bluegrad p{ margin:0 0 10px; color: var(--muted); }
-      #process .card.card-bluegrad ul{ margin:0; padding-left:18px; color: var(--muted); }
+      #process .card.card-bluegrad h3{
+        margin:0 0 8px;
+        color: var(--navy);
+      }
+      #process .card.card-bluegrad p{
+        margin:0 0 10px;
+        color:#111827;
+      }
+      #process .card.card-bluegrad ul{
+        margin:0;
+        padding-left:18px;
+      }
+      #process .card.card-bluegrad li{ color:#111827; }
 
-      /* Mobile accordion */
-      .process-accordion{ display:none; margin-top:16px; }
+      /* ===== Mobile accordion ===== */
+      #process .process-accordion{ display:none; margin-top:16px; }
+
       #process details.step{
         border:1px solid var(--line);
         background:#fff;
@@ -458,7 +488,7 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
       }
       #process details.step + details.step{ margin-top:10px; }
 
-      #process summary{
+      #process details.step > summary{
         cursor:pointer;
         list-style:none;
         padding:14px 16px;
@@ -467,15 +497,17 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
         align-items:center;
         justify-content:space-between;
         gap:12px;
+        color: var(--navy);
       }
       #process summary::-webkit-details-marker{ display:none; }
-      #process summary::after{
+
+      #process details.step > summary::after{
         content:"▾";
         color: var(--navy);
         transition: transform .18s ease;
         font-weight:1000;
       }
-      #process details[open] summary::after{ transform: rotate(180deg); }
+      #process details.step[open] > summary::after{ transform: rotate(180deg); }
 
       #process .step-body{
         padding:14px 16px 16px;
@@ -485,44 +517,55 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
         border-top:1px solid rgba(15,110,168,.22);
       }
-      #process .step-body p{ margin:0 0 10px; color: var(--muted); }
-      #process .step-body ul{ margin:0; padding-left:18px; color: var(--muted); }
+      #process .step-body p{
+        margin:0 0 10px;
+        color:#111827;
+      }
+      #process .step-body ul{
+        margin:0;
+        padding-left:18px;
+      }
+      #process .step-body li{ color:#111827; }
 
-      /* Switch: accordion on mobile, cards on desktop */
+      /* Switch: accordion on mobile */
       @media (max-width: 900px){
-        .process-grid{ display:none; }
-        .process-accordion{ display:block; }
+        #process .process-grid{ display:none; }
+        #process .process-accordion{ display:block; }
       }
     </style>
 
-    <!-- DESKTOP (2 columns) -->
+    <!-- DESKTOP (2 columns, equal-height cards) -->
     <div class="process-grid" aria-label="Process cards (desktop)">
       <div class="process-col">
         <div class="card card-bluegrad">
           <h3>1) Inspection &amp; Surface Evaluation</h3>
-          <p>We check drainage, stains, joint condition, and movement so expectations are clear.</p>
+          <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
           <ul>
             <li>Sinking/rocking and base concerns</li>
             <li>Stains: organic, rust, oil, tire marks</li>
+            <li>Finish goal: natural vs color-enhanced</li>
           </ul>
         </div>
 
         <div class="card card-bluegrad">
           <h3>2) Professional Cleaning &amp; Organic Treatment</h3>
-          <p>We clean for adhesion and uniform results — not just “looks good wet.”</p>
+          <p>We clean for adhesion and uniform results — not just appearance.</p>
           <ul>
             <li>Targeted organic treatment (algae/mildew)</li>
+            <li>Controlled surface cleaning for consistency</li>
             <li>Thorough rinse + surface verification</li>
           </ul>
         </div>
 
         <div class="card card-bluegrad">
           <h3>3) Joint Prep &amp; Re-Sanding (ASTM-C144)</h3>
-          <p>We reset joints using Trident CAT 5 joint sand and compact for stability.</p>
+          <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
           <ul>
             <li>Clean joints and remove failing material</li>
-            <li>Final sand depth: <strong>1/8&quot; below joint edge</strong></li>
+            <li>Hydro-compact for joint lock</li>
+            <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
           </ul>
+
           <div class="badge badge-green" style="margin-top:12px;text-align:center;">
             <a href="/joint-sand-colors/" style="color:inherit;text-decoration:none;display:inline-block;">
               View Trident Sand Color Options →
@@ -536,8 +579,9 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           <h3>4) Moisture &amp; Weather Window Control</h3>
           <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
           <ul>
-            <li>Moisture and low-spot checks</li>
+            <li>Surface dryness and low-spot checks</li>
             <li>Humidity and rain-risk planning</li>
+            <li>Shade and moisture awareness</li>
           </ul>
         </div>
 
@@ -546,7 +590,8 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
           <ul>
             <li>Flood coat + second coat (as needed)</li>
-            <li>Natural look or color-enhanced finish</li>
+            <li>Clean borders and edge control</li>
+            <li>Natural or color-enhanced finish options</li>
           </ul>
         </div>
 
@@ -555,13 +600,14 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           <p>We confirm coverage, review cure time, and give clear care guidance.</p>
           <ul>
             <li>24 hours no foot traffic, 48 hours vehicles</li>
-            <li>Simple do’s/don’ts to extend life</li>
+            <li>Do’s and don’ts to prevent premature wear</li>
+            <li>Maintenance plan to extend life</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- MOBILE (accordion) -->
+    <!-- MOBILE (accordion, single open at a time) -->
     <div class="process-accordion" aria-label="Process accordion (mobile)">
       <details class="step">
         <summary>1) Inspection &amp; Surface Evaluation</summary>
@@ -570,16 +616,18 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           <ul>
             <li>Sinking/rocking and base concerns</li>
             <li>Stains: organic, rust, oil, tire marks</li>
+            <li>Finish goal: natural vs color-enhanced</li>
           </ul>
         </div>
       </details>
 
       <details class="step">
-        <summary>2) Cleaning &amp; Organic Treatment</summary>
+        <summary>2) Professional Cleaning &amp; Organic Treatment</summary>
         <div class="step-body">
           <p>We clean for adhesion and uniform results — not just appearance.</p>
           <ul>
             <li>Targeted organic treatment (algae/mildew)</li>
+            <li>Controlled surface cleaning for consistency</li>
             <li>Thorough rinse + surface verification</li>
           </ul>
         </div>
@@ -591,6 +639,7 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
           <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
           <ul>
             <li>Clean joints and remove failing material</li>
+            <li>Hydro-compact for joint lock</li>
             <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
           </ul>
           <div class="badge badge-green" style="margin-top:12px;text-align:center;">
@@ -602,40 +651,61 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
       </details>
 
       <details class="step">
-        <summary>4) Moisture &amp; Weather Control</summary>
+        <summary>4) Moisture &amp; Weather Window Control</summary>
         <div class="step-body">
           <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
           <ul>
-            <li>Moisture and low-spot checks</li>
+            <li>Surface dryness and low-spot checks</li>
             <li>Humidity and rain-risk planning</li>
+            <li>Shade and moisture awareness</li>
           </ul>
         </div>
       </details>
 
       <details class="step">
-        <summary>5) Two-Coat Sealer Application</summary>
+        <summary>5) Sealer Application (Two-Coat System)</summary>
         <div class="step-body">
           <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
           <ul>
             <li>Flood coat + second coat (as needed)</li>
-            <li>Natural or color-enhanced finish</li>
+            <li>Clean borders and edge control</li>
+            <li>Natural or color-enhanced finish options</li>
           </ul>
         </div>
       </details>
 
       <details class="step">
-        <summary>6) Cure-Time &amp; Maintenance</summary>
+        <summary>6) Final Walkthrough, Cure-Time &amp; Maintenance</summary>
         <div class="step-body">
           <p>We confirm coverage, review cure time, and give clear care guidance.</p>
           <ul>
             <li>24 hours no foot traffic, 48 hours vehicles</li>
-            <li>Simple do’s/don’ts to extend life</li>
+            <li>Do’s and don’ts to prevent premature wear</li>
+            <li>Maintenance plan to extend life</li>
           </ul>
         </div>
       </details>
     </div>
 
-    <!-- Full-width warning -->
+    <script>
+      // Process accordion: only one open at a time
+      (function () {
+        const wrap = document.querySelector('#process .process-accordion');
+        if (!wrap) return;
+
+        const steps = wrap.querySelectorAll('details.step');
+        steps.forEach(step => {
+          step.addEventListener('toggle', () => {
+            if (!step.open) return;
+            steps.forEach(other => {
+              if (other !== step) other.removeAttribute('open');
+            });
+          });
+        });
+      })();
+    </script>
+
+    <!-- Full-width warning (both desktop + mobile) -->
     <div class="card" style="
       margin-top:16px;
       background: linear-gradient(180deg, rgba(220,38,38,.14) 0%, #ffffff 70%);
@@ -643,13 +713,14 @@ Long-Term Results Come From Proper Prep, Training, And Professional Judgment.</p
     ">
       <p style="margin:0; color:#111827;">
         <strong style="color:#991b1b;">What We Will Not Do:</strong>
-        Seal wet pavers, seal right before rain, or “spray and pray.”
-        Those shortcuts create failures and callbacks.
+        Seal Wet Pavers, Seal Right Before Rain, Or “Spray And Pray.”
+        Those Shortcuts Create Failures And Callbacks.
       </p>
     </div>
 
   </div>
 </section>
+
 
 <!-- =========================
      RESULTS + REVIEWS (SIDE BY SIDE)
