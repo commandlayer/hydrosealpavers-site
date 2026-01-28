@@ -20,129 +20,48 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <style>
-  /* ===== HERO: 2-column layout (desktop) / stacked (mobile) ===== */
-  .hero2 .quote-overlay{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding-top: clamp(18px, 12vh, 140px);
-    padding-bottom: 28px;
-  }
+    /* =========================================
+       Quote Page Overrides
+       - Hide trust bar (this page only)
+       - 2-column hero + form on desktop
+       - Stack on mobile
+       - Step progress bar: 50% on step 1, 100% on step 2
+    ==========================================*/
 
-  .quote-grid{
-    width: min(1040px, 100%);
-    display:grid;
-    grid-template-columns: 1fr 560px; /* hero text + form */
-    gap: 18px;
-    align-items: start;
-  }
-
-  /* Left hero card like screenshot */
-  .hero-copy-card{
-    border-radius: 28px;
-    padding: 26px 24px;
-    background: rgba(255,255,255,.82);
-    border: 1px solid rgba(255,255,255,.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 16px 50px rgba(0,0,0,.25);
-  }
-  .hero-copy-card h2{
-    margin: 0;
-    font-size: clamp(34px, 4vw, 54px);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    font-weight: 1000;
-    color: #0b1220;
-  }
-  .hero-copy-card p{
-    margin: 16px 0 0;
-    font-size: 18px;
-    line-height: 1.55;
-    color: rgba(17,24,39,.72);
-    font-weight: 700;
-    max-width: 52ch;
-  }
-
-  /* Keep your form card as-is */
-  .qcard{
-    width: 100%;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    box-shadow: var(--shadow);
-    padding:18px;
-  }
-
-  /* Mobile: stack hero above form */
-  @media (max-width: 980px){
-    .quote-grid{
-      grid-template-columns: 1fr;
+    /* --- Hide the trust bar on THIS page only ---
+       NOTE: Since header is included via /partials/header.html,
+       we can’t guarantee exact selectors. This set covers common patterns.
+    */
+    .trustbar,
+    #trustbar,
+    .trust-strip,
+    .trust-strip-wrap,
+    .top-trust,
+    .header-trust,
+    .trust-row,
+    .trust-banner,
+    [data-trustbar],
+    .site-trust,
+    .trust,
+    .trust-bar {
+      display:none !important;
+      height:0 !important;
+      padding:0 !important;
+      margin:0 !important;
+      border:0 !important;
     }
-    .hero-copy-card{
-      border-radius: 26px;
-      padding: 22px 18px;
+
+    /* --- HERO base --- */
+    .hero2{ position:relative; }
+    .hero2 .container{ position:relative; z-index:3; }
+    .hero2 img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
-  }
 
-  /* Tighten vertical spacing on small screens */
-  @media (max-width: 860px){
-    .hero2 .quote-overlay{
-      padding-top: clamp(14px, 8vh, 90px);
-      padding-bottom: 18px;
-    }
-    .hero-copy-card h2{
-      font-size: clamp(30px, 8vw, 44px);
-    }
-    .hero-copy-card p{
-      font-size: 16px;
-    }
-  }
-</style>
-
-  
-  <style>
-  /* ===== Quote page: hide the trust bar (Licensed/Insured, Trident, Warranty, counties) ===== */
-  /* This targets the common class/id patterns AND the exact text line as a fallback. */
-
-  /* Common wrappers (in case your header uses any of these) */
-  .trustbar,
-  #trustbar,
-  .trust-strip,
-  .trust-strip-wrap,
-  .top-trust,
-  .header-trust,
-  .trust-row,
-  .trust-banner,
-  [data-trustbar]{
-    display:none !important;
-    height:0 !important;
-    padding:0 !important;
-    margin:0 !important;
-    border:0 !important;
-  }
-
-  /* Fallback: if your trust bar is just a <p>/<div> with those words */
-  /* Hides any element inside header that contains those exact phrases */
-  header :is(div, p, span, ul, li):has(> :is(span, strong, em, b, i):not(script)){
-    /* no-op: keeps selector valid in browsers without :has */
-  }
-
-  /* Modern browsers: kill any header element that contains "Licensed & Insured" */
-  @supports(selector(:has(*))) {
-    header :is(div,p,span,ul,li):has(*){
-      /* nothing */
-    }
-    header :is(div,p,span,ul,li):has(:is(*)):has(:contains("Licensed")){ display:none !important; }
-  }
-</style>
-
-  <style>
-    /* Overlay quote card inside hero */
-    .hero2 { position: relative; }
-    .hero2 .container { position: relative; z-index: 3; }
-
-    /* Replace translateY hack with a true overlay layout */
+    /* --- Overlay layout (no translate hacks) --- */
     .hero2 .quote-overlay{
       display:flex;
       justify-content:center;
@@ -151,9 +70,61 @@
       padding-bottom: 28px;
     }
 
-    /* Card */
+    .quote-grid{
+      width: min(1080px, 100%);
+      display:grid;
+      grid-template-columns: 1fr 560px; /* hero card + form */
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* Left hero card (like your screenshot) */
+    .hero-copy-card{
+      border-radius: 28px;
+      padding: 26px 24px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 16px 50px rgba(0,0,0,.25);
+    }
+    .hero-copy-card h1{
+      margin:0;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+      font-weight: 1000;
+      color:#0b1220;
+    }
+    .hero-copy-card p{
+      margin: 16px 0 0;
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(17,24,39,.72);
+      font-weight: 700;
+      max-width: 52ch;
+    }
+    .hero-copy-card .hero-cta{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .hero-copy-card .hero-cta .btn{
+      white-space:nowrap;
+    }
+    .hero-copy-card .hero-mini{
+      margin-top:14px;
+      color: rgba(17,24,39,.62);
+      font-weight:700;
+      font-size: 13px;
+      line-height:1.35;
+    }
+
+    /* Form card */
     .qcard{
-      width: min(560px, 100%);
+      width:100%;
       background:#fff;
       border:1px solid var(--line);
       border-radius:18px;
@@ -179,6 +150,49 @@
       font-weight: 700;
     }
 
+    /* Progress bar (like screenshot) */
+    .qprogress{
+      margin: 12px 0 6px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(17,24,39,.12);
+      overflow:hidden;
+      position:relative;
+    }
+    .qprogress > .bar{
+      height:100%;
+      width:50%;
+      background: #1f78b4; /* nice blue */
+      border-radius: 999px;
+      transition: width .25s ease;
+    }
+    .qprogress > .label{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 12px;
+      font-weight: 1000;
+      color:#fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,.25);
+      pointer-events:none;
+    }
+    .qstep-title{
+      margin:0;
+      text-align:left;
+      font-weight:900;
+      color: var(--navy);
+      font-size: 13px;
+    }
+    .qstep-sub{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-weight:700;
+      font-size:12px;
+    }
+
+    /* Fields */
     .row{
       display:flex;
       flex-direction:column;
@@ -311,24 +325,36 @@
     .desktop-only{ display:block; }
     .mobile-only{ display:none; }
 
-    /* Mobile: single-page form */
+    /* Responsive */
+    @media (max-width: 980px){
+      .quote-grid{ grid-template-columns: 1fr; }
+      .hero-copy-card{ border-radius: 26px; padding: 22px 18px; }
+    }
+
     @media (max-width: 860px){
-      .qcard{ width:100%; padding:16px; }
-      .desktop-only{ display:none; }
-      .mobile-only{ display:block; }
-      .actions{ justify-content:flex-start; }
       .hero2 .quote-overlay{
         padding-top: clamp(14px, 8vh, 90px);
         padding-bottom: 18px;
       }
+      .hero-copy-card h1{
+        font-size: clamp(30px, 8vw, 44px);
+      }
+      .hero-copy-card p{
+        font-size: 16px;
+      }
+      .qcard{ padding:16px; }
+      .desktop-only{ display:none; }
+      .mobile-only{ display:block; }
+      .actions{ justify-content:flex-start; }
     }
   </style>
 </head>
+
 <body>
 
   <div data-include="/partials/header.html"></div>
 
-  <!-- HERO + OVERLAY FORM -->
+  <!-- HERO + (LEFT) COPY CARD + (RIGHT) FORM -->
   <section class="hero2">
     <img
       src="/assets/hero/paver-sealing-jacksonville-driveway.png"
@@ -340,52 +366,174 @@
 
     <div class="container">
       <div class="quote-overlay">
+        <div class="quote-grid">
 
-        <div class="qcard" id="quote-form">
-          <div class="qlead">
-            <strong>Get A Paver Quote Today</strong>
-            <span>Fast Estimate. Clear Prep Plan. No Spam.</span>
-          </div>
+          <!-- LEFT: HERO COPY -->
+          <div class="hero-copy-card">
+            <h1>Contact Our Office Today</h1>
+            <p>
+              We welcome the opportunity to exceed your expectations.
+              Share a few details and we’ll send a fast estimate with a clear prep plan.
+            </p>
 
-          <!-- DESKTOP: 2-STEP FORM -->
-          <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
-
-            <!-- STEP 1 -->
-            <div class="step" data-step="1">
-              <div class="row">
-                <label for="d-name">Name</label>
-                <input id="d-name" name="name" type="text" autocomplete="name" required>
-              </div>
-
-              <div class="row">
-                <label for="d-address">Address</label>
-                <input id="d-address" name="address" type="text" autocomplete="street-address" required>
-              </div>
-
-              <div class="row">
-                <label for="d-phone">Phone</label>
-                <input id="d-phone" name="phone" type="tel" autocomplete="tel" required>
-              </div>
-
-              <div class="row">
-                <label for="d-email">Email</label>
-                <input id="d-email" name="email" type="email" autocomplete="email" required>
-              </div>
-
-              <div class="actions" style="justify-content:flex-end;">
-                <div class="right">
-                  <button class="btn btn-primary" type="button" id="desktopNext">Next</button>
-                </div>
-              </div>
-
-              <div class="step-hint">Step 1 Of 2</div>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
+              <a class="btn btn-ghost" href="#quote-form">Fill Out The Form</a>
             </div>
 
-            <!-- STEP 2 -->
-            <div class="step" data-step="2" style="display:none;">
+            <div class="hero-mini">
+              Tip: Upload photos for the quickest quote. Most requests get a same-day response.
+            </div>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <div class="qcard" id="quote-form">
+            <div class="qlead">
+              <strong>Request A Quote</strong>
+              <span>Fast Estimate. Clear Prep Plan. No Spam.</span>
+            </div>
+
+            <!-- Progress bar (changes per step) -->
+            <div class="qprogress" aria-hidden="true">
+              <div class="bar" id="qBar"></div>
+              <div class="label" id="qPct">50%</div>
+            </div>
+            <div class="qstep-title" id="qStepTitle">Step 1 of 2 — Contact Info</div>
+            <div class="qstep-sub" id="qStepSub">Name, address, phone, email.</div>
+
+            <!-- DESKTOP: 2-STEP FORM -->
+            <form class="desktop-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormDesktop">
+
+              <!-- STEP 1 -->
+              <div class="step" data-step="1">
+                <div class="row">
+                  <label for="d-name">Name</label>
+                  <input id="d-name" name="name" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="row">
+                  <label for="d-address">Address</label>
+                  <input id="d-address" name="address" type="text" autocomplete="street-address" required>
+                </div>
+
+                <div class="row">
+                  <label for="d-phone">Phone</label>
+                  <input id="d-phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+
+                <div class="row">
+                  <label for="d-email">Email</label>
+                  <input id="d-email" name="email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="actions" style="justify-content:flex-end;">
+                  <div class="right">
+                    <button class="btn btn-primary" type="button" id="desktopNext">Next</button>
+                  </div>
+                </div>
+
+                <div class="step-hint">Step 1 Of 2</div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="step" data-step="2" style="display:none;">
+                <div class="row">
+                  <label for="d-service">What Area Do You Need Serviced?</label>
+                  <select id="d-service" name="service_area" required>
+                    <option value="" selected disabled>Select One</option>
+                    <option value="Driveway">Driveway</option>
+                    <option value="Pool Deck">Pool Deck</option>
+                    <option value="Patio">Patio</option>
+                    <option value="Walkways">Walkways</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="row">
+                  <label for="d-paver">What Type Of Pavers Do You Have?</label>
+                  <select id="d-paver" name="paver_type" required>
+                    <option value="" selected disabled>Select One</option>
+                    <option value="Concrete Brick Paver">Concrete Brick Paver</option>
+                    <option value="Travertine">Travertine</option>
+                    <option value="Marble">Marble</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="row">
+                  <label for="d-help">How Can We Help You?</label>
+                  <textarea id="d-help" name="help" placeholder="Stains, weeds/ants, shifting pavers, finish preference, timing, etc."></textarea>
+                </div>
+
+                <div class="row">
+                  <label>Send Photo</label>
+                  <div class="drop" id="d-drop-zone">
+                    <div class="drop-top">
+                      <div>
+                        <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
+                        <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
+                      </div>
+                      <label class="file-btn" for="d-files">Select Files</label>
+                      <input id="d-files" name="photos" type="file" accept="image/*" multiple>
+                    </div>
+                    <div class="filename" id="d-file-name">No File Chosen</div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label>Consent (Required)</label>
+                  <div class="consent">
+                    <input id="d-consent" type="checkbox" name="consent" value="agree" required>
+                    <div>
+                      <p><strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong></p>
+                      <p style="margin-top:6px;">
+                        By submitting this form, you agree to receive SMS updates from <strong>HydroSeal Pavers</strong>.
+                        You can opt-out at any time by replying <strong>"STOP"</strong>.
+                      </p>
+                      <p style="margin-top:6px;">
+                        <a href="/privacy-policy/" target="_blank" rel="noopener">View Privacy Policy</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button class="btn btn-ghost" type="button" id="desktopBack">Back</button>
+                  <div class="right">
+                    <button class="btn btn-primary" type="submit">Get My Quote</button>
+                    <div class="note">We Typically Respond Same Day.</div>
+                  </div>
+                </div>
+
+                <div class="step-hint">Step 2 Of 2</div>
+              </div>
+            </form>
+
+            <!-- MOBILE: SINGLE-PAGE FORM -->
+            <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
               <div class="row">
-                <label for="d-service">What Area Do You Need Serviced?</label>
-                <select id="d-service" name="service_area" required>
+                <label for="m-name">Name</label>
+                <input id="m-name" name="name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="row">
+                <label for="m-address">Address</label>
+                <input id="m-address" name="address" type="text" autocomplete="street-address" required>
+              </div>
+
+              <div class="row">
+                <label for="m-phone">Phone</label>
+                <input id="m-phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+
+              <div class="row">
+                <label for="m-email">Email</label>
+                <input id="m-email" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="row">
+                <label for="m-service">What Area Do You Need Serviced?</label>
+                <select id="m-service" name="service_area" required>
                   <option value="" selected disabled>Select One</option>
                   <option value="Driveway">Driveway</option>
                   <option value="Pool Deck">Pool Deck</option>
@@ -396,8 +544,8 @@
               </div>
 
               <div class="row">
-                <label for="d-paver">What Type Of Pavers Do You Have?</label>
-                <select id="d-paver" name="paver_type" required>
+                <label for="m-paver">What Type Of Pavers Do You Have?</label>
+                <select id="m-paver" name="paver_type" required>
                   <option value="" selected disabled>Select One</option>
                   <option value="Concrete Brick Paver">Concrete Brick Paver</option>
                   <option value="Travertine">Travertine</option>
@@ -407,29 +555,29 @@
               </div>
 
               <div class="row">
-                <label for="d-help">How Can We Help You?</label>
-                <textarea id="d-help" name="help" placeholder="Stains, weeds/ants, shifting pavers, finish preference, timing, etc."></textarea>
+                <label for="m-help">How Can We Help You?</label>
+                <textarea id="m-help" name="help" placeholder="Stains, weeds/ants, shifting pavers, finish preference, timing, etc."></textarea>
               </div>
 
               <div class="row">
                 <label>Send Photo</label>
-                <div class="drop" id="d-drop-zone">
+                <div class="drop" id="m-drop-zone">
                   <div class="drop-top">
                     <div>
                       <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
                       <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
                     </div>
-                    <label class="file-btn" for="d-files">Select Files</label>
-                    <input id="d-files" name="photos" type="file" accept="image/*" multiple>
+                    <label class="file-btn" for="m-files">Select Files</label>
+                    <input id="m-files" name="photos" type="file" accept="image/*" multiple>
                   </div>
-                  <div class="filename" id="d-file-name">No File Chosen</div>
+                  <div class="filename" id="m-file-name">No File Chosen</div>
                 </div>
               </div>
 
               <div class="row">
                 <label>Consent (Required)</label>
                 <div class="consent">
-                  <input id="d-consent" type="checkbox" name="consent" value="agree" required>
+                  <input id="m-consent" type="checkbox" name="consent" value="agree" required>
                   <div>
                     <p><strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong></p>
                     <p style="margin-top:6px;">
@@ -443,109 +591,17 @@
                 </div>
               </div>
 
-              <div class="actions">
-                <button class="btn btn-ghost" type="button" id="desktopBack">Back</button>
-                <div class="right">
-                  <button class="btn btn-primary" type="submit">Get My Quote</button>
-                  <div class="note">We Typically Respond Same Day.</div>
-                </div>
+              <div class="actions" style="justify-content:center;">
+                <button class="btn btn-primary" type="submit">Get My Quote</button>
+                <div class="note">We Typically Respond Same Day.</div>
               </div>
 
-              <div class="step-hint">Step 2 Of 2</div>
-            </div>
-          </form>
+              <div class="step-hint">One-page form (mobile)</div>
+            </form>
 
-          <!-- MOBILE: SINGLE-PAGE FORM -->
-          <form class="mobile-only" action="/get-a-quote/" method="POST" enctype="multipart/form-data" id="quoteFormMobile">
+          </div><!-- /qcard -->
 
-            <div class="row">
-              <label for="m-name">Name</label>
-              <input id="m-name" name="name" type="text" autocomplete="name" required>
-            </div>
-
-            <div class="row">
-              <label for="m-address">Address</label>
-              <input id="m-address" name="address" type="text" autocomplete="street-address" required>
-            </div>
-
-            <div class="row">
-              <label for="m-phone">Phone</label>
-              <input id="m-phone" name="phone" type="tel" autocomplete="tel" required>
-            </div>
-
-            <div class="row">
-              <label for="m-email">Email</label>
-              <input id="m-email" name="email" type="email" autocomplete="email" required>
-            </div>
-
-            <div class="row">
-              <label for="m-service">What Area Do You Need Serviced?</label>
-              <select id="m-service" name="service_area" required>
-                <option value="" selected disabled>Select One</option>
-                <option value="Driveway">Driveway</option>
-                <option value="Pool Deck">Pool Deck</option>
-                <option value="Patio">Patio</option>
-                <option value="Walkways">Walkways</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="row">
-              <label for="m-paver">What Type Of Pavers Do You Have?</label>
-              <select id="m-paver" name="paver_type" required>
-                <option value="" selected disabled>Select One</option>
-                <option value="Concrete Brick Paver">Concrete Brick Paver</option>
-                <option value="Travertine">Travertine</option>
-                <option value="Marble">Marble</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="row">
-              <label for="m-help">How Can We Help You?</label>
-              <textarea id="m-help" name="help" placeholder="Stains, weeds/ants, shifting pavers, finish preference, timing, etc."></textarea>
-            </div>
-
-            <div class="row">
-              <label>Send Photo</label>
-              <div class="drop" id="m-drop-zone">
-                <div class="drop-top">
-                  <div>
-                    <strong>Drop Files Here</strong> <span style="color:var(--muted);">or</span>
-                    <small style="display:block;margin-top:4px;">Max. File Size: 128 MB</small>
-                  </div>
-                  <label class="file-btn" for="m-files">Select Files</label>
-                  <input id="m-files" name="photos" type="file" accept="image/*" multiple>
-                </div>
-                <div class="filename" id="m-file-name">No File Chosen</div>
-              </div>
-            </div>
-
-            <div class="row">
-              <label>Consent (Required)</label>
-              <div class="consent">
-                <input id="m-consent" type="checkbox" name="consent" value="agree" required>
-                <div>
-                  <p><strong style="color:var(--navy);">I Agree To The Privacy Policy.</strong></p>
-                  <p style="margin-top:6px;">
-                    By submitting this form, you agree to receive SMS updates from <strong>HydroSeal Pavers</strong>.
-                    You can opt-out at any time by replying <strong>"STOP"</strong>.
-                  </p>
-                  <p style="margin-top:6px;">
-                    <a href="/privacy-policy/" target="_blank" rel="noopener">View Privacy Policy</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions" style="justify-content:center;">
-              <button class="btn btn-primary" type="submit">Get My Quote</button>
-              <div class="note">We Typically Respond Same Day.</div>
-            </div>
-          </form>
-
-        </div><!-- /qcard -->
-
+        </div><!-- /quote-grid -->
       </div><!-- /quote-overlay -->
     </div><!-- /container -->
   </section>
@@ -556,7 +612,7 @@
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
   <script>
-    /* ========= Desktop 2-step behavior ========= */
+    /* ========= Desktop 2-step behavior + progress ========= */
     (function(){
       const form = document.getElementById('quoteFormDesktop');
       if (!form) return;
@@ -566,12 +622,39 @@
       const nextBtn = document.getElementById('desktopNext');
       const backBtn = document.getElementById('desktopBack');
 
+      const bar = document.getElementById('qBar');
+      const pct = document.getElementById('qPct');
+      const title = document.getElementById('qStepTitle');
+      const sub = document.getElementById('qStepSub');
+
       const fieldsStep1 = ['d-name','d-address','d-phone','d-email']
         .map(id => document.getElementById(id)).filter(Boolean);
 
+      function setProgress(step){
+        if (!bar || !pct || !title || !sub) return;
+        if (step === 1){
+          bar.style.width = '50%';
+          pct.textContent = '50%';
+          title.textContent = 'Step 1 of 2 — Contact Info';
+          sub.textContent = 'Name, address, phone, email.';
+        } else {
+          bar.style.width = '100%';
+          pct.textContent = '100%';
+          title.textContent = 'Step 2 of 2 — Project Details';
+          sub.textContent = 'Surface type, photos, notes, consent.';
+        }
+      }
+
       function showStep(n){
-        if (n === 1){ step1.style.display = 'block'; step2.style.display = 'none'; }
-        else { step1.style.display = 'none'; step2.style.display = 'block'; }
+        if (n === 1){
+          step1.style.display = 'block';
+          step2.style.display = 'none';
+          setProgress(1);
+        } else {
+          step1.style.display = 'none';
+          step2.style.display = 'block';
+          setProgress(2);
+        }
       }
 
       function validateStep1(){
@@ -589,6 +672,9 @@
       });
 
       backBtn && backBtn.addEventListener('click', () => showStep(1));
+
+      // init
+      showStep(1);
     })();
 
     /* ========= File name + drag/drop (desktop + mobile) ========= */
@@ -613,8 +699,6 @@
         const files = e.dataTransfer.files;
         if (!files || files.length === 0) return;
 
-        /* Note: some browsers don't allow setting input.files programmatically.
-           Still works in Chromium-based most of the time. If it doesn't, the click upload still works. */
         try{
           input.files = files;
           input.dispatchEvent(new Event('change', { bubbles:true }));
@@ -644,11 +728,40 @@
       { "@type": "City", "name": "Jacksonville, FL" },
       { "@type": "Place", "name": "Nocatee, FL" },
       { "@type": "Place", "name": "Ponte Vedra, FL" },
-      { "@type": "Place", "name": "St. Augustine, FL" }
+      { "@type": "Place", "name": "St. Augustine, FL" },
+      { "@type": "Place", "name": "Jacksonville Beach, FL" },
+      { "@type": "Place", "name": "Neptune Beach, FL" },
+      { "@type": "Place", "name": "Atlantic Beach, FL" },
+      { "@type": "Place", "name": "Orange Park, FL" }
     ],
     "makesOffer": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Joint Sand Re-Sanding" } }
     ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://hydrosealpavers.com/#service-paver-sealing",
+    "name": "Paver Sealing",
+    "provider": { "@id": "https://hydrosealpavers.com/#localbusiness" },
+    "serviceType": "Paver sealing, joint re-sanding, and protective sealing for driveways, pool decks, patios, and walkways.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
+      { "@type": "City", "name": "Jacksonville, FL" },
+      { "@type": "Place", "name": "Nocatee, FL" },
+      { "@type": "Place", "name": "Ponte Vedra, FL" },
+      { "@type": "Place", "name": "St. Augustine, FL" },
+      { "@type": "Place", "name": "Jacksonville Beach, FL" },
+      { "@type": "Place", "name": "Neptune Beach, FL" },
+      { "@type": "Place", "name": "Atlantic Beach, FL" },
+      { "@type": "Place", "name": "Orange Park, FL" }
+    ],
+    "url": "https://hydrosealpavers.com/get-a-quote/"
   }
   </script>
 
