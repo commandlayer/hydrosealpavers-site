@@ -238,7 +238,7 @@ h3{ color: var(--h3-blue); }
   background: var(--teal);                 /* HydroSeal light blue */
   border-color: var(--teal);
   color: #0B2D4A;                          /* readable navy */
-  box-shadow: 0 0 0 4px rgba(40,182,200,.25);
+  box-shadow: 0 0 0 1px rgba(40,182,200,.25);
   transform: translateY(-1px);
 }
 
