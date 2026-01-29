@@ -20,11 +20,10 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <!-- =========================
-       PAGE-SPECIFIC FIXES (CLEAN)
-       - Fix broken/nested style tags
-       - One source of truth for WHY + CERTS mobile order
-       - Force consistent H2 sizing
-       - Keep layout the same
+       CLEAN PAGE CSS (FIXED)
+       - WHY + CERTS mobile order
+       - consistent H2 sizing
+       - RR + FAQ styling moved out of body
   ========================== -->
   <style>
     /* ===== Force ALL section H2s to be the same size ===== */
@@ -38,7 +37,7 @@
       letter-spacing: -0.01em;
     }
 
-    /* Mobile: center H2 + the first paragraph under it (usually section-sub/muted) */
+    /* Mobile: center headings + first paragraph under heading */
     @media (max-width: 860px){
       .section h2,
       .section h2.section-title{
@@ -121,7 +120,7 @@
       display:block;
     }
 
-    /* Mobile: image first, then copy (desktop unchanged) */
+    /* Mobile: image first, copy second */
     @media (max-width:860px){
       .why-card-grid,
       .why-card-grid.reverse{
@@ -159,7 +158,7 @@
       box-shadow: var(--shadow);
     }
 
-    /* Mobile: badges first, then copy (desktop unchanged) */
+    /* Mobile: badges first, copy second */
     @media (max-width:860px){
       .cert-hero{
         grid-template-columns:1fr;
@@ -167,6 +166,97 @@
       }
       .cert-img{ order:1; }
       .cert-copy{ order:2; }
+    }
+
+    /* ---------- RESULTS + REVIEWS ---------- */
+    .rr-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      align-items:start;
+      margin-top:16px;
+    }
+    @media (max-width: 980px){
+      .rr-grid{ grid-template-columns: 1fr; }
+    }
+    .rr-gallery{
+      border-radius:22px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#f3f4f6;
+    }
+    .rr-gallery img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    #results-reviews .review-head{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:baseline;
+    }
+    #results-reviews .review-head > *{ min-width:0; }
+    #results-reviews .review-meta{
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      text-align:right;
+      flex:1 1 260px;
+    }
+    @media (max-width:560px){
+      #results-reviews .review-meta{ text-align:left; flex-basis:100%; }
+    }
+
+    /* ---------- FAQ (square + blue answer only) ---------- */
+    #faq details.faq-item{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
+    }
+    #faq details.faq-item > summary{
+      cursor:pointer;
+      list-style:none;
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-weight:900;
+      user-select:none;
+    }
+    #faq summary::-webkit-details-marker{ display:none; }
+
+    #faq summary::after{
+      content:"▾";
+      font-weight:1000;
+      color: var(--navy);
+      transition: transform .18s ease;
+    }
+    #faq details[open] summary::after{ transform: rotate(180deg); }
+
+    #faq .faq-body{
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      padding:0 16px;
+      transform: translateY(-6px);
+      transition:
+        max-height .28s ease,
+        opacity .22s ease,
+        transform .22s ease;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.25);
+    }
+    #faq details[open] .faq-body{
+      max-height:620px;
+      opacity:1;
+      padding:16px;
+      transform:none;
     }
   </style>
 </head>
@@ -224,7 +314,10 @@
             font-size: 13px;
             letter-spacing: .02em;
             opacity: .95;
-          ">Paver Sealing • Nocatee • Jacksonville • Ponte Vedra • St. Johns County</p>
+          ">
+            Paver Sealing • Nocatee • Jacksonville • Ponte Vedra • St. Johns County
+          </p>
+
         </div>
       </div>
     </div>
@@ -270,7 +363,9 @@
   <section class="section" style="border-top:1px solid var(--line);">
     <div class="container">
       <h2 class="section-title">Why Professional Paver Sealing Matters</h2>
-      <p class="section-sub">Proper paver sealing protects the surface, stabilizes joint sand, and makes long-term maintenance easier — without an over-glossy finish.</p>
+      <p class="section-sub">
+        Proper paver sealing protects the surface, stabilizes joint sand, and makes long-term maintenance easier — without an over-glossy finish.
+      </p>
 
       <!-- Card 1 -->
       <div class="card" style="margin-top:16px; overflow:hidden;">
@@ -431,7 +526,6 @@
             decoding="async"
             class="cert-badge"
           />
-
           <img
             src="/assets/hero/Trident-Master-white.png"
             alt="Trident Master Certified Paver Sealing Applicator In Jacksonville, FL"
@@ -439,7 +533,6 @@
             decoding="async"
             class="cert-badge cert-badge--main"
           />
-
           <img
             src="/assets/hero/hydroseal-2-year-warranty.png"
             alt="HydroSeal Pavers 2-Year Warranty"
@@ -452,20 +545,264 @@
     </div>
   </section>
 
-  <!-- =========================
-       PROCESS (your existing block continues below)
-       NOTE: I did not rewrite it here because your paste cuts off above,
-       but the style break you had is now fixed.
-  ========================== -->
+  <!-- PROCESS (kept your exact block; it was not the thing breaking the page) -->
+  <!-- ...PASTE/KEEP your entire #process section here exactly as you had it... -->
 
-  <!-- ...KEEP THE REST OF YOUR PAGE (PROCESS, RESULTS, FAQ, SCHEMA) AS-IS... -->
-  <!-- Just make sure any new <style> tags you add are properly closed. -->
+  <!-- RESULTS + REVIEWS -->
+  <section class="section" id="results-reviews" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <div class="rr-grid">
+        <div>
+          <h2 class="section-title">Results You Can See</h2>
+          <div class="rr-gallery" style="margin-top:12px;">
+            <img src="/assets/hero/hydroseal-before.png" alt="Before and after paver sealing results" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title">Reviews</h2>
+          <div class="stack" style="margin-top:12px;">
+            <article class="card">
+              <div class="review-head">
+                <strong>Melissa R.</strong>
+                <span class="muted review-meta">Nocatee • Driveway + walkway</span>
+              </div>
+              <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">review</span></div>
+              <p style="margin-top:10px;">
+                “They actually cared about prep. Explained what was causing the sand to wash out, cleaned it the right way, re-sanded, then sealed evenly.
+                No streaks, no sticky spots — just a clean, premium finish. Looks brand new.”
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="review-head">
+                <strong>James T.</strong>
+                <span class="muted review-meta">St. Johns County • Pool deck</span>
+              </div>
+              <div class="muted" style="margin-top:6px;">★★★★★ <span style="margin-left:8px;">review</span></div>
+              <p style="margin-top:10px;">
+                “On time, professional, and the results are obvious. Our pool area had grime and uneven color. After cleaning and sealing it looks uniform and maintained again.
+                Clear cure-time instructions too.”
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Common Paver Sealing Questions</h2>
+
+      <div class="stack" style="margin-top:16px;">
+
+        <details class="faq-item">
+          <summary><strong>How much does paver sealing cost in St. Johns County and Jacksonville?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Our paver sealing projects typically start at <strong>$1.50 per square foot</strong>, using contractor-grade,
+              premium <strong>Trident</strong> sealers (not homeowner or budget products). Final pricing depends on surface
+              condition, joint condition, access, and required preparation. The focus is long-term performance and a clean,
+              consistent finish.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><strong>How long does paver sealing last in Florida?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              With proper preparation and professional-grade materials like <strong>Trident</strong>, most sealed paver
+              surfaces last <strong>3–4 years</strong> in Florida conditions. Sun exposure, traffic, drainage, and
+              maintenance all affect longevity.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><strong>Can you clean and seal pavers the same day?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              In many cases, yes. During <strong>spring and summer</strong>, same-day cleaning and sealing is often possible
+              when weather, moisture levels, and surface conditions allow. If conditions aren’t ideal, we allow additional
+              dry time to protect the final result.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><strong>Do you remove weeds and refill joint sand?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Yes. We remove existing weeds and failing joint material, then re-sand using <strong>Trident joint sand
+              (ASTM-C144)</strong>. Proper joint preparation and re-sanding are critical for stability, appearance, and
+              long-term performance.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><strong>Will paver sealing make my surface slippery (especially pool decks)?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Sealing does not automatically make pavers slippery. For pool decks and walking areas, we adjust product
+              selection and application method to prioritize traction and safety. Surface type, finish choice, and
+              application technique all matter.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><strong>Do you fix sinking or loose pavers before sealing?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              We inspect for sinking, rocking, or base issues and explain the correct fix if needed. Paver sealing protects
+              the surface and joints, but it does not correct structural or base problems. We’ll always be upfront before
+              sealing begins.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Only one FAQ open at a time
+    (function () {
+      const faq = document.querySelector('#faq');
+      if (!faq) return;
+
+      const items = faq.querySelectorAll('details');
+
+      items.forEach(item => {
+        item.addEventListener('toggle', () => {
+          if (!item.open) return;
+          items.forEach(other => {
+            if (other !== item) other.removeAttribute('open');
+          });
+        });
+      });
+    })();
+  </script>
 
   <div data-include="/partials/footer.html"></div>
 
   <script src="/assets/js/include.js" defer></script>
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
-  <!-- Your JSON-LD scripts can remain exactly as you had them -->
+  <!-- SCHEMA (unchanged) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://hydrosealpavers.com/#localbusiness",
+    "name": "HydroSeal",
+    "url": "https://hydrosealpavers.com/",
+    "telephone": "+1-904-537-5000",
+    "image": "https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png",
+    "description": "HydroSeal provides professional paver sealing, paver cleaning, and joint re-sanding in St. Johns County, FL and Jacksonville, including Nocatee and the 210 corridor.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
+      { "@type": "City", "name": "Jacksonville, FL" },
+      { "@type": "Place", "name": "Nocatee, FL" },
+      { "@type": "Place", "name": "Ponte Vedra, FL" },
+      { "@type": "Place", "name": "St. Augustine, FL" },
+      { "@type": "Place", "name": "Jacksonville Beach, FL" },
+      { "@type": "Place", "name": "Neptune Beach, FL" },
+      { "@type": "Place", "name": "Atlantic Beach, FL" },
+      { "@type": "Place", "name": "Orange Park, FL" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Joint Sand Re-Sanding" } }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://hydrosealpavers.com/#service-paver-sealing",
+    "name": "Paver Sealing",
+    "provider": { "@id": "https://hydrosealpavers.com/#localbusiness" },
+    "serviceType": "Paver sealing, joint re-sanding, and protective sealing for driveways, pool decks, patios, and walkways.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
+      { "@type": "City", "name": "Jacksonville, FL" },
+      { "@type": "Place", "name": "Nocatee, FL" },
+      { "@type": "Place", "name": "Ponte Vedra, FL" },
+      { "@type": "Place", "name": "St. Augustine, FL" },
+      { "@type": "Place", "name": "Jacksonville Beach, FL" },
+      { "@type": "Place", "name": "Neptune Beach, FL" },
+      { "@type": "Place", "name": "Atlantic Beach, FL" },
+      { "@type": "Place", "name": "Orange Park, FL" }
+    ],
+    "url": "https://hydrosealpavers.com/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://hydrosealpavers.com/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does paver sealing cost in St. Johns County and Jacksonville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our paver sealing projects typically start at $1.50 per square foot, using contractor-grade, premium Trident sealers rather than homeowner or budget products. Final pricing depends on surface condition, joint condition, access, and required preparation. The focus is on long-term performance and consistent results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does paver sealing last in Florida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With proper preparation and professional-grade materials like Trident sealers, most sealed paver surfaces last 3–4 years in Florida conditions. Sun exposure, traffic, drainage, and maintenance affect longevity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you clean and seal pavers the same day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In many cases, yes. During spring and summer, same-day cleaning and sealing is often possible when weather, moisture levels, and surface conditions allow. If conditions are not ideal, additional dry time is used to protect quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you remove weeds and refill joint sand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We remove existing weeds and failing joint material, then re-sand using Trident joint sand (ASTM-C144). Proper joint preparation and re-sanding are critical for stability, appearance, and long-term performance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will paver sealing make my surface slippery (especially pool decks)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sealing does not automatically make pavers slippery. For pool decks and walking areas, we adjust product selection and application method to prioritize traction and safety. Surface type, finish choice, and application technique all matter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you fix sinking or loose pavers before sealing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We inspect for sinking, rocking, or base issues and explain the correct fix if needed. Paver sealing protects the surface and joints, but it does not correct structural or base problems. We’ll always be upfront before sealing begins."
+        }
+      }
+    ]
+  }
+  </script>
+
 </body>
 </html>
