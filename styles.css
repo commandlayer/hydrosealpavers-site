@@ -228,19 +228,20 @@ h3{ color: var(--h3-blue); }
   margin-top: auto;
 }
 
-/* Bright light-green hover for the Call button */
+/* Light-blue hover for the Call button (tel:) */
 .btn.btn-ghost[href^="tel:"]{
   border-color: rgba(255,255,255,.35); /* keep your current look */
 }
 
 .btn.btn-ghost[href^="tel:"]:hover,
 .btn.btn-ghost[href^="tel:"]:focus-visible{
-  background: #7CFF7A;      /* bright light green */
-  border-color: #7CFF7A;
-  color: #0B2D4A;           /* readable navy */
-  box-shadow: 0 0 0 4px rgba(124,255,122,.25);
+  background: var(--teal);                 /* HydroSeal light blue */
+  border-color: var(--teal);
+  color: #0B2D4A;                          /* readable navy */
+  box-shadow: 0 0 0 4px rgba(40,182,200,.25);
   transform: translateY(-1px);
 }
+
 
 
 /* Cards */
