@@ -233,15 +233,23 @@ h3{ color: var(--h3-blue); }
   border-color: rgba(255,255,255,.35);
 }
 
-.btn.btn-ghost[href^="tel:"]:hover,
-.btn.btn-ghost[href^="tel:"]:focus-visible{
-  background: #4FD8FF;              /* bright light blue */
-  border-color: #4FD8FF;
-  color: #0B2D4A;                   /* HydroSeal navy for contrast */
-  box-shadow: 0 0 0 1px rgba(79,216,255,.30);
-  transform: translateY(-1px);
+/* Bright light-blue → white gradient hover for Call button */
+.btn.btn-ghost[href^="tel:"]{
+  border-color: rgba(255,255,255,.35);
 }
 
+.btn.btn-ghost[href^="tel:"]:hover,
+.btn.btn-ghost[href^="tel:"]:focus-visible{
+  background: linear-gradient(
+    180deg,
+    #7FE8FF 0%,     /* bright light blue (top) */
+    #E9FBFF 100%   /* near-white (bottom) */
+  );
+  border-color: #7FE8FF;
+  color: #0B2D4A; /* HydroSeal navy */
+  box-shadow: 0 0 0 4px rgba(127,232,255,.32);
+  transform: translateY(-1px);
+}
 
 
 /* Cards */
