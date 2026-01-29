@@ -391,37 +391,7 @@
       </section
         
 <style>
-  /* Image + light blue wash in each of the 6 boxes (page-only) */
-  .driveway-process > .card{
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(15,110,168,.18);
-
-    /* stack order: image first (bottom), then your gradients (top) */
-    background:
-      url("/assets/hero/grey-paver-background.png") center/cover no-repeat,
-      radial-gradient(650px 220px at 18% 0%, rgba(57,191,234,.20), transparent 60%),
-      radial-gradient(650px 220px at 88% 0%, rgba(15,110,168,.12), transparent 60%),
-      linear-gradient(180deg, rgba(255,255,255,.86), rgba(248,252,255,.92));
-  }
-
-  /* subtle inner edge for a premium look */
-  .driveway-process > .card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.40);
-    pointer-events:none;
-  }
-
-  /* tiny lift on hover (optional) */
-  .driveway-process > .card:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 14px 34px rgba(17,24,39,.12);
-  }
-</style>
-
+ 
 
 <!-- ==========================
      DRIVEWAY FAQ (same layout)
