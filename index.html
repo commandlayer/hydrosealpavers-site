@@ -440,7 +440,8 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
      STEP-BY-STEP PROCESS (COPY/PASTE)
      - Desktop: 2 columns, 6 equal-height cards, black text
      - Mobile: accordion (only 1 open at a time)
-     - Icons: NO background, title text sits slightly lower next to icon
+     - Icons: NO background
+     - Title text: nudged UP slightly (about 20% from prior)
 ========================== -->
 
 <section class="section" id="process">
@@ -506,19 +507,19 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       #process .step-icon{
         width:auto;
         height:auto;
-        border-radius:0;
         background:transparent;
         border:0;
         box-shadow:none;
         padding:0;
-        margin-top:2px;
-        font-size:18px; /* emoji size */
+        margin-top:2px;      /* slight balance vs text */
+        font-size:18px;
         line-height:1;
         flex:0 0 auto;
       }
+      /* previously top:4px; move UP a bit -> top:2px */
       #process .step-text{
         position:relative;
-        top:4px; /* title text sits lower */
+        top:2px;             /* title text slightly higher */
         line-height:1.15;
         display:inline-block;
       }
