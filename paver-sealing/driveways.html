@@ -710,9 +710,9 @@
 </script>
 
 <!-- FINAL CTA -->
-<section class="section cta-bg" style="margin-top:18px;">
-  <div class="container">
-    <div class="card cta-card" style="text-align:center;">
+<section class="section" style="margin-top:18px;">
+  <div class="container cta-container-bg">
+    <div class="card" style="text-align:center;">
       <h2 style="margin:0;">Get a Real Brick Paver Driveway Quote Today</h2>
       <p style="margin:8px auto 0; color:var(--muted); max-width:820px;">
         Call now or send your address + photos. We’ll confirm prep needs and give you a real estimate today.
@@ -725,24 +725,16 @@
 </section>
 
 <style>
-  /* CTA background */
-  .cta-bg{
+  /* Background only inside the container (section stays white) */
+  .cta-container-bg{
     position:relative;
+    padding:22px;                 /* creates breathing room around the card */
+    border-radius:18px;           /* matches your card radius */
     background:
-      linear-gradient(
-        rgba(11,45,74,.78),
-        rgba(11,45,74,.78)
-      ),
+      linear-gradient(rgba(11,45,74,.35), rgba(11,45,74,.35)),
       url("/assets/hero/brick-paver-backgrounds.jpg") center / cover no-repeat;
   }
-
-  /* Optional: tighten the card so it feels premium on an image */
-  .cta-card{
-    background:rgba(255,255,255,.92);
-    backdrop-filter: blur(2px);
-  }
 </style>
-
 
 
     </div>
