@@ -496,6 +496,28 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       }
       #process .card.card-bluegrad li{ color:#111827; }
 
+      /* ===== Step header with icon ===== */
+      #process .step-title{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+      }
+      #process .step-icon{
+        width:34px;
+        height:34px;
+        border-radius:10px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 34px;
+        margin-top:2px;
+        background: rgba(57,191,234,.14);
+        border:1px solid rgba(15,110,168,.22);
+        box-shadow: 0 6px 18px rgba(17,24,39,.08);
+        font-size:18px; /* emoji size */
+        line-height:1;
+      }
+
       /* ===== Mobile accordion ===== */
       #process .process-accordion{ display:none; margin-top:16px; }
 
@@ -557,7 +579,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
     <div class="process-grid" aria-label="Process cards (desktop)">
       <div class="process-col">
         <div class="card card-bluegrad">
-          <h3>1) Inspection &amp; Surface Evaluation</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span>1) Inspection &amp; Surface Evaluation</span>
+          </h3>
           <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
           <ul>
             <li>Sinking/rocking and base concerns</li>
@@ -567,7 +592,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         </div>
 
         <div class="card card-bluegrad">
-          <h3>2) Professional Cleaning &amp; Organic Treatment</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span>2) Professional Cleaning &amp; Organic Treatment</span>
+          </h3>
           <p>We clean for adhesion and uniform results — not just appearance.</p>
           <ul>
             <li>Targeted organic treatment (algae/mildew)</li>
@@ -577,7 +605,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         </div>
 
         <div class="card card-bluegrad">
-          <h3>3) Joint Prep &amp; Re-Sanding (ASTM-C144)</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧱</span>
+            <span>3) Joint Prep &amp; Re-Sanding (ASTM-C144)</span>
+          </h3>
           <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
           <ul>
             <li>Clean joints and remove failing material</li>
@@ -595,7 +626,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
 
       <div class="process-col">
         <div class="card card-bluegrad">
-          <h3>4) Moisture &amp; Weather Window Control</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🌦️</span>
+            <span>4) Moisture &amp; Weather Window Control</span>
+          </h3>
           <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
           <ul>
             <li>Surface dryness and low-spot checks</li>
@@ -605,7 +639,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         </div>
 
         <div class="card card-bluegrad">
-          <h3>5) Sealer Application (Two-Coat System)</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧴</span>
+            <span>5) Sealer Application (Two-Coat System)</span>
+          </h3>
           <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
           <ul>
             <li>Flood coat + second coat (as needed)</li>
@@ -615,7 +652,10 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
         </div>
 
         <div class="card card-bluegrad">
-          <h3>6) Final Walkthrough, Cure-Time &amp; Maintenance</h3>
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span>6) Final Walkthrough, Cure-Time &amp; Maintenance</span>
+          </h3>
           <p>We confirm coverage, review cure time, and give clear care guidance.</p>
           <ul>
             <li>24 hours no foot traffic, 48 hours vehicles</li>
@@ -626,10 +666,15 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </div>
     </div>
 
-    <!-- MOBILE (accordion, single open at a time) -->
+    <!-- MOBILE (accordion) -->
     <div class="process-accordion" aria-label="Process accordion (mobile)">
       <details class="step">
-        <summary>1) Inspection &amp; Surface Evaluation</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span>1) Inspection &amp; Surface Evaluation</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
           <ul>
@@ -641,7 +686,12 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </details>
 
       <details class="step">
-        <summary>2) Professional Cleaning &amp; Organic Treatment</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span>2) Professional Cleaning &amp; Organic Treatment</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>We clean for adhesion and uniform results — not just appearance.</p>
           <ul>
@@ -653,7 +703,12 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </details>
 
       <details class="step">
-        <summary>3) Joint Prep &amp; Re-Sanding (ASTM-C144)</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧱</span>
+            <span>3) Joint Prep &amp; Re-Sanding (ASTM-C144)</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
           <ul>
@@ -670,7 +725,12 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </details>
 
       <details class="step">
-        <summary>4) Moisture &amp; Weather Window Control</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🌦️</span>
+            <span>4) Moisture &amp; Weather Window Control</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
           <ul>
@@ -682,7 +742,12 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </details>
 
       <details class="step">
-        <summary>5) Sealer Application (Two-Coat System)</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧴</span>
+            <span>5) Sealer Application (Two-Coat System)</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
           <ul>
@@ -694,7 +759,12 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
       </details>
 
       <details class="step">
-        <summary>6) Final Walkthrough, Cure-Time &amp; Maintenance</summary>
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span>6) Final Walkthrough, Cure-Time &amp; Maintenance</span>
+          </span>
+        </summary>
         <div class="step-body">
           <p>We confirm coverage, review cure time, and give clear care guidance.</p>
           <ul>
@@ -707,35 +777,19 @@ Deep Cleaning, Joint Sand Reset, and Professional Sealing Designed for Florida S
     </div>
 
     <script>
-      // Process accordion: only one open at a time
-      (function () {
-        const wrap = document.querySelector('#process .process-accordion');
-        if (!wrap) return;
-
-        const steps = wrap.querySelectorAll('details.step');
-        steps.forEach(step => {
-          step.addEventListener('toggle', () => {
-            if (!step.open) return;
-            steps.forEach(other => {
-              if (other !== step) other.removeAttribute('open');
-            });
+      // Mobile accordion: only one open at a time
+      (function(){
+        const root = document.getElementById('process');
+        if(!root) return;
+        const steps = root.querySelectorAll('.process-accordion details.step');
+        steps.forEach(d => {
+          d.addEventListener('toggle', () => {
+            if(!d.open) return;
+            steps.forEach(other => { if(other !== d) other.removeAttribute('open'); });
           });
         });
       })();
     </script>
-
-    <!-- Full-width warning (both desktop + mobile) -->
-    <div class="card" style="
-      margin-top:16px;
-      background: linear-gradient(180deg, rgba(220,38,38,.14) 0%, #ffffff 70%);
-      border:1px solid rgba(220,38,38,.35);
-    ">
-      <p style="margin:0; color:#111827;">
-        <strong style="color:#991b1b;">What We Will Not Do:</strong>
-        Seal Wet Pavers, Seal Right Before Rain, Or “Spray And Pray.”
-        Those Shortcuts Create Failures And Callbacks.
-      </p>
-    </div>
 
   </div>
 </section>
