@@ -711,16 +711,55 @@
 
 <section class="section" style="margin-top:18px;">
   <div class="container">
-    <div class="card" style="text-align:center;">
+    <div class="card cta-hero" style="text-align:center;">
       <h2 style="margin:0;">Get a Real Brick Paver Driveway Quote Today</h2>
-      <p style="margin:8px auto 0; color:var(--muted); max-width:820px;">
-      Call now or send your address + photos. We’ll confirm prep needs and give you a real estimate today.
+      <p style="margin:8px auto 0; max-width:820px;">
+        Call now or send your address + photos. We’ll confirm prep needs and give you a real estimate today.
       </p>
       <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
         <a class="btn btn-primary" href="/get-a-quote/">Get a Quote</a>
       </div>
     </div>
   </div>
+</section>
+
+<style>
+  /* Card becomes the image container (inside the blue outline) */
+  .cta-hero{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(57,191,234,.35); /* your blue outline */
+    background: url("/assets/hero/grey-paver-background.png") center/cover no-repeat;
+    color:#fff;
+    padding:22px;
+  }
+
+  /* Dark overlay so text stays readable */
+  .cta-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(
+      180deg,
+      rgba(11,45,74,.72),
+      rgba(11,45,74,.62)
+    );
+    z-index:0;
+  }
+
+  /* Put content above the overlay */
+  .cta-hero > *{ position:relative; z-index:1; }
+
+  /* Make paragraph readable on image */
+  .cta-hero p{ color: rgba(255,255,255,.88) !important; }
+
+  /* Optional: slightly stronger headline on image */
+  .cta-hero h2{ text-shadow: 0 12px 34px rgba(0,0,0,.35); }
+
+  /* Optional: keep button from blending in */
+  .cta-hero .btn{ box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+</style>
+
 </section>
 
 
