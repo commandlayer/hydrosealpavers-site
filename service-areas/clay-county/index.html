@@ -212,7 +212,7 @@
 
       </div>
 
-     <!-- ==========================
+     <!<!-- ==========================
        FAQ (same layout as other pages)
   ========================== -->
 <section class="section" id="county-faq">
@@ -229,10 +229,10 @@
         <summary><strong>How often should pavers be sealed in Clay County (Orange Park + Green Cove Springs conditions)?</strong></summary>
         <div class="faq-body">
           <p class="muted">
-            Most homeowners in Clay County reseal every <strong>2–3 years</strong>, but the right timing depends on
-            <strong>sun exposure</strong>, <strong>irrigation overspray</strong>, <strong>drainage</strong>, and <strong>vehicle traffic</strong>.
-            Driveways in Orange Park that get full sun and daily parking usually wear faster than shaded patios. In Green Cove Springs,
-            areas that stay damp longer (shade + sprinklers + runoff) can need earlier maintenance to prevent dark organic staining.
+            Most homeowners in Clay County reseal every <strong>2–3 years</strong>, but timing depends on <strong>sun exposure</strong>,
+            <strong>sprinkler overspray</strong>, <strong>drainage</strong>, and <strong>traffic</strong>. Driveways in Orange Park that get
+            full sun and daily parking usually wear faster than shaded patios. In Green Cove Springs, damp/shaded areas can need earlier maintenance
+            to reduce organic staining.
           </p>
           <p class="muted">
             The smart move is to <strong>recoat before total wear-through</strong>. Once protection is gone, you typically need heavier prep
@@ -250,7 +250,7 @@
             and <strong>algae/mildew</strong> in shaded areas.
           </p>
           <p class="muted">
-            It does <strong>not</strong> make pavers “stain-proof.” The best results come from good prep plus simple habits:
+            It does <strong>not</strong> make pavers “stain-proof.” Results come from good prep plus simple habits:
             rinse periodically, clean spills early, and avoid harsh degreasers that strip protection.
           </p>
         </div>
@@ -294,7 +294,7 @@
           </p>
           <p class="muted">
             Pool decks and walkways require a more careful approach than driveways. We apply controlled coats and can recommend
-            <strong>traction-friendly options</strong> where safety matters most, whether you’re in Orange Park, Fleming Island, or Green Cove Springs.
+            <strong>traction-friendly options</strong> where safety matters most.
           </p>
         </div>
       </details>
@@ -316,6 +316,85 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* FAQ shell (square, white) */
+  #county-faq details.faq-item{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:0;
+    overflow:hidden;
+  }
+
+  /* Question row */
+  #county-faq details.faq-item > summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-weight:900;
+    user-select:none;
+  }
+  #county-faq summary::-webkit-details-marker{ display:none; }
+
+  /* Chevron */
+  #county-faq summary::after{
+    content:"▾";
+    font-weight:1000;
+    color: var(--navy);
+    transition: transform .18s ease;
+  }
+  #county-faq details[open] summary::after{
+    transform: rotate(180deg);
+  }
+
+  /* Sliding answer panel (blue only here) */
+  #county-faq .faq-body{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    padding:0 16px;
+    transform: translateY(-6px);
+    transition:
+      max-height .28s ease,
+      opacity .22s ease,
+      transform .22s ease;
+    background:
+      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+      linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+    border-top:1px solid rgba(15,110,168,.25);
+  }
+
+  #county-faq details[open] .faq-body{
+    max-height:300px;
+    opacity:1;
+    padding:16px;
+    transform:none;
+  }
+</style>
+
+<script>
+  // Only one FAQ open at a time
+  (function () {
+    const faq = document.querySelector('#county-faq');
+    if (!faq) return;
+
+    const items = faq.querySelectorAll('details');
+
+    items.forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        items.forEach(other => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      });
+    });
+  })();
+</script>
+
 
 <!-- FINAL CTA -->
 <section class="section" style="margin-top:18px;">
