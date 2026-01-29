@@ -247,7 +247,7 @@ h3{ color: var(--h3-blue); }
   );
   border-color: #7FE8FF;
   color: #0B2D4A; /* HydroSeal navy */
-  box-shadow: 0 0 0 4px rgba(127,232,255,.32);
+  box-shadow: 0 0 0 1px rgba(127,232,255,.32);
   transform: translateY(-1px);
 }
 
