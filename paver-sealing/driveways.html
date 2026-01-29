@@ -724,43 +724,32 @@
 </section>
 
 <style>
-  /* Card becomes the image container (inside the blue outline) */
+  /* Option C: lighter overlay (not dark), text stays readable */
   .cta-hero{
     position:relative;
     overflow:hidden;
-    border:1px solid rgba(57,191,234,.35); /* your blue outline */
+    border:2px solid rgba(57,191,234,.45); /* blue outline */
     background: url("/assets/hero/grey-paver-background.png") center/cover no-repeat;
-    color:#fff;
     padding:22px;
+    color: var(--text);
   }
 
-  /* Dark overlay so text stays readable */
   .cta-hero::before{
     content:"";
     position:absolute;
     inset:0;
-    background: linear-gradient(
-      180deg,
-      rgba(11,45,74,.72),
-      rgba(11,45,74,.62)
-    );
+    background: rgba(255,255,255,.68); /* light wash over the image */
     z-index:0;
   }
 
-  /* Put content above the overlay */
   .cta-hero > *{ position:relative; z-index:1; }
 
-  /* Make paragraph readable on image */
-  .cta-hero p{ color: rgba(255,255,255,.88) !important; }
+  .cta-hero p{ color: var(--muted) !important; }
 
-  /* Optional: slightly stronger headline on image */
-  .cta-hero h2{ text-shadow: 0 12px 34px rgba(0,0,0,.35); }
-
-  /* Optional: keep button from blending in */
-  .cta-hero .btn{ box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+  /* Optional: keep the button popping on a bright background */
+  .cta-hero .btn{ box-shadow: 0 12px 30px rgba(0,0,0,.12); }
 </style>
 
-</section>
 
 
   <div data-include="/partials/footer.html"></div>
