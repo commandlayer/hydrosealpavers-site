@@ -10,96 +10,143 @@
   <link rel="stylesheet" href="/styles.css" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://hydrosealpavers.com/service-areas/st-johns-county/" />
+
+  <!-- =========================
+       SCHEMA (no layout impact)
+       Keep in <head>
+  ========================== -->
+
+  <!-- LocalBusiness / HomeAndConstructionBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://hydrosealpavers.com/#localbusiness",
+    "name": "HydroSeal",
+    "url": "https://hydrosealpavers.com/",
+    "telephone": "+1-904-537-5000",
+    "image": "https://hydrosealpavers.com/assets/hero/paversealing-stjohns.png",
+    "description": "HydroSeal provides professional paver sealing, paver cleaning, and joint re-sanding across St. Johns County, FL, including Nocatee, Ponte Vedra, Palencia, Julington Creek, and surrounding communities.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
+      { "@type": "Place", "name": "Nocatee, FL" },
+      { "@type": "Place", "name": "Ponte Vedra, FL" },
+      { "@type": "Place", "name": "Ponte Vedra Beach, FL" },
+      { "@type": "Place", "name": "Palencia, FL" },
+      { "@type": "Place", "name": "Julington Creek, FL" },
+      { "@type": "Place", "name": "Rivertown, FL" },
+      { "@type": "Place", "name": "Shearwater, FL" },
+      { "@type": "Place", "name": "SilverLeaf, FL" },
+      { "@type": "Place", "name": "World Golf Village, FL" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Joint Re-Sanding" } }
+    ]
+  }
+  </script>
+
+  <!-- Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://hydrosealpavers.com/service-areas/st-johns-county/#service-paver-sealing",
+    "name": "Paver Sealing in St. Johns County, FL",
+    "serviceType": "Paver Sealing",
+    "description": "Paver sealing, joint re-sanding, and protective sealing for driveways, pool decks, patios, walkways, and travertine surfaces in St. Johns County, FL.",
+    "provider": { "@id": "https://hydrosealpavers.com/#localbusiness" },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
+      { "@type": "Place", "name": "Nocatee, FL" },
+      { "@type": "Place", "name": "Ponte Vedra, FL" },
+      { "@type": "Place", "name": "Ponte Vedra Beach, FL" },
+      { "@type": "Place", "name": "Palencia, FL" },
+      { "@type": "Place", "name": "Julington Creek, FL" },
+      { "@type": "Place", "name": "Rivertown, FL" },
+      { "@type": "Place", "name": "Shearwater, FL" },
+      { "@type": "Place", "name": "SilverLeaf, FL" },
+      { "@type": "Place", "name": "World Golf Village, FL" }
+    ],
+    "url": "https://hydrosealpavers.com/service-areas/st-johns-county/"
+  }
+  </script>
+
+  <!-- Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://hydrosealpavers.com/service-areas/st-johns-county/#breadcrumbs",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrosealpavers.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://hydrosealpavers.com/service-areas/" },
+      { "@type": "ListItem", "position": 3, "name": "St. Johns County", "item": "https://hydrosealpavers.com/service-areas/st-johns-county/" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage (county FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://hydrosealpavers.com/service-areas/st-johns-county/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How often should you seal pavers in Florida (St. Johns County conditions)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most homeowners in Northeast Florida reseal every 2–3 years, but timing depends on sun exposure, drainage/rain flow, pool splash-out, and traffic. Driveways in full sun wear faster than covered patios, and pool decks may need earlier maintenance because they stay wet more often. Recoat before total wear-through to avoid heavier prep later."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does paver sealing prevent stains from oil, rust, fertilizer, and organic growth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sealing helps reduce absorption and makes cleanup easier for common stains like oil drips, rust (metal furniture/fertilizer), leaf tannins, and organic staining from algae and mildew. It does not make pavers stain-proof. Best results come from a quality sealer plus basic maintenance habits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you re-sand the joints (and do you use polymeric sand) in St. Johns County?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Joint integrity is a major part of long-lasting sealing. We remove failing joint material and re-sand using ASTM C144 joint sand (with color options when appropriate). If polymeric sand is a good fit for your joint size, drainage behavior, and site conditions, we’ll recommend it — but we don’t force polymeric where it’s likely to fail."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can pavers be cleaned and sealed the same day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Often, yes — especially in spring and summer when conditions are hot and dry. But we won’t force a one-day schedule if the surface is holding moisture, the area is shaded, or rain is too close. If conditions require it, we extend dry time or split the job into 2 days for proper moisture control."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does sealing make pavers slippery — especially around pool decks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can if the wrong finish is used or the sealer is over-applied. Slippery areas usually come from puddling or wet-look buildup in walking zones. Pool decks and walkways require a more careful approach than driveways. We apply controlled coats and can recommend traction-friendly options where safety matters most."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What’s the biggest mistake homeowners make before sealing pavers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waiting until the joints are already washed out and the pavers start moving. Once joints fail, you get shifting, weed growth, ant tunneling, and faster surface wear. Sealing is protection — it does not fix base or structural issues. If we see sinking, rocking, or drainage problems, we’ll tell you the right fix first."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
-<!-- =========================
-     SCHEMA (no layout impact)
-     Place these right before </body>
-========================== -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "@id": "https://hydrosealpavers.com/#localbusiness",
-  "name": "HydroSeal",
-  "url": "https://hydrosealpavers.com/",
-  "telephone": "+1-904-537-5000",
-  "image": "https://hydrosealpavers.com/assets/hero/paversealing-stjohns.png",
-  "description": "HydroSeal provides professional paver sealing, paver cleaning, and joint re-sanding across St. Johns County, FL, including Nocatee, Ponte Vedra, Palencia, Julington Creek, and surrounding communities.",
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
-    { "@type": "Place", "name": "Nocatee, FL" },
-    { "@type": "Place", "name": "Ponte Vedra, FL" },
-    { "@type": "Place", "name": "Ponte Vedra Beach, FL" },
-    { "@type": "Place", "name": "Palencia, FL" },
-    { "@type": "Place", "name": "Julington Creek, FL" },
-    { "@type": "Place", "name": "Rivertown, FL" },
-    { "@type": "Place", "name": "Shearwater, FL" },
-    { "@type": "Place", "name": "SilverLeaf, FL" },
-    { "@type": "Place", "name": "World Golf Village, FL" }
-  ],
-  "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Cleaning" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Joint Re-Sanding" } }
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://hydrosealpavers.com/service-areas/st-johns-county/#service-paver-sealing",
-  "name": "Paver Sealing in St. Johns County, FL",
-  "serviceType": "Paver sealing, joint re-sanding, and protective sealing for driveways, pool decks, patios, walkways, and travertine surfaces.",
-  "provider": { "@id": "https://hydrosealpavers.com/#localbusiness" },
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
-    { "@type": "Place", "name": "Nocatee, FL" },
-    { "@type": "Place", "name": "Ponte Vedra, FL" },
-    { "@type": "Place", "name": "Ponte Vedra Beach, FL" },
-    { "@type": "Place", "name": "Palencia, FL" },
-    { "@type": "Place", "name": "Julington Creek, FL" },
-    { "@type": "Place", "name": "Rivertown, FL" },
-    { "@type": "Place", "name": "Shearwater, FL" },
-    { "@type": "Place", "name": "SilverLeaf, FL" },
-    { "@type": "Place", "name": "World Golf Village, FL" }
-  ],
-  "url": "https://hydrosealpavers.com/service-areas/st-johns-county/"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://hydrosealpavers.com/service-areas/st-johns-county/#breadcrumbs",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://hydrosealpavers.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Service Areas",
-      "item": "https://hydrosealpavers.com/service-areas/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "St. Johns County",
-      "item": "https://hydrosealpavers.com/service-areas/st-johns-county/"
-    }
-  ]
-}
-</script>
-
-  
 <body>
 
   <div data-include="/partials/header.html"></div>
@@ -199,25 +246,6 @@
     </div>
   </section>
 
-  <!-- ELFSIGHT NOTICE (contained) -->
-  <div class="notice" style="
-    margin:16px auto 0;
-    max-width:1100px;
-    width:calc(100% - 32px);
-    padding:16px;
-    box-sizing:border-box;
-    border:1px solid rgba(245,158,11,.35);
-    border-radius:18px;
-    background:
-      radial-gradient(900px 260px at 20% 0%, rgba(251,191,36,.22), transparent 55%),
-      radial-gradient(900px 260px at 90% 0%, rgba(217,119,6,.16), transparent 55%),
-      linear-gradient(180deg, rgba(251,191,36,.14), #fff 58%);
-    color:#78350f;
-  ">
-    <strong style="color:#92400e;">ELFSIGHT REVIEW (Google / Facebook / Yelp)</strong><br>
-    THIS IS WHERE WE WILL PUT THE REVIEW WIDGET
-  </div>
-
   <!-- WHAT WE DO -->
   <section class="section" id="what-we-do">
     <div class="container">
@@ -254,16 +282,15 @@
     </div>
   </section>
 
-  <!-- COUNTY LINKS (light purplish-blue → white gradient cards) -->
+  <!-- COUNTY LINKS -->
   <section class="section" id="county-links">
     <div class="container">
       <h2 class="section-title">Areas We Serve in St. Johns County</h2>
       <p class="section-sub">
-        Choose your community below to view local driveway paver sealing details, including neighborhood-specific notes, surface considerations, and available service options.
+        Choose your community below to view local paver sealing details, including neighborhood-specific notes, surface considerations, and available service options.
       </p>
 
       <div class="grid grid-3" style="margin-top:16px;">
-        <!-- reusable inline style for each card (kept identical for consistency) -->
         <a class="card service-card" href="/service-areas/st-johns-county/nocatee.html" style="
           background:
             radial-gradient(900px 240px at 18% 0%, rgba(99,102,241,.18), transparent 55%),
@@ -300,7 +327,6 @@
           <strong>View Ponte Vedra Beach →</strong>
         </a>
 
-        <!-- SWAPPED: St. Augustine -> Palencia -->
         <a class="card service-card" href="/service-areas/st-johns-county/palencia.html" style="
           background:
             radial-gradient(900px 240px at 18% 0%, rgba(99,102,241,.18), transparent 55%),
@@ -376,8 +402,7 @@
     </div>
   </section>
 
-
- <!-- ELFSIGHT NOTICE (contained) -->
+  <!-- ELFSIGHT NOTICE (single, best placement: right before CTA) -->
   <div class="notice" style="
     margin:16px auto 0;
     max-width:1100px;
@@ -396,10 +421,8 @@
     THIS IS WHERE WE WILL PUT THE REVIEW WIDGET
   </div>
 
-
-  
   <!-- ==========================
-       FAQ (same layout as other pages)
+       FAQ (bottom)
   ========================== -->
   <section class="section" id="county-faq">
     <div class="container">
@@ -502,6 +525,7 @@
     </div>
   </section>
 
+  <!-- FAQ styling + one-open behavior -->
   <style>
     /* FAQ shell (square, white) */
     #county-faq details.faq-item{
@@ -553,8 +577,9 @@
       border-top:1px solid rgba(15,110,168,.25);
     }
 
+    /* Increased so content doesn't get clipped as you expand answers */
     #county-faq details[open] .faq-body{
-      max-height:300px;
+      max-height:700px;
       opacity:1;
       padding:16px;
       transform:none;
