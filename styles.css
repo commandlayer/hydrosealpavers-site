@@ -469,7 +469,7 @@ body.includes-ready .header{
 .cert-img.cert-stack img.cert-badge{
   width:min(340px, 92%);      /* bigger than before */
   max-height:185px;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+  filter: drop-shadow(0 0px 0px rgba(0,0,0,.18));
 }
 
 .cert-img.cert-stack img.cert-badge.cert-badge--main{
