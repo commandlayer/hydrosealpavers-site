@@ -664,6 +664,26 @@ Paver Sealing • Nocatee • Jacksonville • Ponte Vedra • St. Johns County
         } 
       </style>
 
+<script>
+  // Pool FAQ: only allow one item open at a time
+  (function () {
+    const faq = document.querySelector('#pool-faq');
+    if (!faq) return;
+
+    const items = faq.querySelectorAll('details.faq-item');
+
+    items.forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        items.forEach((other) => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      });
+    });
+  })();
+</script>
+
+      
       <!-- FINAL CTA -->
       <section style="margin-top:18px;">
         <div class="card" style="text-align:center;">
