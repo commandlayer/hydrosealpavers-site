@@ -443,9 +443,10 @@ body.includes-ready .header{
   align-items:center;
   justify-content:center;
   padding:22px;
-  box-shadow:0 18px 45px rgba(17,24,39,.18);
-  overflow:hidden; /* base panels */
+
+  box-shadow:none !important;          /* kill the "gradient" look */
 }
+
 
 /* IMPORTANT: do NOT set width:91% for all images in .cert-img */
 .cert-img img{
