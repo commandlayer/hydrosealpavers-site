@@ -399,8 +399,8 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
   </div>
 </section>
 
-   <!-- PROCESS STRIP (STRUCTURED) — POOL DECK SEALING (light green/blue gradient blocks) -->
-<section style="margin-top:18px;">
+ <!-- POOL PROCESS (Desktop grid + Mobile accordion like index.html) -->
+<section style="margin-top:18px;" id="pool-process">
   <div class="card">
     <h2 style="margin:0 0 8px;">Our 6 Step Pool Deck Sealing Process</h2>
     <p style="margin:0; color:var(--muted); max-width:980px;">
@@ -409,14 +409,15 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
       performs around the pool.
     </p>
 
-    <!-- Make icons match your #process styling (but reusable anywhere) -->
+    <!-- Shared card style -->
     <style>
-      .step-title{
+      /* shared icon header */
+      #pool-process .step-title{
         display:flex;
         align-items:flex-start;
         gap:10px;
       }
-      .step-icon{
+      #pool-process .step-icon{
         width:auto;
         height:auto;
         background:transparent;
@@ -428,120 +429,253 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
         line-height:1;
         flex:0 0 auto;
       }
-      .step-text{
+      #pool-process .step-text{
         position:relative;
         top:2px;
         line-height:1.15;
         display:inline-block;
       }
-    </style>
 
-    <div class="grid grid-3" style="margin-top:14px;">
-
-      <div class="card" style="
+      /* gradient block */
+      #pool-process .pool-step{
         background:
           radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
           radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
-      ">
+      }
+
+      /* DESKTOP grid (matches your old strip) */
+      #pool-process .pool-grid{ margin-top:14px; }
+      #pool-process .pool-acc{ display:none; margin-top:14px; }
+
+      /* MOBILE accordion (like your index process accordion) */
+      #pool-process details.step{
+        border:1px solid var(--line);
+        background:#fff;
+        border-radius:0;
+        overflow:hidden;
+      }
+      #pool-process details.step + details.step{ margin-top:10px; }
+
+      #pool-process details.step > summary{
+        cursor:pointer;
+        list-style:none;
+        padding:14px 16px;
+        font-weight:900;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        color: var(--navy);
+      }
+      #pool-process summary::-webkit-details-marker{ display:none; }
+
+      #pool-process details.step > summary::after{
+        content:"▾";
+        color: var(--navy);
+        transition: transform .18s ease;
+        font-weight:1000;
+      }
+      #pool-process details.step[open] > summary::after{ transform: rotate(180deg); }
+
+      #pool-process .step-body{
+        padding:14px 16px 16px;
+        background:
+          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
+          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+          linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
+        border-top:1px solid rgba(15,110,168,.22);
+      }
+      #pool-process .step-body p{
+        margin:0;
+        color: var(--muted);
+      }
+
+      /* Switch like index.html: accordion on mobile */
+      @media (max-width: 900px){
+        #pool-process .pool-grid{ display:none; }
+        #pool-process .pool-acc{ display:block; }
+      }
+    </style>
+
+    <!-- DESKTOP (grid) -->
+    <div class="grid grid-3 pool-grid" style="margin-top:14px;" aria-label="Pool process cards (desktop)">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">🔍</span>
           <span class="step-text">1) Inspect The Pool Deck &amp; Waterline Zones</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          We inspect the deck surface, drainage/low spots, coping zones, and high-traffic walking paths.
-          We look for algae film, sunscreen/oil staining, rust spots, old coatings, and areas that stay damp.
+          We inspect the surface, coping zones, drainage/low spots, and high-traffic walking paths for algae film,
+          sunscreen/oil staining, rust spots, old coatings, and areas that stay damp.
         </p>
       </div>
 
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
-          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
-        border:1px solid rgba(40,182,200,.28);
-      ">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">🧼</span>
           <span class="step-text">2) Pre-Treat Algae, Organics, And Dark Spots</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          Pool decks grow organics fast in Florida. We treat algae/mildew and organic staining using a controlled, professional process
-          so results stay cleaner longer.
+          We treat algae/mildew and organic staining using a controlled process so results stay cleaner longer
+          in Florida humidity.
         </p>
       </div>
 
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
-          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
-        border:1px solid rgba(40,182,200,.28);
-      ">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">🧱</span>
           <span class="step-text">3) Deep Clean (Safe Around The Pool)</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          We deep clean to remove sunscreen oils, embedded grime, algae film, and discoloration.
-          We control overspray/runoff so rinse water stays managed near the pool.
+          We deep clean to remove sunscreen oils, embedded grime, algae film, and discoloration, while controlling
+          overspray and runoff near the pool.
         </p>
       </div>
 
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
-          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
-        border:1px solid rgba(40,182,200,.28);
-      ">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">🌦️</span>
           <span class="step-text">4) Detail Work + Problem-Zone Correction</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          We spot-treat rust, organics, and stubborn areas around furniture, planters, grills, and low spots.
-          If an old coating is failing, we explain the right fix before sealing.
+          We address rust spots, stubborn dark areas, and low zones that hold water, and explain options if old coatings
+          are failing so you don’t lock in a bad look.
         </p>
       </div>
 
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
-          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
-        border:1px solid rgba(40,182,200,.28);
-      ">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">🧴</span>
           <span class="step-text">5) Dry-Down Checks + Controlled Sealing</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          Pool decks often stay damp longer, especially in shade or screened enclosures.
-          We verify dry conditions, then apply <strong>controlled coats</strong> for an even, premium finish.
+          Pool decks stay damp longer (shade/screened enclosures). We verify dry conditions and apply controlled coats
+          for an even finish without puddles, streaks, or tacky spots.
         </p>
       </div>
 
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
-          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
-        border:1px solid rgba(40,182,200,.28);
-      ">
+      <div class="card pool-step">
         <h3 class="step-title" style="margin:0 0 6px;">
           <span class="step-icon" aria-hidden="true">✅</span>
           <span class="step-text">6) Walkthrough + Pool-Ready Cure Timeline</span>
         </h3>
         <p style="margin:0; color:var(--muted);">
-          We finish with a walkthrough and clear return-to-use guidance.
-          Most pool decks need <strong>~24 hours</strong> for foot traffic and <strong>24–48 hours</strong> before normal pool use,
-          depending on humidity and airflow.
+          We finish with a walkthrough and clear return-to-use guidance. Most pool decks need ~24 hours for foot traffic
+          and 24–48 hours before normal pool use, depending on humidity and airflow.
         </p>
       </div>
-
     </div>
+
+    <!-- MOBILE (accordion) -->
+    <div class="pool-acc" aria-label="Pool process accordion (mobile)">
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span class="step-text">1) Inspect The Pool Deck &amp; Waterline Zones</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We inspect the surface, coping zones, drainage/low spots, and high-traffic walking paths for algae film,
+            sunscreen/oil staining, rust spots, old coatings, and areas that stay damp.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span class="step-text">2) Pre-Treat Algae, Organics, And Dark Spots</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We treat algae/mildew and organic staining using a controlled process so results stay cleaner longer
+            in Florida humidity.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧱</span>
+            <span class="step-text">3) Deep Clean (Safe Around The Pool)</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We deep clean to remove sunscreen oils, embedded grime, algae film, and discoloration, while controlling
+            overspray and runoff near the pool.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🌦️</span>
+            <span class="step-text">4) Detail Work + Problem-Zone Correction</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We address rust spots, stubborn dark areas, and low zones that hold water, and explain options if old coatings
+            are failing so you don’t lock in a bad look.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧴</span>
+            <span class="step-text">5) Dry-Down Checks + Controlled Sealing</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            Pool decks stay damp longer (shade/screened enclosures). We verify dry conditions and apply controlled coats
+            for an even finish without puddles, streaks, or tacky spots.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span class="step-text">6) Walkthrough + Pool-Ready Cure Timeline</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We finish with a walkthrough and clear return-to-use guidance. Most pool decks need ~24 hours for foot traffic
+            and 24–48 hours before normal pool use, depending on humidity and airflow.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <script>
+      // Mobile accordion: only one open at a time (scoped to #pool-process)
+      (function(){
+        const root = document.getElementById('pool-process');
+        if(!root) return;
+        const items = root.querySelectorAll('.pool-acc details.step');
+        items.forEach(d => {
+          d.addEventListener('toggle', () => {
+            if(!d.open) return;
+            items.forEach(other => { if(other !== d) other.removeAttribute('open'); });
+          });
+        });
+      })();
+    </script>
+
   </div>
 </section>
 
