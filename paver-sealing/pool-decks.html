@@ -399,19 +399,45 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
   </div>
 </section>
 
-    <!-- PROCESS STRIP (STRUCTURED) — POOL DECK SEALING (light green/blue gradient blocks) -->
+   <!-- PROCESS STRIP (STRUCTURED) — POOL DECK SEALING (light green/blue gradient blocks) -->
 <section style="margin-top:18px;">
   <div class="card">
     <h2 style="margin:0 0 8px;">Our 6 Step Pool Deck Sealing Process</h2>
     <p style="margin:0; color:var(--muted); max-width:980px;">
       Pool decks are different than driveways: constant water, sunscreen oils, algae growth, and safety concerns.
       The goal is a deep clean, stable joints (when applicable), and a controlled sealer application that looks premium and
-      performs around the pool. Prep is the product.
+      performs around the pool.
     </p>
+
+    <!-- Make icons match your #process styling (but reusable anywhere) -->
+    <style>
+      .step-title{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .step-icon{
+        width:auto;
+        height:auto;
+        background:transparent;
+        border:0;
+        box-shadow:none;
+        padding:0;
+        margin-top:2px;
+        font-size:18px;
+        line-height:1;
+        flex:0 0 auto;
+      }
+      .step-text{
+        position:relative;
+        top:2px;
+        line-height:1.15;
+        display:inline-block;
+      }
+    </style>
 
     <div class="grid grid-3" style="margin-top:14px;">
 
-      <!-- Light green/blue gradient card -->
       <div class="card" style="
         background:
           radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
@@ -419,11 +445,13 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">1) Inspect the pool deck + waterline zones</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🔍</span>
+          <span class="step-text">1) Inspect The Pool Deck &amp; Waterline Zones</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We inspect the pool deck surface, coping/waterline areas, drainage/low spots, and high-traffic walking paths.
-          We look for algae film, sunscreen/oil staining, rust spots (furniture/fertilizer), old coatings, and any areas that
-          stay damp — because those are where pool decks usually fail first.
+          We inspect the deck surface, drainage/low spots, coping zones, and high-traffic walking paths.
+          We look for algae film, sunscreen/oil staining, rust spots, old coatings, and areas that stay damp.
         </p>
       </div>
 
@@ -434,10 +462,13 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">2) Pre-treat algae, organics, and pool-deck staining</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧼</span>
+          <span class="step-text">2) Pre-Treat Algae, Organics, And Dark Spots</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          Pool decks collect organic growth fast in Florida. We pre-treat algae/mildew and dark organic spots using a controlled,
-          professional process (not random “spray and pray”). This step is what prevents “clean today, green next week” results.
+          Pool decks grow organics fast in Florida. We treat algae/mildew and organic staining using a controlled, professional process
+          so results stay cleaner longer.
         </p>
       </div>
 
@@ -448,11 +479,13 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">3) Deep clean (safe around the pool)</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧱</span>
+          <span class="step-text">3) Deep Clean (Safe Around The Pool)</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We deep clean the pool deck to remove sunscreen oils, embedded grime, algae film, and surface discoloration.
-          We avoid aggressive shortcuts that cause uneven color, joint blowout, or surface damage.
-          If your pool is close to the work area, we control overspray and runoff so chemicals and rinse water stay managed.
+          We deep clean to remove sunscreen oils, embedded grime, algae film, and discoloration.
+          We control overspray/runoff so rinse water stays managed near the pool.
         </p>
       </div>
 
@@ -463,11 +496,13 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">4) Detail work: rust spots, dark areas, and problem zones</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🌦️</span>
+          <span class="step-text">4) Detail Work + Problem-Zone Correction</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          Pool decks usually have “problem zones” — around furniture, planters, grills, screen doors, and low areas that hold water.
-          We spot-treat rust, organics, and stubborn staining as needed.
-          If we find a failing old coating or patchy finish, we’ll explain the best fix before sealing so you don’t lock in a bad look.
+          We spot-treat rust, organics, and stubborn areas around furniture, planters, grills, and low spots.
+          If an old coating is failing, we explain the right fix before sealing.
         </p>
       </div>
 
@@ -478,11 +513,13 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">5) Proper dry-down + controlled sealing</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧴</span>
+          <span class="step-text">5) Dry-Down Checks + Controlled Sealing</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We do not seal wet surfaces or seal right before rain. Pool decks often stay damp longer (especially in shade or screened enclosures),
-          so dry time is critical to prevent hazing, whitening, and tacky spots.
-          We apply the sealer in <strong>controlled coats</strong> for an even finish — no streaks, no blotches, and clean edges.
+          Pool decks often stay damp longer, especially in shade or screened enclosures.
+          We verify dry conditions, then apply <strong>controlled coats</strong> for an even, premium finish.
         </p>
       </div>
 
@@ -493,17 +530,21 @@ Paver Sealing • Jacksonville • Nocatee • Ponte Vedra • St. Johns County
           linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
         border:1px solid rgba(40,182,200,.28);
       ">
-        <h3 style="margin:0 0 6px;">6) Walkthrough + cure timeline (pool-ready)</h3>
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">✅</span>
+          <span class="step-text">6) Walkthrough + Pool-Ready Cure Timeline</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We finish with a walkthrough and give site-specific guidance for return-to-use.
+          We finish with a walkthrough and clear return-to-use guidance.
           Most pool decks need <strong>~24 hours</strong> for foot traffic and <strong>24–48 hours</strong> before normal pool use,
-          depending on humidity and airflow. We’ll tell you exactly when it’s safe — because rushing cure time is how finishes fail.
+          depending on humidity and airflow.
         </p>
       </div>
 
     </div>
   </div>
 </section>
+
 
 
     
