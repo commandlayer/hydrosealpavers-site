@@ -452,6 +452,13 @@ body.includes-ready .header{
   transition: opacity .16s ease, transform .16s ease;
 }
 
+@media (max-width: 860px){
+  .driveway-split .card h2,
+  .driveway-split-rev .card h2{
+    text-align:center;
+  }
+}
+
 /* ============================================================
    HERO2 (BACKGROUND VIA <img>) — SINGLE SOURCE OF TRUTH
    ============================================================ */
