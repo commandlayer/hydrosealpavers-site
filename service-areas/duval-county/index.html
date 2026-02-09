@@ -10,7 +10,124 @@
   <link rel="stylesheet" href="/styles.css" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://hydrosealpavers.com/service-areas/duval-county/" />
+
+  <!-- =========================
+       SCHEMA (LocalBusiness, Service, FAQ, Breadcrumbs)
+  ========================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://hydrosealpavers.com/#business",
+    "name": "HydroSeal",
+    "url": "https://hydrosealpavers.com/",
+    "telephone": "+1-904-537-5000",
+    "image": "https://hydrosealpavers.com/assets/hero/paversealing-jacksonville.png",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Duval County, FL" },
+      { "@type": "City", "name": "Jacksonville, FL" },
+      { "@type": "City", "name": "Jacksonville Beach, FL" },
+      { "@type": "City", "name": "Atlantic Beach, FL" },
+      { "@type": "City", "name": "Neptune Beach, FL" },
+      { "@type": "Place", "name": "Southside, Jacksonville" },
+      { "@type": "Place", "name": "Mandarin, Jacksonville" },
+      { "@type": "Place", "name": "San Marco, Jacksonville" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jacksonville",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://hydrosealpavers.com/service-areas/duval-county/#service",
+    "name": "Professional Paver Sealing in Duval County",
+    "serviceType": "Paver Sealing & Restoration",
+    "description": "Premium paver cleaning, ASTM-C144 joint stabilization, and high-performance sealing for driveways, pool decks, patios, and travertine.",
+    "provider": { "@id": "https://hydrosealpavers.com/#business" },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Duval County, FL" }
+  }
+  </script>
+
+  <!-- FAQ schema aligned to your on-page FAQ section below -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://hydrosealpavers.com/service-areas/duval-county/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How Often Should Pavers Be Sealed In Jacksonville, FL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Jacksonville and across Duval County, most pavers should be resealed every 2–3 years. Exposure is the real driver: full sun, heavy rain flow, and frequent washing wear protection faster. Driveways in open sun usually need maintenance sooner than shaded patios, and pool decks can need earlier recoats because they stay wet more often. The best strategy is to recoat before total wear-through to avoid expensive deep restoration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why Does Joint Sand Disappear So Fast In Duval County?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jacksonville’s storm season, irrigation overspray, and runoff create hydraulic erosion that slowly washes out joint sand—especially on sloped driveways, around downspouts, and anywhere rain sheets across the surface. Once joints open up, weeds and ants move in, pavers can shift, and surface wear accelerates. Our process uses ASTM-C144 sand to support long-term joint stabilization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can You Seal Pavers With Algae, Mildew, Or Dark Staining?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Pavers should never be sealed while algae, mildew, or organic staining is still present. Sealing over contamination traps it beneath the coating, causing dark blotches, uneven color, and premature failure. Proper sealing requires thorough cleaning, full rinsing, and complete drying before any sealer is applied."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Sealing Help Prevent Oil Stains, Rust Stains, And Fertilizer Marks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sealing helps reduce absorption and makes cleanup easier for common staining like oil drips, rust, leaf tannins, fertilizer marks, and organic fallout. No sealer makes pavers stain-proof, but it buys time—stains don’t penetrate as fast and routine maintenance becomes simpler. Fast cleanup still matters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Sealing Make Pavers Slippery — Especially Around Pool Decks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can if the wrong finish is chosen or if sealer is applied too heavy. Slippery areas typically come from puddling or buildup in walking zones. Pool decks require controlled coats and traction-friendly options where needed to keep the surface walkable when wet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What’s The Biggest Paver Sealing Mistake Homeowners Make?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waiting until joints are washed out and pavers start moving. Once the system is loose, you get shifting, weeds, ant tunneling, and water intrusion. Sealing is surface protection—it does not fix base or drainage problems. If we see sinking or low spots that hold water, we’ll explain the right fix first."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://hydrosealpavers.com/service-areas/duval-county/#breadcrumbs",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrosealpavers.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://hydrosealpavers.com/service-areas/" },
+      { "@type": "ListItem", "position": 3, "name": "Duval County", "item": "https://hydrosealpavers.com/service-areas/duval-county/" }
+    ]
+  }
+  </script>
 </head>
+
 <body>
 
   <div data-include="/partials/header.html"></div>
@@ -42,24 +159,20 @@
             text-align: center;
           "
         >
-          
+          <h1 style="margin:0; font-size:40px; line-height:1.08; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
+            Duval County Paver Sealing
+          </h1>
 
-        <h1 style="margin:0; font-size:40px; line-height:1.08; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
-  Duval County Paver Sealing
-</h1>
-
-<p style="
-  margin:6px 0 0;
-  font-size:15px;
-  font-weight:600;
-  color:rgba(255,255,255,.85);
-  letter-spacing:.02em;
-  text-transform:uppercase;
-">
-Precision Paver Restoration Across Jacksonville & Duval County</p>
-
-
-
+          <p style="
+            margin:6px 0 0;
+            font-size:15px;
+            font-weight:600;
+            color:rgba(255,255,255,.85);
+            letter-spacing:.02em;
+            text-transform:uppercase;
+          ">
+            Precision Paver Restoration Across Jacksonville &amp; Duval County
+          </p>
 
           <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
@@ -71,42 +184,43 @@ Precision Paver Restoration Across Jacksonville & Duval County</p>
     </div>
   </section>
 
- <!-- DEEP LOCAL SEO CONTENT (TEXT LEFT, HERO IMAGE RIGHT) -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Professional Paver Restoration in Duval County</h2>
-    <p class="section-sub">
-      Duval County masonry endures aggressive stressors: UV oxidation, hydraulic erosion, organic intrusion, and vehicular wear.
-      Restoration is a critical maintenance protocol—not a cosmetic “shine job.”
-    </p>
+  <!-- DEEP LOCAL SEO CONTENT (TEXT LEFT, HERO IMAGE RIGHT) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Professional Paver Restoration in Duval County</h2>
+      <p class="section-sub">
+        Duval County masonry endures aggressive stressors: UV oxidation, hydraulic erosion, organic intrusion, and vehicular wear.
+        Restoration is a critical maintenance protocol—not a cosmetic “shine job.”
+      </p>
 
-    <div class="hazard-split">
-      <!-- LEFT: COPY -->
-      <div class="card hazard-copy hazard-blue" style="padding:18px;">
-        <h3 style="margin-top:0;">1) UV Radiation + Thermal Stress Degrade Color Integrity</h3>
-        <p>
-          Intense solar exposure across Jacksonville causes surface oxidation. Over time, pavers lose pigments, appear skeletal,
-          and feel “chalky.” High-performance sealers mitigate UV damage and restore consistent architectural depth.
-        </p>
+      <div class="hazard-split">
+        <!-- LEFT: COPY -->
+        <div class="card hazard-copy hazard-blue" style="padding:18px;">
+          <h3 style="margin-top:0;">1) UV Radiation + Thermal Stress Degrade Color Integrity</h3>
+          <p>
+            Intense solar exposure across Jacksonville causes surface oxidation. Over time, pavers lose pigments, appear skeletal,
+            and feel “chalky.” High-performance sealers mitigate UV damage and restore consistent architectural depth.
+          </p>
 
-        <h3>2) Moisture + Tree Canopy = Algae Intrusion &amp; Bio-Growth</h3>
-        <p>
-          Duval’s heavy canopy traps humidity, creating a breeding ground for microorganisms. Algae and mildew thrive on porous patios
-          and shaded sections. Technical cleaning and sealing reduce porosity to facilitate easier maintenance.
-        </p>
+          <h3>2) Moisture + Tree Canopy = Algae Intrusion &amp; Bio-Growth</h3>
+          <p>
+            Duval’s heavy canopy traps humidity, creating a breeding ground for microorganisms. Algae and mildew thrive on porous patios
+            and shaded sections. Technical cleaning and sealing reduce porosity to facilitate easier maintenance.
+          </p>
 
-        <h3>3) Hydraulic Erosion Destabilizes Joint Integrity (Structural Risk)</h3>
-        <p>
-          Torrential rains evacuate joint sand, inviting weed intrusion and ant tunneling. This is the primary cause of paver shifting
-          and structural settling. A precise process utilizes ASTM-C144 sand to ensure long-term stabilization.
-        </p>
+          <h3>3) Hydraulic Erosion Destabilizes Joint Integrity (Structural Risk)</h3>
+          <p>
+            Torrential rains evacuate joint sand, inviting weed intrusion and ant tunneling. This is the primary cause of paver shifting
+            and structural settling. A precise process utilizes ASTM-C144 sand to ensure long-term stabilization.
+          </p>
 
-        <h3>4) Pool Decks Require High-Performance Safety Systems</h3>
-        <p>
-          In aquatic environments, surface friction and moisture management are the primary concerns. The objective is a refined finish
-          that ensures safety and durability—avoiding tacky buildup or hydrostatic failure.
-        </p>
-      </div>
+          <h3>4) Pool Decks Require High-Performance Safety Systems</h3>
+          <p>
+            In aquatic environments, surface friction and moisture management are the primary concerns. The objective is a refined finish
+            that ensures safety and durability—avoiding tacky buildup or hydrostatic failure.
+          </p>
+        </div>
+
         <!-- RIGHT: IMAGE -->
         <div class="hazard-hero">
           <img
@@ -168,165 +282,153 @@ Precision Paver Restoration Across Jacksonville & Duval County</p>
     }
   </style>
 
- 
+  <!-- COUNTY LINKS (ONLY YOUR CURRENT PAGES) -->
+  <section class="section" id="county-links-duval">
+    <div class="container">
+      <h2 class="section-title">Areas We Serve in Duval County</h2>
+      <p class="section-sub">
+        Select your area below for local service details and recommendations based on exposure, joint condition, and surface type.
+      </p>
 
-<!-- COUNTY LINKS (ONLY YOUR CURRENT PAGES) -->
-<section class="section" id="county-links-duval">
-  <div class="container">
-    <h2 class="section-title">Areas We Serve in Duval County</h2>
-    <p class="section-sub">
-      Select your area below for local service details and recommendations based on exposure, joint condition, and surface type.
-    </p>
+      <div class="grid grid-3" style="margin-top:16px;">
 
-    <div class="grid grid-3" style="margin-top:16px;">
+        <a class="card service-card" href="/service-areas/duval-county/jacksonville.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Jacksonville</h3>
+          <p>Comprehensive paver restoration for driveways and pool decks. Engineered for consistent, architectural-grade results across the metro area.</p>
+          <strong>View Jacksonville →</strong>
+        </a>
 
-      <!-- Core buckets -->
-      <a class="card service-card" href="/service-areas/duval-county/jacksonville.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Jacksonville</h3>
-        <p>Comprehensive paver restoration for driveways and pool decks. Engineered for consistent, architectural-grade results across the metro area.</p>
-        <strong>View Jacksonville →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/southside.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Southside</h3>
+          <p>High-performance sealing for Jacksonville’s primary residential hubs. Targeted joint stabilization and preventative care for newer installations.</p>
+          <strong>View Southside →</strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/southside.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Southside</h3>
-        <p>High-performance sealing for Jacksonville’s primary residential hubs. Targeted joint stabilization and preventative care for newer installations.</p>
-        <strong>View Southside →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/mandarin.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Mandarin</h3>
+          <p>Specialized restoration for shaded environments. Advanced algae-resistant sealing designed for heavy tree canopy and moisture retention.</p>
+          <strong>View Mandarin →</strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/mandarin.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Mandarin</h3>
-        <p>Specialized restoration for shaded environments. Advanced algae-resistant sealing designed for heavy tree canopy and moisture retention.</p>
-        <strong>View Mandarin →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/san-marco.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>San Marco</h3>
+          <p>Boutique paver sealing for historic district walkways and patios. Focused on precision cleaning, clean edges, and uniform color depth.</p>
+          <strong>View San Marco →</strong>
+        </a>
 
-      <!-- Established neighborhoods -->
-      <a class="card service-card" href="/service-areas/duval-county/san-marco.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>San Marco</h3>
-        <p>Boutique paver sealing for historic district walkways and patios. Focused on precision cleaning, clean edges, and uniform color depth.</p>
-        <strong>View San Marco →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/riverside-avondale.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Riverside / Avondale</h3>
+          <p>Heritage stone and paver preservation. Formulated to restore color and reduce persistent organic staining on classic outdoor surfaces.</p>
+          <strong>View Riverside / Avondale →</strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/riverside-avondale.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Riverside / Avondale</h3>
-        <p>Heritage stone and paver preservation. Formulated to restore color and reduce persistent organic staining on classic outdoor surfaces.</p>
-        <strong>View Riverside / Avondale →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/ortega.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Ortega</h3>
+          <p>Premium surface protection for Ortega’s finest estates. Structural joint stabilization and long-term sealing for high-traffic surfaces.</p>
+          <strong>View Ortega →</strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/ortega.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Ortega</h3>
-        <p>Premium surface protection for Ortega’s finest estates. Structural joint stabilization and long-term sealing for high-traffic surfaces.</p>
-        <strong>View Ortega →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/intracoastal-east.html" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Intracoastal East</h3>
+          <p>Coastal-grade preservation for gated communities and the Intracoastal corridor. High-durability finishes built to resist sand and humidity.</p>
+          <strong>View Intracoastal East →</strong>
+        </a>
 
-      <!-- Consolidation page -->
-      <a class="card service-card" href="/service-areas/duval-county/intracoastal-east.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Intracoastal East</h3>
-        <p>Coastal-grade preservation for gated communities and the Intracoastal corridor. High-durability finishes built to resist sand and humidity.</p>
-        <strong>View Intracoastal East →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/jacksonville-beach.html/" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Jacksonville Beach</h3>
+          <p>Salinity-resistant protection for beachfront properties. Engineered to mitigate salt-air erosion and intense UV exposure.</p>
+          <strong>View Jacksonville Beach →</strong>
+        </a>
 
-      <!-- Beaches (directories) -->
-      <a class="card service-card" href="/service-areas/duval-county/jacksonville-beach.html/" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Jacksonville Beach</h3>
-        <p>Salinity-resistant protection for beachfront properties. Engineered to mitigate salt-air erosion and intense UV exposure.</p>
-        <strong>View Jacksonville Beach →</strong>
-      </a>
+        <a class="card service-card" href="/service-areas/duval-county/atlantic-beach.html/" style="
+          background:
+            radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
+            radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
+            linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
+          border:1px solid rgba(20,184,166,.26);
+        ">
+          <h3>Atlantic Beach</h3>
+          <p>Architectural-grade stone and paver protection. Specialized sealing for Atlantic Beach estates with a focus on structural joint integrity.</p>
+          <strong>View Atlantic Beach →</strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/atlantic-beach.html/" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
-        <h3>Atlantic Beach</h3>
-        <p>Architectural-grade stone and paver protection. Specialized sealing for Atlantic Beach estates with a focus on structural joint integrity.</p>
-        <strong>View Atlantic Beach →</strong>
-      </a>
-
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- MICRO CTA (same width as the Areas We Serve grid) -->
+  <div class="grid grid-3" style="margin-top:14px;">
+    <div></div>
 
-<!-- MICRO CTA (same width as the Areas We Serve grid) -->
-<div class="grid grid-3" style="margin-top:14px;">
-  <div></div>
+    <div class="card" style="
+      text-align:center;
+      border:1px solid rgba(15,110,168,.18);
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.14), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.08), #ffffff 70%);
+    ">
+      <p style="margin:0; color:var(--muted); font-weight:700;">
+        Don’t see your neighborhood? <strong style="color:var(--navy);">Call us — we likely cover it.</strong>
+      </p>
 
-  <div class="card" style="
-    text-align:center;
-    border:1px solid rgba(15,110,168,.18);
-    background:
-      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.14), transparent 55%),
-      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
-      linear-gradient(180deg, rgba(57,191,234,.08), #ffffff 70%);
-  ">
-    <p style="margin:0; color:var(--muted); font-weight:700;">
-      Don’t see your neighborhood? <strong style="color:var(--navy);">Call us — we likely cover it.</strong>
-    </p>
-
-    <div style="margin-top:12px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
-      <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
+      <div style="margin-top:12px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+        <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
+      </div>
     </div>
+
+    <div></div>
   </div>
 
-  <div></div>
-</div>
-
-
-
-
-
-  
- <!-- WHAT WE DO -->
+  <!-- WHAT WE DO -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">What We Do</h2>
@@ -362,112 +464,109 @@ Precision Paver Restoration Across Jacksonville & Duval County</p>
     </div>
   </section>
 
+  <!-- ==========================
+       FAQ — JACKSONVILLE / DUVAL COUNTY
+  ========================== -->
+  <section class="section" id="duval-faq">
+    <div class="container">
+      <h2 class="section-title">Jacksonville Paver Sealing FAQ</h2>
+      <p class="section-sub">
+        Straight answers to the questions Duval County homeowners ask before sealing a driveway, patio, or pool deck.
+      </p>
 
-  
-<!-- ==========================
-     FAQ — JACKSONVILLE / DUVAL COUNTY
-========================== -->
-<section class="section" id="duval-faq">
-  <div class="container">
-    <h2 class="section-title">Jacksonville Paver Sealing FAQ</h2>
-    <p class="section-sub">
-      Straight answers to the questions Duval County homeowners ask before sealing a driveway, patio, or pool deck.
-    </p>
+      <div class="stack" style="margin-top:16px;">
 
-    <div class="stack" style="margin-top:16px;">
+        <details class="faq-item">
+          <summary><strong>How Often Should Pavers Be Sealed In Jacksonville, FL?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              In Jacksonville and across Duval County, most pavers should be resealed every <strong>2–3 years</strong>.
+              The real driver is exposure: <strong>full sun + heavy rain flow + frequent washing</strong> wears protection faster.
+              Driveways in open sun usually need maintenance sooner than shaded patios, and <strong>pool decks</strong> can need earlier recoats
+              because they stay wet more often (splash-out + humidity).
+            </p>
+            <p class="muted">
+              The best strategy is to <strong>recoat before total wear-through</strong>. Once protection is completely gone, you usually need heavier
+              cleaning and more prep to get back to a uniform finish.
+            </p>
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary><strong>How Often Should Pavers Be Sealed In Jacksonville, FL?</strong></summary>
-        <div class="faq-body">
-          <p class="muted">
-            In Jacksonville and across Duval County, most pavers should be resealed every <strong>2–3 years</strong>.
-            The real driver is exposure: <strong>full sun + heavy rain flow + frequent washing</strong> wears protection faster.
-            Driveways in open sun usually need maintenance sooner than shaded patios, and <strong>pool decks</strong> can need earlier recoats
-            because they stay wet more often (splash-out + humidity).
-          </p>
-          <p class="muted">
-            The best strategy is to <strong>recoat before total wear-through</strong>. Once protection is completely gone, you usually need heavier
-            cleaning and more prep to get back to a uniform finish.
-          </p>
-        </div>
-      </details>
+        <details class="faq-item">
+          <summary><strong>Why Does Joint Sand Disappear So Fast In Duval County?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Jacksonville gets intense storms, irrigation overspray, and runoff. That water movement slowly pulls joint material out over time —
+              especially on <strong>sloped driveways</strong>, around downspouts, and anywhere rain sheets across the surface.
+            </p>
+            <p class="muted">
+              Once joints open up, you’ll see <strong>weeds, ants, shifting pavers, and faster surface wear</strong>.
+              That’s why professional sealing includes <strong>proper re-sanding and stabilization</strong>, not just “spray sealer.”
+            </p>
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary><strong>Why Does Joint Sand Disappear So Fast In Duval County?</strong></summary>
-        <div class="faq-body">
-          <p class="muted">
-            Jacksonville gets intense storms, irrigation overspray, and runoff. That water movement slowly pulls joint material out over time —
-            especially on <strong>sloped driveways</strong>, around downspouts, and anywhere rain sheets across the surface.
-          </p>
-          <p class="muted">
-            Once joints open up, you’ll see <strong>weeds, ants, shifting pavers, and faster surface wear</strong>.
-            That’s why professional sealing includes <strong>proper re-sanding and stabilization</strong>, not just “spray sealer.”
-          </p>
-        </div>
-      </details>
+        <details class="faq-item">
+          <summary><strong>Can You Seal Pavers With Algae, Mildew, Or Dark Staining?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              <strong>No.</strong> Pavers should never be sealed while algae, mildew, or organic staining is still present.
+              Sealing over contamination traps it beneath the coating and causes dark blotches, uneven color, and premature failure.
+            </p>
+            <p class="muted">
+              Proper paver sealing requires <strong>thorough cleaning and surface preparation first</strong> —
+              treating organic growth, removing staining, rinsing completely, and allowing the surface to fully dry.
+              Only then can a sealer bond correctly and deliver a clean, uniform, long-lasting finish.
+            </p>
+          </div>
+        </details>
 
-      <details class="faq-item">
-       <summary><strong>Can You Seal Pavers With Algae, Mildew, Or Dark Staining?</strong></summary>
-<div class="faq-body">
-  <p class="muted">
-    <strong>No.</strong> Pavers should never be sealed while algae, mildew, or organic staining is still present.
-    Sealing over contamination traps it beneath the coating and causes dark blotches, uneven color, and premature failure.
-  </p>
-  <p class="muted">
-    Proper paver sealing requires <strong>thorough cleaning and surface preparation first</strong> —
-    treating organic growth, removing staining, rinsing completely, and allowing the surface to fully dry.
-    Only then can a sealer bond correctly and deliver a clean, uniform, long-lasting finish.
-  </p>
-</div>
+        <details class="faq-item">
+          <summary><strong>Does Sealing Help Prevent Oil Stains, Rust Stains, And Fertilizer Marks?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Sealing helps <strong>reduce absorption</strong> and makes cleanup easier for common staining:
+              <strong>oil drips</strong>, <strong>rust</strong> (metal furniture, fertilizer), <strong>leaf tannins</strong>,
+              and organic fallout.
+            </p>
+            <p class="muted">
+              No sealer makes pavers “stain-proof,” but it buys you time — stains don’t penetrate as fast, and routine maintenance becomes simpler.
+              Fast cleanup still matters.
+            </p>
+          </div>
+        </details>
 
-      </details>
+        <details class="faq-item">
+          <summary><strong>Does Sealing Make Pavers Slippery — Especially Around Pool Decks?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              It can if the wrong finish is chosen or the sealer is applied too heavy. Slippery areas usually come from
+              <strong>puddling</strong> or “wet look” buildup in walking zones.
+            </p>
+            <p class="muted">
+              Pool decks require a more careful approach than driveways: controlled coats, clean edges,
+              and traction-friendly options where needed. The goal is a premium finish that stays <strong>walkable when wet</strong>.
+            </p>
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary><strong>Does Sealing Help Prevent Oil Stains, Rust Stains, And Fertilizer Marks?</strong></summary>
-        <div class="faq-body">
-          <p class="muted">
-            Sealing helps <strong>reduce absorption</strong> and makes cleanup easier for common staining:
-            <strong>oil drips</strong>, <strong>rust</strong> (metal furniture, fertilizer), <strong>leaf tannins</strong>,
-            and organic fallout.
-          </p>
-          <p class="muted">
-            No sealer makes pavers “stain-proof,” but it buys you time — stains don’t penetrate as fast, and routine maintenance becomes simpler.
-            Fast cleanup still matters.
-          </p>
-        </div>
-      </details>
+        <details class="faq-item">
+          <summary><strong>What’s The Biggest Paver Sealing Mistake Homeowners Make?</strong></summary>
+          <div class="faq-body">
+            <p class="muted">
+              Waiting until joints are washed out and pavers start moving. Once the system is loose, you get shifting, weed growth,
+              ant tunneling, and water intrusion.
+            </p>
+            <p class="muted">
+              Sealing is surface protection — it does <strong>not</strong> fix base or drainage problems.
+              If we see sinking, rocking, or low spots that hold water, we’ll explain the right fix first so you don’t pay for sealing on an unstable surface.
+            </p>
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary><strong>Does Sealing Make Pavers Slippery — Especially Around Pool Decks?</strong></summary>
-        <div class="faq-body">
-          <p class="muted">
-            It can if the wrong finish is chosen or the sealer is applied too heavy. Slippery areas usually come from
-            <strong>puddling</strong> or “wet look” buildup in walking zones.
-          </p>
-          <p class="muted">
-            Pool decks require a more careful approach than driveways: controlled coats, clean edges,
-            and traction-friendly options where needed. The goal is a premium finish that stays <strong>walkable when wet</strong>.
-          </p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary><strong>What’s The Biggest Paver Sealing Mistake Homeowners Make?</strong></summary>
-        <div class="faq-body">
-          <p class="muted">
-            Waiting until joints are washed out and pavers start moving. Once the system is loose, you get shifting, weed growth,
-            ant tunneling, and water intrusion.
-          </p>
-          <p class="muted">
-            Sealing is surface protection — it does <strong>not</strong> fix base or drainage problems.
-            If we see sinking, rocking, or low spots that hold water, we’ll explain the right fix first so you don’t pay for sealing on an unstable surface.
-          </p>
-        </div>
-      </details>
-
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <style>
     #duval-faq details.faq-item{
