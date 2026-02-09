@@ -401,113 +401,284 @@ Paver Sealing • Nocatee • Jacksonville • Ponte Vedra • St. Johns County
   </div>
 </section>
 
-<!-- PROCESS STRIP (STRUCTURED) — TRAVERTINE POOL DECK (same layout + blue gradient blocks) -->
-<section style="margin-top:18px;">
+<!-- TRAVERTINE PROCESS (Desktop grid + Mobile accordion) -->
+<section style="margin-top:18px;" id="travertine-process">
   <div class="card">
-    <h2 style="margin:0 0 8px;">Our travertine pool deck sealing process</h2>
+    <h2 style="margin:0 0 8px;">Our 6 Step Sealing Process</h2>
     <p style="margin:0; color:var(--muted); max-width:980px;">
-      Travertine is natural stone — it needs a stone-safe process, not a “blast and coat.” The goal is a clean, even surface
-      and a breathable seal that protects without trapping moisture. Prep is the product.
+      Travertine is natural stone — it needs a stone-safe process, not a “blast and coat.”
+      The goal is a clean, even surface and a breathable seal that protects without trapping moisture.
+      Prep is the product.
     </p>
 
-    <div class="grid grid-3" style="margin-top:14px;">
+    <!-- Scoped styles (kept inside process card) -->
+    <style>
+      /* shared icon header */
+      #travertine-process .step-title{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+      }
+      #travertine-process .step-icon{
+        width:auto;
+        height:auto;
+        background:transparent;
+        border:0;
+        box-shadow:none;
+        padding:0;
+        margin-top:2px;
+        font-size:18px;
+        line-height:1;
+        flex:0 0 auto;
+      }
+      #travertine-process .step-text{
+        position:relative;
+        top:2px;
+        line-height:1.15;
+        display:inline-block;
+      }
 
-      <!-- Gradient card -->
-      <div class="card" style="
+      /* gradient block (same look as pool) */
+      #travertine-process .trav-step{
         background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">1) Inspect the stone + problem areas</h3>
+          radial-gradient(900px 240px at 18% 0%, rgba(40,182,200,.22), transparent 55%),
+          radial-gradient(900px 240px at 88% 0%, rgba(57,191,234,.20), transparent 55%),
+          linear-gradient(180deg, rgba(40,182,200,.10), #f6fffd 68%, #f8fbff 100%);
+        border:1px solid rgba(40,182,200,.28);
+      }
+
+      /* DESKTOP grid */
+      #travertine-process .trav-grid{ margin-top:14px; }
+      #travertine-process .trav-acc{ display:none; margin-top:14px; }
+
+      /* MOBILE accordion */
+      #travertine-process details.step{
+        border:1px solid var(--line);
+        background:#fff;
+        border-radius:0;
+        overflow:hidden;
+      }
+      #travertine-process details.step + details.step{ margin-top:10px; }
+
+      #travertine-process details.step > summary{
+        cursor:pointer;
+        list-style:none;
+        padding:14px 16px;
+        font-weight:900;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        color: var(--navy);
+      }
+      #travertine-process summary::-webkit-details-marker{ display:none; }
+
+      #travertine-process details.step > summary::after{
+        content:"▾";
+        color: var(--navy);
+        transition: transform .18s ease;
+        font-weight:1000;
+      }
+      #travertine-process details.step[open] > summary::after{ transform: rotate(180deg); }
+
+      #travertine-process .step-body{
+        padding:14px 16px 16px;
+        background:
+          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
+          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+          linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
+        border-top:1px solid rgba(15,110,168,.22);
+      }
+      #travertine-process .step-body p{
+        margin:0;
+        color: var(--muted);
+      }
+
+      /* Switch: accordion on mobile */
+      @media (max-width: 900px){
+        #travertine-process .trav-grid{ display:none; }
+        #travertine-process .trav-acc{ display:block; }
+      }
+    </style>
+
+    <!-- DESKTOP (grid) -->
+    <div class="grid grid-3 trav-grid" style="margin-top:14px;" aria-label="Travertine process cards (desktop)">
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🔍</span>
+          <span class="step-text">1) Inspect The Stone + Pool Problem Zones</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We check porosity, existing sealer/coatings, traffic patterns, and pool-specific issues like splash-out zones,
-          low spots that hold water, and any hazing/dark patches. We also identify rust spots, algae, and prior repairs
-          so expectations are clear before work starts.
+          We check porosity, existing sealers/coatings, traffic paths, splash-out/waterline zones, and low spots that hold water.
+          We also identify hazing, dark patches, algae film, rust spots, and prior repairs so expectations are clear before work starts.
         </p>
       </div>
 
-      <!-- Gradient card -->
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">2) Stone-safe pre-treatment</h3>
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧪</span>
+          <span class="step-text">2) Stone-Safe Pre-Treatment (No Harsh Chemistry)</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          Travertine can etch if the wrong chemistry is used. We pre-treat organics and grime using a stone-appropriate process
+          Travertine can etch if the wrong products are used. We pre-treat organics and grime with a stone-appropriate process
           designed to lift buildup without burning the surface or creating uneven tone — especially around coping and waterlines.
         </p>
       </div>
 
-      <!-- Gradient card -->
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">3) Deep clean (controlled, not aggressive)</h3>
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧼</span>
+          <span class="step-text">3) Deep Clean (Controlled, Not Aggressive)</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We clean to remove algae film, sunscreen oils, and embedded dirt while protecting the stone’s texture.
-          The goal is uniform results without etching, striping, or “hot spots” from over-pressure or harsh methods.
+          We clean to remove algae film, sunscreen oils, embedded dirt, and discoloration while protecting the stone’s texture.
+          The goal is uniform results without etching, striping, or “hot spots” from over-pressure.
         </p>
       </div>
 
-      <!-- Gradient card -->
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">4) Detail work + spot treatment</h3>
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🧽</span>
+          <span class="step-text">4) Detail Work + Spot Correction</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          Pool decks commonly need targeted work: rust treatment (furniture/fertilizer), dark organic spots, and areas that stay damp.
-          If an old coating is failing or patchy, we’ll call out whether a separate removal step is needed for a clean, consistent finish.
+          Pool decks often need targeted correction: rust treatment (furniture/fertilizer), dark organic spots, and damp zones.
+          If an old coating is failing or patchy, we’ll explain whether a separate removal step is needed so you don’t lock in a bad look.
         </p>
       </div>
 
-      <!-- Gradient card -->
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">5) Proper dry-down + breathable sealing</h3>
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">🌤️</span>
+          <span class="step-text">5) Proper Dry-Down Checks + Breathable Sealing</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
           We do not seal wet stone. Travertine needs proper dry time so the sealer bonds correctly and doesn’t trap moisture.
-          We apply a <strong>breathable, stone-safe sealer</strong> in controlled coats for even coverage — no streaks, no blotches, no tacky areas.
+          We apply breathable, stone-safe coats for even coverage — no streaks, no blotches, no tacky areas.
         </p>
       </div>
 
-      <!-- Gradient card -->
-      <div class="card" style="
-        background:
-          radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-          radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-          linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-        border:1px solid rgba(15,110,168,.25);
-      ">
-        <h3 style="margin:0 0 6px;">6) Walkthrough + cure timeline</h3>
+      <div class="card trav-step">
+        <h3 class="step-title" style="margin:0 0 6px;">
+          <span class="step-icon" aria-hidden="true">✅</span>
+          <span class="step-text">6) Walkthrough + Pool-Ready Cure Timeline</span>
+        </h3>
         <p style="margin:0; color:var(--muted);">
-          We review results and give clear, site-specific guidance for foot traffic and pool use.
-          Screened enclosures and shaded areas often cure slower, so we’ll tell you exactly when it’s safe to walk on it
-          and resume normal pool use — plus simple maintenance habits to keep it looking clean.
+          We review results and give clear return-to-use guidance. Most travertine pool decks need ~24 hours for foot traffic
+          and 24–48 hours before normal pool use, depending on humidity, airflow, and shade/screened enclosures.
         </p>
       </div>
-
     </div>
+
+    <!-- MOBILE (accordion) -->
+    <div class="trav-acc" aria-label="Travertine process accordion (mobile)">
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span class="step-text">1) Inspect The Stone + Pool Problem Zones</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We check porosity, existing sealers/coatings, traffic paths, splash-out/waterline zones, and low spots that hold water.
+            We also identify hazing, dark patches, algae film, rust spots, and prior repairs so expectations are clear before work starts.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧪</span>
+            <span class="step-text">2) Stone-Safe Pre-Treatment (No Harsh Chemistry)</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            Travertine can etch if the wrong products are used. We pre-treat organics and grime with a stone-appropriate process
+            designed to lift buildup without burning the surface or creating uneven tone — especially around coping and waterlines.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span class="step-text">3) Deep Clean (Controlled, Not Aggressive)</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We clean to remove algae film, sunscreen oils, embedded dirt, and discoloration while protecting the stone’s texture.
+            The goal is uniform results without etching, striping, or “hot spots” from over-pressure.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧽</span>
+            <span class="step-text">4) Detail Work + Spot Correction</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            Pool decks often need targeted correction: rust treatment (furniture/fertilizer), dark organic spots, and damp zones.
+            If an old coating is failing or patchy, we’ll explain whether a separate removal step is needed so you don’t lock in a bad look.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🌤️</span>
+            <span class="step-text">5) Proper Dry-Down Checks + Breathable Sealing</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We do not seal wet stone. Travertine needs proper dry time so the sealer bonds correctly and doesn’t trap moisture.
+            We apply breathable, stone-safe coats for even coverage — no streaks, no blotches, no tacky areas.
+          </p>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span class="step-text">6) Walkthrough + Pool-Ready Cure Timeline</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>
+            We review results and give clear return-to-use guidance. Most travertine pool decks need ~24 hours for foot traffic
+            and 24–48 hours before normal pool use, depending on humidity, airflow, and shade/screened enclosures.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <script>
+      // Mobile accordion: only one open at a time (scoped to #travertine-process)
+      (function(){
+        const root = document.getElementById('travertine-process');
+        if(!root) return;
+        const items = root.querySelectorAll('.trav-acc details.step');
+        items.forEach(d => {
+          d.addEventListener('toggle', () => {
+            if(!d.open) return;
+            items.forEach(other => { if(other !== d) other.removeAttribute('open'); });
+          });
+        });
+      })();
+    </script>
   </div>
 </section>
-
 
     <!-- your content above -->
 
