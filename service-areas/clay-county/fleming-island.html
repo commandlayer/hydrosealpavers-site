@@ -439,37 +439,240 @@
 
 
       
-      <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
-      <section style="margin-top:18px;">
-        <div class="driveway-split-rev" style="display:grid; grid-template-columns: .9fr 1.1fr; gap:18px; align-items:stretch;">
-          <div class="card" style="--muted:#1f2937;">
-            <h2 style="margin:0 0 6px;">Our Professional 6-Step Process</h2>
-            <p style="margin:0; color:var(--muted);">
-              Consistent results come from prep, joint integrity, moisture control, and controlled application.
-              That’s how you avoid haze, blotchy finish, and early failure in Florida conditions.
-            </p>
+       
+<!-- =========================
+     STEP-BY-STEP PROCESS
+     - Desktop: 2 columns, 6 equal-height cards, black text
+     - Mobile: accordion (only 1 open at a time)
+     - Icons: NO background
+     - Title text: nudged UP slightly
+========================== -->
+<section class="section" id="process">
+  <div class="container">
+    <h2>Our Paver Sealing Process</h2>
+    <p class="muted" style="max-width:980px;">
+      Prep, Joint Integrity, Moisture Control, And A Repeatable System — That’s What Makes Results Last.
+    </p>
 
-            <ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
-              <li><strong>Inspection:</strong> surface condition, drainage patterns, stains, joint loss</li>
-              <li><strong>Clean:</strong> correct chemistry + controlled rinse</li>
-              <li><strong>Re-Sand:</strong> reset joints with Trident Joint Sand (ASTM-C144) and compact correctly</li>
-              <li><strong>Dry &amp; Verify:</strong> moisture checks + weather discipline</li>
-              <li><strong>Seal:</strong> controlled application using Trident Hurricane CAT 5</li>
-              <li><strong>Final Walkthrough:</strong> cure times, care notes, and maintenance guidance</li>
-            </ol>
-          </div>
+    <!-- DESKTOP (2 columns, equal-height cards) -->
+    <div class="process-grid" aria-label="Process cards (desktop)">
+      <div class="process-col">
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span class="step-text">1) Inspection &amp; Surface Evaluation</span>
+          </h3>
+          <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
+          <ul>
+            <li>Sinking/rocking and base concerns</li>
+            <li>Stains: organic, rust, oil, tire marks</li>
+            <li>Finish goal: natural vs color-enhanced</li>
+          </ul>
+        </div>
 
-          <div class="media-box media-h-md">
-            <img
-              src="/assets/hero/joint-sand.png"
-              alt="Properly filled joint sand for paver sealing in Fleming Island"
-              loading="lazy"
-              decoding="async"
-            />
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span class="step-text">2) Professional Cleaning &amp; Organic Treatment</span>
+          </h3>
+          <p>We clean for adhesion and uniform results — not just appearance.</p>
+          <ul>
+            <li>Targeted organic treatment (algae/mildew)</li>
+            <li>Controlled surface cleaning for consistency</li>
+            <li>Thorough rinse + surface verification</li>
+          </ul>
+        </div>
+
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧱</span>
+            <span class="step-text">3) Joint Prep &amp; Re-Sanding (ASTM-C144)</span>
+          </h3>
+          <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
+          <ul>
+            <li>Clean joints and remove failing material</li>
+            <li>Hydro-compact for joint lock</li>
+            <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
+          </ul>
+
+          <div class="badge badge-green" style="margin-top:12px;text-align:center;">
+            <a href="/joint-sand-colors/" style="color:inherit;text-decoration:none;display:inline-block;">
+              View Trident Sand Color Options →
+            </a>
           </div>
         </div>
-      </section>
+      </div>
 
+      <div class="process-col">
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🌦️</span>
+            <span class="step-text">4) Moisture &amp; Weather Window Control</span>
+          </h3>
+          <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
+          <ul>
+            <li>Surface dryness and low-spot checks</li>
+            <li>Humidity and rain-risk planning</li>
+            <li>Shade and moisture awareness</li>
+          </ul>
+        </div>
+
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">🧴</span>
+            <span class="step-text">5) Sealer Application (Two-Coat System)</span>
+          </h3>
+          <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
+          <ul>
+            <li>Flood coat + second coat (as needed)</li>
+            <li>Clean borders and edge control</li>
+            <li>Natural or color-enhanced finish options</li>
+          </ul>
+        </div>
+
+        <div class="card card-bluegrad">
+          <h3 class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span class="step-text">6) Final Walkthrough, Cure-Time &amp; Maintenance</span>
+          </h3>
+          <p>We confirm coverage, review cure time, and give clear care guidance.</p>
+          <ul>
+            <li>24 hours no foot traffic, 48 hours vehicles</li>
+            <li>Do’s and don’ts to prevent premature wear</li>
+            <li>Maintenance plan to extend life</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE (accordion) -->
+    <div class="process-accordion" aria-label="Process accordion (mobile)">
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🔍</span>
+            <span class="step-text">1) Inspection &amp; Surface Evaluation</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
+          <ul>
+            <li>Sinking/rocking and base concerns</li>
+            <li>Stains: organic, rust, oil, tire marks</li>
+            <li>Finish goal: natural vs color-enhanced</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧼</span>
+            <span class="step-text">2) Professional Cleaning &amp; Organic Treatment</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>We clean for adhesion and uniform results — not just appearance.</p>
+          <ul>
+            <li>Targeted organic treatment (algae/mildew)</li>
+            <li>Controlled surface cleaning for consistency</li>
+            <li>Thorough rinse + surface verification</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧱</span>
+            <span class="step-text">3) Joint Prep &amp; Re-Sanding (ASTM-C144)</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>We reset joints with Trident CAT 5 joint sand and compact for stability.</p>
+          <ul>
+            <li>Clean joints and remove failing material</li>
+            <li>Hydro-compact for joint lock</li>
+            <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
+          </ul>
+
+          <div class="badge badge-green" style="margin-top:12px;text-align:center;">
+            <a href="/joint-sand-colors/" style="color:inherit;text-decoration:none;display:inline-block;">
+              View Trident Sand Color Options →
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🌦️</span>
+            <span class="step-text">4) Moisture &amp; Weather Window Control</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
+          <ul>
+            <li>Surface dryness and low-spot checks</li>
+            <li>Humidity and rain-risk planning</li>
+            <li>Shade and moisture awareness</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">🧴</span>
+            <span class="step-text">5) Sealer Application (Two-Coat System)</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
+          <ul>
+            <li>Flood coat + second coat (as needed)</li>
+            <li>Clean borders and edge control</li>
+            <li>Natural or color-enhanced finish options</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="step">
+        <summary>
+          <span class="step-title">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <span class="step-text">6) Final Walkthrough, Cure-Time &amp; Maintenance</span>
+          </span>
+        </summary>
+        <div class="step-body">
+          <p>We confirm coverage, review cure time, and give clear care guidance.</p>
+          <ul>
+            <li>24 hours no foot traffic, 48 hours vehicles</li>
+            <li>Do’s and don’ts to prevent premature wear</li>
+            <li>Maintenance plan to extend life</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <script>
+      // Mobile accordion: only one open at a time
+      (function(){
+        const root = document.getElementById('process');
+        if(!root) return;
+        const steps = root.querySelectorAll('.process-accordion details.step');
+        steps.forEach(d => {
+          d.addEventListener('toggle', () => {
+            if(!d.open) return;
+            steps.forEach(other => { if(other !== d) other.removeAttribute('open'); });
+          });
+        });
+      })();
+    </script>
+
+  </div>
+</section>
      
 
    
