@@ -21,119 +21,119 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- LocalBusiness entity (site-wide) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":["LocalBusiness","HomeAndConstructionBusiness"],
-    "@id":"https://hydrosealpavers.com/#business",
-    "name":"HydroSeal",
-    "url":"https://hydrosealpavers.com/",
-    "telephone":"+1-904-537-5000",
-    "image":"https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png",
-    "logo":"https://hydrosealpavers.com/assets/hero/Hydrosealpaversealing.png",
-    "areaServed":[
-      {"@type":"AdministrativeArea","name":"Clay County, FL"},
-      {"@type":"AdministrativeArea","name":"Duval County, FL"},
-      {"@type":"AdministrativeArea","name":"St. Johns County, FL"}
-    ],
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Jacksonville",
-      "addressRegion":"FL",
-      "addressCountry":"US"
-    },
-    "sameAs":[
-      "PASTE_YOUR_GBP_URL_HERE",
-      "PASTE_YOUR_FACEBOOK_URL_HERE"
-    ]
-  }
-  </script>
+ <!-- LocalBusiness entity (site-wide) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["LocalBusiness","HomeAndConstructionBusiness"],
+  "@id":"https://hydrosealpavers.com/#business",
+  "name":"HydroSeal",
+  "url":"https://hydrosealpavers.com/",
+  "telephone":"+1-904-537-5000",
+  "logo":"https://hydrosealpavers.com/assets/hero/Hydrosealpaversealing.png",
+  "image":"https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png",
+  "areaServed":[
+    {"@type":"AdministrativeArea","name":"Clay County, FL"},
+    {"@type":"AdministrativeArea","name":"Duval County, FL"},
+    {"@type":"AdministrativeArea","name":"St. Johns County, FL"}
+  ],
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Jacksonville",
+    "addressRegion":"FL",
+    "addressCountry":"US"
+  },
+  "makesOffer":[
+    { "@type":"Offer", "itemOffered": { "@type":"Service", "name":"Paver Sealing" } },
+    { "@type":"Offer", "itemOffered": { "@type":"Service", "name":"Paver Cleaning" } },
+    { "@type":"Offer", "itemOffered": { "@type":"Service", "name":"Joint Sand Re-Sanding" } }
+  ]
+}
+</script>
 
-  <!-- Local SEO: Service + FAQ Schema (match on-page FAQ exactly; no fake reviews) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "@id":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html#service",
-    "name":"Paver Sealing in Fleming Island, FL",
-    "serviceType":"Paver Sealing",
-    "provider":{ "@id":"https://hydrosealpavers.com/#business" },
-    "areaServed":{
-      "@type":"City",
-      "name":"Fleming Island",
-      "addressRegion":"FL",
-      "addressCountry":"US"
-    },
-    "url":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html"
-  }
-  </script>
+<!-- Service schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "@id":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html#service-paver-sealing",
+  "name":"Paver Sealing",
+  "provider":{ "@id":"https://hydrosealpavers.com/#business" },
+  "serviceType":"Paver sealing, joint re-sanding, and controlled sealing for driveways, patios, pool decks, and walkways in Fleming Island, Florida.",
+  "areaServed":[
+    {"@type":"AdministrativeArea","name":"Clay County, FL"},
+    {"@type":"City","name":"Fleming Island","addressRegion":"FL","addressCountry":"US"}
+  ],
+  "url":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html"
+}
+</script>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "@id":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html#faq",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"What does paver sealing cost in Fleming Island?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Paver sealing prices in Fleming Island vary based on square footage, paver porosity, surface and joint condition, joint sand loss, staining, access, drainage patterns, and preparation requirements. Most professional projects start around $1.50 per square foot. We use Trident Hurricane CAT 5 sealer and Trident joint sand (ASTM-C144), and final pricing depends on the level of prep and joint stabilization needed for long-term performance."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Why do Fleming Island paver joints wash out so fast?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"In Fleming Island, frequent rain, irrigation overspray, and runoff from sloped driveways can move joint sand over time—especially when joints are already low or not compacted properly. Restoring joints with the right sand, compacting to proper depth, and then sealing with controlled coats helps reduce washout and keeps pavers more stable after storms."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"How often should pavers be resealed in Fleming Island?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Most Fleming Island homeowners reseal about every 2–3 years. Driveways with daily parking, direct sun exposure, and regular irrigation usually wear faster than shaded patios. The best results come from recoating before the sealer wears completely through, which reduces the need for heavy prep later."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Do you re-sand paver joints before sealing?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"If the joints are low, washing out, or unstable, yes. We remove deteriorated joint material and re-sand using Trident joint sand (ASTM-C144), compacted to the correct depth. Skipping joint restoration is a common reason pavers shift, weeds return, and sealing fails early."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"What causes haze or whitening after sealing in Florida?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Haze and whitening are usually moisture problems. Sealing damp pavers, trapping moisture in shaded areas, or rushing dry times can cause a cloudy finish. Florida humidity and pop-up rain make moisture control critical, so we verify dry conditions and follow weather discipline before applying sealer."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"How long does paver sealing last in Fleming Island?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"With proper preparation and professional-grade Trident sealers, most sealed paver surfaces typically last about 3–4 years in Florida conditions. Longevity depends on traffic, sun exposure, irrigation, drainage, and routine maintenance. Recoating before full wear-through usually extends results and keeps the finish more uniform."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"What’s the best time of year to seal pavers in Fleming Island?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Spring through early fall can work well as long as the surface is fully dry and the forecast allows proper cure time. In Fleming Island, shaded areas and frequent irrigation can keep pavers damp longer than expected, so we time sealing around moisture conditions—not just the calendar."
-        }
+<!-- FAQ schema (MATCHES the on-page FAQ exactly) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"https://hydrosealpavers.com/service-areas/clay-county/fleming-island.html#faq",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What does paver sealing cost in Fleming Island?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Paver sealing prices in Fleming Island vary based on square footage, paver porosity, surface and joint condition, joint sand loss, staining, access, drainage patterns, and overall preparation requirements. Proper preparation and joint integrity are critical for long-term performance in Florida conditions, especially with frequent rain and irrigation. Most professional projects start around $1.50 per square foot. We use Trident Hurricane CAT 5 sealer and Trident joint sand (ASTM-C144)—contractor-grade materials designed to hold up better than homeowner or budget products. Final pricing depends on surface condition, joint stability, access, and the amount of prep required to achieve a clean, consistent finish that lasts."
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type":"Question",
+      "name":"Why do paver joints wash out after rain and irrigation?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Joint washout usually comes from low or poorly compacted sand, runoff across sloped surfaces, and regular irrigation overspray. In Fleming Island neighborhoods with mature landscaping and frequent sprinkler use, damp joints can also attract organics that break down sand faster. Restoring joints and compacting correctly before sealing helps reduce washout and keeps pavers more stable."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How often should a driveway be resealed in Fleming Island?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Most homeowners reseal about every 2–3 years. Driveways with daily parking and direct sun usually wear faster than shaded patios. Recoating before the sealer wears completely through helps maintain a more uniform finish and reduces heavy prep later."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Do you re-sand joints before sealing?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"If the joints are low or unstable, yes. We remove deteriorated joint material and re-sand using Trident joint sand (ASTM-C144), compacted to the correct depth. Skipping joint restoration is one of the main reasons pavers shift and weeds return after heavy rain."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What causes a hazy or blotchy finish after sealing?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Most haze and blotch issues come from moisture or over-application. Sealing damp pavers, trapping moisture in shaded areas, or applying too heavy of a coat can create a cloudy or uneven finish. Florida humidity and pop-up rain make moisture control critical, which is why we verify dry conditions before sealing."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How long does paver sealing last in Fleming Island?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"With proper preparation and professional-grade materials, most sealed paver surfaces typically last about 3–4 years in Florida conditions. Longevity depends on traffic, sun exposure, irrigation, drainage, and routine maintenance. Recoating before full wear-through usually extends results."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"When is the best time to seal pavers in Fleming Island?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Spring through early fall can work well as long as the surface is fully dry and the forecast allows proper cure time. In Fleming Island, shaded areas and frequent irrigation can keep pavers damp longer than expected, so we schedule sealing around moisture conditions—not just the calendar."
+      }
+    }
+  ]
+}
+</script>
 
   <!-- PAGE-ONLY CSS -->
   <style>
