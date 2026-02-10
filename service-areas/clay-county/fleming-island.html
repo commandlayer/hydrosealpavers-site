@@ -135,7 +135,7 @@
   }
   </script>
 
-  <!-- PAGE-ONLY CSS: images + CTA buttons + mobile stacking + FAQ styling -->
+  <!-- PAGE-ONLY CSS -->
   <style>
     .media-box{ overflow:hidden; border-radius:18px; }
     .media-box img{ width:100%; height:100%; display:block; object-fit:cover; }
@@ -152,95 +152,6 @@
     }
     @media (max-width: 520px){
       .media-h-md{ height:240px; }
-    }
-
-    .driveway-cta-row{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .driveway-cta{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:14px;
-      font-weight:900;
-      letter-spacing:.01em;
-      text-decoration:none;
-      min-width:170px;
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow: 0 10px 26px rgba(17,24,39,.10);
-      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
-      transform: translateZ(0);
-      isolation:isolate;
-    }
-
-    .driveway-cta::before{
-      content:"";
-      position:absolute;
-      inset:-4px;
-      border-radius:16px;
-      z-index:-1;
-      opacity:0;
-      filter: blur(6px);
-      transform: scale(.98);
-      transition: opacity .16s ease, transform .16s ease, filter .16s ease;
-    }
-
-    .driveway-cta::after{
-      content:"";
-      position:absolute;
-      inset:1px;
-      border-radius:13px;
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 55%);
-      opacity:.55;
-      pointer-events:none;
-      z-index:0;
-    }
-
-    .driveway-cta:hover{
-      transform: scale(1.03) translateY(-1px);
-      box-shadow: 0 14px 34px rgba(17,24,39,.14);
-      filter: brightness(1.02);
-    }
-    .driveway-cta:hover::before{
-      opacity:.35;
-      transform: scale(1);
-      filter: blur(7px);
-    }
-    .driveway-cta:active{
-      transform: scale(1.01) translateY(0);
-      box-shadow: 0 10px 26px rgba(17,24,39,.12);
-    }
-
-    .driveway-cta-blue{
-      background: linear-gradient(135deg, #39BFEA, #0F6EA8);
-      color:#fff;
-    }
-    .driveway-cta-blue::before{
-      background: radial-gradient(circle at 40% 35%, rgba(57,191,234,.55), rgba(15,110,168,.10) 60%, rgba(15,110,168,0) 78%);
-    }
-
-    .driveway-cta-blue-light{
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-        linear-gradient(180deg, rgba(57,191,234,.10), #ffffff 72%);
-      border:1px solid rgba(15,110,168,.22);
-      color: #0B2D4A;
-      box-shadow: 0 10px 26px rgba(15,110,168,.10);
-    }
-    .driveway-cta-blue-light::before{
-      background: radial-gradient(circle at 40% 35%, rgba(57,191,234,.35), rgba(15,110,168,.08) 60%, rgba(15,110,168,0) 78%);
-    }
-    .driveway-cta-blue-light::after{ opacity:.35; }
-
-    @media (max-width:520px){
-      .driveway-cta{ width:100%; max-width:420px; }
     }
 
     /* FAQ shell (square, white) */
@@ -291,84 +202,139 @@
       border-top:1px solid rgba(15,110,168,.25);
     }
     #flemingisland-faq details[open] .faq-body{
-      max-height:380px;
-      opacity:1;
-      padding:16px;
-      transform:none;
-    }
-
-    /* =========================
-       PROCESS ACCORDION (same behavior as FAQ)
-       - Hides desktop grid completely
-    ========================== */
-    #process .process-grid{ display:none !important; }
-    #process .process-accordion{ display:block; margin-top:16px; }
-
-    #process .process-accordion details.step{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:0;
-      overflow:hidden;
-    }
-
-    #process .process-accordion details.step + details.step{
-      margin-top:10px;
-    }
-
-    #process .process-accordion summary{
-      cursor:pointer;
-      list-style:none;
-      padding:16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-weight:900;
-      user-select:none;
-    }
-    #process .process-accordion summary::-webkit-details-marker{ display:none; }
-
-    #process .process-accordion summary::after{
-      content:"▾";
-      font-weight:1000;
-      color: var(--navy);
-      transition: transform .18s ease;
-    }
-    #process .process-accordion details[open] summary::after{
-      transform: rotate(180deg);
-    }
-
-    #process .process-accordion .step-body{
-      max-height:0;
-      overflow:hidden;
-      opacity:0;
-      padding:0 16px;
-      transform: translateY(-6px);
-      transition:
-        max-height .28s ease,
-        opacity .22s ease,
-        transform .22s ease;
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
-        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
-        linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
-      border-top:1px solid rgba(15,110,168,.25);
-    }
-
-    #process .process-accordion details[open] .step-body{
       max-height:520px;
       opacity:1;
       padding:16px;
       transform:none;
     }
 
+    /* =========================
+       PROCESS SECTION (MATCH INDEX BEHAVIOR)
+       Desktop: 6 boxes
+       Mobile: accordion only
+    ========================== */
+
+    /* Desktop grid (ON by default) */
+    #process .process-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+
+    /* 3 equal rows per column */
+    #process .process-col{
+      display:grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+
+    /* Card fills row */
+    #process .process-col .card{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+
+    /* Light gradient + BLACK text */
+    #process .card.card-bluegrad{
+      background: linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);
+      border: 1px solid rgba(57,191,234,.28);
+      box-shadow: var(--shadow);
+      color:#111827;
+    }
+    #process .card.card-bluegrad h3{
+      margin:0 0 8px;
+      color: var(--navy);
+    }
+    #process .card.card-bluegrad p{
+      margin:0 0 10px;
+      color:#111827;
+    }
+    #process .card.card-bluegrad ul{
+      margin:0;
+      padding-left:18px;
+    }
+    #process .card.card-bluegrad li{ color:#111827; }
+
+    /* Step header with icon (NO background) */
     #process .step-title{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:10px;
-      width:100%;
     }
-    #process .step-icon{ line-height:1; }
-    #process .step-text{ position:relative; top:-2px; }
+    #process .step-icon{
+      width:auto;
+      height:auto;
+      background:transparent;
+      border:0;
+      box-shadow:none;
+      padding:0;
+      margin-top:2px;
+      font-size:18px;
+      line-height:1;
+      flex:0 0 auto;
+    }
+    #process .step-text{
+      position:relative;
+      top:2px;
+      line-height:1.15;
+      display:inline-block;
+    }
+
+    /* Mobile accordion hidden on desktop */
+    #process .process-accordion{ display:none; margin-top:16px; }
+
+    #process details.step{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
+    }
+    #process details.step + details.step{ margin-top:10px; }
+
+    #process details.step > summary{
+      cursor:pointer;
+      list-style:none;
+      padding:14px 16px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: var(--navy);
+      user-select:none;
+    }
+    #process summary::-webkit-details-marker{ display:none; }
+
+    #process details.step > summary::after{
+      content:"▾";
+      color: var(--navy);
+      transition: transform .18s ease;
+      font-weight:1000;
+    }
+    #process details.step[open] > summary::after{ transform: rotate(180deg); }
+
+    #process .step-body{
+      padding:14px 16px 16px;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.22);
+    }
+    #process .step-body p{ margin:0 0 10px; color:#111827; }
+    #process .step-body ul{ margin:0; padding-left:18px; }
+    #process .step-body li{ color:#111827; }
+
+    /* Switch: accordion on mobile ONLY */
+    @media (max-width: 900px){
+      #process .process-grid{ display:none; }
+      #process .process-accordion{ display:block; }
+    }
   </style>
 </head>
 
@@ -491,7 +457,7 @@
         </div>
       </section>
 
-      <!-- ELFSIGHT NOTICE (single placeholder only; remove after GBP is live) -->
+      <!-- ELFSIGHT NOTICE (placeholder) -->
       <section class="section">
         <div class="container">
           <div class="notice" style="
@@ -511,16 +477,109 @@
 
       <!-- =========================
            STEP-BY-STEP PROCESS
-           Accordion style (like your index/FAQ)
+           Desktop: 6 boxes
+           Mobile: accordion only
       ========================== -->
       <section class="section" id="process">
         <div class="container">
           <h2>Our Paver Sealing Process</h2>
           <p class="muted" style="max-width:980px;">
-            Prep, Joint Integrity, Moisture Control, And A Repeatable System — That’s What Makes Results Last.
+            Prep, joint integrity, moisture control, and a repeatable system — that’s what makes results last.
           </p>
 
-          <div class="process-accordion" aria-label="Process accordion">
+          <!-- DESKTOP (2 columns, equal-height cards) -->
+          <div class="process-grid" aria-label="Process cards (desktop)">
+            <div class="process-col">
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">🔍</span>
+                  <span class="step-text">1) Inspection &amp; Surface Evaluation</span>
+                </h3>
+                <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
+                <ul>
+                  <li>Sinking/rocking and base concerns</li>
+                  <li>Stains: organic, rust, oil, tire marks</li>
+                  <li>Finish goal: natural vs color-enhanced</li>
+                </ul>
+              </div>
+
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">🧼</span>
+                  <span class="step-text">2) Professional Cleaning &amp; Organic Treatment</span>
+                </h3>
+                <p>We clean for adhesion and uniform results — not just appearance.</p>
+                <ul>
+                  <li>Targeted organic treatment (algae/mildew)</li>
+                  <li>Controlled surface cleaning for consistency</li>
+                  <li>Thorough rinse + surface verification</li>
+                </ul>
+              </div>
+
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">🧱</span>
+                  <span class="step-text">3) Joint Prep &amp; Re-Sanding (ASTM-C144)</span>
+                </h3>
+                <p>We reset joints with Trident joint sand and compact for stability.</p>
+                <ul>
+                  <li>Clean joints and remove failing material</li>
+                  <li>Hydro-compact for joint lock</li>
+                  <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
+                </ul>
+
+                <div class="badge badge-green" style="margin-top:12px;text-align:center;">
+                  <a href="/joint-sand-colors/" style="color:inherit;text-decoration:none;display:inline-block;">
+                    View Trident Sand Color Options →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="process-col">
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">🌦️</span>
+                  <span class="step-text">4) Moisture &amp; Weather Window Control</span>
+                </h3>
+                <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
+                <ul>
+                  <li>Surface dryness and low-spot checks</li>
+                  <li>Humidity and rain-risk planning</li>
+                  <li>Shade and moisture awareness</li>
+                </ul>
+              </div>
+
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">🧴</span>
+                  <span class="step-text">5) Sealer Application (Two-Coat System)</span>
+                </h3>
+                <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
+                <ul>
+                  <li>Flood coat + second coat (as needed)</li>
+                  <li>Clean borders and edge control</li>
+                  <li>Natural or color-enhanced finish options</li>
+                </ul>
+              </div>
+
+              <div class="card card-bluegrad">
+                <h3 class="step-title">
+                  <span class="step-icon" aria-hidden="true">✅</span>
+                  <span class="step-text">6) Final Walkthrough, Cure-Time &amp; Maintenance</span>
+                </h3>
+                <p>We confirm coverage, review cure time, and give clear care guidance.</p>
+                <ul>
+                  <li>24 hours no foot traffic, 48 hours vehicles</li>
+                  <li>Do’s and don’ts to prevent premature wear</li>
+                  <li>Maintenance plan to extend life</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOBILE (accordion only) -->
+          <div class="process-accordion" aria-label="Process accordion (mobile)">
             <details class="step">
               <summary>
                 <span class="step-title">
@@ -529,8 +588,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">We check drainage, stains, joints, and movement so expectations are clear.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>We check drainage, stains, joints, and movement so expectations are clear.</p>
+                <ul>
                   <li>Sinking/rocking and base concerns</li>
                   <li>Stains: organic, rust, oil, tire marks</li>
                   <li>Finish goal: natural vs color-enhanced</li>
@@ -546,8 +605,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">We clean for adhesion and uniform results — not just appearance.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>We clean for adhesion and uniform results — not just appearance.</p>
+                <ul>
                   <li>Targeted organic treatment (algae/mildew)</li>
                   <li>Controlled surface cleaning for consistency</li>
                   <li>Thorough rinse + surface verification</li>
@@ -563,8 +622,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">We reset joints with Trident joint sand and compact for stability.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>We reset joints with Trident joint sand and compact for stability.</p>
+                <ul>
                   <li>Clean joints and remove failing material</li>
                   <li>Hydro-compact for joint lock</li>
                   <li>Final depth: <strong>1/8&quot; below joint edge</strong></li>
@@ -586,8 +645,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>If the surface isn’t dry enough — or the window isn’t safe — we pause.</p>
+                <ul>
                   <li>Surface dryness and low-spot checks</li>
                   <li>Humidity and rain-risk planning</li>
                   <li>Shade and moisture awareness</li>
@@ -603,8 +662,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>Controlled coverage for a clean finish — no puddles, streaks, or tacky spots.</p>
+                <ul>
                   <li>Flood coat + second coat (as needed)</li>
                   <li>Clean borders and edge control</li>
                   <li>Natural or color-enhanced finish options</li>
@@ -620,8 +679,8 @@
                 </span>
               </summary>
               <div class="step-body">
-                <p class="muted">We confirm coverage, review cure time, and give clear care guidance.</p>
-                <ul class="muted" style="padding-left:18px;">
+                <p>We confirm coverage, review cure time, and give clear care guidance.</p>
+                <ul>
                   <li>24 hours no foot traffic, 48 hours vehicles</li>
                   <li>Do’s and don’ts to prevent premature wear</li>
                   <li>Maintenance plan to extend life</li>
@@ -630,24 +689,10 @@
             </details>
           </div>
 
-          <script>
-            // Process accordion: only one open at a time
-            (function(){
-              const root = document.querySelector('#process .process-accordion');
-              if(!root) return;
-              const steps = root.querySelectorAll('details.step');
-              steps.forEach(d => {
-                d.addEventListener('toggle', () => {
-                  if(!d.open) return;
-                  steps.forEach(other => { if(other !== d) other.removeAttribute('open'); });
-                });
-              });
-            })();
-          </script>
         </div>
       </section>
 
-      <!-- FAQ (single section, single ID, schema matches) -->
+      <!-- FAQ -->
       <section class="section" id="flemingisland-faq">
         <div class="container">
           <h2>Fleming Island Paver Sealing – Common Questions</h2>
@@ -766,7 +811,24 @@
   <script src="/assets/js/nav-dropdowns.js" defer></script>
 
   <script>
-    // Only one FAQ open at a time
+    // Process accordion: only one open at a time (mobile)
+    (function(){
+      const root = document.getElementById('process');
+      if(!root) return;
+      const steps = root.querySelectorAll('.process-accordion details.step');
+      if(!steps.length) return;
+
+      steps.forEach(d => {
+        d.addEventListener('toggle', () => {
+          if(!d.open) return;
+          steps.forEach(other => { if(other !== d) other.removeAttribute('open'); });
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // FAQ: only one open at a time
     (function () {
       const faq = document.querySelector('#flemingisland-faq');
       if (!faq) return;
