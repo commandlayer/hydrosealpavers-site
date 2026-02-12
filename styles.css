@@ -119,6 +119,11 @@ h3{ color: var(--h3-blue); }
   transform: none;
 }
 
+@media (max-width: 720px){
+  h2.section-title{
+    text-align: center;
+  }
+}
 
 
 
