@@ -119,6 +119,15 @@ h3{ color: var(--h3-blue); }
   transform: none;
 }
 
+<style>
+  @media (max-width: 720px){
+    h2.section-title{
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+</style>
 
 
 /* Pills / badges */
