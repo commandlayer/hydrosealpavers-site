@@ -103,6 +103,24 @@ h3{ color: var(--h3-blue); }
 }
 
 
+/* Header Call button: override the global tel hover */
+.header-ctas .btn.btn-ghost[href^="tel:"]{
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.header-ctas .btn.btn-ghost[href^="tel:"]:hover,
+.header-ctas .btn.btn-ghost[href^="tel:"]:focus-visible{
+  background: rgba(57,191,234,.22);
+  border-color: transparent;
+  color: var(--text);
+  box-shadow: none;
+  transform: none;
+}
+
+
+
 /* Pills / badges */
 .badge{
   display:inline-flex;
