@@ -66,14 +66,18 @@
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 16px 50px rgba(0,0,0,.25);
     }
+
+    /* Contact Us Today — match Elfsight form header vibe (system font + weight + size) */
     .hero-copy-card .hero-title{
       margin:0;
-      font-size: clamp(34px, 4vw, 54px);
-      line-height:1.02;
-      letter-spacing:-0.02em;
-      font-weight: 1000;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.1;
+      letter-spacing: 0;
+      font-weight: 800;
       color: var(--blue);
     }
+
     .hero-copy-card p{
       margin: 16px 0 0;
       font-size: 18px;
@@ -131,27 +135,19 @@
         padding-top: clamp(14px, 8vh, 90px);
         padding-bottom: 18px;
       }
-      .hero-copy-card .hero-title{ font-size: clamp(30px, 8vw, 44px); }
       .hero-copy-card p{ font-size: 16px; }
       .qcard{ padding:16px; }
     }
-    /* Contact Us Today: 20% smaller */
-.hero-copy-card .hero-title{
-  font-size: calc(clamp(34px, 4vw, 54px) * 0.8);
-}
 
-/* Center on mobile */
-@media (max-width: 720px){
-  .hero-copy-card{
-    text-align: center;
-  }
-  .hero-copy-card p,
-  .hero-copy-card .hero-mini{
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
+    /* Center on mobile */
+    @media (max-width: 720px){
+      .hero-copy-card{ text-align:center; }
+      .hero-copy-card p,
+      .hero-copy-card .hero-mini{
+        margin-left:auto;
+        margin-right:auto;
+      }
+    }
   </style>
 </head>
 
@@ -185,10 +181,10 @@
           </div>
 
           <!-- RIGHT -->
-         
-<!-- Elfsight Form Builder | Untitled Form Builder -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-13af5a14-c2d2-42d7-bb59-b0b863657e87" data-elfsight-app-lazy></div>
+          <!-- Elfsight Form Builder | Untitled Form Builder -->
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-13af5a14-c2d2-42d7-bb59-b0b863657e87" data-elfsight-app-lazy></div>
+
         </div>
       </div>
     </div>
