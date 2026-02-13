@@ -14,68 +14,77 @@
   <section class="section">
     <div class="container">
 
-      <!-- TOP: ALL-IN-ONE WHITE CONTAINER (NO BORDER / NO SHADOW) -->
-      <div class="card warranty-top" style="
-        padding:18px;
-        max-width:980px;
-        background:#fff;
-        border:none;
-        box-shadow:none;
-      ">
-        <div class="warranty-top-grid" style="
-          display:grid;
-          grid-template-columns: 1.25fr .75fr;
-          gap:18px;
-          align-items:start;
-        ">
-          <!-- LEFT: TITLE + COPY -->
-          <div>
-            <h1 style="margin:0;font-size:34px;line-height:1.15;">
-              Our Warranty &amp; Promise
-            </h1>
+    <!-- TOP: ALL-IN-ONE WHITE CONTAINER -->
+<div class="card warranty-top" style="
+  padding:18px;
+  max-width:980px;
+  background:#fff;
+  border:none;
+  box-shadow:none;
+">
+  <div class="warranty-top-grid" style="
+    display:grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap:18px;
+    align-items:start;
+  ">
 
-            <p style="color:var(--muted);margin:10px 0 0;line-height:1.65;">
-              At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
-              <strong>do the job right, stand behind the work, and treat customers fairly</strong>. We are a locally owned paver sealing and restoration
-              company serving Northeast Florida. We focus on <strong>proper preparation</strong>, <strong>premium materials</strong>, and
-              <strong>professional application</strong> to deliver results that hold up in Florida conditions. We follow a consistent process on every job
-              and complete projects to the same standard we would expect on our own property.
-            </p>
-          </div>
+    <!-- LEFT: TITLE + COPY -->
+    <div class="warranty-top-text">
+      <h1 style="margin:0;font-size:34px;line-height:1.15;">
+        Our Warranty &amp; Promise
+      </h1>
 
-          <!-- RIGHT: IMAGE (50% larger) -->
-          <div style="
-            justify-self:end;
-            width:100%;
-            max-width:510px; /* 340px -> +50% */
-          ">
-            <img
-              src="/assets/hero/hydroseal-2year-warranty.png"
-              alt="HydroSeal 2-Year Warranty"
-              loading="eager"
-              style="
-                width:100%;
-                height:auto;
-                display:block;
-              "
-            />
-          </div>
-        </div>
+      <p style="color:var(--muted);margin:10px 0 0;line-height:1.65;">
+        At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
+        <strong>do the job right, stand behind the work, and treat customers fairly</strong>. We are a locally owned paver sealing and restoration
+        company serving Northeast Florida. We focus on <strong>proper preparation</strong>, <strong>premium materials</strong>, and
+        <strong>professional application</strong> to deliver results that hold up in Florida conditions. We follow a consistent process on every job
+        and complete projects to the same standard we would expect on our own property.
+      </p>
+    </div>
 
-        <!-- MOBILE STACK -->
-        <style>
-          @media (max-width: 860px){
-            .warranty-top-grid{
-              grid-template-columns:1fr !important;
-            }
-            .warranty-top-grid > div:last-child{
-              justify-self:start !important;
-              max-width:560px !important;
-              margin-top:12px;
-            }
-          }
-        </style>
-      </div>
+    <!-- RIGHT: IMAGE -->
+    <div class="warranty-top-image" style="
+      justify-self:end;
+      width:100%;
+      max-width:510px;
+    ">
+      <img
+        src="/assets/hero/hydroseal-2year-warranty.png"
+        alt="HydroSeal 2-Year Warranty"
+        loading="eager"
+        style="width:100%;height:auto;display:block;"
+      />
+    </div>
+
+  </div>
+
+  <!-- MOBILE: stack + reorder (H1 -> IMAGE -> TEXT) -->
+  <style>
+    @media (max-width: 860px){
+      .warranty-top-grid{
+        grid-template-columns:1fr !important;
+      }
+      /* Reorder: image first */
+      .warranty-top-image{
+        order:1;
+        justify-self:start !important;
+        max-width:560px !important;
+        margin-top:12px;
+      }
+      /* Text second */
+      .warranty-top-text{
+        order:2;
+      }
+      /* Keep H1 above image */
+      .warranty-top-text h1{
+        margin-bottom:0;
+      }
+    }
+  </style>
+</div>
+
 
       <div style="height:14px"></div>
 
