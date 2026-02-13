@@ -23,7 +23,7 @@
 
       <div style="height:14px"></div>
 
-      <!-- SINGLE COLUMN WRAP -->
+      <!-- SINGLE COLUMN -->
       <div class="card" style="padding:18px;max-width:980px;">
 
         <h2 style="margin:0 0 8px;">Who We Are</h2>
@@ -37,19 +37,43 @@
 
         <h2 style="margin:0 0 10px;">Our Residential Paver Sealing Warranty</h2>
 
-        <!-- WARRANTY HERO (image + badge upper-right + summary) -->
+        <!-- WARRANTY HERO -->
         <div style="
           position:relative;
           border-radius:22px;
-          overflow:hidden;
+          overflow:hidden;                /* key: hard-crops anything outside */
           border:1px solid var(--line);
-          box-shadow:none;
           background:
             radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
             radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
             linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
         ">
-          <!-- Warranty badge: upper-right -->
+
+          <!-- IMAGE WRAPPER (forces correct sizing) -->
+          <div style="
+            position:relative;
+            width:100%;
+            height:0;
+            padding-top:38%;              /* controls aspect ratio; adjust 34–45% if needed */
+            overflow:hidden;
+          ">
+            <img
+              src="/assets/hero/hydroseal-2year-warranty.png"
+              alt="HydroSeal 2-Year Warranty"
+              loading="eager"
+              style="
+                position:absolute;
+                inset:0;
+                width:100%;
+                height:100%;
+                object-fit:cover;          /* key: always fits container */
+                object-position:center;    /* keeps centered crop */
+                display:block;
+              "
+            />
+          </div>
+
+          <!-- BADGE (upper-right) -->
           <div style="
             position:absolute;
             top:14px;
@@ -71,26 +95,10 @@
             2 YEARS<br><span style="font-weight:800;opacity:.92;font-size:12px;letter-spacing:.06em;">RESIDENTIAL</span>
           </div>
 
-          <!-- Image -->
-          <img
-            src="/assets/hero/hydroseal-2year-warranty.png"
-            alt="HydroSeal 2-Year Warranty"
-            loading="eager"
-            style="
-              display:block;
-              width:100%;
-              max-height:320px;
-              object-fit:cover;
-              filter:saturate(1.02) contrast(1.02);
-            "
-          />
-
-          <!-- Content overlay -->
+          <!-- CONTENT PANEL -->
           <div style="
-            position:relative;
-            z-index:2;
             padding:14px 16px 16px;
-            background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
+            background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88));
             border-top:1px solid rgba(11,45,74,.10);
           ">
             <div style="font-weight:1000;letter-spacing:.02em;">
@@ -127,7 +135,7 @@
               padding:12px 14px;
               border-radius:16px;
               border:1px dashed rgba(11,45,74,.25);
-              background:rgba(255,255,255,.85);
+              background:rgba(255,255,255,.88);
             ">
               <strong>We seal it right — or we make it right.</strong>
             </div>
@@ -180,7 +188,7 @@
 
         <ul style="margin:0;padding-left:18px;">
           <li>Call <a style="color:var(--blue);font-weight:900" href="tel:+19045375000">904.537.5000</a></li>
-          <li>Or request service by providing: your name, service address, approximate service date, and <strong>2–4 photos</strong> of the affected area</li>
+          <li>Provide: your name, service address, approximate service date, and <strong>2–4 photos</strong> of the affected area</li>
           <li>We’ll schedule a <strong>free inspection</strong> and explain what we found and what happens next</li>
         </ul>
 
