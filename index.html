@@ -487,7 +487,10 @@ img{max-width:100%; height:auto;}
     gap:14px;
     padding:14px;
     will-change:transform;
+
+    /* JS will set --marquee-shift to a pixel value like 1420px */
     animation: marquee-right 70s linear infinite;
+    transform: translateX(calc(var(--marquee-shift, 0px) * -1));
   }
 
   .marquee-group{
@@ -495,10 +498,10 @@ img{max-width:100%; height:auto;}
     gap:14px;
   }
 
-  /* TALLER placeholder cards */
+  /* Taller placeholder cards */
   .ph{
     flex:0 0 min(380px, 78vw);
-    height:270px; /* was 220px */
+    height:270px;
     border-radius:18px;
     border:1px solid rgba(15,110,168,.28);
     background:
@@ -531,18 +534,8 @@ img{max-width:100%; height:auto;}
     color:#fff;
     text-shadow:0 12px 28px rgba(0,0,0,.35);
   }
-
-  .ph-title{
-    font-weight:1000;
-    letter-spacing:-.01em;
-    line-height:1.1;
-  }
-  .ph-sub{
-    font-size:13px;
-    opacity:.9;
-    margin-top:4px;
-    font-weight:700;
-  }
+  .ph-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
+  .ph-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
 
   .ph-tag{
     font-size:12px;
@@ -556,10 +549,10 @@ img{max-width:100%; height:auto;}
     white-space:nowrap;
   }
 
-  /* Rightward continuous motion */
+  /* Scroll RIGHT by exactly one group's width (set by JS) */
   @keyframes marquee-right{
-    0%   { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
+    from { transform: translateX(calc(var(--marquee-shift, 0px) * -1)); }
+    to   { transform: translateX(0px); }
   }
 
   @keyframes shimmer{
@@ -574,126 +567,67 @@ img{max-width:100%; height:auto;}
 
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none; }
+    .marquee-track{ animation: none; transform:none; }
     .ph::after{ animation: none; }
   }
 </style>
 
 <section class="section" id="recent-jobs" style="border-top:1px solid var(--line);">
   <div class="container">
-    <h2 class="section-title">Our Recent Sealing Jobs</h2>
-    
+    <h2 class="section-title">Recent Sealing Jobs</h2>
+    <p class="section-sub">Auto-scrolls slowly to the right. Hover to pause (desktop).</p>
+
     <div class="marquee" aria-label="Recent sealing jobs (placeholders)">
-      <div class="marquee-track">
+      <div class="marquee-track" id="recentJobsTrack">
         <!-- GROUP A -->
-        <div class="marquee-group" aria-hidden="false">
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Nocatee</div>
-                <div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div>
-              </div>
-              <div class="ph-tag">Latest</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Ponte Vedra</div>
-                <div class="ph-sub">Pool Deck • Stone-Safe + Seal</div>
-              </div>
-              <div class="ph-tag">Before/After</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Jacksonville</div>
-                <div class="ph-sub">Patio • Restoration Finish</div>
-              </div>
-              <div class="ph-tag">Hot</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">St. Johns County</div>
-                <div class="ph-sub">Walkway • Joint Reset</div>
-              </div>
-              <div class="ph-tag">New</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Jacksonville Beach</div>
-                <div class="ph-sub">Driveway • Maintenance Seal</div>
-              </div>
-              <div class="ph-tag">Coastal</div>
-            </div>
-          </div>
+        <div class="marquee-group" data-marquee-group>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Nocatee</div><div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div></div><div class="ph-tag">Latest</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Ponte Vedra</div><div class="ph-sub">Pool Deck • Stone-Safe + Seal</div></div><div class="ph-tag">Before/After</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jacksonville</div><div class="ph-sub">Patio • Restoration Finish</div></div><div class="ph-tag">Hot</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">St. Johns County</div><div class="ph-sub">Walkway • Joint Reset</div></div><div class="ph-tag">New</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jax Beach</div><div class="ph-sub">Driveway • Maintenance Seal</div></div><div class="ph-tag">Coastal</div></div></div>
         </div>
 
         <!-- GROUP B (duplicate for seamless loop) -->
         <div class="marquee-group" aria-hidden="true">
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Nocatee</div>
-                <div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div>
-              </div>
-              <div class="ph-tag">Latest</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Ponte Vedra</div>
-                <div class="ph-sub">Pool Deck • Stone-Safe + Seal</div>
-              </div>
-              <div class="ph-tag">Before/After</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Jacksonville</div>
-                <div class="ph-sub">Patio • Restoration Finish</div>
-              </div>
-              <div class="ph-tag">Hot</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">St. Johns County</div>
-                <div class="ph-sub">Walkway • Joint Reset</div>
-              </div>
-              <div class="ph-tag">New</div>
-            </div>
-          </div>
-
-          <div class="ph">
-            <div class="ph-meta">
-              <div>
-                <div class="ph-title">Jacksonville Beach</div>
-                <div class="ph-sub">Driveway • Maintenance Seal</div>
-              </div>
-              <div class="ph-tag">Coastal</div>
-            </div>
-          </div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Nocatee</div><div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div></div><div class="ph-tag">Latest</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Ponte Vedra</div><div class="ph-sub">Pool Deck • Stone-Safe + Seal</div></div><div class="ph-tag">Before/After</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jacksonville</div><div class="ph-sub">Patio • Restoration Finish</div></div><div class="ph-tag">Hot</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">St. Johns County</div><div class="ph-sub">Walkway • Joint Reset</div></div><div class="ph-tag">New</div></div></div>
+          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jax Beach</div><div class="ph-sub">Driveway • Maintenance Seal</div></div><div class="ph-tag">Coastal</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Measure group width and animate by that exact distance (mobile-safe).
+  (function(){
+    const track = document.getElementById('recentJobsTrack');
+    if(!track) return;
+
+    const group = track.querySelector('[data-marquee-group]');
+    if(!group) return;
+
+    function setShift(){
+      // Include the gap at the end so the loop is seamless
+      const styles = getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+
+      const w = group.getBoundingClientRect().width;
+      track.style.setProperty('--marquee-shift', (w + gap) + 'px');
+    }
+
+    // Run now, after images/fonts settle, and on resize
+    setShift();
+    window.addEventListener('resize', setShift);
+
+    // Some mobile browsers need a tick after layout
+    setTimeout(setShift, 250);
+    setTimeout(setShift, 1000);
+  })();
+</script>
 
 
   <!-- CERTS / TRUST -->
