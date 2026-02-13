@@ -14,103 +14,125 @@
   <section class="section">
     <div class="container">
 
-      <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15">Our Warranty &amp; Promise</h1>
+      <!-- TOP: TITLE + COPY (LEFT) + WARRANTY IMAGE (UPPER-RIGHT) -->
+      <div class="warranty-top-grid" style="
+        display:grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap:18px;
+        align-items:start;
+        max-width:980px;
+      ">
 
-     <p style="color:var(--muted);max-width:980px;margin-top:10px;">
-  At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
-  <strong>do the job right, stand behind the work, and treat customers fairly</strong>. We are a locally owned paver sealing and restoration company serving Northeast Florida. We focus on <strong>proper preparation</strong>, <strong>premium materials</strong>, and <strong>professional application</strong> to deliver results that hold up in Florida conditions. We follow a consistent process on every job and complete projects to the same standard we would expect on our own property.
-</p>
+        <!-- LEFT -->
+        <div>
+          <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15;">
+            Our Warranty &amp; Promise
+          </h1>
+
+          <p style="color:var(--muted);margin:10px 0 0;line-height:1.65;">
+            At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
+            <strong>do the job right, stand behind the work, and treat customers fairly</strong>. We are a locally owned paver sealing and restoration
+            company serving Northeast Florida. We focus on <strong>proper preparation</strong>, <strong>premium materials</strong>, and
+            <strong>professional application</strong> to deliver results that hold up in Florida conditions. We follow a consistent process on every job
+            and complete projects to the same standard we would expect on our own property.
+          </p>
+        </div>
+
+        <!-- RIGHT: smaller image card -->
+        <div style="justify-self:end;width:100%;max-width:340px;">
+          <div style="
+            border-radius:18px;
+            border:1px solid var(--line);
+            background:#fff;
+            box-shadow:0 12px 28px rgba(17,24,39,.10);
+            padding:12px;
+          ">
+            <img
+              src="/assets/hero/hydroseal-2year-warranty.png"
+              alt="HydroSeal 2-Year Warranty"
+              loading="eager"
+              style="
+                width:100%;
+                height:auto;
+                display:block;
+                border-radius:12px;
+              "
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MOBILE: stack title/copy and image -->
+      <style>
+        @media (max-width: 860px){
+          .warranty-top-grid{
+            grid-template-columns:1fr !important;
+          }
+          .warranty-top-grid > div:last-child{
+            justify-self:start !important;
+            max-width:420px !important;
+          }
+        }
+      </style>
 
       <div style="height:14px"></div>
 
-      <!-- SINGLE COLUMN -->
+      <!-- SINGLE COLUMN PAGE CONTENT -->
       <div class="card" style="padding:18px;max-width:980px;">
 
-       
         <h2 style="margin:0 0 10px;">Our Residential Paver Sealing Warranty</h2>
 
+        <!-- WARRANTY DETAILS HERO (no big image, no extra 2-year badge here) -->
         <div style="
-          position:relative;
           border-radius:22px;
-          overflow:hidden;                /* key: hard-crops anything outside */
+          padding:16px;
           border:1px solid var(--line);
+          box-shadow:none;
           background:
             radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
             radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
             linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
         ">
 
+          <h3 style="margin:0;font-weight:900;letter-spacing:.02em;">
+            2-Year Workmanship &amp; Sealer Adhesion Warranty
+          </h3>
+
+          <p style="color:var(--muted);margin-top:6px;max-width:900px;">
+            Covers <strong>peeling</strong>, <strong>flaking</strong>, or <strong>abnormal sealer failure</strong> caused by improper application or workmanship.
+          </p>
+
+          <div style="height:12px"></div>
+
+          <div style="display:grid;grid-template-columns:1fr;gap:12px;">
+            <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
+              <div style="font-weight:900;">Covered Issues</div>
+              <ul style="margin:8px 0 0;padding-left:18px;">
+                <li>Peeling</li>
+                <li>Flaking</li>
+                <li>Abnormal sealer failure caused by application/workmanship</li>
+              </ul>
+            </div>
+
+            <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
+              <div style="font-weight:900;">If There’s an Issue</div>
+              <ol style="margin:8px 0 0;padding-left:18px;">
+                <li><strong>Free inspection</strong></li>
+                <li><strong>Repair or one-time re-seal</strong> of the affected area (no labor charge) if covered</li>
+              </ol>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
           <div style="
-  position:relative;
-  width:100%;
-  padding:30px 0;
-  text-align:center;
-  background:#fff;
-">
-  <img
-    src="/assets/hero/hydroseal-2year-warranty.png"
-    alt="HydroSeal 2-Year Warranty"
-    style="
-      max-width:520px;
-      width:100%;
-      height:auto;
-      display:inline-block;
-    "
-  />
-</div>
-
-
-</div>
-
-
-          
-
-          <!-- CONTENT PANEL -->
-          <div style="
-            padding:14px 16px 16px;
-            background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88));
-            border-top:1px solid rgba(11,45,74,.10);
+            padding:12px 14px;
+            border-radius:16px;
+            border:1px dashed rgba(11,45,74,.25);
+            background:rgba(255,255,255,.85);
           ">
-            <h3 style="margin:0;font-weight:900;letter-spacing:.02em;">
-  2-Year Workmanship &amp; Sealer Adhesion Warranty
-</h3>
-
-<p style="color:var(--muted);margin-top:6px;max-width:900px;">
-  Covers <strong>peeling</strong>, <strong>flaking</strong>, or <strong>abnormal sealer failure</strong> caused by improper application or workmanship.
-</p>
-
-
-            <div style="height:12px"></div>
-
-            <div style="display:grid;grid-template-columns:1fr;gap:12px;">
-              <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
-                <div style="font-weight:900;">Covered Issues</div>
-                <ul style="margin:8px 0 0;padding-left:18px;">
-                  <li>Peeling</li>
-                  <li>Flaking</li>
-                  <li>Abnormal sealer failure caused by application/workmanship</li>
-                </ul>
-              </div>
-
-              <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
-                <div style="font-weight:900;">If There’s an Issue</div>
-                <ol style="margin:8px 0 0;padding-left:18px;">
-                  <li><strong>Free inspection</strong></li>
-                  <li><strong>Repair or one-time re-seal</strong> of the affected area (no labor charge) if covered</li>
-                </ol>
-              </div>
-            </div>
-
-            <div style="height:12px"></div>
-
-            <div style="
-              padding:12px 14px;
-              border-radius:16px;
-              border:1px dashed rgba(11,45,74,.25);
-              background:rgba(255,255,255,.88);
-            ">
-              <strong>We seal it right — or we make it right.</strong>
-            </div>
+            <strong>We seal it right — or we make it right.</strong>
           </div>
         </div>
 
@@ -210,7 +232,6 @@
         </p>
 
       </div>
-      <!-- /card -->
 
     </div>
   </section>
