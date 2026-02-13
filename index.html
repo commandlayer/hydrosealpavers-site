@@ -472,39 +472,32 @@ img{max-width:100%; height:auto;}
      - Taller blue boxes
      - Drop this whole block into homepage where you want it
 ========================== -->
+<!-- ===== RECENT JOBS MARQUEE (1..5 loop, no overlap, pauses on hover) ===== -->
 <style>
   .marquee{
     border:1px solid var(--line);
     border-radius:18px;
     background:#fff;
     overflow:hidden;
+    position:relative;
   }
 
+  /* big, consistent spacing so they never touch */
   .marquee-track{
     display:flex;
     width:max-content;
-    gap:14px;
-    padding:14px;
-
-    /* GPU-friendly */
+    gap:18px;               /* <-- spacing between cards */
+    padding:16px 16px;      /* <-- padding around the run */
     will-change: transform;
     transform: translate3d(0,0,0);
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-
-    /* Don’t use CSS animation anymore (JS will drive it) */
-    animation: none !important;
+    backface-visibility:hidden;
+    touch-action: pan-y;    /* don’t fight scrolling */
   }
 
-  .marquee-group{
-    display:flex;
-    gap:14px;
-  }
-
-  /* Placeholder card */
-  .ph{
-    flex:0 0 min(380px, 78vw);
-    height:270px;
+  /* the card placeholders */
+  .job-card{
+    flex:0 0 min(420px, 82vw);  /* wider cards on mobile */
+    height:290px;              /* “a little bit higher” */
     border-radius:18px;
     border:1px solid rgba(15,110,168,.18);
     background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
@@ -512,7 +505,7 @@ img{max-width:100%; height:auto;}
     overflow:hidden;
   }
 
-  .ph-meta{
+  .job-meta{
     position:absolute;
     left:14px;
     right:14px;
@@ -524,10 +517,18 @@ img{max-width:100%; height:auto;}
     color:#fff;
     text-shadow:0 10px 22px rgba(0,0,0,.35);
   }
-  .ph-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
-  .ph-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
-
-  .ph-tag{
+  .job-title{
+    font-weight:1000;
+    letter-spacing:-.01em;
+    line-height:1.1;
+  }
+  .job-sub{
+    font-size:13px;
+    opacity:.9;
+    margin-top:4px;
+    font-weight:700;
+  }
+  .job-tag{
     font-size:12px;
     font-weight:900;
     padding:7px 10px;
@@ -537,13 +538,10 @@ img{max-width:100%; height:auto;}
     white-space:nowrap;
   }
 
-  /* Mobile performance: kill anything expensive */
-  @media (max-width: 860px){
-    .ph{
-      /* keep it simple */
-      box-shadow: none !important;
-      filter: none !important;
-    }
+  /* optional: make it feel nicer */
+  .job-card:hover{
+    transform: translateY(-2px);
+    transition: transform .18s ease;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -551,105 +549,119 @@ img{max-width:100%; height:auto;}
   }
 </style>
 
-
-<section class="section" id="recent-jobs" style="border-top:1px solid var(--line);">
+<section class="section" id="recent-jobs">
   <div class="container">
     <h2 class="section-title">Recent Sealing Jobs</h2>
-    <p class="section-sub">Auto-scrolls slowly to the right. Hover to pause (desktop).</p>
+    <p class="section-sub">Live updates coming soon. These are placeholders for now.</p>
 
-    <div class="marquee" aria-label="Recent sealing jobs (placeholders)">
+    <div class="marquee" aria-label="Recent jobs marquee">
       <div class="marquee-track" id="recentJobsTrack">
-        <!-- GROUP A -->
-        <div class="marquee-group" data-marquee-group>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Nocatee</div><div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div></div><div class="ph-tag">Latest</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Ponte Vedra</div><div class="ph-sub">Pool Deck • Stone-Safe + Seal</div></div><div class="ph-tag">Before/After</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jacksonville</div><div class="ph-sub">Patio • Restoration Finish</div></div><div class="ph-tag">Hot</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">St. Johns County</div><div class="ph-sub">Walkway • Joint Reset</div></div><div class="ph-tag">New</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jax Beach</div><div class="ph-sub">Driveway • Maintenance Seal</div></div><div class="ph-tag">Coastal</div></div></div>
-        </div>
-
-        <!-- GROUP B (duplicate for seamless loop) -->
-        <div class="marquee-group" aria-hidden="true">
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Nocatee</div><div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div></div><div class="ph-tag">Latest</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Ponte Vedra</div><div class="ph-sub">Pool Deck • Stone-Safe + Seal</div></div><div class="ph-tag">Before/After</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jacksonville</div><div class="ph-sub">Patio • Restoration Finish</div></div><div class="ph-tag">Hot</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">St. Johns County</div><div class="ph-sub">Walkway • Joint Reset</div></div><div class="ph-tag">New</div></div></div>
-          <div class="ph"><div class="ph-meta"><div><div class="ph-title">Jax Beach</div><div class="ph-sub">Driveway • Maintenance Seal</div></div><div class="ph-tag">Coastal</div></div></div>
-        </div>
+        <!-- EXACTLY 1..5 -->
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">1) Driveway Refresh</div><div class="job-sub">Nocatee • Color-Enhanced</div></div><div class="job-tag">Before/After</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">2) Pool Deck Seal</div><div class="job-sub">Ponte Vedra • Natural</div></div><div class="job-tag">Non-Slip Add-On</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">3) Patio Restore</div><div class="job-sub">Julington Creek</div></div><div class="job-tag">Re-Sand</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">4) Driveway Cleanup</div><div class="job-sub">Mandarin</div></div><div class="job-tag">Deep Clean</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">5) Walkway + Entry</div><div class="job-sub">St. Johns • 210</div></div><div class="job-tag">Sealed</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<<script>
+<script>
   (function(){
     const track = document.getElementById('recentJobsTrack');
     if(!track) return;
 
-    const groupA = track.querySelector('[data-marquee-group]');
-    if(!groupA) return;
+    const marquee = track.closest('.marquee');
+    const SPEED = 22; // px/sec (lower = slower)
 
-    // How fast you want it: px/sec (lower = slower)
-    const SPEED = 18;
-
-    let shift = 0;
-    let width = 0;
+    let running = true;
+    let x = 0;
+    let loopWidth = 0;
     let last = performance.now();
     let rafId = null;
 
-    function measure(){
-      // Width of the first group (A) + the gap between groups
-      const styles = getComputedStyle(track);
-      const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-      width = groupA.getBoundingClientRect().width + gap;
+    function getGapPx(){
+      const st = getComputedStyle(track);
+      const gap = parseFloat(st.gap || st.columnGap || "0");
+      return isNaN(gap) ? 0 : gap;
+    }
 
-      // Reset shift so we never jump weird after resize
-      shift = ((shift % width) + width) % width;
-      track.style.transform = `translate3d(${-shift}px,0,0)`;
+    function buildCloneSet(){
+      // Remove old clones
+      track.querySelectorAll('[data-clone="1"]').forEach(n => n.remove());
+
+      // Clone the originals once, so we have A + B
+      const originals = Array.from(track.querySelectorAll('[data-job]'));
+      originals.forEach(el => {
+        const c = el.cloneNode(true);
+        c.setAttribute('data-clone','1');
+        track.appendChild(c);
+      });
+    }
+
+    function measure(){
+      const originals = Array.from(track.querySelectorAll('[data-job]'));
+      const gap = getGapPx();
+
+      // loopWidth = exact width of one full original set (cards + gaps between them)
+      loopWidth = originals.reduce((sum, el, i) => {
+        const w = el.getBoundingClientRect().width;
+        return sum + w + (i === originals.length - 1 ? 0 : gap);
+      }, 0);
+
+      // normalize x into [0, loopWidth)
+      if(loopWidth > 0){
+        x = ((x % loopWidth) + loopWidth) % loopWidth;
+      } else {
+        x = 0;
+      }
+      track.style.transform = `translate3d(${-x}px,0,0)`;
     }
 
     function tick(now){
       const dt = (now - last) / 1000;
       last = now;
 
-      // Move RIGHT: track moves left-to-right visually => translate negative decreases
-      shift -= SPEED * dt;
-
-      // Loop seamlessly
-      if(width > 0){
-        // keep shift in [0, width)
-        shift = ((shift % width) + width) % width;
+      if(running && loopWidth > 0){
+        x += SPEED * dt; // move left continuously
+        if(x >= loopWidth) x -= loopWidth;
+        track.style.transform = `translate3d(${-x}px,0,0)`;
       }
 
-      track.style.transform = `translate3d(${-shift}px,0,0)`;
       rafId = requestAnimationFrame(tick);
     }
 
-    // Pause on touch/hover if you want (optional)
-    function stop(){ if(rafId) cancelAnimationFrame(rafId); rafId = null; }
-    function start(){ if(!rafId) { last = performance.now(); rafId = requestAnimationFrame(tick); } }
+    function start(){
+      running = true;
+    }
+    function stop(){
+      running = false;
+    }
 
-    // Start
+    // Build clones and start
+    buildCloneSet();
     measure();
-    start();
+    rafId = requestAnimationFrame(tick);
 
-    // Re-measure on resize/orientation/font load
+    // Pause on hover (desktop)
+    marquee.addEventListener('mouseenter', stop);
+    marquee.addEventListener('mouseleave', start);
+
+    // Pause on touch-hold (mobile) + resume on release
+    let touchPause = false;
+    marquee.addEventListener('touchstart', () => { touchPause = true; stop(); }, {passive:true});
+    marquee.addEventListener('touchend',   () => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
+    marquee.addEventListener('touchcancel',() => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
+
+    // Re-measure after resize/orientation/font/image changes
     window.addEventListener('resize', () => { measure(); });
     window.addEventListener('orientationchange', () => { setTimeout(measure, 200); });
-
-    // If images ever get added later, measure again after they load
     setTimeout(measure, 250);
     setTimeout(measure, 1000);
-
-    // Optional: pause when not visible (saves battery + avoids jank)
-    if ('IntersectionObserver' in window){
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => e.isIntersecting ? start() : stop());
-      }, { threshold: 0.1 });
-      io.observe(track);
-    }
   })();
 </script>
+
 
 
   <!-- CERTS / TRUST -->
