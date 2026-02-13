@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,71 +13,96 @@
 
   <section class="section">
     <div class="container">
-      <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15">Our Warranty & Promise</h1>
 
-      <p style="color:var(--muted);max-width:900px;margin-top:10px;">
+      <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15">Our Warranty &amp; Promise</h1>
+
+      <p style="color:var(--muted);max-width:980px;margin-top:10px;">
         At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
         <strong>do the job right, stand behind the work, and treat customers fairly</strong>.
       </p>
 
-      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-      </div>
+      <div style="height:14px"></div>
 
-      <div style="height:18px"></div>
+      <!-- SINGLE COLUMN WRAP -->
+      <div class="card" style="padding:18px;max-width:980px;">
 
-      <div class="grid" style="grid-template-columns:1.15fr .85fr;gap:18px;align-items:start;">
-        <!-- Main content -->
-        <div class="card" style="padding:18px;">
-          <h2 style="margin:0 0 8px;">Who We Are</h2>
-          <p style="margin:0;color:var(--muted);">
-            HydroSeal Pavers is a locally owned paver sealing and restoration company serving Northeast Florida. We focus on
-            <strong>proper preparation, premium materials, and professional application</strong> to deliver results that hold up in Florida conditions.
-            We follow a consistent process on every job and complete projects to the same standard we would expect on our own property.
-          </p>
+        <h2 style="margin:0 0 8px;">Who We Are</h2>
+        <p style="margin:0;color:var(--muted);">
+          HydroSeal Pavers is a locally owned paver sealing and restoration company serving Northeast Florida. We focus on
+          <strong>proper preparation, premium materials, and professional application</strong> to deliver results that hold up in Florida conditions.
+          We follow a consistent process on every job and complete projects to the same standard we would expect on our own property.
+        </p>
 
-          <div style="height:16px"></div>
+        <div style="height:18px"></div>
 
-          <h2 style="margin:0 0 8px;">Our Residential Paver Sealing Warranty</h2>
+        <h2 style="margin:0 0 10px;">Our Residential Paver Sealing Warranty</h2>
 
-          <!-- Warranty hero card -->
+        <!-- WARRANTY HERO (image + badge upper-right + summary) -->
+        <div style="
+          position:relative;
+          border-radius:22px;
+          overflow:hidden;
+          border:1px solid var(--line);
+          box-shadow:none;
+          background:
+            radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
+            radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
+            linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
+        ">
+          <!-- Warranty badge: upper-right -->
           <div style="
-            border-radius:22px;
-            padding:16px;
-            border:1px solid var(--line);
-            box-shadow:none;
-            background:
-              radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
-              radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
-              linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
+            position:absolute;
+            top:14px;
+            right:14px;
+            z-index:3;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            padding:10px 14px;
+            border-radius:999px;
+            font-weight:1000;
+            color:#fff;
+            background:linear-gradient(135deg, var(--navy), var(--blue));
+            box-shadow:0 12px 26px rgba(11,45,74,.25);
+            text-align:center;
+            line-height:1.05;
+            min-width:150px;
           ">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-              <div>
-                <div style="font-weight:900;letter-spacing:.02em;">2-Year Workmanship & Sealer Adhesion Warranty</div>
-                <div style="color:var(--muted);margin-top:4px;">
-                  Covers peeling, flaking, or abnormal sealer failure caused by improper application or workmanship.
-                </div>
-              </div>
+            2 YEARS<br><span style="font-weight:800;opacity:.92;font-size:12px;letter-spacing:.06em;">RESIDENTIAL</span>
+          </div>
 
-              <div style="
-                display:inline-flex;
-                align-items:center;
-                justify-content:center;
-                min-width:138px;
-                padding:10px 14px;
-                border-radius:999px;
-                font-weight:1000;
-                color:#fff;
-                background:linear-gradient(135deg, var(--navy), var(--blue));
-                box-shadow:0 12px 26px rgba(11,45,74,.25);
-                text-align:center;
-              ">
-                2 YEARS<br><span style="font-weight:800;opacity:.92;font-size:12px;letter-spacing:.06em;">RESIDENTIAL</span>
-              </div>
+          <!-- Image -->
+          <img
+            src="/assets/hero/hydroseal-2year-warranty.png"
+            alt="HydroSeal 2-Year Warranty"
+            loading="eager"
+            style="
+              display:block;
+              width:100%;
+              max-height:320px;
+              object-fit:cover;
+              filter:saturate(1.02) contrast(1.02);
+            "
+          />
+
+          <!-- Content overlay -->
+          <div style="
+            position:relative;
+            z-index:2;
+            padding:14px 16px 16px;
+            background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
+            border-top:1px solid rgba(11,45,74,.10);
+          ">
+            <div style="font-weight:1000;letter-spacing:.02em;">
+              2-Year Workmanship &amp; Sealer Adhesion Warranty
+            </div>
+            <div style="color:var(--muted);margin-top:6px;max-width:900px;">
+              Covers <strong>peeling</strong>, <strong>flaking</strong>, or <strong>abnormal sealer failure</strong> caused by improper application or workmanship.
             </div>
 
             <div style="height:12px"></div>
 
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="display:grid;grid-template-columns:1fr;gap:12px;">
               <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
                 <div style="font-weight:900;">Covered Issues</div>
                 <ul style="margin:8px 0 0;padding-left:18px;">
@@ -91,8 +115,8 @@
               <div class="card" style="padding:12px;border:1px solid var(--line);box-shadow:none;background:#fff;">
                 <div style="font-weight:900;">If There’s an Issue</div>
                 <ol style="margin:8px 0 0;padding-left:18px;">
-                  <li>Free inspection</li>
-                  <li>Repair or one-time re-seal of the affected area (no labor charge) if covered</li>
+                  <li><strong>Free inspection</strong></li>
+                  <li><strong>Repair or one-time re-seal</strong> of the affected area (no labor charge) if covered</li>
                 </ol>
               </div>
             </div>
@@ -103,200 +127,111 @@
               padding:12px 14px;
               border-radius:16px;
               border:1px dashed rgba(11,45,74,.25);
-              background:rgba(255,255,255,.72);
+              background:rgba(255,255,255,.85);
             ">
               <strong>We seal it right — or we make it right.</strong>
             </div>
           </div>
+        </div>
 
-          <div style="height:16px"></div>
+        <div style="height:18px"></div>
 
-          <h2 style="margin:0 0 8px;">Important Warranty Terms</h2>
-          <ul style="margin:10px 0 0;padding-left:18px;">
-            <li><strong>Remedy is limited</strong> to inspection and repair/re-seal of covered areas. <strong>No cash refunds</strong>.</li>
-            <li>Coverage applies to the <strong>treated surface only</strong> and does not include adjoining areas not serviced.</li>
-            <li>Warranty applies to <strong>coating adhesion</strong> only. It does not warrant the structural integrity of the pavers or the underlying base.</li>
-            <li>If matching is required, <strong>color/gloss match is not guaranteed</strong> due to natural variation, wear, and lighting.</li>
-          </ul>
+        <h2 style="margin:0 0 8px;">Important Warranty Terms</h2>
+        <ul style="margin:10px 0 0;padding-left:18px;">
+          <li><strong>Coverage period:</strong> 2 years starting on the <strong>job completion date</strong> shown on your invoice/service record.</li>
+          <li><strong>Remedy is limited</strong> to inspection and repair/re-seal of covered areas. <strong>No cash refunds</strong>.</li>
+          <li>Coverage applies to the <strong>treated surface only</strong> and does not include adjoining areas not serviced.</li>
+          <li>Warranty applies to <strong>coating adhesion</strong> only. It does not warrant the structural integrity of the pavers or the underlying base.</li>
+          <li>If matching is required, <strong>color/gloss match is not guaranteed</strong> due to natural variation, wear, and lighting.</li>
+          <li><strong>Owner maintenance requirement:</strong> Coverage assumes normal residential use and <strong>no pressure washing</strong> or harsh chemical cleaning on sealed surfaces after service. If you’re unsure what’s safe, call us first.</li>
+          <li><strong>Transferability:</strong> Warranty is tied to the serviced property address and is transferable once within the coverage period with written notice (simple email/receipt update).</li>
+        </ul>
 
-          <div style="height:16px"></div>
+        <div style="height:16px"></div>
 
-          <h2 style="margin:0 0 8px;">What This Warranty Does Not Cover</h2>
-          <p style="margin:0;color:var(--muted);">
-            To keep the warranty fair and sustainable, the following are excluded:
+        <h2 style="margin:0 0 8px;">What This Warranty Does Not Cover</h2>
+        <p style="margin:0;color:var(--muted);">
+          To keep the warranty fair and sustainable, the following are excluded:
+        </p>
+        <ul style="margin:10px 0 0;padding-left:18px;">
+          <li>Normal wear, tire marks, scuffs, and gradual color fading over time</li>
+          <li>Damage from vehicle traffic, heavy equipment, furniture dragging, or improper use</li>
+          <li>Standing water, drainage problems, base failure, or paver movement/settling</li>
+          <li>Efflorescence, moisture vapor issues, or substrate conditions outside our control</li>
+          <li>Chemical exposure (pool chemicals, acids, fertilizers, degreasers, harsh cleaners)</li>
+          <li>Pressure washing of sealed surfaces or aggressive cleaning methods after service</li>
+          <li>Acts of nature (storms, flooding, hurricanes, extreme weather)</li>
+          <li>Work performed by others after our service, or alterations to the surface</li>
+        </ul>
+
+        <p style="margin:12px 0 0;color:var(--muted);">
+          Tip: To protect your sealed surface, avoid harsh chemicals and degreasers and do not pressure wash sealed pavers.
+          If you need cleaning, call us and we’ll recommend a safe method.
+        </p>
+
+        <div style="height:18px"></div>
+
+        <h2 style="margin:0 0 8px;">How to Request Warranty Service</h2>
+        <p style="margin:0;color:var(--muted);">
+          If you believe there’s a covered issue, contact us and we’ll take care of the next step.
+        </p>
+
+        <div style="height:10px"></div>
+
+        <ul style="margin:0;padding-left:18px;">
+          <li>Call <a style="color:var(--blue);font-weight:900" href="tel:+19045375000">904.537.5000</a></li>
+          <li>Or request service by providing: your name, service address, approximate service date, and <strong>2–4 photos</strong> of the affected area</li>
+          <li>We’ll schedule a <strong>free inspection</strong> and explain what we found and what happens next</li>
+        </ul>
+
+        <div style="height:16px"></div>
+
+        <div class="card" style="padding:14px;border:1px solid var(--line);box-shadow:none;background:#fff;">
+          <div style="font-weight:900;">Response Expectations</div>
+          <p style="margin:8px 0 0;color:var(--muted);">
+            We typically respond within <strong>1 business day</strong> and aim to inspect promptly based on weather and scheduling.
+            If the issue is covered, we’ll schedule the repair/re-seal as soon as conditions allow.
           </p>
-          <ul style="margin:10px 0 0;padding-left:18px;">
-            <li>Normal wear, tire marks, scuffs, and gradual color fading over time</li>
-            <li>Damage from vehicle traffic, heavy equipment, furniture dragging, or improper use</li>
-            <li>Standing water, drainage problems, base failure, or paver movement/settling</li>
-            <li>Efflorescence, moisture vapor issues, or substrate conditions outside our control</li>
-            <li>Chemical exposure (pool chemicals, acids, fertilizers, degreasers, harsh cleaners)</li>
-            <li>Pressure washing of sealed surfaces or aggressive cleaning methods after service</li>
-            <li>Acts of nature (storms, flooding, hurricanes, extreme weather)</li>
-            <li>Work performed by others after our service, or alterations to the surface</li>
-          </ul>
+        </div>
 
-          <p style="margin:12px 0 0;color:var(--muted);">
-            Tip: To protect your sealed surface, avoid harsh chemicals and degreasers and do not pressure wash sealed pavers.
-            If you need cleaning, call us and we’ll recommend a safe method.
+        <div style="height:16px"></div>
+
+        <div class="card" style="padding:14px;border:1px solid var(--line);box-shadow:none;background:#fff;">
+          <p style="margin:0;">
+            Questions before you book? We’ll explain coverage in plain English and set expectations up front.
           </p>
 
-          <div style="height:16px"></div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="tel:+19045375000" style="
+              text-decoration:none;
+              padding:12px 14px;
+              border-radius:14px;
+              font-weight:1000;
+              color:#fff;
+              background:linear-gradient(135deg, var(--navy), var(--blue));
+              box-shadow:0 12px 26px rgba(11,45,74,.18);
+            ">Call 904.537.5000</a>
 
-          <h2 style="margin:0 0 8px;">How to Request Warranty Service</h2>
-          <p style="margin:0;color:var(--muted);">
-            If you believe there’s a covered issue, contact us and we’ll take care of the next step.
-          </p>
-
-          <div style="height:10px"></div>
-
-          <ul style="margin:0;padding-left:18px;">
-            <li>Call <a style="color:var(--blue);font-weight:900" href="tel:+19045375000">904.537.5000</a></li>
-            <li>We’ll schedule a <strong>free inspection</strong></li>
-            <li>We’ll explain what we found and what happens next — clearly and professionally</li>
-          </ul>
-
-          <div style="height:16px"></div>
-
-          <div class="card" style="padding:14px;border:1px solid var(--line);box-shadow:none;">
-            <p style="margin:0;">
-              Questions before you book? We’ll explain coverage in plain English and set expectations up front.
-            </p>
-            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-
-            </div>
+            <a href="/get-a-quote/" style="
+              text-decoration:none;
+              padding:12px 14px;
+              border-radius:14px;
+              font-weight:1000;
+              color:#0B2D4A;
+              background:linear-gradient(135deg, rgba(40,182,200,.30), rgba(15,110,168,.18));
+              border:1px solid rgba(11,45,74,.12);
+            ">Get a Quote</a>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <aside style="position:sticky;top:var(--sticky-offset, 116px);">
-          <!-- Yard-sign style summary -->
-          <div style="
-            border-radius:22px;
-            overflow:hidden;
-            box-shadow:0 18px 44px rgba(17,24,39,.18);
-            border:1px solid rgba(11,45,74,.12);
-            background:linear-gradient(180deg, var(--navy), #071f33 70%);
-          ">
-            <!-- top band -->
-            <div style="
-              padding:14px 16px;
-              background:linear-gradient(135deg, var(--blue), var(--teal));
-              color:#fff;
-            ">
-              <div style="font-weight:1000;letter-spacing:.06em;text-transform:uppercase;font-size:13px;opacity:.95;">
-                Warranty Summary
-              </div>
-              <div style="margin-top:4px;font-size:20px;line-height:1.1;font-weight:1000;">
-                2-Year Residential Coverage
-              </div>
-              <div style="margin-top:6px;font-size:13px;opacity:.92;">
-                Sealer performance + workmanship protection
-              </div>
-            </div>
+        <p style="margin-top:16px;color:var(--muted);font-size:14px;max-width:980px;">
+          Note: Final warranty coverage is confirmed in your written service agreement. Warranty terms may vary for commercial properties or specialty applications.
+          If you have questions before booking, call <a style="color:var(--blue);font-weight:900" href="tel:+19045375000">904.537.5000</a>.
+        </p>
 
-            <!-- main panel -->
-            <div style="padding:14px 16px;color:#fff;">
-              <div style="display:grid;gap:10px;">
-                <div style="
-                  border-radius:16px;
-                  padding:12px;
-                  background:rgba(255,255,255,.08);
-                  border:1px solid rgba(255,255,255,.12);
-                ">
-                  <div style="font-weight:900;">Covered</div>
-                  <div style="margin-top:6px;opacity:.95;">
-                    Peeling • Flaking • Abnormal failure from application/workmanship
-                  </div>
-                </div>
-
-                <div style="
-                  border-radius:16px;
-                  padding:12px;
-                  background:rgba(255,255,255,.08);
-                  border:1px solid rgba(255,255,255,.12);
-                ">
-                  <div style="font-weight:900;">Our Fix</div>
-                  <div style="margin-top:6px;opacity:.95;">
-                    Free inspection + one-time repair/re-seal of affected area if covered
-                  </div>
-                </div>
-
-                <div style="
-                  border-radius:16px;
-                  padding:12px;
-                  background:rgba(255,255,255,.08);
-                  border:1px solid rgba(255,255,255,.12);
-                ">
-                  <div style="font-weight:900;">Not Covered</div>
-                  <div style="margin-top:6px;opacity:.95;">
-                    Traffic wear • Drainage/base issues • Chemicals • Weather events • Normal fading
-                  </div>
-                </div>
-              </div>
-
-              <div style="height:12px"></div>
-
-              <!-- CTA band -->
-              <div style="
-                border-radius:18px;
-                padding:12px;
-                background:rgba(255,255,255,.10);
-                border:1px solid rgba(255,255,255,.14);
-              ">
-                <div style="font-weight:900;letter-spacing:.04em;">Need warranty help?</div>
-                <div style="margin-top:6px;opacity:.92;">Call and we’ll schedule a free inspection.</div>
-
-                <a href="tel:+19045375000" style="
-                  display:block;
-                  margin-top:10px;
-                  text-decoration:none;
-                  text-align:center;
-                  padding:12px 14px;
-                  border-radius:14px;
-                  font-weight:1000;
-                  color:#0B2D4A;
-                  background:linear-gradient(135deg, #ffffff, rgba(255,255,255,.86));
-                  box-shadow:0 14px 28px rgba(0,0,0,.22);
-                ">
-                  Call 904.537.5000
-                </a>
-
-                <a href="/get-a-quote/" style="
-                  display:block;
-                  margin-top:10px;
-                  text-decoration:none;
-                  text-align:center;
-                  padding:12px 14px;
-                  border-radius:14px;
-                  font-weight:900;
-                  color:#fff;
-                  background:linear-gradient(135deg, rgba(15,110,168,.95), rgba(40,182,200,.95));
-                  border:1px solid rgba(255,255,255,.18);
-                ">
-                  Get a Quote
-                </a>
-              </div>
-            </div>
-
-            <!-- bottom strip -->
-            <div style="
-              padding:12px 16px;
-              background:rgba(255,255,255,.06);
-              color:rgba(255,255,255,.86);
-              font-size:12px;
-              line-height:1.35;
-            ">
-              Note: Warranty terms may vary for commercial properties or specialty applications. Final coverage is confirmed in your written service agreement.
-            </div>
-          </div>
-        </aside>
       </div>
+      <!-- /card -->
 
-      <p style="margin-top:18px;color:var(--muted);font-size:14px;max-width:980px;">
-        Note: Final warranty coverage is confirmed in your written service agreement. If you have questions before booking, call
-        <a style="color:var(--blue);font-weight:900" href="tel:+19045375000">904.537.5000</a>.
-      </p>
     </div>
   </section>
 
