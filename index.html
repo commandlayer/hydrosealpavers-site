@@ -561,12 +561,13 @@ img{max-width:100%; height:auto;}
   if(!track) return;
 
   const marquee = track.closest('.marquee');
-  const SPEED = 26; // px/sec (lower = slower)
+  const SPEED = 26; // px/sec
 
   let running = true;
   let x = 0;                // 0..loopWidth
   let loopWidth = 0;        // width of ONE original set
   let last = performance.now();
+  let started = false;
 
   function getGapPx(){
     const st = getComputedStyle(track);
@@ -575,10 +576,7 @@ img{max-width:100%; height:auto;}
   }
 
   function buildClones(){
-    // remove existing clones
     track.querySelectorAll('[data-clone="1"]').forEach(n => n.remove());
-
-    // clone originals once (A + B)
     const originals = Array.from(track.querySelectorAll('[data-job]'));
     originals.forEach(el => {
       const c = el.cloneNode(true);
@@ -603,16 +601,42 @@ img{max-width:100%; height:auto;}
     }
   }
 
-  // For LEFT→RIGHT, we want to show the B copy sliding in from the left.
-  // Easiest: translate track by (x - loopWidth) where x goes 0..loopWidth.
+  // LEFT→RIGHT rendering (B slides in from left)
   function render(){
     if(loopWidth <= 0) return;
     track.style.transform = `translate3d(${x - loopWidth}px,0,0)`;
   }
 
+  // Start view should show 3,4,5 first.
+  // We do that by setting x to the width of items 1+2 (+ gap between them).
+  function setStartAt3(){
+    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    if(originals.length < 3) return;
+
+    const gap = getGapPx();
+    const w1 = originals[0].getBoundingClientRect().width;
+    const w2 = originals[1].getBoundingClientRect().width;
+
+    // x corresponds to how far we are into the loop;
+    // offset by (1 + gap) + (2 + gap) so the viewport begins at item 3.
+    x = (w1 + gap) + (w2 + gap);
+
+    if(loopWidth > 0){
+      x = ((x % loopWidth) + loopWidth) % loopWidth;
+    }
+    render();
+  }
+
   function tick(now){
     const dt = (now - last) / 1000;
     last = now;
+
+    if(!started){
+      // one-time start positioning AFTER layout is stable
+      started = true;
+      measure();
+      setStartAt3();
+    }
 
     if(running && loopWidth > 0){
       x += SPEED * dt;
@@ -629,6 +653,7 @@ img{max-width:100%; height:auto;}
   // init
   buildClones();
   measure();
+  // don’t call setStartAt3() immediately; fonts/layout may not be settled.
   render();
   requestAnimationFrame(tick);
 
@@ -642,8 +667,11 @@ img{max-width:100%; height:auto;}
   marquee.addEventListener('touchend',   () => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
   marquee.addEventListener('touchcancel',() => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
 
-  // re-measure (responsive)
-  const re = () => { measure(); render(); };
+  // re-measure (responsive) — keep starting at 3 after resize
+  const re = () => {
+    measure();
+    setStartAt3();
+  };
   window.addEventListener('resize', re);
   window.addEventListener('orientationchange', () => setTimeout(re, 200));
   setTimeout(re, 250);
