@@ -478,7 +478,6 @@ img{max-width:100%; height:auto;}
     border-radius:18px;
     background:#fff;
     overflow:hidden;
-    box-shadow: var(--shadow);
   }
 
   .marquee-track{
@@ -486,11 +485,15 @@ img{max-width:100%; height:auto;}
     width:max-content;
     gap:14px;
     padding:14px;
-    will-change:transform;
 
-    /* JS will set --marquee-shift to a pixel value like 1420px */
-    animation: marquee-right 70s linear infinite;
-    transform: translateX(calc(var(--marquee-shift, 0px) * -1));
+    /* GPU-friendly */
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+
+    /* Don’t use CSS animation anymore (JS will drive it) */
+    animation: none !important;
   }
 
   .marquee-group{
@@ -498,28 +501,15 @@ img{max-width:100%; height:auto;}
     gap:14px;
   }
 
-  /* Taller placeholder cards */
+  /* Placeholder card */
   .ph{
     flex:0 0 min(380px, 78vw);
     height:270px;
     border-radius:18px;
-    border:1px solid rgba(15,110,168,.28);
-    background:
-      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.28), transparent 60%),
-      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.22), transparent 60%),
-      linear-gradient(135deg, rgba(15,110,168,.22), rgba(11,45,74,.10));
+    border:1px solid rgba(15,110,168,.18);
+    background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
     position:relative;
     overflow:hidden;
-  }
-
-  .ph::after{
-    content:"";
-    position:absolute;
-    inset:-40%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
-    transform: rotate(10deg);
-    animation: shimmer 3.5s ease-in-out infinite;
-    opacity:.65;
   }
 
   .ph-meta{
@@ -532,7 +522,7 @@ img{max-width:100%; height:auto;}
     gap:12px;
     align-items:flex-end;
     color:#fff;
-    text-shadow:0 12px 28px rgba(0,0,0,.35);
+    text-shadow:0 10px 22px rgba(0,0,0,.35);
   }
   .ph-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
   .ph-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
@@ -544,33 +534,23 @@ img{max-width:100%; height:auto;}
     border-radius:999px;
     background: rgba(255,255,255,.14);
     border:1px solid rgba(255,255,255,.22);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     white-space:nowrap;
   }
 
-  /* Scroll RIGHT by exactly one group's width (set by JS) */
-  @keyframes marquee-right{
-    from { transform: translateX(calc(var(--marquee-shift, 0px) * -1)); }
-    to   { transform: translateX(0px); }
+  /* Mobile performance: kill anything expensive */
+  @media (max-width: 860px){
+    .ph{
+      /* keep it simple */
+      box-shadow: none !important;
+      filter: none !important;
+    }
   }
 
-  @keyframes shimmer{
-    0%, 100% { transform: translateX(-10%) rotate(10deg); }
-    50%      { transform: translateX(10%)  rotate(10deg); }
-  }
-
-  /* Pause on hover (desktop) */
-  @media (hover:hover){
-    .marquee:hover .marquee-track{ animation-play-state: paused; }
-  }
-
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none; transform:none; }
-    .ph::after{ animation: none; }
+    .marquee-track{ transform:none !important; }
   }
 </style>
+
 
 <section class="section" id="recent-jobs" style="border-top:1px solid var(--line);">
   <div class="container">
@@ -601,31 +581,73 @@ img{max-width:100%; height:auto;}
   </div>
 </section>
 
-<script>
-  // Measure group width and animate by that exact distance (mobile-safe).
+<<script>
   (function(){
     const track = document.getElementById('recentJobsTrack');
     if(!track) return;
 
-    const group = track.querySelector('[data-marquee-group]');
-    if(!group) return;
+    const groupA = track.querySelector('[data-marquee-group]');
+    if(!groupA) return;
 
-    function setShift(){
-      // Include the gap at the end so the loop is seamless
+    // How fast you want it: px/sec (lower = slower)
+    const SPEED = 18;
+
+    let shift = 0;
+    let width = 0;
+    let last = performance.now();
+    let rafId = null;
+
+    function measure(){
+      // Width of the first group (A) + the gap between groups
       const styles = getComputedStyle(track);
       const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      width = groupA.getBoundingClientRect().width + gap;
 
-      const w = group.getBoundingClientRect().width;
-      track.style.setProperty('--marquee-shift', (w + gap) + 'px');
+      // Reset shift so we never jump weird after resize
+      shift = ((shift % width) + width) % width;
+      track.style.transform = `translate3d(${-shift}px,0,0)`;
     }
 
-    // Run now, after images/fonts settle, and on resize
-    setShift();
-    window.addEventListener('resize', setShift);
+    function tick(now){
+      const dt = (now - last) / 1000;
+      last = now;
 
-    // Some mobile browsers need a tick after layout
-    setTimeout(setShift, 250);
-    setTimeout(setShift, 1000);
+      // Move RIGHT: track moves left-to-right visually => translate negative decreases
+      shift -= SPEED * dt;
+
+      // Loop seamlessly
+      if(width > 0){
+        // keep shift in [0, width)
+        shift = ((shift % width) + width) % width;
+      }
+
+      track.style.transform = `translate3d(${-shift}px,0,0)`;
+      rafId = requestAnimationFrame(tick);
+    }
+
+    // Pause on touch/hover if you want (optional)
+    function stop(){ if(rafId) cancelAnimationFrame(rafId); rafId = null; }
+    function start(){ if(!rafId) { last = performance.now(); rafId = requestAnimationFrame(tick); } }
+
+    // Start
+    measure();
+    start();
+
+    // Re-measure on resize/orientation/font load
+    window.addEventListener('resize', () => { measure(); });
+    window.addEventListener('orientationchange', () => { setTimeout(measure, 200); });
+
+    // If images ever get added later, measure again after they load
+    setTimeout(measure, 250);
+    setTimeout(measure, 1000);
+
+    // Optional: pause when not visible (saves battery + avoids jank)
+    if ('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => e.isIntersecting ? start() : stop());
+      }, { threshold: 0.1 });
+      io.observe(track);
+    }
   })();
 </script>
 
