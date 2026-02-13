@@ -14,30 +14,27 @@
   <section class="section">
     <div class="container">
 
-      <!-- TITLE ABOVE THE WHITE CONTAINER -->
-      <h1 style="margin:8px 0 0;font-size:34px;line-height:1.15;max-width:980px;">
-        Our Warranty &amp; Promise
-      </h1>
-
-      <!-- WHITE CONTAINER (NO SHADOW / NO BORDER) -->
-      <div class="card" style="
+      <!-- TOP: ALL-IN-ONE WHITE CONTAINER (NO BORDER / NO SHADOW) -->
+      <div class="card warranty-top" style="
         padding:18px;
         max-width:980px;
-        box-shadow:none;
-        border:none;
         background:#fff;
+        border:none;
+        box-shadow:none;
       ">
-
-        <!-- TOP: TEXT (LEFT) + LARGER IMAGE (RIGHT) -->
         <div class="warranty-top-grid" style="
           display:grid;
           grid-template-columns: 1.25fr .75fr;
           gap:18px;
           align-items:start;
         ">
-          <!-- LEFT: COPY -->
+          <!-- LEFT: TITLE + COPY -->
           <div>
-            <p style="color:var(--muted);margin:6px 0 0;line-height:1.65;">
+            <h1 style="margin:0;font-size:34px;line-height:1.15;">
+              Our Warranty &amp; Promise
+            </h1>
+
+            <p style="color:var(--muted);margin:10px 0 0;line-height:1.65;">
               At <strong>HydroSeal</strong>, we don’t offer vague guarantees or hidden fine print. This warranty reflects how we operate:
               <strong>do the job right, stand behind the work, and treat customers fairly</strong>. We are a locally owned paver sealing and restoration
               company serving Northeast Florida. We focus on <strong>proper preparation</strong>, <strong>premium materials</strong>, and
@@ -46,11 +43,11 @@
             </p>
           </div>
 
-          <!-- RIGHT: IMAGE (30% larger, no border, no shadow) -->
+          <!-- RIGHT: IMAGE (50% larger) -->
           <div style="
             justify-self:end;
             width:100%;
-            max-width:442px; /* was ~340px; +30% */
+            max-width:510px; /* 340px -> +50% */
           ">
             <img
               src="/assets/hero/hydroseal-2year-warranty.png"
@@ -65,7 +62,7 @@
           </div>
         </div>
 
-        <!-- MOBILE: STACK -->
+        <!-- MOBILE STACK -->
         <style>
           @media (max-width: 860px){
             .warranty-top-grid{
@@ -73,12 +70,11 @@
             }
             .warranty-top-grid > div:last-child{
               justify-self:start !important;
-              max-width:520px !important;
-              margin-top:10px;
+              max-width:560px !important;
+              margin-top:12px;
             }
           }
         </style>
-
       </div>
 
       <div style="height:14px"></div>
