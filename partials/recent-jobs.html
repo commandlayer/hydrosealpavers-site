@@ -77,9 +77,13 @@
     transition: transform .18s ease;
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{ transform:none !important; }
+ @media (prefers-reduced-motion: reduce){
+  /* Don’t force transform:none !important (it prevents JS animation) */
+  .marquee-track{
+    will-change: auto;
   }
+}
+
 </style>
 
 <section class="section" id="recent-jobs">
