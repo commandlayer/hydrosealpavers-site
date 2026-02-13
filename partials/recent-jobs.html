@@ -105,10 +105,7 @@
 
 <script>
 (function(){
-  // Scope to this section
-  const root = document.getElementById('recent-jobs') || (document.currentScript ? document.currentScript.closest('section#recent-jobs') : null);
-  const scope = root || document;
-
+  const scope = document.getElementById('recent-jobs') || document;
   const track = scope.querySelector('[data-recent-jobs-track]');
   if(!track) return;
 
@@ -127,10 +124,13 @@
     return isNaN(gap) ? 0 : gap;
   }
 
+  function originals(){
+    return Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
+  }
+
   function buildClones(){
     track.querySelectorAll('[data-clone="1"]').forEach(n => n.remove());
-    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
-    originals.forEach(el => {
+    originals().forEach(el => {
       const c = el.cloneNode(true);
       c.setAttribute('data-clone','1');
       track.appendChild(c);
@@ -138,54 +138,74 @@
   }
 
   function measure(){
-    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
+    const items = originals();
     const gap = getGapPx();
 
-    loopWidth = originals.reduce((sum, el, i) => {
+    loopWidth = items.reduce((sum, el, i) => {
       const w = el.getBoundingClientRect().width;
-      return sum + w + (i === originals.length - 1 ? 0 : gap);
+      return sum + w + (i === items.length - 1 ? 0 : gap);
     }, 0);
 
     if(loopWidth > 0){
       x = ((x % loopWidth) + loopWidth) % loopWidth;
-    }else{
-      x = 0;
+      return true;
     }
+    return false;
   }
 
-  // LEFT→RIGHT: render as B sliding in from left
   function render(){
     if(loopWidth <= 0) return;
     track.style.transform = `translate3d(${x - loopWidth}px,0,0)`;
   }
 
-  // Start at card 3 (so initial view is 3,4,5)
   function setStartAt3(){
-    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
-    if(originals.length < 3) return;
+    const items = originals();
+    if(items.length < 3) return;
 
     const gap = getGapPx();
-    const w1 = originals[0].getBoundingClientRect().width;
-    const w2 = originals[1].getBoundingClientRect().width;
+    const w1 = items[0].getBoundingClientRect().width;
+    const w2 = items[1].getBoundingClientRect().width;
 
     x = (w1 + gap) + (w2 + gap);
-    if(loopWidth > 0){
-      x = ((x % loopWidth) + loopWidth) % loopWidth;
-    }
+    if(loopWidth > 0) x = ((x % loopWidth) + loopWidth) % loopWidth;
     render();
+  }
+
+  // Keep trying until layout is real (mobile fix)
+  function ensureReady(){
+    // rebuild once (safe)
+    buildClones();
+
+    // try a few times across frames (fonts/layout/mobile)
+    let tries = 0;
+    function attempt(){
+      tries++;
+      const ok = measure();
+      if(ok){
+        setStartAt3();
+        render();
+        return;
+      }
+      if(tries < 30) requestAnimationFrame(attempt);
+    }
+    requestAnimationFrame(attempt);
   }
 
   function tick(now){
     const dt = (now - last) / 1000;
     last = now;
 
-    if(!started){
-      started = true;
-      measure();
-      setStartAt3();
+    // If mobile gave us 0 widths at first, keep recovering
+    if(loopWidth <= 0){
+      if(!started){
+        started = true;
+        ensureReady();
+      }
+      requestAnimationFrame(tick);
+      return;
     }
 
-    if(running && loopWidth > 0){
+    if(running){
       x += SPEED * dt;
       if(x >= loopWidth) x -= loopWidth;
       render();
@@ -197,38 +217,25 @@
   function stop(){ running = false; }
   function start(){ running = true; }
 
-  buildClones();
-  measure();
-  render();
+  // Init
+  ensureReady();
   requestAnimationFrame(tick);
 
   // Desktop hover pause
   marquee.addEventListener('mouseenter', stop);
   marquee.addEventListener('mouseleave', start);
 
-  // ✅ Mobile: pause ONLY on touch-hold (press & hold), not normal tap/scroll
+  // Mobile: pause only on hold
   let holdTimer = null;
   let holding = false;
-
-  function clearHold(){
-    if(holdTimer){ clearTimeout(holdTimer); holdTimer = null; }
-  }
+  function clearHold(){ if(holdTimer){ clearTimeout(holdTimer); holdTimer = null; } }
 
   marquee.addEventListener('touchstart', () => {
-    clearHold();
-    holding = false;
-
-    // Pause only if they hold ~180ms without moving
-    holdTimer = setTimeout(() => {
-      holding = true;
-      stop();
-    }, 180);
+    clearHold(); holding = false;
+    holdTimer = setTimeout(() => { holding = true; stop(); }, 180);
   }, {passive:true});
 
-  marquee.addEventListener('touchmove', () => {
-    // Scrolling/dragging -> cancel hold pause
-    clearHold();
-  }, {passive:true});
+  marquee.addEventListener('touchmove', () => { clearHold(); }, {passive:true});
 
   marquee.addEventListener('touchend', () => {
     clearHold();
@@ -242,10 +249,16 @@
     holding = false;
   }, {passive:true});
 
-  const re = () => { measure(); setStartAt3(); };
-  window.addEventListener('resize', re);
-  window.addEventListener('orientationchange', () => setTimeout(re, 200));
-  setTimeout(re, 250);
-  setTimeout(re, 1000);
+  // Auto re-measure when layout changes (mobile rotation, font swap, etc.)
+  const ro = new ResizeObserver(() => {
+    const had = loopWidth;
+    if(measure()){
+      if(!had) setStartAt3();
+      render();
+    }
+  });
+  ro.observe(marquee);
+
+  window.addEventListener('orientationchange', () => setTimeout(() => { measure(); setStartAt3(); render(); }, 200));
 })();
 </script>
