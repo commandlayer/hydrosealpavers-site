@@ -1,0 +1,221 @@
+<!-- =========================
+     RECENT SEALING JOBS (PARTIAL)
+     - Continuous slow scroll LEFT→RIGHT
+     - Starts showing 3,4,5
+     - Pauses on hover / touch-hold
+     - Self-contained: CSS + HTML + JS
+========================== -->
+
+<style>
+  .marquee{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    gap:18px;
+    padding:16px 16px;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    backface-visibility:hidden;
+    touch-action: pan-y;
+  }
+
+  .job-card{
+    flex:0 0 min(420px, 82vw);
+    height:290px;
+    border-radius:18px;
+    border:1px solid rgba(15,110,168,.18);
+    background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
+    position:relative;
+    overflow:hidden;
+  }
+
+  .job-meta{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:flex-end;
+    color:#fff;
+    text-shadow:0 10px 22px rgba(0,0,0,.35);
+  }
+
+  .job-title{
+    font-weight:1000;
+    letter-spacing:-.01em;
+    line-height:1.1;
+  }
+
+  .job-sub{
+    font-size:13px;
+    opacity:.9;
+    margin-top:4px;
+    font-weight:700;
+  }
+
+  .job-tag{
+    font-size:12px;
+    font-weight:900;
+    padding:7px 10px;
+    border-radius:999px;
+    background: rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    white-space:nowrap;
+  }
+
+  .job-card:hover{
+    transform: translateY(-2px);
+    transition: transform .18s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ transform:none !important; }
+  }
+</style>
+
+<section class="section" id="recent-jobs">
+  <div class="container">
+    <h2 class="section-title">Recent Sealing Jobs</h2>
+
+    <div class="marquee" aria-label="Recent jobs marquee">
+      <div class="marquee-track" data-recent-jobs-track>
+        <!-- EXACTLY 1..5 (edit these later to real jobs/images) -->
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">1) Driveway Refresh</div><div class="job-sub">Nocatee • Color-Enhanced</div></div><div class="job-tag">Before/After</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">2) Pool Deck Seal</div><div class="job-sub">Ponte Vedra • Natural</div></div><div class="job-tag">Non-Slip Add-On</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">3) Patio Restore</div><div class="job-sub">Julington Creek</div></div><div class="job-tag">Re-Sand</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">4) Driveway Cleanup</div><div class="job-sub">Mandarin</div></div><div class="job-tag">Deep Clean</div></div></div>
+        <div class="job-card" data-job><div class="job-meta"><div><div class="job-title">5) Walkway + Entry</div><div class="job-sub">St. Johns • 210</div></div><div class="job-tag">Sealed</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // IMPORTANT: partial-safe (works even if included multiple times on a page)
+  // We scope everything to THIS partial instance.
+  const section = document.currentScript?.previousElementSibling?.previousElementSibling?.previousElementSibling
+    || document.getElementById('recent-jobs')
+    || document.currentScript?.parentElement;
+
+  // More reliable: just find the closest section from the script tag
+  const root = document.currentScript ? document.currentScript.closest('section#recent-jobs') : document.getElementById('recent-jobs');
+  const scope = root || document;
+
+  const track = scope.querySelector('[data-recent-jobs-track]');
+  if(!track) return;
+
+  const marquee = track.closest('.marquee');
+  const SPEED = 26; // px/sec
+
+  let running = true;
+  let x = 0;
+  let loopWidth = 0;
+  let last = performance.now();
+  let started = false;
+
+  function getGapPx(){
+    const st = getComputedStyle(track);
+    const gap = parseFloat(st.gap || st.columnGap || "0");
+    return isNaN(gap) ? 0 : gap;
+  }
+
+  function buildClones(){
+    track.querySelectorAll('[data-clone="1"]').forEach(n => n.remove());
+    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    originals.forEach(el => {
+      const c = el.cloneNode(true);
+      c.setAttribute('data-clone','1');
+      track.appendChild(c);
+    });
+  }
+
+  function measure(){
+    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    const gap = getGapPx();
+
+    loopWidth = originals.reduce((sum, el, i) => {
+      const w = el.getBoundingClientRect().width;
+      return sum + w + (i === originals.length - 1 ? 0 : gap);
+    }, 0);
+
+    if(loopWidth > 0){
+      x = ((x % loopWidth) + loopWidth) % loopWidth;
+    }else{
+      x = 0;
+    }
+  }
+
+  // LEFT→RIGHT: render as B sliding in from left
+  function render(){
+    if(loopWidth <= 0) return;
+    track.style.transform = `translate3d(${x - loopWidth}px,0,0)`;
+  }
+
+  // Start at card 3 (so initial view is 3,4,5)
+  function setStartAt3(){
+    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    if(originals.length < 3) return;
+
+    const gap = getGapPx();
+    const w1 = originals[0].getBoundingClientRect().width;
+    const w2 = originals[1].getBoundingClientRect().width;
+
+    x = (w1 + gap) + (w2 + gap);
+    if(loopWidth > 0){
+      x = ((x % loopWidth) + loopWidth) % loopWidth;
+    }
+    render();
+  }
+
+  function tick(now){
+    const dt = (now - last) / 1000;
+    last = now;
+
+    if(!started){
+      started = true;
+      measure();
+      setStartAt3();
+    }
+
+    if(running && loopWidth > 0){
+      x += SPEED * dt;
+      if(x >= loopWidth) x -= loopWidth;
+      render();
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  function stop(){ running = false; }
+  function start(){ running = true; }
+
+  buildClones();
+  measure();
+  render();
+  requestAnimationFrame(tick);
+
+  marquee.addEventListener('mouseenter', stop);
+  marquee.addEventListener('mouseleave', start);
+
+  let touchPause = false;
+  marquee.addEventListener('touchstart', () => { touchPause = true; stop(); }, {passive:true});
+  marquee.addEventListener('touchend',   () => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
+  marquee.addEventListener('touchcancel',() => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
+
+  const re = () => { measure(); setStartAt3(); };
+  window.addEventListener('resize', re);
+  window.addEventListener('orientationchange', () => setTimeout(re, 200));
+  setTimeout(re, 250);
+  setTimeout(re, 1000);
+})();
+</script>
