@@ -101,14 +101,8 @@
 
 <script>
 (function(){
-  // IMPORTANT: partial-safe (works even if included multiple times on a page)
-  // We scope everything to THIS partial instance.
-  const section = document.currentScript?.previousElementSibling?.previousElementSibling?.previousElementSibling
-    || document.getElementById('recent-jobs')
-    || document.currentScript?.parentElement;
-
-  // More reliable: just find the closest section from the script tag
-  const root = document.currentScript ? document.currentScript.closest('section#recent-jobs') : document.getElementById('recent-jobs');
+  // Scope to this section
+  const root = document.getElementById('recent-jobs') || (document.currentScript ? document.currentScript.closest('section#recent-jobs') : null);
   const scope = root || document;
 
   const track = scope.querySelector('[data-recent-jobs-track]');
@@ -131,7 +125,7 @@
 
   function buildClones(){
     track.querySelectorAll('[data-clone="1"]').forEach(n => n.remove());
-    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
     originals.forEach(el => {
       const c = el.cloneNode(true);
       c.setAttribute('data-clone','1');
@@ -140,7 +134,7 @@
   }
 
   function measure(){
-    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
     const gap = getGapPx();
 
     loopWidth = originals.reduce((sum, el, i) => {
@@ -163,7 +157,7 @@
 
   // Start at card 3 (so initial view is 3,4,5)
   function setStartAt3(){
-    const originals = Array.from(track.querySelectorAll('[data-job]'));
+    const originals = Array.from(track.querySelectorAll('[data-job]')).filter(el => !el.matches('[data-clone="1"]'));
     if(originals.length < 3) return;
 
     const gap = getGapPx();
@@ -181,7 +175,7 @@
     const dt = (now - last) / 1000;
     last = now;
 
-    if(!started){ 
+    if(!started){
       started = true;
       measure();
       setStartAt3();
@@ -204,13 +198,45 @@
   render();
   requestAnimationFrame(tick);
 
+  // Desktop hover pause
   marquee.addEventListener('mouseenter', stop);
   marquee.addEventListener('mouseleave', start);
 
-  let touchPause = false;
-  marquee.addEventListener('touchstart', () => { touchPause = true; stop(); }, {passive:true});
-  marquee.addEventListener('touchend',   () => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
-  marquee.addEventListener('touchcancel',() => { if(touchPause){ start(); touchPause=false; } }, {passive:true});
+  // ✅ Mobile: pause ONLY on touch-hold (press & hold), not normal tap/scroll
+  let holdTimer = null;
+  let holding = false;
+
+  function clearHold(){
+    if(holdTimer){ clearTimeout(holdTimer); holdTimer = null; }
+  }
+
+  marquee.addEventListener('touchstart', () => {
+    clearHold();
+    holding = false;
+
+    // Pause only if they hold ~180ms without moving
+    holdTimer = setTimeout(() => {
+      holding = true;
+      stop();
+    }, 180);
+  }, {passive:true});
+
+  marquee.addEventListener('touchmove', () => {
+    // Scrolling/dragging -> cancel hold pause
+    clearHold();
+  }, {passive:true});
+
+  marquee.addEventListener('touchend', () => {
+    clearHold();
+    if(holding) start();
+    holding = false;
+  }, {passive:true});
+
+  marquee.addEventListener('touchcancel', () => {
+    clearHold();
+    if(holding) start();
+    holding = false;
+  }, {passive:true});
 
   const re = () => { measure(); setStartAt3(); };
   window.addEventListener('resize', re);
