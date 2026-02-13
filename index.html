@@ -620,17 +620,20 @@ img{max-width:100%; height:auto;}
     }
 
     function tick(now){
-      const dt = (now - last) / 1000;
-      last = now;
+  const dt = (now - last) / 1000;
+  last = now;
 
-      if(running && loopWidth > 0){
-        x += SPEED * dt; // move left continuously
-        if(x >= loopWidth) x -= loopWidth;
-        track.style.transform = `translate3d(${-x}px,0,0)`;
-      }
+  if(running && loopWidth > 0){
+    x += SPEED * dt;                 // advance
+    if(x >= loopWidth) x -= loopWidth;
 
-      rafId = requestAnimationFrame(tick);
-    }
+    // RIGHTWARD movement:
+track.style.transform = `translate3d(${x}px,0,0)`;
+  }
+
+  rafId = requestAnimationFrame(tick);
+}
+
 
     function start(){
       running = true;
