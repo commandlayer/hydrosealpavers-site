@@ -37,41 +37,41 @@
 
         <h2 style="margin:0 0 10px;">Our Residential Paver Sealing Warranty</h2>
 
-      <!-- WARRANTY HERO -->
-<div style="
-  position:relative;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:
-    radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
-    radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
-    linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
-">
+    make the image smaller !-- WARRANTY HERO -->
+        <div style="
+          position:relative;
+          border-radius:22px;
+          overflow:hidden;                /* key: hard-crops anything outside */
+          border:1px solid var(--line);
+          background:
+            radial-gradient(1200px 300px at 10% 0%, rgba(15,110,168,.16), transparent 55%),
+            radial-gradient(900px 260px at 90% 0%, rgba(40,182,200,.14), transparent 55%),
+            linear-gradient(180deg, rgba(11,45,74,.08), transparent 35%);
+        ">
 
-  <!-- IMAGE WRAPPER (smaller height) -->
-  <div style="
-    position:relative;
-    width:100%;
-    height:0;
-    padding-top:24%;     /* was 38% — smaller image area */
-    overflow:hidden;
-  ">
-    <img
-      src="/assets/hero/hydroseal-2year-warranty.png"
-      alt="HydroSeal 2-Year Warranty"
-      loading="eager"
-      style="
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center;
-        display:block;
-      "
-    />
-  </div>
+          <!-- IMAGE WRAPPER (forces correct sizing) -->
+          <div style="
+            position:relative;
+            width:100%;
+            height:0;
+            padding-top:38%;              /* controls aspect ratio; adjust 34–45% if needed */
+            overflow:hidden;
+          ">
+            <img
+              src="/assets/hero/hydroseal-2year-warranty.png"
+              alt="HydroSeal 2-Year Warranty"
+              loading="eager"
+              style="
+                position:absolute;
+                inset:0;
+                width:100%;
+                height:100%;
+                object-fit:cover;          /* key: always fits container */
+                object-position:center;    /* keeps centered crop */
+                display:block;
+              "
+            />
+          </div>
 
 </div>
 
