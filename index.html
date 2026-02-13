@@ -466,20 +466,239 @@ img{max-width:100%; height:auto;}
   </div>
 </div>
 
-     <div class="notice" style="
-  margin-top:16px;
-  border:1px solid rgba(245,158,11,.35);
-  background:
-    radial-gradient(900px 260px at 20% 0%, rgba(251,191,36,.22), transparent 55%),
-    radial-gradient(900px 260px at 90% 0%, rgba(217,119,6,.16), transparent 55%),
-    linear-gradient(180deg, rgba(251,191,36,.14), #fff 58%);
-  color:#78350f;
-">
-  <strong style="color:#92400e;">ELFSIGHT REVIEW (Google / Facebook / Yelp)</strong><br>
-  THIS IS WHERE WE WILL PUT THE REVIEW WIDGET
-</div>
+<!-- =========================
+     RECENT SEALING JOBS (PLACEHOLDERS)
+     - Continuous slow scroll to the RIGHT
+     - Taller blue boxes
+     - Drop this whole block into homepage where you want it
+========================== -->
+<style>
+  .marquee{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow: var(--shadow);
+  }
 
-  </section>
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    gap:14px;
+    padding:14px;
+    will-change:transform;
+    animation: marquee-right 70s linear infinite;
+  }
+
+  .marquee-group{
+    display:flex;
+    gap:14px;
+  }
+
+  /* TALLER placeholder cards */
+  .ph{
+    flex:0 0 min(380px, 78vw);
+    height:270px; /* was 220px */
+    border-radius:18px;
+    border:1px solid rgba(15,110,168,.28);
+    background:
+      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.28), transparent 60%),
+      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.22), transparent 60%),
+      linear-gradient(135deg, rgba(15,110,168,.22), rgba(11,45,74,.10));
+    position:relative;
+    overflow:hidden;
+  }
+
+  .ph::after{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+    transform: rotate(10deg);
+    animation: shimmer 3.5s ease-in-out infinite;
+    opacity:.65;
+  }
+
+  .ph-meta{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:flex-end;
+    color:#fff;
+    text-shadow:0 12px 28px rgba(0,0,0,.35);
+  }
+
+  .ph-title{
+    font-weight:1000;
+    letter-spacing:-.01em;
+    line-height:1.1;
+  }
+  .ph-sub{
+    font-size:13px;
+    opacity:.9;
+    margin-top:4px;
+    font-weight:700;
+  }
+
+  .ph-tag{
+    font-size:12px;
+    font-weight:900;
+    padding:7px 10px;
+    border-radius:999px;
+    background: rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    white-space:nowrap;
+  }
+
+  /* Rightward continuous motion */
+  @keyframes marquee-right{
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes shimmer{
+    0%, 100% { transform: translateX(-10%) rotate(10deg); }
+    50%      { transform: translateX(10%)  rotate(10deg); }
+  }
+
+  /* Pause on hover (desktop) */
+  @media (hover:hover){
+    .marquee:hover .marquee-track{ animation-play-state: paused; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation: none; }
+    .ph::after{ animation: none; }
+  }
+</style>
+
+<section class="section" id="recent-jobs" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <h2 class="section-title">Recent Sealing Jobs</h2>
+    <!-- If you want this title instead, swap the H2 text:
+         Paver Sealing Jobs -->
+
+    <p class="section-sub">Auto-scrolls slowly to the right. Hover to pause (desktop).</p>
+
+    <div class="marquee" aria-label="Recent sealing jobs (placeholders)">
+      <div class="marquee-track">
+        <!-- GROUP A -->
+        <div class="marquee-group" aria-hidden="false">
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Nocatee</div>
+                <div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div>
+              </div>
+              <div class="ph-tag">Latest</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Ponte Vedra</div>
+                <div class="ph-sub">Pool Deck • Stone-Safe + Seal</div>
+              </div>
+              <div class="ph-tag">Before/After</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Jacksonville</div>
+                <div class="ph-sub">Patio • Restoration Finish</div>
+              </div>
+              <div class="ph-tag">Hot</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">St. Johns County</div>
+                <div class="ph-sub">Walkway • Joint Reset</div>
+              </div>
+              <div class="ph-tag">New</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Jacksonville Beach</div>
+                <div class="ph-sub">Driveway • Maintenance Seal</div>
+              </div>
+              <div class="ph-tag">Coastal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP B (duplicate for seamless loop) -->
+        <div class="marquee-group" aria-hidden="true">
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Nocatee</div>
+                <div class="ph-sub">Driveway • Clean + Re-Sand + Seal</div>
+              </div>
+              <div class="ph-tag">Latest</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Ponte Vedra</div>
+                <div class="ph-sub">Pool Deck • Stone-Safe + Seal</div>
+              </div>
+              <div class="ph-tag">Before/After</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Jacksonville</div>
+                <div class="ph-sub">Patio • Restoration Finish</div>
+              </div>
+              <div class="ph-tag">Hot</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">St. Johns County</div>
+                <div class="ph-sub">Walkway • Joint Reset</div>
+              </div>
+              <div class="ph-tag">New</div>
+            </div>
+          </div>
+
+          <div class="ph">
+            <div class="ph-meta">
+              <div>
+                <div class="ph-title">Jacksonville Beach</div>
+                <div class="ph-sub">Driveway • Maintenance Seal</div>
+              </div>
+              <div class="ph-tag">Coastal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- CERTS / TRUST -->
   <section class="section" style="border-top:1px solid var(--line);">
