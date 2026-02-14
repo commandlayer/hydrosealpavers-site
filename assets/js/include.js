@@ -1,14 +1,9 @@
-/* include.js
+ /* include.js
    Static HTML includes for header/footer + global trust bar (below hero)
 
    FIX: scripts inside included HTML DO NOT run when injected via outerHTML/innerHTML.
    This version executes scripts that arrive via includes (inline + external),
    while avoiding double-running the same script element.
-
-   MOBILE FIX: Some mobile browsers can keep serving an older cached include.js
-   or execute included scripts before layout is ready. We keep your exact logic,
-   but add safe "run again after load" hooks so included scripts (like marquee)
-   reliably start on mobile too.
 */
 
 (async function () {
@@ -73,19 +68,6 @@
   // 2) Let the DOM settle
   await new Promise((r) => setTimeout(r, 0));
 
-  // ✅ MOBILE RELIABILITY: run again once layout/resources are ready
-  // (safe: our includedRan flag prevents double-runs)
-  const rerun = () => runScripts(document);
-  if (document.readyState === "complete") {
-    // already loaded
-    rerun();
-  } else {
-    window.addEventListener("load", rerun, { once: true });
-    // iOS Safari sometimes needs an extra tick after load
-    setTimeout(rerun, 250);
-    setTimeout(rerun, 1000);
-  }
-
   // 2.5) Back-compat: run ONLY scripts explicitly marked
   // (safe if you have any lingering partials using this attribute)
   const includeScripts = document.querySelectorAll('script[data-run-on-include="true"]');
@@ -135,10 +117,6 @@
       hero.insertAdjacentElement("afterend", trustbar);
       // Trustbar partial may contain scripts too
       runScripts(document);
-
-      // ✅ MOBILE RELIABILITY: re-run again after insertion settles
-      setTimeout(() => runScripts(document), 0);
-      setTimeout(() => runScripts(document), 250);
       return;
     }
 
@@ -146,19 +124,11 @@
     if (header) {
       header.insertAdjacentElement("afterend", trustbar);
       runScripts(document);
-
-      // ✅ MOBILE RELIABILITY: re-run again after insertion settles
-      setTimeout(() => runScripts(document), 0);
-      setTimeout(() => runScripts(document), 250);
       return;
     }
 
     document.body.insertAdjacentElement("afterbegin", trustbar);
     runScripts(document);
-
-    // ✅ MOBILE RELIABILITY: re-run again after insertion settles
-    setTimeout(() => runScripts(document), 0);
-    setTimeout(() => runScripts(document), 250);
   } catch (e) {
     // fail silently
   }
