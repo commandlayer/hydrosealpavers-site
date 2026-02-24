@@ -79,4 +79,42 @@
   // 3) Footer year
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
+
+  // 4) Insert trustbar UNDER HERO (global, single)
+  try {
+    // hard idempotency: if already in DOM, stop
+    if (document.querySelector(".trustbar.trust-strip")) return;
+
+    const res = await fetch("/partials/trustbar.html", { cache: "no-cache" });
+    if (!res.ok) return;
+
+    const html = (await res.text()).trim();
+    if (!html) return;
+
+    const tmp = document.createElement("div");
+    tmp.innerHTML = html;
+
+    const trustbar = tmp.firstElementChild;
+    if (!trustbar) return;
+
+    // Place under hero if hero exists
+    const hero = document.querySelector(".hero2");
+    if (hero) {
+      hero.insertAdjacentElement("afterend", trustbar);
+      return;
+    }
+
+    // Fallback: under header
+    const header = document.querySelector(".header, header");
+    if (header) {
+      header.insertAdjacentElement("afterend", trustbar);
+      return;
+    }
+
+    // Fallback: top of body
+    document.body.insertAdjacentElement("afterbegin", trustbar);
+  } catch (e) {
+    // fail silently
+  }
+
 })();
