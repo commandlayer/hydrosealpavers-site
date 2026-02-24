@@ -696,6 +696,8 @@ body.includes-ready .header{
   background:#fff;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+  position:relative;
+  z-index:3;
 }
 .trustbar .container{
   display:grid;
