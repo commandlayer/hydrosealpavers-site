@@ -1,103 +1,56 @@
-<footer class="site-footer" style="border-top:1px solid var(--line); background:#0B2D4A; color:#fff;">
-  <div class="container" style="padding:26px 0 18px;">
+<footer class="site-footer">
+  <div class="container site-footer__inner">
 
-    <div
-      class="footer-grid"
-      style="
-        display:grid;
-        grid-template-columns: 1.2fr .9fr .9fr .9fr;
-        gap:18px;
-        align-items:start;
-      "
-    >
-      <!-- Brand / Summary -->
-      <div>
-        <div style="display:flex; align-items:center; gap:12px;">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__row">
           <img
             src="/assets/hero/Hydrosealpaversealing.png"
             alt="HydroSeal Pavers"
             loading="lazy"
-            style="
-              height:42px;
-              width:auto;
-              filter:
-                drop-shadow(0 0 6px rgba(255,255,255,.55))
-                drop-shadow(0 0 4px rgba(255,255,255,.35));
-            "
+            class="footer-logo"
           />
         </div>
 
-        <p style="margin:10px 0 0; color:rgba(255,255,255,.85); max-width:420px; line-height:1.55;">
+        <p class="footer-copy">
           Premium paver sealing and protection for driveways, pool decks, and travertine across
           St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.
         </p>
       </div>
 
-      <!-- Services -->
       <div>
-        <div style="font-weight:900; letter-spacing:.2px;">Services</div>
-        <div style="margin-top:10px; display:grid; gap:9px;">
-          <a href="/paver-sealing/driveways.html" style="color:rgba(255,255,255,.86); text-decoration:none;">Driveway Paver Sealing</a>
-          <a href="/paver-sealing/pool-decks.html" style="color:rgba(255,255,255,.86); text-decoration:none;">Pool Deck Sealing</a>
-          <a href="/paver-sealing/travertine-sealing.html" style="color:rgba(255,255,255,.86); text-decoration:none;">Travertine Sealing</a>
+        <div class="footer-title">Services</div>
+        <div class="footer-links">
+          <a href="/paver-sealing/driveways.html">Driveway Paver Sealing</a>
+          <a href="/paver-sealing/pool-decks.html">Pool Deck Sealing</a>
+          <a href="/paver-sealing/travertine-sealing.html">Travertine Sealing</a>
         </div>
       </div>
 
-      <!-- Service Areas -->
       <div>
-        <div style="font-weight:900; letter-spacing:.2px;">Service Areas</div>
-        <div style="margin-top:10px; display:grid; gap:9px;">
-          <a href="/service-areas/st-johns-county/" style="color:rgba(255,255,255,.86); text-decoration:none;">St. Johns County</a>
-          <a href="/service-areas/duval-county/" style="color:rgba(255,255,255,.86); text-decoration:none;">Duval County</a>
-          <a href="/service-areas/clay-county/" style="color:rgba(255,255,255,.86); text-decoration:none;">Clay County</a>
+        <div class="footer-title">Service Areas</div>
+        <div class="footer-links">
+          <a href="/service-areas/st-johns-county/">St. Johns County</a>
+          <a href="/service-areas/duval-county/">Duval County</a>
+          <a href="/service-areas/clay-county/">Clay County</a>
         </div>
       </div>
 
-      <!-- Contact -->
       <div>
-        <div style="font-weight:900; letter-spacing:.2px;">Contact</div>
-        <div style="margin-top:10px; display:grid; gap:9px; color:rgba(255,255,255,.85);">
-          <div><strong style="color:#fff;">Phone:</strong> <a href="tel:+19045375000" style="color:#fff; font-weight:900; text-decoration:none;">904.537.5000</a></div>
-          <div><strong style="color:#fff;">Hours:</strong> Mon–Fri</div>
-          <div><strong style="color:#fff;">Email:</strong> <a href="mailto:info@hydrosealpavers.com" style="color:rgba(255,255,255,.86); text-decoration:none;">info@hydrosealpavers.com</a></div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-meta">
+          <div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div>
+          <div><strong>Hours:</strong> Mon–Fri</div>
+          <div><strong>Email:</strong> <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom bar -->
-    <div
-      style="
-        margin-top:14px;
-        padding-top:12px;
-        border-top:1px solid rgba(255,255,255,.16);
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        justify-content:space-between;
-        align-items:center;
-        color:rgba(255,255,255,.78);
-        font-size:13px;
-      "
-    >
+    <div class="footer-bottom">
       <div>© <span id="y"></span> HydroSeal Pavers. All rights reserved.</div>
-
-      <div style="display:flex; flex-wrap:wrap; gap:14px;">
-        <!-- add links later if you want -->
-      </div>
+      <div class="footer-bottom__links"></div>
     </div>
-
   </div>
-
-  <style>
-    .site-footer a:hover{ opacity:.92; text-decoration:underline; }
-
-    @media (max-width: 980px){
-      .footer-grid{
-        grid-template-columns: 1fr !important;
-        gap:16px !important;
-      }
-    }
-  </style>
 </footer>
 
 <a class="mobile-callbar" href="tel:+19045375000" aria-label="Tap to call HydroSeal Pavers">📞 Tap to Call — 904.537.5000</a>
