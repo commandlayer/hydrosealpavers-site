@@ -1,1 +1,770 @@
-FIX
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroSeal Pavers — Preview</title>
+  <meta name="description" content="HydroSeal Pavers — Premium paver sealing & protection specialists in Jacksonville, FL." />
+  <style>
+    :root{
+      --bg: #070b14;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.55);
+      --accent: #19a0ff;     /* Hydro blue */
+      --accent2:#1fe0c3;     /* teal edge */
+      --warn: #ffcc00;       /* CTA yellow */
+      --hot:  #ff3b30;       /* red chip */
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 12px 30px rgba(0,0,0,.35);
+      --r: 20px;
+      --r2: 28px;
+      --max: 1180px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 70% -10%, rgba(25,160,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 0% 10%, rgba(31,224,195,.22), transparent 55%),
+        radial-gradient(900px 700px at 100% 35%, rgba(255,204,0,.10), transparent 60%),
+        linear-gradient(180deg, #050814 0%, #060a16 28%, #070b14 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-weight:700;font-size:13px;letter-spacing:.2px;
+    }
+    .pill .dot{width:10px;height:10px;border-radius:99px;background:var(--warn);box-shadow:0 0 0 4px rgba(255,204,0,.16)}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:linear-gradient(180deg, rgba(25,160,255,.18), rgba(25,160,255,.08));
+      border:1px solid rgba(25,160,255,.35);
+      color:rgba(255,255,255,.92);
+      font-weight:700;font-size:13px;letter-spacing:.2px;
+    }
+
+    /* Header */
+    .header{
+      position:sticky;top:0;z-index:40;
+      background:linear-gradient(180deg, rgba(6,10,22,.86), rgba(6,10,22,.62));
+      border-bottom:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+    }
+    .header-row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0; gap:16px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:210px}
+    .logo{
+      width:42px;height:42px;border-radius:14px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.0) 60%),
+        linear-gradient(135deg, rgba(25,160,255,1), rgba(31,224,195,1));
+      box-shadow: 0 16px 40px rgba(25,160,255,.25);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand-name{display:flex;flex-direction:column;line-height:1}
+    .brand-name b{font-size:16px;letter-spacing:.4px}
+    .brand-name span{font-size:12px;color:var(--muted2);margin-top:4px}
+    .nav{
+      display:flex;align-items:center;gap:18px;
+      color:var(--muted);
+      font-weight:650;font-size:13px;
+    }
+    .nav a{padding:10px 10px;border-radius:12px}
+    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .header-cta{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      color:var(--text);font-weight:800;font-size:14px;
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px);filter:brightness(1.06)}
+    .btn.primary{
+      border-color: rgba(255,204,0,.45);
+      background: linear-gradient(180deg, rgba(255,204,0,1), rgba(255,174,0,1));
+      color:#071018;
+      box-shadow: 0 18px 50px rgba(255,204,0,.18), 0 8px 20px rgba(0,0,0,.35);
+    }
+    .btn.call{
+      border-color: rgba(25,160,255,.45);
+      background: linear-gradient(180deg, rgba(25,160,255,.22), rgba(25,160,255,.10));
+    }
+    .btn svg{width:18px;height:18px}
+
+    /* Hero */
+    .hero{
+      padding:28px 0 24px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-left{
+      padding:26px 26px 22px;
+      min-height: 440px;
+    }
+    .hero-kicker{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.3vw, 54px);
+      letter-spacing:-.8px;
+      line-height:1.02;
+    }
+    .accent{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip:text;
+      color:transparent;
+    }
+    .sub{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.5;
+      max-width: 54ch;
+    }
+    .hero-feats{
+      display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 18px;
+      color:var(--muted);
+      font-weight:650;font-size:13px;
+    }
+    .feat{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .feat i{
+      width:22px;height:22px;border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,204,0,.95), rgba(255,174,0,.95));
+      display:inline-block;
+      box-shadow: 0 10px 25px rgba(255,204,0,.15);
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .fine{
+      margin-top:14px;
+      color: rgba(255,255,255,.68);
+      font-size:13px;
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    }
+    .stars{letter-spacing:1px;color:rgba(255,204,0,.95)}
+    .sep{opacity:.35}
+
+    /* Before/After Slider */
+    .ba{
+      min-height: 440px;
+      display:flex;flex-direction:column;
+    }
+    .ba-top{
+      padding:16px 16px 0;
+      display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    }
+    .ba-title{
+      font-weight:900;letter-spacing:.2px;
+      font-size:14px;color:rgba(255,255,255,.88);
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;font-weight:750;
+    }
+    .chip strong{color:rgba(255,255,255,.9)}
+    .ba-wrap{
+      margin:14px 16px 16px;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      position:relative;
+      flex:1;
+      min-height: 360px;
+    }
+    .ba-img{
+      position:absolute;inset:0;
+      background-size: cover;
+      background-position:center;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    /* Placeholder “before” and “after” using gradients. Replace with real images easily. */
+    .ba-before{
+      background-image:
+        radial-gradient(900px 420px at 20% 40%, rgba(255,255,255,.14), transparent 55%),
+        linear-gradient(120deg, rgba(255,255,255,.10), rgba(0,0,0,.25)),
+        linear-gradient(0deg, rgba(0,0,0,.65), rgba(0,0,0,.18)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1500&q=70");
+    }
+    .ba-after{
+      background-image:
+        radial-gradient(900px 420px at 20% 40%, rgba(255,204,0,.10), transparent 60%),
+        linear-gradient(120deg, rgba(255,204,0,.12), rgba(0,0,0,.10)),
+        linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.06)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1500&q=70");
+      /* quick “wet shine” illusion */
+      filter: saturate(1.15) contrast(1.12) brightness(1.06);
+    }
+
+    .ba-after-clip{
+      position:absolute;inset:0;
+      width:55%;
+      overflow:hidden;
+      border-right: 1px solid rgba(255,255,255,.18);
+    }
+    .ba-handle{
+      position:absolute;
+      top:0;bottom:0;
+      left:55%;
+      width:0;
+      z-index:6;
+      display:flex;align-items:center;justify-content:center;
+      pointer-events:none;
+    }
+    .handle-knob{
+      width:54px;height:54px;border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.08));
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 55px rgba(0,0,0,.55);
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .handle-knob:before{
+      content:"";
+      width:32px;height:32px;border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,204,0,1), rgba(255,174,0,1));
+      box-shadow: 0 16px 40px rgba(255,204,0,.18);
+      position:absolute;inset:11px;
+      opacity:.95;
+    }
+    .handle-arrows{
+      position:relative;
+      width:26px;height:26px;
+      display:grid;place-items:center;
+      color:#071018;
+      font-weight:900;
+      z-index:2;
+      font-size:16px;
+      user-select:none;
+    }
+    .ba-label{
+      position:absolute;top:14px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.30);
+      color:rgba(255,255,255,.88);
+      font-weight:900;font-size:12px;letter-spacing:.6px;
+      text-transform:uppercase;
+      backdrop-filter: blur(10px);
+    }
+    .ba-label.before{left:14px}
+    .ba-label.after{right:14px;background: rgba(255,59,48,.20);border-color: rgba(255,59,48,.35)}
+    .ba-slider{
+      position:absolute;inset:0;
+      z-index:7;
+      -webkit-appearance:none;
+      appearance:none;
+      width:100%;
+      height:100%;
+      background:transparent;
+      margin:0;
+      cursor: ew-resize;
+    }
+    .ba-slider::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      width:64px;height:64px;border-radius:999px;
+      background: transparent;
+      border:none;
+    }
+    .ba-slider::-moz-range-thumb{
+      width:64px;height:64px;border-radius:999px;
+      background: transparent;border:none;
+    }
+
+    /* Trust bar */
+    .trustbar{
+      margin-top:14px;
+      padding:14px 0 4px;
+    }
+    .trust{
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(25,160,255,.14), rgba(255,255,255,.03));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .trust-row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:0;
+    }
+    .trust-item{
+      padding:16px 16px;
+      display:flex;gap:12px;align-items:center;
+      border-right:1px solid rgba(255,255,255,.10);
+    }
+    .trust-item:last-child{border-right:none}
+    .trust-ico{
+      width:40px;height:40px;border-radius:16px;
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;place-items:center;
+    }
+    .trust-ico svg{width:20px;height:20px;opacity:.9}
+    .trust-item b{display:block;font-size:14px}
+    .trust-item span{display:block;font-size:12px;color:var(--muted2);margin-top:2px}
+
+    /* Section */
+    .section{padding:26px 0}
+    .section h2{
+      margin:0 0 8px;
+      font-size:28px;letter-spacing:-.5px;
+    }
+    .section p{margin:0 0 16px;color:var(--muted);line-height:1.55}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .mini{
+      padding:16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .mini .top{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      margin-bottom:10px;
+    }
+    .mini .tag{
+      font-size:12px;font-weight:850;
+      color: rgba(255,255,255,.86);
+      background: rgba(25,160,255,.16);
+      border: 1px solid rgba(25,160,255,.28);
+      padding:8px 10px;border-radius:999px;
+    }
+    .mini h3{margin:0 0 6px;font-size:16px;letter-spacing:-.2px}
+    .mini p{margin:0;color:var(--muted2);font-size:13px;line-height:1.5}
+    .quote{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:14px;
+    }
+    .quote .panel{
+      padding:18px;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow2);
+    }
+    .form-row{display:grid;grid-template-columns: 1fr 1fr;gap:10px;margin-top:10px}
+    .input{
+      width:100%;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color:var(--text);
+      outline:none;
+    }
+    .input::placeholder{color:rgba(255,255,255,.45)}
+    .small{font-size:12px;color:var(--muted2);margin-top:10px}
+    .footer{padding:26px 0 40px;color:rgba(255,255,255,.55);font-size:12px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .hero-left{min-height:auto}
+      .ba{min-height:420px}
+      .trust-row{grid-template-columns: 1fr 1fr}
+      .trust-item:nth-child(2){border-right:none}
+      .trust-item{border-bottom:1px solid rgba(255,255,255,.10)}
+      .trust-item:nth-child(3), .trust-item:nth-child(4){border-bottom:none}
+      .grid3{grid-template-columns:1fr}
+      .quote{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+    @media (max-width: 520px){
+      .header-row{gap:10px}
+      .brand{min-width:auto}
+      .btn{padding:11px 14px;border-radius:14px}
+      .hero-left{padding:20px}
+      .ba-top{padding:14px 14px 0}
+      .ba-wrap{margin:12px 14px 14px}
+      .trust-row{grid-template-columns:1fr}
+      .trust-item{border-right:none}
+      .trust-item{border-bottom:1px solid rgba(255,255,255,.10)}
+      .trust-item:last-child{border-bottom:none}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-row">
+        <a class="brand" href="#" aria-label="HydroSeal Pavers">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-name">
+            <b>HYDROSEAL</b>
+            <span>Paver Sealing & Protection Specialists</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#quote">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn call" href="tel:19045375000" aria-label="Call now">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.5 3.5c.8-1 2.3-1 3.1 0l1.7 2.1c.7.9.6 2.1-.2 2.9l-1 1c1.3 2.4 3.2 4.3 5.6 5.6l1-1c.8-.8 2-1 2.9-.2l2.1 1.7c1 .8 1 2.3 0 3.1l-1.2 1.2c-.8.8-1.9 1.2-3.1 1-7.2-1.3-12.8-6.9-14.1-14.1-.2-1.2.2-2.3 1-3.1L6.5 3.5Z" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+            Call Now <span style="opacity:.9">(904) 537-5000</span>
+          </a>
+          <a class="btn primary" href="#quote">Get Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left -->
+        <section class="card hero-left">
+          <div class="hero-kicker">
+            <span class="badge">Trident Certified • Premium Finish</span>
+            <span class="pill"><span class="dot"></span> Fast scheduling • Northeast FL</span>
+          </div>
+
+          <h1>
+            Jacksonville’s <span class="accent">Premium</span><br />
+            Paver Sealing & Restoration Experts
+          </h1>
+          <p class="sub">
+            Clean prep. Even finish. Results you can see. We restore color, stabilize joint sand, and seal for long-lasting protection across
+            driveways, patios, pool decks, and walkways.
+          </p>
+
+          <div class="hero-feats" role="list">
+            <div class="feat" role="listitem"><i></i> UV Protection</div>
+            <div class="feat" role="listitem"><i></i> Stain Resistance</div>
+            <div class="feat" role="listitem"><i></i> Joint Sand Lock-In</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#quote">Get Free Estimate</a>
+            <a class="btn" href="#services">See Services</a>
+            <a class="btn" href="#process">How It Works</a>
+          </div>
+
+          <div class="fine">
+            <span class="stars">★★★★★</span>
+            <span>5-Star Rated • Professional Process • Florida-Ready Results</span>
+            <span class="sep">•</span>
+            <span style="color:rgba(255,255,255,.55)">Preview mockup (replace with your real stats/reviews)</span>
+          </div>
+        </section>
+
+        <!-- Right: Before/After Slider -->
+        <section class="card ba" aria-label="Before and after preview">
+          <div class="ba-top">
+            <div class="ba-title">Before / After Preview</div>
+            <div class="chip">Drag to compare <strong>shine + color</strong></div>
+          </div>
+
+          <div class="ba-wrap" id="baWrap">
+            <div class="ba-img ba-before" aria-hidden="true"></div>
+
+            <div class="ba-after-clip" id="baClip" aria-hidden="true">
+              <div class="ba-img ba-after"></div>
+            </div>
+
+            <div class="ba-label before">Before</div>
+            <div class="ba-label after">After</div>
+
+            <div class="ba-handle" id="baHandle" aria-hidden="true">
+              <div class="handle-knob">
+                <div class="handle-arrows">↔</div>
+              </div>
+            </div>
+
+            <input
+              class="ba-slider"
+              id="baSlider"
+              type="range"
+              min="0"
+              max="100"
+              value="55"
+              aria-label="Before after slider"
+            />
+          </div>
+        </section>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="trustbar">
+        <div class="trust">
+          <div class="trust-row">
+            <div class="trust-item">
+              <div class="trust-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l8 4v6c0 5-3.4 9.5-8 10-4.6-.5-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M8.5 12l2.2 2.2L15.8 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <b>Trident System</b>
+                <span>Certified process + materials</span>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3v18" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M5 8h14" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M6 20h12" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </div>
+              <div>
+                <b>ASTM C144 Sand</b>
+                <span>Hydro-compacted joint stabilization</span>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12c3-6 13-6 16 0-3 6-13 6-16 0Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </div>
+              <div>
+                <b>Results You Can See</b>
+                <span>Color pop + even finish</span>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 3h6v4H9V3Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9 17v4h6v-4" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </div>
+              <div>
+                <b>Florida-Ready</b>
+                <span>UV + rain + pool deck conditions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <section class="section" id="services">
+        <h2>Services</h2>
+        <p>Built for conversion: simple, scannable, and value-driven. Replace these blurbs with your exact service copy.</p>
+
+        <div class="grid3">
+          <div class="mini">
+            <div class="top">
+              <div class="tag">Deep Clean</div>
+              <span class="chip" style="padding:8px 10px">Prep matters</span>
+            </div>
+            <h3>Paver Cleaning & Restoration</h3>
+            <p>Remove organics, grime, and surface staining so the finish looks even — not blotchy.</p>
+          </div>
+
+          <div class="mini">
+            <div class="top">
+              <div class="tag">Joint Stabilization</div>
+              <span class="chip" style="padding:8px 10px">ASTM C144</span>
+            </div>
+            <h3>Re-Sand & Lock In</h3>
+            <p>Hydro-compacted joints for stronger stabilization, reduced washout, and cleaner lines.</p>
+          </div>
+
+          <div class="mini">
+            <div class="top">
+              <div class="tag">Seal & Protect</div>
+              <span class="chip" style="padding:8px 10px">2-coat finish</span>
+            </div>
+            <h3>Commercial-Grade Sealer</h3>
+            <p>Enhance color, improve stain resistance, and protect your investment from UV and water.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process + Quote -->
+      <section class="section" id="process">
+        <h2>Our Process</h2>
+        <p>Short + punchy, then link to your full “process” page. This is the “we’re pros, not random pressure washers” section.</p>
+
+        <div class="grid3">
+          <div class="mini">
+            <div class="top"><div class="tag">1</div><span class="chip" style="padding:8px 10px">Inspection</span></div>
+            <h3>Walkthrough & Plan</h3>
+            <p>Surface type, drainage, stains, and target finish — matte vs enhanced.</p>
+          </div>
+          <div class="mini">
+            <div class="top"><div class="tag">2</div><span class="chip" style="padding:8px 10px">Prep</span></div>
+            <h3>Deep Clean + Dry</h3>
+            <p>Controlled cleaning, rinse, and moisture control for proper bonding.</p>
+          </div>
+          <div class="mini">
+            <div class="top"><div class="tag">3</div><span class="chip" style="padding:8px 10px">Finish</span></div>
+            <h3>Sand + Multi-Coat Seal</h3>
+            <p>Joint stabilization then an even application for a consistent, professional look.</p>
+          </div>
+        </div>
+
+        <div class="quote" id="quote">
+          <div class="panel">
+            <h3 style="margin:0 0 6px;font-size:18px;letter-spacing:-.2px">What Jacksonville Homeowners Say</h3>
+            <p style="margin:0 0 12px;color:var(--muted)">Swap these with your real Google reviews (name + area). This section is a lead magnet.</p>
+
+            <div class="grid3" id="reviews" style="grid-template-columns:1fr 1fr 1fr">
+              <div class="mini" style="background:rgba(255,255,255,.04)">
+                <div class="top"><div class="tag">★★★★★</div><span class="chip" style="padding:8px 10px">Nocatee</span></div>
+                <h3 style="margin-bottom:8px">“Pavers look brand new.”</h3>
+                <p>On time, clean work, and the finish is even — no tacky gloss spots.</p>
+                <p style="margin-top:10px;color:rgba(255,255,255,.70);font-weight:800">— Sarah M.</p>
+              </div>
+
+              <div class="mini" style="background:rgba(255,255,255,.04)">
+                <div class="top"><div class="tag">★★★★★</div><span class="chip" style="padding:8px 10px">Ponte Vedra</span></div>
+                <h3 style="margin-bottom:8px">“Worth every penny.”</h3>
+                <p>Water beads right off and the color enhancement is perfect.</p>
+                <p style="margin-top:10px;color:rgba(255,255,255,.70);font-weight:800">— Jason T.</p>
+              </div>
+
+              <div class="mini" style="background:rgba(255,255,255,.04)">
+                <div class="top"><div class="tag">★★★★★</div><span class="chip" style="padding:8px 10px">Jacksonville</span></div>
+                <h3 style="margin-bottom:8px">“Professional start to finish.”</h3>
+                <p>They explained everything, protected landscaping, and nailed the details.</p>
+                <p style="margin-top:10px;color:rgba(255,255,255,.70);font-weight:800">— Lisa R.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="background:linear-gradient(180deg, rgba(255,204,0,.10), rgba(255,255,255,.03))">
+            <h3 style="margin:0 0 6px;font-size:18px;letter-spacing:-.2px">Request Your Free Estimate</h3>
+            <p style="margin:0 0 12px;color:var(--muted)">Fast response • Clear scope • No pressure</p>
+
+            <div class="form-row">
+              <input class="input" placeholder="Full name" />
+              <input class="input" placeholder="Phone number" />
+              <input class="input" placeholder="Email address" />
+              <input class="input" placeholder="ZIP code" />
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn primary" type="button" onclick="alert('Preview only — wire this to your form endpoint.')">
+                Get My Free Quote →
+              </button>
+              <a class="btn" href="tel:19045375000">Or call now</a>
+            </div>
+
+            <div class="small">Preview only. Replace with your real form + tracking (GAds / GBP / analytics).</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        Preview mockup for HydroSeal Pavers • Replace placeholder images/content with your real assets.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Before/After slider logic
+    const slider = document.getElementById("baSlider");
+    const clip = document.getElementById("baClip");
+    const handle = document.getElementById("baHandle");
+
+    function setBA(v){
+      const val = Math.max(0, Math.min(100, Number(v)));
+      clip.style.width = val + "%";
+      handle.style.left = val + "%";
+    }
+    setBA(slider.value);
+    slider.addEventListener("input", (e)=> setBA(e.target.value));
+
+    // Optional: click/tap anywhere to move handle
+    const wrap = document.getElementById("baWrap");
+    wrap.addEventListener("pointerdown", (e) => {
+      // only if clicking the wrap (not dragging thumb)
+      const rect = wrap.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const pct = (x / rect.width) * 100;
+      slider.value = pct;
+      setBA(pct);
+      // capture for drag
+      wrap.setPointerCapture(e.pointerId);
+      const move = (ev)=>{
+        const xx = ev.clientX - rect.left;
+        const pp = (xx / rect.width) * 100;
+        slider.value = pp;
+        setBA(pp);
+      };
+      const up = ()=>{
+        wrap.removeEventListener("pointermove", move);
+        wrap.removeEventListener("pointerup", up);
+        wrap.removeEventListener("pointercancel", up);
+      };
+      wrap.addEventListener("pointermove", move);
+      wrap.addEventListener("pointerup", up);
+      wrap.addEventListener("pointercancel", up);
+    });
+  </script>
+</body>
+</html>
