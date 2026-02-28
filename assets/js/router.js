@@ -4,6 +4,26 @@
   let controller = null;
   let inFlightUrl = "";
 
+  function positionTrustbar() {
+    const trustbar = document.querySelector(".trustbar");
+    const slot = document.getElementById("trustbar-slot");
+    if (!trustbar || !slot) return;
+
+    const hero = document.querySelector(".hero2");
+    const isMobile = window.matchMedia("(max-width: 980px)").matches;
+
+    if (isMobile && hero) {
+      if (trustbar.previousElementSibling !== hero) {
+        hero.insertAdjacentElement("afterend", trustbar);
+      }
+      return;
+    }
+
+    if (trustbar.parentElement !== slot) {
+      slot.appendChild(trustbar);
+    }
+  }
+
   function runScripts(root) {
     const scripts = Array.from(root.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
@@ -142,4 +162,10 @@
     const url = new URL(window.location.href);
     swapPage(url, { push: false });
   });
+
+  document.addEventListener("DOMContentLoaded", positionTrustbar);
+  document.addEventListener("includes:ready", positionTrustbar);
+  document.addEventListener("page:load", positionTrustbar);
+  window.addEventListener("resize", positionTrustbar);
+  window.addEventListener("orientationchange", positionTrustbar);
 })();
