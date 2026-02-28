@@ -1227,6 +1227,11 @@ button.nav-link,
     box-shadow: 0 12px 30px rgba(17,24,39,.22);
   }
   body{ padding-bottom:84px; }
+  html.nav-lock .mobile-callbar,
+  body.nav-lock .mobile-callbar{
+    opacity:0;
+    pointer-events:none;
+  }
 }
 
 /* Small helper used earlier */

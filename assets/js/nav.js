@@ -1,5 +1,15 @@
 /* nav.js — hamburger + dropdowns (SAFE with includes) */
 (function () {
+  function resetDropdownState() {
+    const groups = Array.from(document.querySelectorAll(".nav-group"));
+    groups.forEach((group) => {
+      group.classList.remove("open");
+      clearMobileDropdownPosition(group);
+      const parent = group.querySelector(".nav-parent");
+      if (parent) parent.setAttribute("aria-expanded", "false");
+    });
+  }
+
   function initHeaderHamburger() {
     const shell = document.querySelector(".nav-shell");
     const btn = document.querySelector(".nav-toggle");
@@ -16,6 +26,7 @@
       overlay.hidden = !open;
       document.documentElement.classList.toggle("nav-lock", open);
       document.body.classList.toggle("nav-lock", open);
+      if (!open) resetDropdownState();
     };
 
     btn.addEventListener("click", (e) => {
@@ -74,15 +85,6 @@
     const groups = Array.from(document.querySelectorAll(".nav-group"));
     if (!groups.length) return;
 
-    function closeAll(except) {
-      groups.forEach((g) => {
-        if (g !== except) g.classList.remove("open");
-        const p = g.querySelector(".nav-parent");
-        if (p) p.setAttribute("aria-expanded", g.classList.contains("open") ? "true" : "false");
-        if (g !== except) clearMobileDropdownPosition(g);
-      });
-    }
-
     groups.forEach((group) => {
       const parent = group.querySelector(".nav-parent");
       const dropdown = group.querySelector(".dropdown");
@@ -98,13 +100,9 @@
           e.stopPropagation();
 
           const wasOpen = group.classList.contains("open");
-          closeAll(null);
+          resetDropdownState();
 
-          if (wasOpen) {
-            group.classList.remove("open");
-            parent.setAttribute("aria-expanded", "false");
-            clearMobileDropdownPosition(group);
-          } else {
+          if (!wasOpen) {
             group.classList.add("open");
             parent.setAttribute("aria-expanded", "true");
             positionMobileDropdown(group);
@@ -123,14 +121,12 @@
 
       document.addEventListener("pointerdown", (e) => {
         if (e.target.closest(".header")) return;
-        groups.forEach(clearMobileDropdownPosition);
-        groups.forEach((g) => g.classList.remove("open"));
+        resetDropdownState();
       });
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-          groups.forEach(clearMobileDropdownPosition);
-          groups.forEach((g) => g.classList.remove("open"));
+          resetDropdownState();
         }
       });
 
