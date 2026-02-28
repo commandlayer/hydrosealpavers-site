@@ -656,6 +656,13 @@ h3{ color: var(--h3-blue); }
   .cert-hero{ grid-template-columns: 1fr; }
 }
 
+/* Persistent shell slot for trustbar */
+#trustbar-slot{
+  display:block;
+  position:relative;
+  z-index:2;
+}
+
 /* Global trust bar */
 .trustbar{
   width:100%;
