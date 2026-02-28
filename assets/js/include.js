@@ -31,31 +31,43 @@
       });
     }
 
-    // 1) Load includes
-    const nodes = document.querySelectorAll("[data-include]");
-    for (const placeholder of nodes) {
-      const url = placeholder.getAttribute("data-include");
-      try {
-        const res = await fetch(url, { cache: "no-cache" });
-        if (!res.ok) throw new Error("Fetch failed: " + url);
+    // 1) Load includes in parallel, then replace placeholders in DOM order.
+    const placeholders = Array.from(document.querySelectorAll("[data-include]"));
+    const includeResults = await Promise.all(
+      placeholders.map(async (placeholder) => {
+        const url = placeholder.getAttribute("data-include");
 
-        const html = await res.text();
+        try {
+          const res = await fetch(url);
+          if (!res.ok) throw new Error("Fetch failed: " + url);
 
-        const wrap = document.createElement("div");
-        wrap.className = "include-root";
-        wrap.innerHTML = html;
+          const html = await res.text();
+          const wrap = document.createElement("div");
+          wrap.className = "include-root";
+          wrap.innerHTML = html;
 
-        // Run scripts only within newly included subtree.
-        runScripts(wrap);
+          // Run scripts only within newly included subtree.
+          runScripts(wrap);
 
-        const frag = document.createDocumentFragment();
-        while (wrap.firstChild) frag.appendChild(wrap.firstChild);
-        placeholder.replaceWith(frag);
-      } catch (err) {
+          const frag = document.createDocumentFragment();
+          while (wrap.firstChild) frag.appendChild(wrap.firstChild);
+
+          return { placeholder, url, frag };
+        } catch (err) {
+          return { placeholder, url, err };
+        }
+      })
+    );
+
+    includeResults.forEach(({ placeholder, url, frag, err }) => {
+      if (err) {
         console.error(err);
         placeholder.outerHTML = "<!-- include failed: " + url + " -->";
+        return;
       }
-    }
+
+      placeholder.replaceWith(frag);
+    });
 
     await new Promise((r) => setTimeout(r, 0));
 
@@ -85,10 +97,17 @@
 
     // 4) Insert trustbar UNDER HERO (global, single)
     try {
+      if (
+        document.documentElement.hasAttribute("data-no-trustbar") ||
+        document.body.hasAttribute("data-no-trustbar")
+      ) {
+        return;
+      }
+
       // hard idempotency: if already in DOM, stop
       if (document.querySelector(".trustbar.trust-strip")) return;
 
-      const res = await fetch("/partials/trustbar.html", { cache: "no-cache" });
+      const res = await fetch("/partials/trustbar.html");
       if (!res.ok) return;
 
       const html = (await res.text()).trim();

@@ -534,19 +534,14 @@ h3{ color: var(--h3-blue); }
 }
 .card-greengrad > *{ position:relative; z-index:1; }
 
-/* Prevent header “pop-in” layout shift */
+/* Keep include placeholders sized to avoid layout shift */
 [data-include="/partials/header.html"]{
   min-height:112px;
   display:block;
 }
-body.includes-loading .header{
-  opacity:0;
-  transform:translateY(-6px);
-}
-body.includes-ready .header{
-  opacity:1;
-  transform:none;
-  transition: opacity .16s ease, transform .16s ease;
+[data-include="/partials/footer.html"]{
+  min-height:260px;
+  display:block;
 }
 
 @media (max-width: 860px){
