@@ -122,7 +122,15 @@
       const trustbar = tmp.querySelector(".trustbar");
       if (!trustbar) return;
 
-      slot.replaceChildren(trustbar);
+      slot.replaceChildren();
+      slot.appendChild(trustbar);
+
+      if (typeof window.positionTrustbar === "function") {
+        window.positionTrustbar();
+        requestAnimationFrame(() => {
+          window.positionTrustbar();
+        });
+      }
     } catch (e) {
       // fail silently
     }
