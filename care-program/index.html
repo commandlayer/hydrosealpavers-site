@@ -16,6 +16,7 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px;
+      overflow: hidden;
     }
 
     .care-hero-grid {
@@ -52,12 +53,12 @@
     .care-pill strong { font-weight: 1000; }
 
     .care-hero-img {
-      border-radius: 18px;
+      border: 0;
+      background: transparent;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: #f3f4f6;
       aspect-ratio: 4 / 3;
-      min-height: 240px;
+      min-height: 320px;
     }
 
     .care-hero-img img {
@@ -65,10 +66,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    @media (min-width: 861px) {
-      .care-hero-img { min-height: 320px; }
+      border-radius: 0;
     }
 
     .care-card {
@@ -151,8 +149,8 @@
       .care-hero-grid { grid-template-columns: 1fr; }
       .care-hero-img {
         order: 1;
-        max-width: none;
         width: 100%;
+        max-width: none;
         aspect-ratio: 16 / 9;
         min-height: 0;
       }
