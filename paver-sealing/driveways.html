@@ -14,9 +14,10 @@
 
   <!-- PAGE-ONLY CSS: buttons + mobile image resizing -->
   <style>
-    .media-box{ overflow:hidden; border-radius:18px; }
+    .media-box{ overflow:hidden; border-radius:18px; aspect-ratio:16/9; }
     .media-box img{ width:100%; height:100%; display:block; object-fit:cover; }
     .media-h-md{ height:360px; }
+    .stack{ display:grid; gap:10px; }
 
     @media (max-width: 860px){
       .driveway-split,
@@ -26,9 +27,7 @@
       }
       .driveway-split-rev .card{ order: 1; }
       .driveway-split-rev .media-box{ order: 2; }
-    }
-    @media (max-width: 520px){
-      .media-h-md{ height:240px; }
+      .media-h-md{ height:auto; }
     }
 
     .driveway-cta-row{
@@ -378,6 +377,8 @@
               alt="Sealed paver driveway close-up"
               loading="lazy"
               decoding="async"
+              width="1200"
+              height="675"
             />
           </div>
 
@@ -420,12 +421,12 @@
 
           <div class="media-box media-h-md">
             <img
-             src="/assets/hero/hydroseal-driveway.webp"
-loading="lazy"
-decoding="async"
-width="1200"
-height="675"
-
+              src="/assets/hero/hydroseal-driveway.webp"
+              alt="Technician sealing a paver driveway with professional equipment"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
             />
           </div>
         </div>
@@ -448,8 +449,7 @@ height="675"
 
       <!-- DRIVEWAY FAQ -->
       <section class="section" id="driveway-faq">
-        <div class="container">
-          <h2>Driveway Sealing Questions</h2>
+        <h2>Driveway Sealing Questions</h2>
 
           <div class="stack" style="margin-top:16px;">
 
@@ -533,7 +533,6 @@ height="675"
             </details>
 
           </div>
-        </div>
       </section>
 
       <script>
