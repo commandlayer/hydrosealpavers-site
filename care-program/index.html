@@ -1,242 +1,335 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HydroSeal Care Program | HydroSeal Pavers</title>
-  <meta name="description" content="HydroSeal Care Program: structured annual maintenance for HydroSeal-sealed pavers only. Keep surfaces clean, joints stable, and reseal timing on track with a professional lifecycle approach. Plans start at $0.30 per sq ft." />
+  <meta name="description" content="HydroSeal Care Program: annual seal-safe maintenance for HydroSeal-sealed pavers only. Preserve uniform appearance, reinforce joints, and align reseal timing. Earn up to 20% credit toward your next full reseal with consistent annual care." />
   <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
 
+  <!-- Page-local polish (keeps the rest of the site untouched) -->
+  <style>
+    .care-wrap { max-width: 980px; }
+    .care-hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .care-hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .care-kicker {
+      margin: 8px 0 0;
+      font-weight: 900;
+      color: #0B2D4A;
+    }
+    .care-lede {
+      color: var(--muted);
+      margin: 10px 0 0;
+      line-height: 1.7;
+    }
+    .care-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(40,182,200,.18), rgba(15,110,168,.12));
+      border: 1px solid rgba(11,45,74,.12);
+      color: #0B2D4A;
+      font-weight: 900;
+      margin-top: 12px;
+    }
+    .care-pill strong { font-weight: 1000; }
+    .care-hero-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+
+    .care-card {
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .care-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .care-mini {
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: none;
+      border-radius: 16px;
+    }
+    .care-mini-title {
+      font-weight: 1000;
+      margin-bottom: 8px;
+    }
+
+    .care-callout {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(11,45,74,.22);
+      background: rgba(255,255,255,.92);
+      color: #0B2D4A;
+      font-weight: 800;
+    }
+
+    .care-credit-box {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .care-credit-steps {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.7;
+    }
+    .care-example {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(40,182,200,.10);
+      border: 1px solid rgba(11,45,74,.10);
+      color: #0B2D4A;
+    }
+
+    .care-note {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .care-hero-grid { grid-template-columns: 1fr; }
+      .care-hero-img { order: 1; max-width: 560px; }
+      .care-hero-text { order: 2; }
+      .care-two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
   <div data-include="/partials/header.html"></div>
 
   <section class="section">
-    <div class="container">
+    <div class="container care-wrap">
 
       <!-- HERO -->
-      <div class="card warranty-top" style="padding:18px;max-width:980px;background:#fff;border:none;box-shadow:none;">
-        <div class="warranty-top-grid" style="display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:start;">
+      <div class="care-hero">
+        <div class="care-hero-grid">
 
           <!-- LEFT -->
-          <div class="warranty-top-text">
-            <h1 style="margin:0;font-size:34px;line-height:1.15;">
-              HydroSeal Care Program
-            </h1>
+          <div class="care-hero-text">
+            <h1 style="margin:0;font-size:34px;line-height:1.15;">HydroSeal Care Program</h1>
 
-            <p style="margin:8px 0 0;font-weight:900;color:#0B2D4A;">
-              Available exclusively for surfaces previously sealed by HydroSeal.
-            </p>
+            <p class="care-kicker">Annual seal-safe maintenance for HydroSeal-sealed pavers only.</p>
 
-            <p style="color:var(--muted);margin:10px 0 0;line-height:1.7;">
-              You invested in sealing your pavers correctly. Now protect that investment with structured annual care.
-              Florida sun, moisture, and daily use gradually impact even well-sealed surfaces.
+            <p class="care-lede">
+              You sealed it right — now maintain it correctly.
+              Florida sun, rain, humidity, and daily traffic gradually impact sealed surfaces.
               The <strong>HydroSeal Care Program</strong> keeps your pavers <strong>clean</strong>,
-              your <strong>joints stable</strong>, and your <strong>reseal timing on schedule</strong> —
-              so your surface stays uniform and your reseal timing stays predictable.
+              your <strong>joints stable</strong>, and your <strong>reseal timing properly aligned</strong> —
+              while allowing you to earn structured credit toward your next full reseal.
             </p>
 
-            <!-- PRICING + VALUE -->
-            <div style="height:12px;"></div>
-
-            <div style="
-              display:inline-flex;
-              align-items:center;
-              gap:10px;
-              padding:10px 12px;
-              border-radius:999px;
-              background:linear-gradient(135deg, rgba(40,182,200,.18), rgba(15,110,168,.12));
-              border:1px solid rgba(11,45,74,.12);
-              color:#0B2D4A;
-              font-weight:1000;
-            ">
-              Plans start at <strong style="font-weight:1200;">$0.30 per sq ft</strong>
+            <div class="care-pill">
+              Plans start at <strong>$0.30 per sq ft</strong>
             </div>
 
-            <!-- package-style includes line -->
-            <p style="margin:10px 0 0;color:var(--muted);line-height:1.6;">
-              <strong style="color:#0B2D4A;">Includes:</strong> seal-safe wash + brightening + joint spot reinforcement + full inspection report
-            </p>
-
-            <p style="margin:8px 0 0;color:var(--muted);line-height:1.7;">
-              Most homes fall between <strong>$350–$650</strong> per year, depending on size, access, and surface condition.
-              Annual maintenance helps your original seal perform at its full lifespan.
-              <strong>Predictable upkeep. Predictable reseal timing. No surprises.</strong>
+            <p style="margin:10px 0 0;color:var(--muted);line-height:1.7;">
+              Most homes fall between <strong>$350–$650 annually</strong>, depending on surface condition, access, and layout.
             </p>
           </div>
 
           <!-- RIGHT -->
-          <div class="warranty-top-image" style="justify-self:end;width:100%;max-width:510px;">
+          <div class="care-hero-img">
             <img
               src="/assets/hero/hydroseal-care-program.png"
               alt="HydroSeal Care Program"
               loading="eager"
-              style="width:100%;height:auto;display:block;border-radius:18px;"
               onerror="this.style.display='none';"
             />
           </div>
 
         </div>
-
-        <style>
-          @media (max-width:860px){
-            .warranty-top-grid{ grid-template-columns:1fr !important; }
-            .warranty-top-image{
-              order:1;
-              justify-self:start !important;
-              max-width:560px !important;
-              margin-top:12px;
-            }
-            .warranty-top-text{ order:2; }
-          }
-        </style>
       </div>
 
       <div style="height:18px;"></div>
 
       <!-- CONTENT -->
-      <div class="card" style="padding:18px;max-width:980px;">
+      <div class="card care-card">
 
         <!-- WHY IT MATTERS -->
-        <h2 style="margin:0 0 10px;">Why Ongoing Care Matters</h2>
+        <h2 style="margin:0 0 10px;">Why Florida Surfaces Require Ongoing Care</h2>
         <p style="margin:0;color:var(--muted);line-height:1.7;">
-          Even a properly applied sealer benefits from routine oversight. Without annual care, appearance can start to vary over time —
-          organic buildup returns, joints can loosen in spots, and reseal timing becomes harder to judge.
-          With structured annual care, your surface stays consistent, protected, and easier to plan around.
+          Even a properly applied sealer benefits from routine maintenance to preserve uniform appearance and joint stability.
+          Annual care keeps surfaces looking consistent and helps prevent small issues from becoming restoration-level problems.
         </p>
 
         <div style="height:12px;"></div>
 
-        <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;box-shadow:none;">
-            <div style="font-weight:1000;margin-bottom:6px;">Without Annual Care</div>
-            <ul style="margin:0;padding-left:18px;line-height:1.7;color:var(--muted);">
-              <li>Organic buildup accumulates</li>
-              <li>Minor joint erosion spreads</li>
-              <li>Color consistency fades</li>
-              <li>Reseal timing becomes guesswork</li>
+        <div class="care-two-col">
+          <div class="care-mini">
+            <div class="care-mini-title">Annual care helps</div>
+            <ul style="margin:0;padding-left:18px;line-height:1.7;">
+              <li>Remove organic buildup and environmental staining</li>
+              <li>Prevent minor joint washout before it spreads</li>
+              <li>Maintain color consistency and curb appeal</li>
+              <li>Catch small issues early, when they’re easy to correct</li>
             </ul>
           </div>
 
-          <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;box-shadow:none;">
-            <div style="font-weight:1000;margin-bottom:6px;">With Annual Care</div>
-            <ul style="margin:0;padding-left:18px;line-height:1.7;color:var(--muted);">
-              <li>Surfaces stay uniform</li>
-              <li>Joints stay reinforced</li>
-              <li>Small issues get corrected early</li>
-              <li>Reseal timing stays predictable</li>
-            </ul>
+          <div class="care-mini">
+            <div class="care-mini-title">Important scope note</div>
+            <p style="margin:0;color:var(--muted);line-height:1.7;">
+              This program protects well-maintained surfaces.
+              It is not designed to rescue neglected surfaces or failing sealers.
+            </p>
+            <div class="care-callout">
+              If restoration is needed, we’ll recommend the right next step before any work begins.
+            </div>
           </div>
         </div>
 
-        <style>
-          @media (max-width: 860px){
-            .two-col{ grid-template-columns:1fr !important; }
-          }
-        </style>
-
         <div style="height:18px;"></div>
 
-        <!-- WHAT'S INCLUDED -->
+        <!-- INCLUDED -->
         <h2 style="margin:0 0 12px;">What Your Annual Care Visit Includes</h2>
-
-        <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;">
-          <p style="margin:0 0 10px;color:var(--muted);line-height:1.7;">
-            Every visit is seal-safe and follows the same standards used on your original HydroSeal service.
-          </p>
-
+        <div class="care-mini">
           <ul style="margin:0;padding-left:18px;line-height:1.7;">
-            <li><strong>Professional softwash treatment</strong> designed for sealed pavers</li>
-            <li><strong>Seal-safe deep-clean pass</strong> (no stripping, no etching)</li>
-            <li><strong>Surface brightening</strong> for consistent appearance</li>
-            <li><strong>Spot joint sand reinforcement</strong> where needed</li>
-            <li><strong>Full condition inspection</strong></li>
-            <li><strong>Performance-based reseal timing recommendation</strong></li>
+            <li><strong>Seal-safe softwash treatment</strong></li>
+            <li><strong>Controlled deep-clean pass</strong></li>
+            <li><strong>Surface brightening</strong> for uniform appearance</li>
+            <li><strong>Spot joint sand reinforcement</strong> (where needed)</li>
+            <li><strong>Full surface inspection</strong></li>
+            <li><strong>Condition-based reseal timing recommendation</strong></li>
           </ul>
 
-          <div style="height:12px;"></div>
-
-          <div style="padding:10px 12px;border-radius:14px;border:1px dashed rgba(11,45,74,.22);background:rgba(255,255,255,.92);color:#0B2D4A;font-weight:800;">
-            Built for maintained, HydroSeal-sealed surfaces. If restoration is needed, we’ll recommend the right next step before any work begins.
+          <div class="care-callout">
+            Each visit follows the same standards established during your original HydroSeal service.
           </div>
         </div>
 
         <div style="height:18px;"></div>
 
-        <!-- VALUE / LIFECYCLE -->
-        <h2 style="margin:0 0 12px;">Lifecycle Alignment</h2>
+        <!-- CREDITS -->
+        <h2 style="margin:0 0 12px;">Earn Up to 20% Toward Your Next Reseal</h2>
 
-        <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;">
+        <div class="care-credit-box">
           <p style="margin:0;color:var(--muted);line-height:1.7;">
-            Consistent maintenance supports long-term sealer performance and helps identify the proper reseal window based on surface condition —
-            not guesswork.
+            The Care Program rewards consistency.
           </p>
+
+          <div style="height:10px;"></div>
+
+          <ul class="care-credit-steps">
+            <li><strong>Year 1 annual visit → earn 10% credit</strong></li>
+            <li><strong>Year 2 annual visit → earn an additional 10% credit</strong></li>
+          </ul>
 
           <p style="margin:10px 0 0;color:var(--muted);line-height:1.7;">
-            The Care Program is maintenance-focused and designed to complement the HydroSeal system over its full service life.
+            Up to <strong>20% total credit</strong> may be applied toward your next full reseal when completed within the recommended
+            performance window (typically within <strong>36 months</strong> of original service).
           </p>
+
+          <div class="care-example">
+            <strong>Example:</strong> $1,700 reseal → 20% credit = $340 applied
+          </div>
+
+          <p style="margin:10px 0 0;color:var(--muted);line-height:1.7;">
+            You maintain the surface properly — and reduce your future reseal cost.
+          </p>
+
+          <div class="care-note">
+            Credits apply to eligible full reseal services performed by HydroSeal and are evaluated against surface condition and timing.
+          </div>
         </div>
 
         <div style="height:18px;"></div>
 
         <!-- WHO IT'S FOR -->
         <h2 style="margin:0 0 10px;">Who This Program Is For</h2>
-
         <p style="margin:0 0 12px;color:var(--muted);line-height:1.7;">
           <strong>Available exclusively for surfaces previously sealed by HydroSeal.</strong>
-          This program continues the standards established during your original service and is built around our sealing process.
+          This is a continuation of our system — maintenance, credits, and reseal timing are built around our process.
         </p>
 
-        <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;box-shadow:none;">
-            <div style="font-weight:1000;margin-bottom:8px;">Best Fit</div>
+        <div class="care-two-col">
+          <div class="care-mini">
+            <div class="care-mini-title">Best Fit</div>
             <ul style="margin:0;padding-left:18px;line-height:1.7;">
               <li><strong>HydroSeal-sealed pavers</strong></li>
               <li>Homeowners who prefer professional oversight</li>
-              <li>Properties planning to reseal within the recommended <strong>3-year cycle</strong></li>
-              <li>Owners who value proactive maintenance</li>
+              <li>Owners who value proactive protection over reactive repairs</li>
+              <li>Properties planning to reseal within a typical performance window</li>
             </ul>
           </div>
 
-          <div class="card" style="padding:14px;border:1px solid var(--line);background:#fff;box-shadow:none;">
-            <div style="font-weight:1000;margin-bottom:8px;">Not a Fit</div>
+          <div class="care-mini">
+            <div class="care-mini-title">Not a Fit</div>
             <ul style="margin:0;padding-left:18px;line-height:1.7;">
               <li><strong>Pavers sealed by other contractors</strong></li>
               <li>Unsealed surfaces</li>
               <li>Failing sealer requiring restoration</li>
               <li>Structural, drainage, or base issues</li>
             </ul>
+
+            <div class="care-callout">
+              Not sure if we sealed your pavers? Send your address and a photo — we’ll confirm eligibility quickly.
+            </div>
           </div>
         </div>
 
         <div style="height:18px;"></div>
 
-        <!-- WARRANTY -->
-        <h2 style="margin:0 0 10px;">Warranty Relationship</h2>
+        <!-- HOW IT WORKS -->
+        <h2 style="margin:0 0 10px;">How It Works</h2>
+        <ol style="margin:0;padding-left:18px;line-height:1.7;">
+          <li>We seal your pavers</li>
+          <li>You enroll in annual Care visits</li>
+          <li>You earn reseal credits</li>
+          <li>You reseal at the appropriate performance window</li>
+        </ol>
 
-        <p style="margin:0;color:var(--muted);line-height:1.7;">
-          Our 2-Year Warranty covers workmanship and sealer adhesion.
-          The Care Program supports appearance consistency, joint stability, and performance monitoring between reseals.
-          It is a structured maintenance approach — not a warranty extension.
+        <p style="margin:10px 0 0;color:var(--muted);line-height:1.7;">
+          This keeps surfaces maintained and eliminates the “out of sight, out of mind” problem.
         </p>
 
         <div style="height:18px;"></div>
 
-        <!-- INFO (no conversion) -->
-        <div class="card" style="padding:16px;border:1px solid var(--line);background:#fff;">
-          <h2 style="margin:0 0 10px;">How to Use This Program</h2>
+        <!-- WARRANTY -->
+        <h2 style="margin:0 0 10px;">Warranty Alignment</h2>
+        <p style="margin:0;color:var(--muted);line-height:1.7;">
+          Our 2-Year Warranty covers workmanship and sealer adhesion.
+          The Care Program supports appearance consistency, joint stability, and lifecycle monitoring between reseals.
+          Participation is optional and is not a warranty extension.
+        </p>
+
+        <div style="height:18px;"></div>
+
+        <!-- NOTE -->
+        <div class="care-mini">
+          <h2 style="margin:0 0 10px;">Operational Note</h2>
           <p style="margin:0;color:var(--muted);line-height:1.7;">
-            This is an annual maintenance option for HydroSeal-sealed surfaces. If you’re already a HydroSeal customer, your care visit is
-            typically scheduled around the 12-month mark. If you’re not a HydroSeal customer, this program doesn’t apply — start with a
-            standard cleaning/sealing service first.
+            Scope and timing vary based on surface condition and weather. If deeper restoration or a full reseal is recommended,
+            we provide clear guidance and options before proceeding.
           </p>
         </div>
 
-       
-
       </div>
+      <!-- /CONTENT -->
 
     </div>
   </section>
