@@ -4,6 +4,23 @@
   let controller = null;
   let inFlightUrl = "";
 
+  function positionTrustbar() {
+    const trustbar = document.querySelector(".trustbar");
+    if (!trustbar) return;
+
+    const slot = document.getElementById("trustbar-slot");
+    const hero = document.querySelector(".hero2") || document.querySelector(".hero");
+    const isMobile = window.matchMedia("(max-width: 980px)").matches;
+
+    if (isMobile && hero) {
+      hero.insertAdjacentElement("afterend", trustbar);
+    } else if (slot) {
+      slot.appendChild(trustbar);
+    }
+  }
+
+  window.positionTrustbar = positionTrustbar;
+
   function runScripts(root) {
     const scripts = Array.from(root.querySelectorAll("script"));
     scripts.forEach((oldScript) => {
@@ -108,6 +125,10 @@
       if (!nextPage) throw new Error("Missing #page[data-page] in destination document");
 
       const doSwap = () => {
+        const trustbar = document.querySelector(".trustbar");
+        const slot = document.getElementById("trustbar-slot");
+        if (trustbar && slot) slot.appendChild(trustbar);
+
         currentPage.replaceWith(nextPage);
         runScripts(nextPage);
       };
@@ -121,6 +142,7 @@
       updateHead(nextDoc);
       if (push) history.pushState({ url: url.href }, "", url.href);
       scrollAfterNavigation(url);
+      positionTrustbar();
       document.dispatchEvent(new Event("page:load"));
     } catch (err) {
       if (err.name === "AbortError") return;
@@ -142,4 +164,18 @@
     const url = new URL(window.location.href);
     swapPage(url, { push: false });
   });
+
+  document.addEventListener("page:load", () => {
+    positionTrustbar();
+  });
+
+  window.addEventListener("resize", () => {
+    positionTrustbar();
+  });
+
+  window.addEventListener("orientationchange", () => {
+    positionTrustbar();
+  });
+
+  positionTrustbar();
 })();
