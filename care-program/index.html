@@ -10,28 +10,33 @@
   <!-- Page-local polish (keeps the rest of the site untouched) -->
   <style>
     .care-wrap { max-width: 980px; }
+
     .care-hero {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px;
     }
+
     .care-hero-grid {
       display: grid;
       grid-template-columns: 1.25fr .75fr;
       gap: 18px;
       align-items: start;
     }
+
     .care-kicker {
       margin: 8px 0 0;
       font-weight: 900;
       color: #0B2D4A;
     }
+
     .care-lede {
       color: var(--muted);
       margin: 10px 0 0;
       line-height: 1.7;
     }
+
     .care-pill {
       display: inline-flex;
       align-items: center;
@@ -45,6 +50,7 @@
       margin-top: 12px;
     }
     .care-pill strong { font-weight: 1000; }
+
     .care-hero-img img {
       width: 100%;
       height: auto;
@@ -55,6 +61,7 @@
     .care-card {
       padding: 18px;
       border-radius: 18px;
+      margin-bottom: 0; /* keep bottom clean */
     }
 
     .care-two-col {
@@ -62,6 +69,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+
     .care-mini {
       padding: 14px;
       border: 1px solid var(--line);
@@ -69,6 +77,7 @@
       box-shadow: none;
       border-radius: 16px;
     }
+
     .care-mini-title {
       font-weight: 1000;
       margin-bottom: 8px;
@@ -90,11 +99,13 @@
       border-radius: 16px;
       padding: 14px;
     }
+
     .care-credit-steps {
       margin: 0;
       padding-left: 18px;
       line-height: 1.7;
     }
+
     .care-example {
       margin-top: 10px;
       padding: 12px;
@@ -111,11 +122,65 @@
       margin-top: 12px;
     }
 
+    /* Consistent spacing without inline height divs */
+    .care-spacer-12 { height: 12px; }
+    .care-spacer-18 { height: 18px; }
+
+    /* Bottom finishing block */
+    .care-bottom {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(11,45,74,.06), rgba(40,182,200,.10));
+    }
+
+    .care-bottom-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .care-bottom-title {
+      margin: 0;
+      font-weight: 1000;
+      color: #0B2D4A;
+    }
+
+    .care-bottom-text {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .care-bottom-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .care-bottom-fine {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .care-bottom-box {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(11,45,74,.12);
+      background: rgba(255,255,255,.9);
+    }
+
     @media (max-width: 860px) {
       .care-hero-grid { grid-template-columns: 1fr; }
       .care-hero-img { order: 1; max-width: 560px; }
       .care-hero-text { order: 2; }
       .care-two-col { grid-template-columns: 1fr; }
+      .care-bottom-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -166,7 +231,7 @@
         </div>
       </div>
 
-      <div style="height:18px;"></div>
+      <div class="care-spacer-18"></div>
 
       <!-- CONTENT -->
       <div class="card care-card">
@@ -178,7 +243,7 @@
           Annual care keeps surfaces looking consistent and helps prevent small issues from becoming restoration-level problems.
         </p>
 
-        <div style="height:12px;"></div>
+        <div class="care-spacer-12"></div>
 
         <div class="care-two-col">
           <div class="care-mini">
@@ -203,7 +268,7 @@
           </div>
         </div>
 
-        <div style="height:18px;"></div>
+        <div class="care-spacer-18"></div>
 
         <!-- INCLUDED -->
         <h2 style="margin:0 0 12px;">What Your Annual Care Visit Includes</h2>
@@ -222,7 +287,7 @@
           </div>
         </div>
 
-        <div style="height:18px;"></div>
+        <div class="care-spacer-18"></div>
 
         <!-- CREDITS -->
         <h2 style="margin:0 0 12px;">Earn Up to 20% Toward Your Next Reseal</h2>
@@ -232,7 +297,7 @@
             The Care Program rewards consistency.
           </p>
 
-          <div style="height:10px;"></div>
+          <div class="care-spacer-12"></div>
 
           <ul class="care-credit-steps">
             <li><strong>Year 1 annual visit → earn 10% credit</strong></li>
@@ -257,7 +322,7 @@
           </div>
         </div>
 
-        <div style="height:18px;"></div>
+        <div class="care-spacer-18"></div>
 
         <!-- WHO IT'S FOR -->
         <h2 style="margin:0 0 10px;">Who This Program Is For</h2>
@@ -292,7 +357,7 @@
           </div>
         </div>
 
-        <div style="height:18px;"></div>
+        <div class="care-spacer-18"></div>
 
         <!-- HOW IT WORKS -->
         <h2 style="margin:0 0 10px;">How It Works</h2>
@@ -303,9 +368,37 @@
           <li>You reseal at the appropriate performance window</li>
         </ol>
 
-        
+        <!-- FINISH / CTA -->
+        <div class="care-bottom">
+          <div class="care-bottom-grid">
+            <div>
+              <h3 class="care-bottom-title">Get Annual Care Pricing</h3>
+              <p class="care-bottom-text">
+                Send your address and a photo, and we’ll confirm eligibility and quote your annual visit.
+              </p>
 
-        <div style="height:18px;"></div>
+              <div class="care-bottom-actions">
+                <a class="btn primary" href="/contact.html">Request Care Quote</a>
+                <a class="btn ghost" href="tel:19045375000">Call 904.537.5000</a>
+              </div>
+
+              <div class="care-bottom-fine">
+                Care Program is available for HydroSeal-sealed surfaces only.
+              </div>
+            </div>
+
+            <div class="care-bottom-box">
+              <div class="care-mini-title">What to send</div>
+              <ul style="margin:0;padding-left:18px;line-height:1.7;">
+                <li>Street address (or neighborhood)</li>
+                <li>1–2 wide photos of the pavers</li>
+                <li>Any problem areas (joints, stains, dull spots)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="care-spacer-18"></div>
 
         <!-- WARRANTY -->
         <h2 style="margin:0 0 10px;">Warranty Alignment</h2>
@@ -315,9 +408,6 @@
           Participation is optional and is not a warranty extension.
         </p>
 
-        <div style="height:18px;"></div>
-
-      </div>
       </div>
       <!-- /CONTENT -->
 
