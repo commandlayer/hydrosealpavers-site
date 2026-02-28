@@ -126,53 +126,12 @@
     .care-spacer-12 { height: 12px; }
     .care-spacer-18 { height: 18px; }
 
-    /* Bottom finishing block */
-    .care-bottom {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(11,45,74,.06), rgba(40,182,200,.10));
-    }
-
-    .care-bottom-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .care-bottom-title {
-      margin: 0;
-      font-weight: 1000;
-      color: #0B2D4A;
-    }
-
-    .care-bottom-text {
-      margin: 8px 0 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .care-bottom-actions {
-      display: flex;
-      gap: 10px;
+    /* CTA actions */
+    .care-bottom-actions{
+      display:flex;
+      gap:10px;
       flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .care-bottom-fine {
-      margin-top: 10px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .care-bottom-box {
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(11,45,74,.12);
-      background: rgba(255,255,255,.9);
+      margin-top: 0;
     }
 
     @media (max-width: 860px) {
@@ -180,7 +139,6 @@
       .care-hero-img { order: 1; max-width: 560px; }
       .care-hero-text { order: 2; }
       .care-two-col { grid-template-columns: 1fr; }
-      .care-bottom-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -360,53 +318,104 @@
         <div class="care-spacer-18"></div>
 
         <!-- HOW IT WORKS -->
-        <h2 style="margin:0 0 10px;">How It Works</h2>
-        <ol style="margin:0;padding-left:18px;line-height:1.7;">
-          <li>We seal your pavers</li>
-          <li>You enroll in annual Care visits</li>
-          <li>You earn reseal credits</li>
-          <li>You reseal at the appropriate performance window</li>
-        </ol>
+        <h2 style="margin:0 0 10px;">How It Works (Simple + Predictable)</h2>
 
-        <!-- FINISH / CTA -->
-        <div class="care-bottom">
-          <div class="care-bottom-grid">
-            <div>
-              <h3 class="care-bottom-title">Get Annual Care Pricing</h3>
-              <p class="care-bottom-text">
-                Send your address and a photo, and we’ll confirm eligibility and quote your annual visit.
-              </p>
+        <div class="care-two-col">
+          <div class="care-mini">
+            <div class="care-mini-title">1) Annual Visit</div>
+            <p style="margin:0;color:var(--muted);line-height:1.7;">
+              One seal-safe maintenance visit each year to keep the surface uniform, reduce organic buildup,
+              reinforce joints where needed, and document condition.
+            </p>
+          </div>
 
-              <div class="care-bottom-actions">
-                <a class="btn primary" href="/contact.html">Request Care Quote</a>
-                <a class="btn ghost" href="tel:19045375000">Call 904.537.5000</a>
-              </div>
+          <div class="care-mini">
+            <div class="care-mini-title">2) Reseal Timing, Done Right</div>
+            <p style="margin:0;color:var(--muted);line-height:1.7;">
+              You don’t guess. We track wear, recommend the correct timing window, and keep your system aligned
+              so the next reseal is clean, predictable, and cost-efficient.
+            </p>
+          </div>
+        </div>
 
-              <div class="care-bottom-fine">
-                Care Program is available for HydroSeal-sealed surfaces only.
-              </div>
-            </div>
+        <div class="care-spacer-12"></div>
 
-            <div class="care-bottom-box">
-              <div class="care-mini-title">What to send</div>
-              <ul style="margin:0;padding-left:18px;line-height:1.7;">
-                <li>Street address (or neighborhood)</li>
-                <li>1–2 wide photos of the pavers</li>
-                <li>Any problem areas (joints, stains, dull spots)</li>
-              </ul>
-            </div>
+        <div class="care-callout">
+          This is not “pressure washing.” It’s seal-safe maintenance designed to protect the finish and keep the sand stable.
+        </div>
+
+        <div class="care-spacer-18"></div>
+
+        <!-- STRONG CLOSE -->
+        <h2 style="margin:0 0 10px;">Why Homeowners Stay on the Care Program</h2>
+
+        <div class="care-two-col">
+          <div class="care-mini">
+            <div class="care-mini-title">You keep the look</div>
+            <ul style="margin:0;padding-left:18px;line-height:1.7;">
+              <li>More consistent color and gloss over time</li>
+              <li>Less staining and organic darkening</li>
+              <li>Fewer “patchy” areas between reseals</li>
+            </ul>
+          </div>
+
+          <div class="care-mini">
+            <div class="care-mini-title">You protect the system</div>
+            <ul style="margin:0;padding-left:18px;line-height:1.7;">
+              <li>Joint sand stays tighter and more stable</li>
+              <li>Small washout gets handled before it spreads</li>
+              <li>Inspections catch issues early (drainage, pooling, edges)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="care-spacer-12"></div>
+
+        <div class="care-example">
+          <strong>Bottom line:</strong> Annual care keeps your pavers in “maintained” condition so reseals are easier,
+          cleaner, and less expensive than waiting for restoration-level problems.
+        </div>
+
+        <div class="care-spacer-18"></div>
+
+        <!-- NEXT STEP -->
+        <h2 style="margin:0 0 10px;">Next Step</h2>
+
+        <div class="care-mini">
+          <p style="margin:0;color:var(--muted);line-height:1.7;">
+            If HydroSeal sealed your pavers, you can enroll in the Care Program at any time.
+            We’ll confirm eligibility and lock your annual visit into a predictable schedule.
+          </p>
+
+          <div class="care-spacer-12"></div>
+
+          <div class="care-bottom-actions">
+            <a class="btn primary" href="/contact.html">Enroll in the Care Program</a>
+            <a class="btn ghost" href="tel:19045375000">Call 904.537.5000</a>
+          </div>
+
+          <div class="care-note">
+            HydroSeal-sealed surfaces only. Not sure? Send your address + a photo and we’ll confirm quickly.
           </div>
         </div>
 
         <div class="care-spacer-18"></div>
 
         <!-- WARRANTY -->
-        <h2 style="margin:0 0 10px;">Warranty Alignment</h2>
-        <p style="margin:0;color:var(--muted);line-height:1.7;">
-          Our 2-Year Warranty covers workmanship and sealer adhesion.
-          The Care Program supports appearance consistency, joint stability, and lifecycle monitoring between reseals.
-          Participation is optional and is not a warranty extension.
-        </p>
+        <h2 style="margin:0 0 10px;">Warranty + Care Program (Clear Relationship)</h2>
+        <div class="care-mini">
+          <p style="margin:0;color:var(--muted);line-height:1.7;">
+            Our <strong>2-Year Warranty</strong> covers workmanship and sealer adhesion.
+            The Care Program is <strong>optional</strong> and is designed for appearance consistency,
+            joint stability, and lifecycle tracking between reseals.
+          </p>
+
+          <div class="care-spacer-12"></div>
+
+          <div class="care-callout">
+            Care visits help your surface stay in “warranty-clean” condition — but the program is not a warranty extension.
+          </div>
+        </div>
 
       </div>
       <!-- /CONTENT -->
