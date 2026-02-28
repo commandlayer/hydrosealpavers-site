@@ -95,7 +95,7 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // 4) Insert trustbar UNDER HERO (global, single)
+    // 4) Insert trustbar into persistent shell slot (single)
     try {
       if (
         document.documentElement.hasAttribute("data-no-trustbar") ||
@@ -105,7 +105,10 @@
       }
 
       // hard idempotency: if already in DOM, stop
-      if (document.querySelector(".trustbar.trust-strip")) return;
+      if (document.querySelector(".trustbar")) return;
+
+      const slot = document.getElementById("trustbar-slot");
+      if (!slot) return;
 
       const res = await fetch("/partials/trustbar.html");
       if (!res.ok) return;
@@ -116,23 +119,10 @@
       const tmp = document.createElement("div");
       tmp.innerHTML = html;
 
-      const trustbar = tmp.firstElementChild;
+      const trustbar = tmp.querySelector(".trustbar");
       if (!trustbar) return;
 
-      // Place under hero if hero exists
-      const hero = document.querySelector(".hero2");
-      if (hero) {
-        hero.insertAdjacentElement("afterend", trustbar);
-      } else {
-        // Fallback: under header
-        const header = document.querySelector(".header, header");
-        if (header) {
-          header.insertAdjacentElement("afterend", trustbar);
-        } else {
-          // Fallback: top of body
-          document.body.insertAdjacentElement("afterbegin", trustbar);
-        }
-      }
+      slot.replaceChildren(trustbar);
     } catch (e) {
       // fail silently
     }
