@@ -84,6 +84,19 @@
       .ba-grid{ grid-template-columns: 1fr !important; }
       .ba-img{ height:220px !important; }
     }
+
+    /* Pool Decks: add breathing room above reviews heading */
+    .reviews-heading{
+      margin-top: 26px;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 820px){
+      .reviews-heading{
+        margin-top: 18px;
+        padding-top: 6px;
+      }
+    }
   </style>
 </head>
 
@@ -241,6 +254,8 @@
           </div>
         </div>
       </section>
+
+      <h2 class="reviews-heading">What Our Customers Are Saying</h2>
 
 <!-- Elfsight All-in-One Reviews | Untitled All-in-One Reviews -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
