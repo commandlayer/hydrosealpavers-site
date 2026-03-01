@@ -530,8 +530,13 @@ h3{ color: var(--h3-blue); }
 
 /* Keep include placeholders sized to avoid layout shift */
 [data-include="/partials/header.html"]{
-  min-height:112px;
+  min-height:130px;
   display:block;
+}
+@media (max-width:980px){
+  [data-include="/partials/header.html"]{
+    min-height:104px;
+  }
 }
 [data-include="/partials/footer.html"]{
   min-height:260px;
