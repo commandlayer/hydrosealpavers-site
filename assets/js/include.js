@@ -66,7 +66,9 @@
         return;
       }
 
-      placeholder.replaceWith(frag);
+      placeholder.replaceChildren();
+      placeholder.appendChild(frag);
+      placeholder.classList.add("is-loaded");
     });
 
     await new Promise((r) => setTimeout(r, 0));
@@ -109,6 +111,13 @@
 
       const slot = document.getElementById("trustbar-slot");
       if (!slot) return;
+
+      if (document.body.classList.contains("page-home")) {
+        const hero = document.querySelector(".home-hero-wrap .hero2, .hero2");
+        if (hero && hero.nextElementSibling !== slot) {
+          hero.insertAdjacentElement("afterend", slot);
+        }
+      }
 
       const res = await fetch("/partials/trustbar.html");
       if (!res.ok) return;

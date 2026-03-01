@@ -543,6 +543,33 @@ h3{ color: var(--h3-blue); }
   display:block;
 }
 
+/* Home-only include/widget space reservation to prevent first-paint shifts */
+body.page-home [data-include="/partials/header.html"]{
+  min-height:130px;
+  display:block;
+}
+body.page-home [data-include="/partials/footer.html"]{
+  min-height:260px;
+  display:block;
+}
+body.page-home [data-include]{
+  opacity:0;
+  transition:opacity .18s ease;
+}
+body.page-home [data-include].is-loaded{
+  opacity:1;
+}
+body.page-home .elfsight-app-6c4e28f8-e9a0-49a8-b07c-0c224e121a67{
+  min-height:520px;
+  display:block;
+}
+body.page-home .home-hero-wrap{
+  display:flex;
+  flex-direction:column;
+}
+body.page-home .home-hero-wrap .hero2{ order:1; }
+body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
+
 @media (max-width: 860px){
   .driveway-split .card h2,
   .driveway-split-rev .card h2{
