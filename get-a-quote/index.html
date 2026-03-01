@@ -6,14 +6,14 @@
 
   <!-- SEO -->
   <title>Get A Quote | HydroSeal Pavers</title>
-  <meta name="description" content="Get a fast paver sealing quote in Jacksonville & St. Johns County (Nocatee, Ponte Vedra, St. Augustine). Upload photos for a quicker estimate. Call 904.537.5000." />
+  <meta name="description" content="Get a fast paver sealing quote in Jacksonville & St. Johns County (Nocatee, Ponte Vedra, St. Augustine). Share project details for a quicker estimate. Call 904.537.5000." />
   <link rel="canonical" href="https://hydrosealpavers.com/get-a-quote/" />
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="HydroSeal" />
   <meta property="og:title" content="Get A Quote | HydroSeal Pavers" />
-  <meta property="og:description" content="Fast paver sealing quote. Upload photos for a quicker estimate. Jacksonville & St. Johns County." />
+  <meta property="og:description" content="Fast paver sealing quote. Share a few details for a quicker estimate. Jacksonville & St. Johns County." />
   <meta property="og:url" content="https://hydrosealpavers.com/get-a-quote/" />
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
@@ -47,7 +47,7 @@
               Share A Few Details And We’ll Prepare An Estimate For Your Project.
             </p>
             <div class="hero-mini">
-              Tip: Upload photos for the quickest quote. Most requests get a same-day response.
+              Tip: After you submit, reply to our confirmation email with photos for the quickest quote.
             </div>
           </div>
 
@@ -62,7 +62,6 @@
               id="quote-form"
               action="https://formspree.io/f/xnjbyjkw"
               method="POST"
-              enctype="multipart/form-data"
               novalidate
             >
               <input type="hidden" name="page" value="get-a-quote" />
@@ -103,7 +102,7 @@
                     </div>
                     <div class="form-field field" data-required-field>
                       <label for="zip">Zip *</label>
-                      <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\d{5}$" required autocomplete="postal-code" placeholder="Zip" />
+                      <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\\d{5}$" required autocomplete="postal-code" placeholder="Zip" />
                       <div class="err" aria-live="polite">Required</div>
                     </div>
                   </div>
@@ -122,6 +121,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="form-field">
                   <fieldset>
                     <legend>How did you hear about us?</legend>
@@ -143,6 +143,7 @@
                 <div class="form-field">
                   <h3 class="project-details-title" id="project-details-title" tabindex="-1">Project Details</h3>
                 </div>
+
                 <div class="form-field">
                   <fieldset>
                     <legend>Which of our services are you interested in?</legend>
@@ -154,6 +155,7 @@
                     </div>
                   </fieldset>
                 </div>
+
                 <div class="form-field">
                   <label for="timeline">What timeline are you looking for?</label>
                   <select id="timeline" name="timeline">
@@ -164,14 +166,19 @@
                     <option value="Not sure">Not sure</option>
                   </select>
                 </div>
+
                 <div class="form-field field">
                   <label for="description">Project Description</label>
                   <textarea id="description" name="project_description" placeholder="Enter your project description here..."></textarea>
                 </div>
+
+                <!-- Optional: photo instructions without uploads -->
                 <div class="form-field">
-                  <label for="upload">File Upload</label>
-                  <input id="upload" name="attachment" type="file" accept="image/*,application/pdf" />
+                  <div class="help" style="font-size:13px;opacity:.85;line-height:1.5;">
+                    Photos help us quote faster. After you submit, reply to our confirmation email with 2–3 wide photos (and any close-ups of stains, joints, or problem areas).
+                  </div>
                 </div>
+
                 <div class="form-field checkbox-row field" data-required-field>
                   <label for="terms"><input id="terms" name="accept_terms" type="checkbox" required />I accept the terms and conditions.</label>
                   <div class="err" aria-live="polite">Required</div>
@@ -192,11 +199,11 @@
     </div>
   </section>
 
-    </main>
+  </main>
 
   <div data-include="/partials/footer.html"></div>
 
-<!-- Schema -->
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -254,5 +261,5 @@
   <script src="/assets/js/nav.js" defer></script>
   <script src="/assets/js/home.js" defer></script>
   <script src="/assets/js/quote-form.js" defer></script>
-  </body>
+</body>
 </html>
