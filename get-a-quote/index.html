@@ -6,7 +6,7 @@
 
   <!-- SEO -->
   <title>Get A Quote | HydroSeal Pavers</title>
-  <meta name="description" content="Get a fast paver sealing quote in Jacksonville & St. Johns County (Nocatee, Ponte Vedra, St. Augustine). Share project details for a quicker estimate. Call 904.537.5000." />
+  <meta name="description" content="Get a fast paver sealing quote in Jacksonville & St. Johns County (Nocatee, Ponte Vedra, St. Augustine). Share project details for a quicker estimate." />
   <link rel="canonical" href="https://hydrosealpavers.com/get-a-quote/" />
 
   <!-- OpenGraph -->
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://hydrosealpavers.com/get-a-quote/" />
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
-  <link rel="stylesheet" href="/styles.css?v=20260228-1" />
+  <link rel="stylesheet" href="/styles.css?v=20260228-2" />
 </head>
 
 <body class="page-quote">
@@ -26,178 +26,253 @@
 
   <main id="page" data-page>
 
-  <section class="hero2">
-    <img
-      src="/assets/hero/paver-sealing-jacksonville-driveway.png"
-      alt="Get a paver sealing quote in Jacksonville and St. Johns County"
-      loading="eager"
-      decoding="async"
-    />
-    <div class="hero-wash" aria-hidden="true"></div>
+    <section class="hero2">
+      <img
+        src="/assets/hero/paver-sealing-jacksonville-driveway.png"
+        alt="Get a paver sealing quote in Jacksonville and St. Johns County"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-wash" aria-hidden="true"></div>
 
-    <div class="container">
-      <div class="quote-overlay">
-        <div class="quote-grid">
+      <div class="container">
+        <div class="quote-overlay">
+          <div class="quote-grid">
 
-          <!-- LEFT -->
-          <div class="hero-copy-card">
-            <h1 class="hero-title">Contact Us Today</h1>
-            <p>
-              We Welcome The Opportunity To Exceed Your Expectations.
-              Share A Few Details And We’ll Prepare An Estimate For Your Project.
-            </p>
-            <div class="hero-mini">
-              Tip: After you submit, reply to our confirmation email with photos for the quickest quote.
+            <!-- LEFT -->
+            <div class="hero-copy-card">
+              <h1 class="hero-title">Request a Quote</h1>
+              <p>
+                Share a few details and we’ll prepare an estimate for your project.
+                Most requests get a same-day response.
+              </p>
+              <div class="hero-mini">
+                Tip: After you submit, reply to our confirmation email with 2–3 photos for the quickest quote.
+              </div>
             </div>
+
+            <!-- RIGHT -->
+            <div class="qcard">
+              <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote Form</h2>
+              <p class="step-indicator" id="quote-step-label">Step 1 of 2</p>
+              <div class="step-indicator-bar" id="quote-step-bar" data-step="1" aria-hidden="true"><span></span></div>
+
+              <form
+                class="quote-form"
+                id="quote-form"
+                action="https://formspree.io/f/xnjbyjkw"
+                method="POST"
+                novalidate
+              >
+                <input type="hidden" name="page" value="get-a-quote" />
+                <input type="hidden" name="source" value="website" />
+
+                <!-- STEP 1 -->
+                <div data-step-panel="1">
+                  <div class="form-grid">
+
+                    <div class="row-2">
+                      <div class="form-field field" data-required-field>
+                        <label for="first-name">First Name *</label>
+                        <input
+                          id="first-name"
+                          name="first_name"
+                          type="text"
+                          required
+                          autocomplete="given-name"
+                          placeholder="First Name"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+
+                      <div class="form-field field">
+                        <label for="last-name">Last Name</label>
+                        <input
+                          id="last-name"
+                          name="last_name"
+                          type="text"
+                          autocomplete="family-name"
+                          placeholder="Last Name"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row-1">
+                      <div class="form-field field" data-required-field>
+                        <label for="street-address">Street Address *</label>
+                        <input
+                          id="street-address"
+                          name="street"
+                          type="text"
+                          required
+                          autocomplete="street-address"
+                          placeholder="Street Address"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+                    </div>
+
+                    <div class="row-1">
+                      <div class="form-field field" data-required-field>
+                        <label for="city">City *</label>
+                        <input
+                          id="city"
+                          name="city"
+                          type="text"
+                          required
+                          autocomplete="address-level2"
+                          placeholder="City"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+                    </div>
+
+                    <div class="row-2">
+                      <div class="form-field field" data-required-field>
+                        <label for="state">State *</label>
+                        <input
+                          id="state"
+                          name="state"
+                          type="text"
+                          required
+                          autocomplete="address-level1"
+                          placeholder="State"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+
+                      <div class="form-field field" data-required-field>
+                        <label for="zip">Zip *</label>
+                        <input
+                          id="zip"
+                          name="zip"
+                          type="text"
+                          inputmode="numeric"
+                          autocomplete="postal-code"
+                          pattern="[0-9]{5}"
+                          maxlength="5"
+                          required
+                          placeholder="Zip"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+                    </div>
+
+                    <div class="row-1">
+                      <div class="form-field field" data-required-field>
+                        <label for="email">Email Address *</label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          autocomplete="email"
+                          placeholder="Enter your email address"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+                    </div>
+
+                    <div class="row-1">
+                      <div class="form-field field" data-required-field>
+                        <label for="phone">Phone Number *</label>
+                        <input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          required
+                          autocomplete="tel"
+                          placeholder="Phone Number"
+                        />
+                        <div class="err" aria-live="polite">Required</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-field">
+                    <fieldset>
+                      <legend>How did you hear about us?</legend>
+                      <div class="radio-grid">
+                        <label><input type="radio" name="referrer" value="Search Engine" />Search Engine</label>
+                        <label><input type="radio" name="referrer" value="Social Media" />Social Media</label>
+                        <label><input type="radio" name="referrer" value="Referral" />Referral</label>
+                        <label><input type="radio" name="referrer" value="Other" />Other</label>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="step-actions">
+                    <button type="button" class="btn-primary" id="quote-next">Next</button>
+                  </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div data-step-panel="2" hidden>
+                  <div class="form-field">
+                    <h3 class="project-details-title" id="project-details-title" tabindex="-1">Project Details</h3>
+                  </div>
+
+                  <div class="form-field">
+                    <fieldset>
+                      <legend>Which of our services are you interested in?</legend>
+                      <div class="radio-grid">
+                        <label><input type="radio" name="service_interest" value="Driveway Paver Sealing" />Driveway Paver Sealing</label>
+                        <label><input type="radio" name="service_interest" value="Pool Deck Paver Sealing" />Pool Deck Paver Sealing</label>
+                        <label><input type="radio" name="service_interest" value="Travertine Paver Sealing" />Travertine Paver Sealing</label>
+                        <label><input type="radio" name="service_interest" value="Other" />Other</label>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="timeline">What timeline are you looking for?</label>
+                    <select id="timeline" name="timeline">
+                      <option value="ASAP">ASAP</option>
+                      <option value="1–2 weeks">1–2 weeks</option>
+                      <option value="2–4 weeks">2–4 weeks</option>
+                      <option value="1–2 months">1–2 months</option>
+                      <option value="Not sure">Not sure</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field field">
+                    <label for="description">Project Description</label>
+                    <textarea
+                      id="description"
+                      name="project_description"
+                      placeholder="Tell us what you want sealed (driveway, pool deck, patio), approximate size, and any issues (fading, stains, joint sand loss)."
+                    ></textarea>
+                  </div>
+
+                  <div class="form-field">
+                    <div class="help" style="font-size:13px;opacity:.85;line-height:1.5;">
+                      Photos help us quote faster. After you submit, reply to our confirmation email with 2–3 wide photos (and any close-ups of stains, joints, or problem areas).
+                    </div>
+                  </div>
+
+                  <div class="form-field checkbox-row field" data-required-field>
+                    <label for="terms">
+                      <input id="terms" name="accept_terms" type="checkbox" required />
+                      I accept the terms and conditions.
+                    </label>
+                    <div class="err" aria-live="polite">Required</div>
+                  </div>
+
+                  <div class="step-actions">
+                    <button type="button" class="btn-secondary" id="quote-back">Back</button>
+                    <button type="submit" class="btn-primary" id="quote-submit">Submit</button>
+                  </div>
+                </div>
+
+                <div class="form-status" id="quote-status" aria-live="polite"></div>
+              </form>
+            </div>
+
           </div>
-
-          <!-- RIGHT -->
-          <div class="qcard">
-            <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote Form</h2>
-            <p class="step-indicator" id="quote-step-label">Step 1 of 2</p>
-            <div class="step-indicator-bar" id="quote-step-bar" data-step="1" aria-hidden="true"><span></span></div>
-
-            <form
-              class="quote-form"
-              id="quote-form"
-              action="https://formspree.io/f/xnjbyjkw"
-              method="POST"
-              novalidate
-            >
-              <input type="hidden" name="page" value="get-a-quote" />
-              <input type="hidden" name="source" value="website" />
-
-              <div data-step-panel="1">
-                <div class="form-grid">
-                  <div class="row-2">
-                    <div class="form-field field" data-required-field>
-                      <label for="first-name">First Name *</label>
-                      <input id="first-name" name="first_name" type="text" required autocomplete="given-name" placeholder="First Name" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                    <div class="form-field field">
-                      <label for="last-name">Last Name</label>
-                      <input id="last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last Name" />
-                    </div>
-                  </div>
-                  <div class="row-1">
-                    <div class="form-field field" data-required-field>
-                      <label for="street-address">Street Address *</label>
-                      <input id="street-address" name="street" type="text" required autocomplete="street-address" placeholder="Street Address" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                  </div>
-                  <div class="row-1">
-                    <div class="form-field field" data-required-field>
-                      <label for="city">City *</label>
-                      <input id="city" name="city" type="text" required autocomplete="address-level2" placeholder="City" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                  </div>
-                  <div class="row-2">
-                    <div class="form-field field" data-required-field>
-                      <label for="state">State *</label>
-                      <input id="state" name="state" type="text" required autocomplete="address-level1" placeholder="State" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                    <div class="form-field field" data-required-field>
-                      <label for="zip">Zip *</label>
-                      <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\\d{5}$" required autocomplete="postal-code" placeholder="Zip" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                  </div>
-                  <div class="row-1">
-                    <div class="form-field field" data-required-field>
-                      <label for="email">Email Address *</label>
-                      <input id="email" name="email" type="email" required autocomplete="email" placeholder="Enter your email address" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                  </div>
-                  <div class="row-1">
-                    <div class="form-field field" data-required-field>
-                      <label for="phone">Phone Number *</label>
-                      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone Number" />
-                      <div class="err" aria-live="polite">Required</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-field">
-                  <fieldset>
-                    <legend>How did you hear about us?</legend>
-                    <div class="radio-grid">
-                      <label><input type="radio" name="referrer" value="Search Engine" />Search Engine</label>
-                      <label><input type="radio" name="referrer" value="Social Media" />Social Media</label>
-                      <label><input type="radio" name="referrer" value="Referral" />Referral</label>
-                      <label><input type="radio" name="referrer" value="Other" />Other</label>
-                    </div>
-                  </fieldset>
-                </div>
-
-                <div class="step-actions">
-                  <button type="button" class="btn-primary" id="quote-next">Next</button>
-                </div>
-              </div>
-
-              <div data-step-panel="2" hidden>
-                <div class="form-field">
-                  <h3 class="project-details-title" id="project-details-title" tabindex="-1">Project Details</h3>
-                </div>
-
-                <div class="form-field">
-                  <fieldset>
-                    <legend>Which of our services are you interested in?</legend>
-                    <div class="radio-grid">
-                      <label><input type="radio" name="service_interest" value="Driveway Paver Sealing" />Driveway Paver Sealing</label>
-                      <label><input type="radio" name="service_interest" value="Pool Deck Paver Sealing" />Pool Deck Paver Sealing</label>
-                      <label><input type="radio" name="service_interest" value="Travertine Paver Sealing" />Travertine Paver Sealing</label>
-                      <label><input type="radio" name="service_interest" value="Other" />Other</label>
-                    </div>
-                  </fieldset>
-                </div>
-
-                <div class="form-field">
-                  <label for="timeline">What timeline are you looking for?</label>
-                  <select id="timeline" name="timeline">
-                    <option value="ASAP">ASAP</option>
-                    <option value="1–2 weeks">1–2 weeks</option>
-                    <option value="2–4 weeks">2–4 weeks</option>
-                    <option value="1–2 months">1–2 months</option>
-                    <option value="Not sure">Not sure</option>
-                  </select>
-                </div>
-
-                <div class="form-field field">
-                  <label for="description">Project Description</label>
-                  <textarea id="description" name="project_description" placeholder="Enter your project description here..."></textarea>
-                </div>
-
-                <!-- Optional: photo instructions without uploads -->
-                <div class="form-field">
-                  <div class="help" style="font-size:13px;opacity:.85;line-height:1.5;">
-                    Photos help us quote faster. After you submit, reply to our confirmation email with 2–3 wide photos (and any close-ups of stains, joints, or problem areas).
-                  </div>
-                </div>
-
-                <div class="form-field checkbox-row field" data-required-field>
-                  <label for="terms"><input id="terms" name="accept_terms" type="checkbox" required />I accept the terms and conditions.</label>
-                  <div class="err" aria-live="polite">Required</div>
-                </div>
-
-                <div class="step-actions">
-                  <button type="button" class="btn-secondary" id="quote-back">Back</button>
-                  <button type="submit" class="btn-primary" id="quote-submit">Submit</button>
-                </div>
-              </div>
-
-              <div class="form-status" id="quote-status" aria-live="polite"></div>
-            </form>
-          </div>
-
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
