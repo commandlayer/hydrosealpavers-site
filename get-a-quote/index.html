@@ -18,10 +18,6 @@
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="preconnect" href="https://elfsightcdn.com" crossorigin>
-  <link rel="dns-prefetch" href="https://elfsightcdn.com">
-  <link rel="preload" as="script" href="https://elfsightcdn.com/platform.js">
-  <script src="https://elfsightcdn.com/platform.js" async></script>
 
   <style>
     /* Page-only trustbar hide */
@@ -105,7 +101,7 @@
       line-height:1.35;
     }
 
-    /* Right embed card */
+    /* Right form card */
     .qcard{
       width:100%;
       background:#fff;
@@ -115,6 +111,129 @@
       padding:18px;
       position: relative;
       overflow: visible;
+    }
+
+    .quote-form-title{
+      margin:0 0 8px;
+      text-align:center;
+      font-size:22px;
+      color:var(--navy);
+      font-weight:900;
+    }
+
+    .step-indicator{
+      margin:0 0 14px;
+      text-align:center;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+
+    .step-indicator-bar{
+      height:6px;
+      border-radius:999px;
+      background:rgba(8,134,214,.18);
+      overflow:hidden;
+      margin:0 0 14px;
+    }
+
+    .step-indicator-bar span{
+      display:block;
+      width:50%;
+      height:100%;
+      background:var(--blue);
+      transition:width .25s ease;
+    }
+
+    .step-indicator-bar[data-step="2"] span{ width:100%; }
+
+    .quote-form [data-step-panel][hidden]{ display:none; }
+
+    .form-field{ margin-bottom:12px; }
+    .form-field label,
+    .form-field legend{
+      display:block;
+      margin-bottom:6px;
+      font-size:13px;
+      color:var(--navy);
+      font-weight:800;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      color:var(--ink);
+      background:#fff;
+    }
+
+    .form-field textarea{ min-height:100px; resize:vertical; }
+
+    .form-field fieldset{ border:0; padding:0; margin:0; }
+    .radio-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:8px;
+    }
+
+    .radio-grid label,
+    .checkbox-row label{
+      margin:0;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:700;
+      color:var(--ink);
+    }
+
+    .radio-grid input,
+    .checkbox-row input{ width:auto; }
+
+    .step-actions{
+      display:flex;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .step-actions button{
+      border:0;
+      border-radius:10px;
+      padding:11px 16px;
+      font-weight:800;
+      cursor:pointer;
+      min-width:120px;
+    }
+
+    .btn-secondary{ background:#e8eef5; color:var(--navy); }
+    .btn-primary{ background:var(--blue); color:#fff; margin-left:auto; }
+    .btn-primary:disabled{ opacity:.55; cursor:not-allowed; }
+
+    .form-status{
+      margin-top:12px;
+      min-height:22px;
+      font-weight:700;
+      font-size:14px;
+      color:var(--navy);
+    }
+
+    .form-success{
+      text-align:center;
+      padding:16px;
+      border-radius:12px;
+      background:rgba(57,191,234,.12);
+      color:var(--navy);
+      font-weight:800;
+    }
+
+    .project-details-title{
+      margin:0 0 6px;
+      color:var(--navy);
+      font-size:18px;
     }
 
     .qlead{
@@ -160,16 +279,11 @@
   margin-right: auto;
 }
 
-.elfsight-app-13af5a14-c2d2-42d7-bb59-b0b863657e87{
-  min-height: 640px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(11,45,74,.06), rgba(57,191,234,.04));
-}
-
-    
     /* Center on mobile */
     @media (max-width: 720px){
+      .radio-grid{ grid-template-columns:1fr; }
+      .step-actions{ flex-wrap:wrap; }
+      .step-actions button{ flex:1; }
       .hero-copy-card{ text-align:center; }
       .hero-copy-card p,
       .hero-copy-card .hero-mini{
@@ -213,11 +327,119 @@
 
           <!-- RIGHT -->
           <div class="qcard">
-            <p class="qlead">
-              <strong>Tell us about your project</strong>
-              <span>Upload photos for the fastest, most accurate quote.</span>
-            </p>
-            <div class="elfsight-app-13af5a14-c2d2-42d7-bb59-b0b863657e87"></div>
+            <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote Form</h2>
+            <p class="step-indicator" id="quote-step-label">Step 1 of 2</p>
+            <div class="step-indicator-bar" id="quote-step-bar" data-step="1" aria-hidden="true"><span></span></div>
+
+            <form
+              class="quote-form"
+              id="quote-form"
+              action="https://formspree.io/f/xnjbyjkw"
+              method="POST"
+              enctype="multipart/form-data"
+              novalidate
+            >
+              <input type="hidden" name="page" value="get-a-quote" />
+              <input type="hidden" name="source" value="website" />
+
+              <div data-step-panel="1">
+                <div class="form-field">
+                  <label for="first-name">First Name *</label>
+                  <input id="first-name" name="first_name" type="text" required autocomplete="given-name" />
+                </div>
+                <div class="form-field">
+                  <label for="last-name">Last Name</label>
+                  <input id="last-name" name="last_name" type="text" autocomplete="family-name" />
+                </div>
+                <div class="form-field">
+                  <label for="street-address">Street Address *</label>
+                  <input id="street-address" name="street_address" type="text" required autocomplete="street-address" />
+                </div>
+                <div class="form-field">
+                  <label for="city">City *</label>
+                  <input id="city" name="city" type="text" required autocomplete="address-level2" />
+                </div>
+                <div class="form-field">
+                  <label for="state">State *</label>
+                  <select id="state" name="state" required autocomplete="address-level1">
+                    <option value="FL" selected>Florida (FL)</option>
+                    <option value="GA">Georgia (GA)</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="zip">Zip *</label>
+                  <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\d{5}$" required autocomplete="postal-code" />
+                </div>
+                <div class="form-field">
+                  <label for="email">Email Address *</label>
+                  <input id="email" name="email" type="email" required autocomplete="email" />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone Number *</label>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+                </div>
+                <div class="form-field">
+                  <fieldset>
+                    <legend>How did you hear about us?</legend>
+                    <div class="radio-grid">
+                      <label><input type="radio" name="referrer" value="Search Engine" />Search Engine</label>
+                      <label><input type="radio" name="referrer" value="Social Media" />Social Media</label>
+                      <label><input type="radio" name="referrer" value="Referral" />Referral</label>
+                      <label><input type="radio" name="referrer" value="Other" />Other</label>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn-primary" id="quote-next" disabled>Next</button>
+                </div>
+              </div>
+
+              <div data-step-panel="2" hidden>
+                <div class="form-field">
+                  <h3 class="project-details-title">Project Details</h3>
+                </div>
+                <div class="form-field">
+                  <fieldset>
+                    <legend>Which of our services are you interested in?</legend>
+                    <div class="radio-grid">
+                      <label><input type="radio" name="service_interest" value="Driveway Paver Sealing" />Driveway Paver Sealing</label>
+                      <label><input type="radio" name="service_interest" value="Pool Deck Paver Sealing" />Pool Deck Paver Sealing</label>
+                      <label><input type="radio" name="service_interest" value="Travertine Paver Sealing" />Travertine Paver Sealing</label>
+                      <label><input type="radio" name="service_interest" value="Other" />Other</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-field">
+                  <label for="timeline">What timeline are you looking for?</label>
+                  <select id="timeline" name="timeline">
+                    <option value="ASAP">ASAP</option>
+                    <option value="1–2 weeks">1–2 weeks</option>
+                    <option value="2–4 weeks">2–4 weeks</option>
+                    <option value="1–2 months">1–2 months</option>
+                    <option value="Not sure">Not sure</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="description">Project Description</label>
+                  <textarea id="description" name="project_description"></textarea>
+                </div>
+                <div class="form-field">
+                  <label for="upload">File Upload</label>
+                  <input id="upload" name="attachment" type="file" accept="image/*,application/pdf" />
+                </div>
+                <div class="form-field checkbox-row">
+                  <label for="terms"><input id="terms" name="terms" type="checkbox" required />I accept the terms and conditions.</label>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn-secondary" id="quote-back">Back</button>
+                  <button type="submit" class="btn-primary" id="quote-submit">Submit</button>
+                </div>
+              </div>
+
+              <div class="form-status" id="quote-status" aria-live="polite"></div>
+            </form>
           </div>
 
         </div>
@@ -285,6 +507,96 @@
   <script src="/assets/js/include.js" defer></script>
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
+  <script>
+    (function () {
+      function initQuoteForm() {
+        const form = document.getElementById('quote-form');
+        if (!form || form.dataset.initialized === 'true') return;
+        form.dataset.initialized = 'true';
+
+        const stepPanels = {
+          1: form.querySelector('[data-step-panel="1"]'),
+          2: form.querySelector('[data-step-panel="2"]')
+        };
+        const requiredStep1 = Array.from(stepPanels[1].querySelectorAll('input[required], select[required], textarea[required]'));
+        const stepLabel = document.getElementById('quote-step-label');
+        const stepBar = document.getElementById('quote-step-bar');
+        const status = document.getElementById('quote-status');
+        const nextBtn = document.getElementById('quote-next');
+        const backBtn = document.getElementById('quote-back');
+        const title = document.getElementById('quote-form-title');
+        function focusStepTarget(step) {
+          const firstField = stepPanels[step].querySelector('input, select, textarea, button');
+          if (firstField) {
+            firstField.focus();
+          } else if (title) {
+            title.focus();
+          }
+        }
+
+        function updateStep1Validity() {
+          nextBtn.disabled = !requiredStep1.every((field) => field.checkValidity());
+        }
+
+        function setStep(step) {
+          stepPanels[1].hidden = step !== 1;
+          stepPanels[2].hidden = step !== 2;
+          if (stepLabel) stepLabel.textContent = `Step ${step} of 2`;
+          if (stepBar) stepBar.dataset.step = String(step);
+          focusStepTarget(step);
+        }
+
+        requiredStep1.forEach((field) => {
+          field.addEventListener('input', updateStep1Validity);
+          field.addEventListener('change', updateStep1Validity);
+        });
+
+        nextBtn.addEventListener('click', function () {
+          if (!requiredStep1.every((field) => field.reportValidity())) return;
+          setStep(2);
+        });
+
+        backBtn.addEventListener('click', function () {
+          setStep(1);
+        });
+
+        form.addEventListener('submit', async function (event) {
+          event.preventDefault();
+          status.textContent = '';
+
+          if (!form.reportValidity()) return;
+
+          const data = new FormData(form);
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { Accept: 'application/json' }
+            });
+
+            if (!response.ok) throw new Error('Submission failed');
+
+            const parent = form.parentElement;
+            form.remove();
+            const success = document.createElement('div');
+            success.className = 'form-success';
+            success.setAttribute('aria-live', 'polite');
+            success.textContent = 'Thanks — we got your request. We’ll respond as soon as possible.';
+            parent.appendChild(success);
+            success.focus?.();
+          } catch (error) {
+            status.textContent = 'Something went wrong. Please call 904.537.5000.';
+          }
+        });
+
+        updateStep1Validity();
+      }
+
+      document.addEventListener('DOMContentLoaded', initQuoteForm);
+      document.addEventListener('page:load', initQuoteForm);
+    })();
+  </script>
 
 </body>
 </html>
