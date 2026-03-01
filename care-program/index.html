@@ -11,56 +11,28 @@
   <style>
     .care-wrap { max-width: 980px; }
 
+    /* Care Program: lock hero image to the right */
     .care-hero {
-      background: #fff;
-      border: 0;
-      box-shadow: none;
-      border-radius: 18px;
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .care-hero-grid {
       display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 22px;
+      align-items: start;
+      max-width: 980px;
     }
 
-    .care-kicker {
-      margin: 8px 0 0;
-      font-weight: 900;
-      color: #0B2D4A;
+    .care-hero__text { min-width: 0; }
+
+    .care-hero__media {
+      width: 340px;
     }
 
-    .care-lede {
-      color: var(--muted);
-      margin: 10px 0 0;
-      line-height: 1.7;
-    }
-
-    .care-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(40,182,200,.18), rgba(15,110,168,.12));
-      border: 1px solid rgba(11,45,74,.12);
-      color: #0B2D4A;
-      font-weight: 900;
-      margin-top: 12px;
-    }
-    .care-pill strong { font-weight: 1000; }
-
-    .care-hero-img {
-      border: 0;
-      background: transparent;
-      justify-self: end;
+    .care-hero__media img {
+      display: block;
       width: 100%;
-      max-width: 510px;
+      height: auto;
+      max-width: 340px;
+      object-fit: contain;
     }
-
     .care-card {
       padding: 18px;
       border-radius: 18px;
@@ -138,17 +110,20 @@
     }
 
     @media (max-width: 860px) {
-      .care-hero-grid { grid-template-columns: 1fr; }
-      .care-hero-img {
-        order: 1;
-        width: 100%;
-        max-width: 560px;
-        justify-self: start;
-        margin-top: 12px;
+      .care-hero {
+        grid-template-columns: 1fr;
       }
-      .care-hero-text { order: 2; }
+      .care-hero__media {
+        width: 100%;
+        order: 2;
+      }
+      .care-hero__media img {
+        max-width: 360px;
+        margin: 0 auto;
+      }
       .care-two-col { grid-template-columns: 1fr; }
     }
+
   </style>
 </head>
 
@@ -162,42 +137,30 @@
 
       <!-- HERO -->
       <div class="care-hero">
-        <div class="care-hero-grid">
+        <div class="care-hero__text">
+          <h1>HydroSeal Care Program</h1>
+          <p>Annual seal-safe maintenance for HydroSeal-sealed pavers only.</p>
 
-          <!-- LEFT -->
-          <div class="care-hero-text">
-            <h1 style="margin:0;font-size:34px;line-height:1.15;">HydroSeal Care Program</h1>
+          <p>
+            You sealed it right — now maintain it correctly.
+            Florida sun, rain, humidity, and daily traffic gradually impact sealed surfaces.
+            This program keeps your pavers <strong>clean</strong>,
+            your <strong>joints stable</strong>, and your <strong>reseal timing properly aligned</strong> —
+            while allowing you to earn structured credit toward your next full reseal.
+          </p>
 
-            <p class="care-kicker">Annual seal-safe maintenance for HydroSeal-sealed pavers only.</p>
+          <p><strong>Plans start at $0.30 per sq ft</strong><br>
+            Most homes fall between <strong>$350–$650 annually</strong>, depending on surface condition, access, and layout.
+          </p>
+        </div>
 
-            <p class="care-lede">
-              You sealed it right — now maintain it correctly.
-              Florida sun, rain, humidity, and daily traffic gradually impact sealed surfaces.
-              This program keeps your pavers <strong>clean</strong>,
-              your <strong>joints stable</strong>, and your <strong>reseal timing properly aligned</strong> —
-              while allowing you to earn structured credit toward your next full reseal.
-            </p>
-
-            <div class="care-pill">
-              Plans start at <strong>$0.30 per sq ft</strong>
-            </div>
-
-            <p style="margin:10px 0 0;color:var(--muted);line-height:1.7;">
-              Most homes fall between <strong>$350–$650 annually</strong>, depending on surface condition, access, and layout.
-            </p>
-          </div>
-
-          <!-- RIGHT -->
-          <div class="care-hero-img badge-hero-wrap">
-            <img
-              class="badge-hero-image"
-              src="/assets/hero/hydroseal-care-program.png"
-              alt="HydroSeal Care Program"
-              loading="eager"
-              onerror="this.style.display='none';"
-            />
-          </div>
-
+        <div class="care-hero__media">
+          <img
+            src="/assets/hero/hydroseal-care-program.png"
+            alt="HydroSeal Care Program"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
 
