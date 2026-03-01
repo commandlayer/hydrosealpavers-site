@@ -17,7 +17,20 @@
   <meta property="og:url" content="https://hydrosealpavers.com/get-a-quote/" />
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
-  <link rel="stylesheet" href="/styles.css?v=20260228-2" />
+<link rel="stylesheet" href="/styles.css?v=20260228-2" />
+<style>
+  /* Page-local tweak: lift the quote box higher on the hero */
+  body.page-quote .quote-overlay{
+    transform: translateY(-10%);
+  }
+
+  /* Don’t over-lift on smaller screens */
+  @media (max-width: 820px){
+    body.page-quote .quote-overlay{
+      transform: translateY(-6%);
+    }
+  }
+</style>
 </head>
 
 <body class="page-quote">
