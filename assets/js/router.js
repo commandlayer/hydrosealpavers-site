@@ -79,6 +79,18 @@
     }
   }
 
+  function syncBodyClass(nextDoc) {
+    const nextBody = nextDoc.querySelector("body");
+    if (!nextBody) return;
+
+    const preserve = [];
+    if (document.body.classList.contains("includes-ready")) preserve.push("includes-ready");
+    if (document.body.classList.contains("includes-loading")) preserve.push("includes-loading");
+
+    document.body.className = nextBody.className;
+    preserve.forEach((className) => document.body.classList.add(className));
+  }
+
   function scrollAfterNavigation(url) {
     if (url.hash) {
       const id = decodeURIComponent(url.hash.slice(1));
@@ -140,6 +152,7 @@
       }
 
       updateHead(nextDoc);
+      syncBodyClass(nextDoc);
       if (push) history.pushState({ url: url.href }, "", url.href);
       scrollAfterNavigation(url);
       positionTrustbar();
