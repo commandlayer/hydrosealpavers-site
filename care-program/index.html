@@ -56,23 +56,9 @@
     .care-hero-img {
       border: 0;
       background: transparent;
-      overflow: hidden;
-      display: block;
-
       justify-self: end;
       width: 100%;
       max-width: 510px;
-
-      /* remove photo-style constraints */
-      aspect-ratio: auto;
-      min-height: 0;
-    }
-
-    .care-hero-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
     }
 
     .care-card {
@@ -202,8 +188,9 @@
           </div>
 
           <!-- RIGHT -->
-          <div class="care-hero-img">
+          <div class="care-hero-img badge-hero-wrap">
             <img
+              class="badge-hero-image"
               src="/assets/hero/hydroseal-care-program.png"
               alt="HydroSeal Care Program"
               loading="eager"
