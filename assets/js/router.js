@@ -91,6 +91,10 @@
     preserve.forEach((className) => document.body.classList.add(className));
   }
 
+  function dispatchPageLoad() {
+    document.dispatchEvent(new Event("page:load"));
+  }
+
   function scrollAfterNavigation(url) {
     if (url.hash) {
       const id = decodeURIComponent(url.hash.slice(1));
@@ -156,7 +160,7 @@
       if (push) history.pushState({ url: url.href }, "", url.href);
       scrollAfterNavigation(url);
       positionTrustbar();
-      document.dispatchEvent(new Event("page:load"));
+      dispatchPageLoad();
     } catch (err) {
       if (err.name === "AbortError") return;
       window.location.href = url.href;

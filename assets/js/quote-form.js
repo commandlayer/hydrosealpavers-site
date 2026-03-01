@@ -1,9 +1,9 @@
 (function () {
   function initQuoteForm() {
+    const form = document.getElementById("quote-form") || document.getElementById("quoteForm");
+    if (!form) return;
     if (!document.body.classList.contains("page-quote")) return;
-
-    const form = document.getElementById("quote-form");
-    if (!form || form.dataset.initialized === "true") return;
+    if (form.dataset.initialized === "true") return;
     form.dataset.initialized = "true";
 
     const stepPanels = {
