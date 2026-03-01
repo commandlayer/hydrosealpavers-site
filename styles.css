@@ -1594,7 +1594,7 @@ body.page-quote .hero2 .quote-overlay{
 }
 
 
-body.page-quote .quote-grid { display:grid; grid-template-columns: 1fr 560px; gap:18px; }
+body.page-quote .quote-grid { display:grid; grid-template-columns: 1fr !important; gap:18px; justify-items:center; }
 body.page-quote .row-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 body.page-quote .row-1 { display:block; }
 body.page-quote .field input,
@@ -1606,7 +1606,7 @@ body.page-quote textarea::placeholder { color: rgba(17,24,39,.35); }
 body.page-quote .hero2 .quote-grid{
   width: min(1080px, 100%);
   display:grid;
-  grid-template-columns: 1fr 560px;
+  grid-template-columns: 1fr !important;
   gap: 18px;
   align-items: start;
 }
@@ -1664,7 +1664,9 @@ body.page-quote .qcard{
   padding:18px;
   position: relative;
   overflow: visible;
-  justify-self:end;
+  justify-self:center !important;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 body.page-quote .quote-form-title{
