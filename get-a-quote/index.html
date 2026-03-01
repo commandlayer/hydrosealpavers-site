@@ -104,6 +104,7 @@
     /* Right form card */
     .qcard{
       width:100%;
+      max-width:560px;
       background:#fff;
       border:1px solid var(--line);
       border-radius:18px;
@@ -111,6 +112,7 @@
       padding:18px;
       position: relative;
       overflow: visible;
+      justify-self:end;
     }
 
     .quote-form-title{
@@ -149,7 +151,11 @@
 
     .quote-form [data-step-panel][hidden]{ display:none; }
 
-    .form-field{ margin-bottom:12px; }
+    .form-grid{ display:grid; gap:12px; }
+    .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .row-1{ display:grid; grid-template-columns:1fr; }
+
+    .form-field{ margin-bottom:0; }
     .form-field label,
     .form-field legend{
       display:block;
@@ -172,6 +178,34 @@
     }
 
     .form-field textarea{ min-height:100px; resize:vertical; }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder,
+    .form-field input::-webkit-input-placeholder,
+    .form-field textarea::-webkit-input-placeholder{
+      color: rgba(17,24,39,.35);
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{ border:1px solid var(--line); }
+    .field.is-invalid input,
+    .field.is-invalid select,
+    .field.is-invalid textarea{
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220,38,38,.12);
+      background: rgba(220,38,38,.04);
+    }
+    .field .err{
+      display:none;
+      font-size:12px;
+      color:#dc2626;
+      font-weight:700;
+      margin-top:6px;
+    }
+    .field.is-invalid .err{ display:block; }
+
 
     .form-field fieldset{ border:0; padding:0; margin:0; }
     .radio-grid{
@@ -281,6 +315,7 @@
 
     /* Center on mobile */
     @media (max-width: 720px){
+      .row-2{ grid-template-columns:1fr; }
       .radio-grid{ grid-template-columns:1fr; }
       .step-actions{ flex-wrap:wrap; }
       .step-actions button{ flex:1; }
@@ -343,40 +378,58 @@
               <input type="hidden" name="source" value="website" />
 
               <div data-step-panel="1">
-                <div class="form-field">
-                  <label for="first-name">First Name *</label>
-                  <input id="first-name" name="first_name" type="text" required autocomplete="given-name" />
-                </div>
-                <div class="form-field">
-                  <label for="last-name">Last Name</label>
-                  <input id="last-name" name="last_name" type="text" autocomplete="family-name" />
-                </div>
-                <div class="form-field">
-                  <label for="street-address">Street Address *</label>
-                  <input id="street-address" name="street_address" type="text" required autocomplete="street-address" />
-                </div>
-                <div class="form-field">
-                  <label for="city">City *</label>
-                  <input id="city" name="city" type="text" required autocomplete="address-level2" />
-                </div>
-                <div class="form-field">
-                  <label for="state">State *</label>
-                  <select id="state" name="state" required autocomplete="address-level1">
-                    <option value="FL" selected>Florida (FL)</option>
-                    <option value="GA">Georgia (GA)</option>
-                  </select>
-                </div>
-                <div class="form-field">
-                  <label for="zip">Zip *</label>
-                  <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\d{5}$" required autocomplete="postal-code" />
-                </div>
-                <div class="form-field">
-                  <label for="email">Email Address *</label>
-                  <input id="email" name="email" type="email" required autocomplete="email" />
-                </div>
-                <div class="form-field">
-                  <label for="phone">Phone Number *</label>
-                  <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+                <div class="form-grid">
+                  <div class="row-2">
+                    <div class="form-field field" data-required-field>
+                      <label for="first-name">First Name *</label>
+                      <input id="first-name" name="first_name" type="text" required autocomplete="given-name" placeholder="First Name" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                    <div class="form-field field">
+                      <label for="last-name">Last Name</label>
+                      <input id="last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last Name" />
+                    </div>
+                  </div>
+                  <div class="row-1">
+                    <div class="form-field field" data-required-field>
+                      <label for="street-address">Street Address *</label>
+                      <input id="street-address" name="street" type="text" required autocomplete="street-address" placeholder="Street Address" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                  </div>
+                  <div class="row-1">
+                    <div class="form-field field" data-required-field>
+                      <label for="city">City *</label>
+                      <input id="city" name="city" type="text" required autocomplete="address-level2" placeholder="City" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                  </div>
+                  <div class="row-2">
+                    <div class="form-field field" data-required-field>
+                      <label for="state">State *</label>
+                      <input id="state" name="state" type="text" required autocomplete="address-level1" placeholder="State" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                    <div class="form-field field" data-required-field>
+                      <label for="zip">Zip *</label>
+                      <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^\d{5}$" required autocomplete="postal-code" placeholder="Zip" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                  </div>
+                  <div class="row-1">
+                    <div class="form-field field" data-required-field>
+                      <label for="email">Email Address *</label>
+                      <input id="email" name="email" type="email" required autocomplete="email" placeholder="Enter your email address" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                  </div>
+                  <div class="row-1">
+                    <div class="form-field field" data-required-field>
+                      <label for="phone">Phone Number *</label>
+                      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone Number" />
+                      <div class="err" aria-live="polite">Required</div>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-field">
                   <fieldset>
@@ -391,13 +444,13 @@
                 </div>
 
                 <div class="step-actions">
-                  <button type="button" class="btn-primary" id="quote-next" disabled>Next</button>
+                  <button type="button" class="btn-primary" id="quote-next">Next</button>
                 </div>
               </div>
 
               <div data-step-panel="2" hidden>
                 <div class="form-field">
-                  <h3 class="project-details-title">Project Details</h3>
+                  <h3 class="project-details-title" id="project-details-title" tabindex="-1">Project Details</h3>
                 </div>
                 <div class="form-field">
                   <fieldset>
@@ -420,16 +473,17 @@
                     <option value="Not sure">Not sure</option>
                   </select>
                 </div>
-                <div class="form-field">
+                <div class="form-field field">
                   <label for="description">Project Description</label>
-                  <textarea id="description" name="project_description"></textarea>
+                  <textarea id="description" name="project_description" placeholder="Enter your project description here..."></textarea>
                 </div>
                 <div class="form-field">
                   <label for="upload">File Upload</label>
                   <input id="upload" name="attachment" type="file" accept="image/*,application/pdf" />
                 </div>
-                <div class="form-field checkbox-row">
-                  <label for="terms"><input id="terms" name="terms" type="checkbox" required />I accept the terms and conditions.</label>
+                <div class="form-field checkbox-row field" data-required-field>
+                  <label for="terms"><input id="terms" name="accept_terms" type="checkbox" required />I accept the terms and conditions.</label>
+                  <div class="err" aria-live="polite">Required</div>
                 </div>
 
                 <div class="step-actions">
@@ -518,24 +572,41 @@
           1: form.querySelector('[data-step-panel="1"]'),
           2: form.querySelector('[data-step-panel="2"]')
         };
+        if (!stepPanels[1] || !stepPanels[2]) return;
+
         const requiredStep1 = Array.from(stepPanels[1].querySelectorAll('input[required], select[required], textarea[required]'));
+        const requiredAll = Array.from(form.querySelectorAll('input[required], select[required], textarea[required]'));
+        const touchedFields = new WeakSet();
         const stepLabel = document.getElementById('quote-step-label');
         const stepBar = document.getElementById('quote-step-bar');
         const status = document.getElementById('quote-status');
         const nextBtn = document.getElementById('quote-next');
         const backBtn = document.getElementById('quote-back');
-        const title = document.getElementById('quote-form-title');
-        function focusStepTarget(step) {
-          const firstField = stepPanels[step].querySelector('input, select, textarea, button');
-          if (firstField) {
-            firstField.focus();
-          } else if (title) {
-            title.focus();
-          }
+        const step2Heading = document.getElementById('project-details-title');
+
+        function getFieldWrap(field) {
+          return field.closest('.field');
         }
 
-        function updateStep1Validity() {
-          nextBtn.disabled = !requiredStep1.every((field) => field.checkValidity());
+        function showFieldValidity(field, shouldShow) {
+          const wrapper = getFieldWrap(field);
+          if (!wrapper) return;
+          const invalid = shouldShow && !field.checkValidity();
+          wrapper.classList.toggle('is-invalid', invalid);
+        }
+
+        function validateField(field, force) {
+          const touched = force || touchedFields.has(field);
+          showFieldValidity(field, touched);
+          return field.checkValidity();
+        }
+
+        function validateList(fields, force) {
+          let isValid = true;
+          fields.forEach((field) => {
+            if (!validateField(field, force)) isValid = false;
+          });
+          return isValid;
         }
 
         function setStep(step) {
@@ -543,28 +614,61 @@
           stepPanels[2].hidden = step !== 2;
           if (stepLabel) stepLabel.textContent = `Step ${step} of 2`;
           if (stepBar) stepBar.dataset.step = String(step);
-          focusStepTarget(step);
+          if (step === 2 && step2Heading) {
+            step2Heading.focus();
+          }
         }
 
-        requiredStep1.forEach((field) => {
-          field.addEventListener('input', updateStep1Validity);
-          field.addEventListener('change', updateStep1Validity);
+        requiredAll.forEach((field) => {
+          const markTouched = () => {
+            touchedFields.add(field);
+            validateField(field, true);
+          };
+          field.addEventListener('blur', markTouched);
+          field.addEventListener('input', () => validateField(field, false));
+          field.addEventListener('change', () => validateField(field, false));
         });
 
-        nextBtn.addEventListener('click', function () {
-          if (!requiredStep1.every((field) => field.reportValidity())) return;
-          setStep(2);
+        if (nextBtn) {
+          nextBtn.type = 'button';
+          nextBtn.addEventListener('click', function () {
+            if (!validateList(requiredStep1, true)) return;
+            setStep(2);
+          });
+        }
+
+        if (backBtn) {
+          backBtn.addEventListener('click', function () {
+            setStep(1);
+          });
+        }
+
+        stepPanels[1].addEventListener('keydown', function (event) {
+          if (event.key !== 'Enter') return;
+          const target = event.target;
+          if (!(target instanceof HTMLElement)) return;
+          if (target.tagName === 'TEXTAREA') return;
+          event.preventDefault();
+          nextBtn?.click();
         });
 
-        backBtn.addEventListener('click', function () {
-          setStep(1);
+        stepPanels[2].addEventListener('keydown', function (event) {
+          if (event.key !== 'Enter') return;
+          const target = event.target;
+          if (!(target instanceof HTMLElement)) return;
+          if (target.tagName === 'TEXTAREA' || target.id === 'quote-submit') return;
+          event.preventDefault();
         });
 
         form.addEventListener('submit', async function (event) {
           event.preventDefault();
           status.textContent = '';
 
-          if (!form.reportValidity()) return;
+          if (!validateList(requiredAll, true)) {
+            const firstInvalid = form.querySelector('.field.is-invalid input, .field.is-invalid select, .field.is-invalid textarea');
+            firstInvalid?.focus();
+            return;
+          }
 
           const data = new FormData(form);
 
@@ -589,12 +693,13 @@
             status.textContent = 'Something went wrong. Please call 904.537.5000.';
           }
         });
-
-        updateStep1Validity();
       }
 
       document.addEventListener('DOMContentLoaded', initQuoteForm);
       document.addEventListener('page:load', initQuoteForm);
+      document.addEventListener('includes:ready', initQuoteForm);
+      document.addEventListener('router:ready', initQuoteForm);
+      document.addEventListener('pjax:ready', initQuoteForm);
     })();
   </script>
 
