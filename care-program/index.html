@@ -55,20 +55,23 @@
     .care-hero-img {
       border: 0;
       background: transparent;
-      border-radius: 16px;
       overflow: hidden;
-      aspect-ratio: 1 / 1;
-      min-height: 220px;
-      max-width: 320px;
+      display: block;
+
       justify-self: end;
+      width: 100%;
+      max-width: 510px;
+
+      /* remove photo-style constraints */
+      aspect-ratio: auto;
+      min-height: 0;
     }
 
     .care-hero-img img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
-      border-radius: 0;
+      object-fit: contain;
     }
 
     .care-card {
@@ -152,10 +155,9 @@
       .care-hero-img {
         order: 1;
         width: 100%;
-        max-width: none;
-        aspect-ratio: 16 / 9;
-        min-height: 0;
-        justify-self: stretch;
+        max-width: 560px;
+        justify-self: start;
+        margin-top: 12px;
       }
       .care-hero-text { order: 2; }
       .care-two-col { grid-template-columns: 1fr; }
