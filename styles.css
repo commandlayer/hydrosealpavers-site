@@ -50,6 +50,33 @@ a{color:inherit;text-decoration:none}
 img,svg,video,canvas{max-width:100%;height:auto;display:block}
 .container{max-width:1120px;margin:0 auto;padding:0 16px}
 
+/* Shared badge/hero art treatment (warranty + care program) */
+.badge-hero-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:260px;
+  overflow:hidden;
+}
+
+.badge-hero-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:510px;
+  max-height:260px;
+  object-fit:contain;
+  object-position:center;
+  margin:0 auto;
+}
+
+@media (max-width:860px){
+  .badge-hero-wrap{
+    min-height:220px;
+  }
+}
+
 /* Prevent anchor/content hiding behind sticky header */
 main{scroll-margin-top:var(--sticky-offset)}
 section{scroll-margin-top:var(--sticky-offset)}
