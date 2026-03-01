@@ -313,6 +313,8 @@ img{max-width:100%; height:auto;}
     </div>
   </section>
 
+  <div id="home-trustbar-anchor"></div>
+
   <!-- SERVICES -->
   <section class="section">
     <div class="container">
@@ -1242,6 +1244,23 @@ img{max-width:100%; height:auto;}
           items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
         });
       });
+    })();
+  </script>
+
+  <script>
+    // Home-only trustbar placement: keep hero first, trustbar directly below hero.
+    (function () {
+      function placeHomeTrustbar() {
+        const slot = document.getElementById('trustbar-slot');
+        const anchor = document.getElementById('home-trustbar-anchor');
+        if (!slot || !anchor) return;
+        if (anchor.contains(slot)) return;
+        anchor.replaceChildren(slot);
+      }
+
+      placeHomeTrustbar();
+      document.addEventListener('includes:ready', placeHomeTrustbar);
+      document.addEventListener('page:load', placeHomeTrustbar);
     })();
   </script>
 
