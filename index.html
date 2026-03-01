@@ -59,6 +59,93 @@
     #faq details[open] summary::after{transform:rotate(180deg)}
     #faq .faq-body{max-height:0;overflow:hidden;opacity:0;padding:0 16px;transform:translateY(-6px);transition:max-height .28s ease,opacity .22s ease,transform .22s ease;background:radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);border-top:1px solid rgba(15,110,168,.25)}
     #faq details[open] .faq-body{max-height:620px;opacity:1;padding:16px;transform:none}
+
+  .marquee{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    gap:18px;
+    padding:16px 16px;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    backface-visibility:hidden;
+    touch-action: pan-y;
+  }
+
+  .job-card{
+    flex:0 0 min(420px, 82vw);
+    height:290px;
+    border-radius:18px;
+    border:1px solid rgba(15,110,168,.18);
+    background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
+    position:relative;
+    overflow:hidden;
+  }
+
+  .job-meta{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:flex-end;
+    color:#fff;
+    text-shadow:0 10px 22px rgba(0,0,0,.35);
+  }
+  .job-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
+  .job-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
+  .job-tag{
+    font-size:12px;
+    font-weight:900;
+    padding:7px 10px;
+    border-radius:999px;
+    background: rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    white-space:nowrap;
+  }
+
+  .job-card:hover{
+    transform: translateY(-2px);
+    transition: transform .18s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ transform:none !important; }
+  }
+
+  #process .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:stretch}
+  #process .process-col{display:grid;grid-template-rows:repeat(3,1fr);gap:16px;align-items:stretch}
+  #process .process-col .card{height:100%;display:flex;flex-direction:column;justify-content:flex-start}
+  #process .card.card-bluegrad{background:linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);border:1px solid rgba(57,191,234,.28);box-shadow:var(--shadow);color:#111827}
+  #process .card.card-bluegrad h3{margin:0 0 8px;color:var(--navy)}
+  #process .card.card-bluegrad p{margin:0 0 10px;color:#111827}
+  #process .card.card-bluegrad ul{margin:0;padding-left:18px}
+  #process .card.card-bluegrad li{color:#111827}
+  #process .step-title{display:flex;align-items:flex-start;gap:10px}
+  #process .step-icon{width:auto;height:auto;background:transparent;border:0;box-shadow:none;padding:0;margin-top:2px;font-size:18px;line-height:1;flex:0 0 auto}
+  #process .step-text{position:relative;top:2px;line-height:1.15;display:inline-block}
+  #process .process-accordion{display:none;margin-top:16px}
+  #process details.step{border:1px solid var(--line);background:#fff;border-radius:0;overflow:hidden}
+  #process details.step + details.step{margin-top:10px}
+  #process details.step > summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:900;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--navy)}
+  #process summary::-webkit-details-marker{display:none}
+  #process details.step > summary::after{content:"▾";color:var(--navy);transition:transform .18s ease;font-weight:1000}
+  #process details.step[open] > summary::after{transform:rotate(180deg)}
+  #process .step-body{padding:14px 16px 16px;background:radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);border-top:1px solid rgba(15,110,168,.22)}
+  #process .step-body p{margin:0 0 10px;color:#111827}
+  #process .step-body ul{margin:0;padding-left:18px}
+  #process .step-body li{color:#111827}
+  @media (max-width:900px){#process .process-grid{display:none}#process .process-accordion{display:block}}
+
   </style>
 </head>
 
@@ -287,69 +374,6 @@
 ========================== -->
 
 
-<style>
-  .marquee{
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:#fff;
-    overflow:hidden;
-    position:relative;
-  }
-
-  .marquee-track{
-    display:flex;
-    width:max-content;
-    gap:18px;
-    padding:16px 16px;
-    will-change: transform;
-    transform: translate3d(0,0,0);
-    backface-visibility:hidden;
-    touch-action: pan-y;
-  }
-
-  .job-card{
-    flex:0 0 min(420px, 82vw);
-    height:290px;
-    border-radius:18px;
-    border:1px solid rgba(15,110,168,.18);
-    background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
-    position:relative;
-    overflow:hidden;
-  }
-
-  .job-meta{
-    position:absolute;
-    left:14px;
-    right:14px;
-    bottom:12px;
-    display:flex;
-    justify-content:space-between;
-    gap:12px;
-    align-items:flex-end;
-    color:#fff;
-    text-shadow:0 10px 22px rgba(0,0,0,.35);
-  }
-  .job-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
-  .job-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
-  .job-tag{
-    font-size:12px;
-    font-weight:900;
-    padding:7px 10px;
-    border-radius:999px;
-    background: rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.22);
-    white-space:nowrap;
-  }
-
-  .job-card:hover{
-    transform: translateY(-2px);
-    transition: transform .18s ease;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{ transform:none !important; }
-  }
-</style>
 
 <section class="section" id="recent-jobs">
   <div class="container">
@@ -445,31 +469,6 @@
 </section>
 
   
-<style>
-  #process .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:stretch}
-  #process .process-col{display:grid;grid-template-rows:repeat(3,1fr);gap:16px;align-items:stretch}
-  #process .process-col .card{height:100%;display:flex;flex-direction:column;justify-content:flex-start}
-  #process .card.card-bluegrad{background:linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);border:1px solid rgba(57,191,234,.28);box-shadow:var(--shadow);color:#111827}
-  #process .card.card-bluegrad h3{margin:0 0 8px;color:var(--navy)}
-  #process .card.card-bluegrad p{margin:0 0 10px;color:#111827}
-  #process .card.card-bluegrad ul{margin:0;padding-left:18px}
-  #process .card.card-bluegrad li{color:#111827}
-  #process .step-title{display:flex;align-items:flex-start;gap:10px}
-  #process .step-icon{width:auto;height:auto;background:transparent;border:0;box-shadow:none;padding:0;margin-top:2px;font-size:18px;line-height:1;flex:0 0 auto}
-  #process .step-text{position:relative;top:2px;line-height:1.15;display:inline-block}
-  #process .process-accordion{display:none;margin-top:16px}
-  #process details.step{border:1px solid var(--line);background:#fff;border-radius:0;overflow:hidden}
-  #process details.step + details.step{margin-top:10px}
-  #process details.step > summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:900;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--navy)}
-  #process summary::-webkit-details-marker{display:none}
-  #process details.step > summary::after{content:"▾";color:var(--navy);transition:transform .18s ease;font-weight:1000}
-  #process details.step[open] > summary::after{transform:rotate(180deg)}
-  #process .step-body{padding:14px 16px 16px;background:radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);border-top:1px solid rgba(15,110,168,.22)}
-  #process .step-body p{margin:0 0 10px;color:#111827}
-  #process .step-body ul{margin:0;padding-left:18px}
-  #process .step-body li{color:#111827}
-  @media (max-width:900px){#process .process-grid{display:none}#process .process-accordion{display:block}}
-</style>
 
 <!-- =========================
      STEP-BY-STEP PROCESS
@@ -701,7 +700,7 @@
         <details class="faq-item">
           <summary><strong>How much does paver sealing cost in St. Johns County and Jacksonville?</strong></summary>
           <div class="faq-body">
-            <p class="muted">
+            <div class="muted">
              <p>
   The cost of paver sealing in Florida varies based on square footage, paver
   porosity, surface and joint condition, access, staining, and preparation
@@ -725,14 +724,14 @@
   and prep requirements.
 </p>
 
-            </p>
+            </div>
           </div>
         </details>
 
         <details class="faq-item">
           <summary><strong>How long does paver sealing last in Florida?</strong></summary>
           <div class="faq-body">
-            <p class="muted">
+            <div class="muted">
              <p>
   With proper preparation and the use of professional-grade materials such as
   Trident sealers, most sealed paver surfaces in Florida typically last
@@ -749,7 +748,7 @@
   appearance of the sealed surface.
 </p>
 
-            </p>
+            </div>
           </div>
         </details>
 
