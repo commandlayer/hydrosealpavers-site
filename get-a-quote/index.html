@@ -19,6 +19,140 @@
 
 <link rel="stylesheet" href="/styles.css?v=20260228-2" />
 <style>
+  /* GET-A-QUOTE: tighten the form box height ~10% by reducing vertical spacing */
+  .quote-wrap,
+  .quote-card,
+  .get-a-quote-card,
+  .card,
+  .form-card,
+  .form-wrapper,
+  .cog-form,
+  form {
+    /* don’t globally shrink everything; just tighten spacing inside */
+  }
+
+  /* tighten headings + top padding */
+  .quote-wrap h1, .quote-wrap h2, .quote-wrap h3,
+  .quote-card h1, .quote-card h2, .quote-card h3,
+  .card h1, .card h2, .card h3 {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* reduce field block spacing (works for common form plugins) */
+  .quote-wrap .field,
+  .quote-wrap .form-group,
+  .quote-wrap .wpforms-field,
+  .quote-wrap .gfield,
+  .quote-wrap .ff-el-group,
+  .quote-wrap .nf-field-container,
+  .quote-wrap .cog-field,
+  .quote-wrap li,
+  .quote-card .field,
+  .quote-card .form-group,
+  .quote-card .wpforms-field,
+  .quote-card .gfield,
+  .quote-card .ff-el-group,
+  .quote-card .nf-field-container,
+  .quote-card .cog-field,
+  .quote-card li {
+    margin-bottom: 10px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* reduce label spacing */
+  .quote-wrap label,
+  .quote-card label,
+  .quote-wrap .cog-label,
+  .quote-card .cog-label {
+    margin-bottom: 6px !important;
+  }
+
+  /* reduce input padding a bit (big contributor to “tall” look) */
+  .quote-wrap input[type="text"],
+  .quote-wrap input[type="email"],
+  .quote-wrap input[type="tel"],
+  .quote-wrap input[type="number"],
+  .quote-wrap select,
+  .quote-wrap textarea,
+  .quote-card input[type="text"],
+  .quote-card input[type="email"],
+  .quote-card input[type="tel"],
+  .quote-card input[type="number"],
+  .quote-card select,
+  .quote-card textarea {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* tighten button height slightly */
+  .quote-wrap button,
+  .quote-wrap .btn,
+  .quote-card button,
+  .quote-card .btn {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* Local form classes on this page */
+  body.page-quote .qcard .form-field,
+  body.page-quote .qcard .field {
+    margin-bottom: 10px;
+  }
+
+  body.page-quote .qcard label {
+    margin-bottom: 6px;
+  }
+
+  body.page-quote .qcard input,
+  body.page-quote .qcard select,
+  body.page-quote .qcard textarea,
+  body.page-quote .qcard .btn-primary {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+<style>
+  /* GET-A-QUOTE: hide the “First Name / Last Name” labels (placeholders already show it) */
+
+  /* Common plugins: target the first row of fields, then hide labels inside */
+  .quote-wrap .row:first-of-type label,
+  .quote-card .row:first-of-type label,
+  .quote-wrap .form-row:first-of-type label,
+  .quote-card .form-row:first-of-type label,
+  .quote-wrap .wpforms-field-row:first-of-type .wpforms-field-label,
+  .quote-card .wpforms-field-row:first-of-type .wpforms-field-label,
+  .quote-wrap .gfield--type-name label,
+  .quote-card .gfield--type-name label,
+  .quote-wrap .ff-el-group:first-of-type label,
+  .quote-card .ff-el-group:first-of-type label,
+  .quote-wrap .cog-name .cog-label,
+  .quote-card .cog-name .cog-label,
+  .quote-wrap .cog-field:first-of-type .cog-label,
+  .quote-card .cog-field:first-of-type .cog-label {
+    display: none !important;
+  }
+
+  /* If the form uses a “Name” group with two sub-labels */
+  .quote-wrap .name label,
+  .quote-card .name label,
+  .quote-wrap .name-field label,
+  .quote-card .name-field label {
+    display: none !important;
+  }
+
+  /* Prevent extra dead space where labels were */
+  .quote-wrap .field, .quote-card .field,
+  .quote-wrap .form-group, .quote-card .form-group {
+    padding-top: 0 !important;
+  }
+
+  /* Local form markup: first row contains First Name / Last Name labels */
+  body.page-quote .qcard .row-2:first-of-type .form-field > label {
+    display: none !important;
+  }
+</style>
+<style>
   /* Page-local tweak: lift the quote box higher on the hero */
   body.page-quote .quote-overlay{
     transform: translateY(-10%);
