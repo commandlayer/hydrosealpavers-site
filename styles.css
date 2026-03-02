@@ -1418,55 +1418,6 @@ button.nav-link,
 }
 
 
-social
-.cta-social-row{
-  margin-top: 18px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
-  align-items: center;
-}
-
-.cta-social-row a{
-  display:block;
-  border-radius: 16px;
-  overflow: visible;
-  transform: translateZ(0);
-  transition: transform .18s ease, filter .18s ease;
-  will-change: transform, filter;
-}
-
-.cta-social-row img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Premium hover */
-.cta-social-row a:hover,
-.cta-social-row a:focus-visible{
-  transform: translateY(-3px);
-  filter: drop-shadow(0 14px 26px rgba(0,0,0,.22));
-}
-
-.cta-social-row a:active{
-  transform: translateY(-1px) scale(.99);
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
-}
-
-.cta-social-row a:focus-visible{
-  outline: 3px solid rgba(40,182,200,.35);
-  outline-offset: 3px;
-}
-
-/* Responsive wrap */
-@media (max-width: 1024px){
-  .cta-social-row{ grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 640px){
-  .cta-social-row{ grid-template-columns: repeat(2, 1fr); }
-}
 
 
 
@@ -2182,3 +2133,74 @@ body.page-home #process .step-body li{ color:#111827; }
   body.page-home #process .process-grid{ display:none; }
   body.page-home #process .process-accordion{ display:block; }
 }
+
+social
+/* CTA Social Row — 5 equal buttons inside the container */
+.cta-social-row{
+  margin-top: 18px;
+  width: 100%;
+
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 14px;
+  align-items: center;
+
+  /* hard safety so nothing goes "full screen" */
+  max-width: 100%;
+}
+
+/* Each button acts like a card */
+.cta-social-row a{
+  display: block;
+  border-radius: 16px;
+  overflow: visible;
+  transform: translateZ(0);
+  transition: transform .18s ease, filter .18s ease;
+  will-change: transform, filter;
+}
+
+/* Image fills its grid cell, but never exceeds a sane max height */
+.cta-social-row img{
+  width: 100%;
+  height: auto;
+  max-height: 86px;     /* prevents giant buttons */
+  object-fit: contain;  /* keeps full button visible */
+  display: block;
+}
+
+/* Premium hover */
+.cta-social-row a:hover,
+.cta-social-row a:focus-visible{
+  transform: translateY(-3px);
+  filter: drop-shadow(0 14px 26px rgba(0,0,0,.22));
+}
+
+.cta-social-row a:active{
+  transform: translateY(-1px) scale(.99);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+}
+
+/* Clean focus ring */
+.cta-social-row a:focus-visible{
+  outline: 3px solid rgba(40,182,200,.35);
+  outline-offset: 3px;
+}
+
+/* Responsive: keep them readable */
+@media (max-width: 1024px){
+  .cta-social-row{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px){
+  .cta-social-row{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .cta-social-row img{
+    max-height: 78px;
+  }
+}
+
+
+
