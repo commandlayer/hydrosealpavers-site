@@ -113,42 +113,36 @@
   }
 </style>
 <style>
-  /* GET-A-QUOTE: hide the “First Name / Last Name” labels (placeholders already show it) */
-
-  /* Common plugins: target the first row of fields, then hide labels inside */
-  .quote-wrap .row:first-of-type label,
-  .quote-card .row:first-of-type label,
-  .quote-wrap .form-row:first-of-type label,
-  .quote-card .form-row:first-of-type label,
-  .quote-wrap .wpforms-field-row:first-of-type .wpforms-field-label,
-  .quote-card .wpforms-field-row:first-of-type .wpforms-field-label,
-  .quote-wrap .gfield--type-name label,
-  .quote-card .gfield--type-name label,
-  .quote-wrap .ff-el-group:first-of-type label,
-  .quote-card .ff-el-group:first-of-type label,
-  .quote-wrap .cog-name .cog-label,
-  .quote-card .cog-name .cog-label,
-  .quote-wrap .cog-field:first-of-type .cog-label,
-  .quote-card .cog-field:first-of-type .cog-label {
-    display: none !important;
+  /* GET-A-QUOTE: hide text field labels visually, keep for screen readers */
+  body.page-quote .quote-form [data-step-panel] .form-field > label,
+  body.page-quote .quote-form [data-step-panel] .form-field.field > label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
 
-  /* If the form uses a “Name” group with two sub-labels */
-  .quote-wrap .name label,
-  .quote-card .name label,
-  .quote-wrap .name-field label,
-  .quote-card .name-field label {
-    display: none !important;
+  /* Keep checkbox/radio option copy visible */
+  body.page-quote .quote-form [data-step-panel] .checkbox-row > label,
+  body.page-quote .quote-form [data-step-panel] .radio-grid label {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
   }
 
-  /* Prevent extra dead space where labels were */
-  .quote-wrap .field, .quote-card .field,
-  .quote-wrap .form-group, .quote-card .form-group {
-    padding-top: 0 !important;
-  }
-
-  /* Local form markup: first row contains First Name / Last Name labels */
-  body.page-quote .qcard .row-2:first-of-type .form-field > label {
+  /* Hide standalone Required helper text lines under labels */
+  body.page-quote .quote-form [data-step-panel] .form-field > .err,
+  body.page-quote .quote-form [data-step-panel] .field > .err {
     display: none !important;
   }
 </style>
