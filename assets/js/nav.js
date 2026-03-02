@@ -1,5 +1,8 @@
 /* nav.js — hamburger + dropdowns (SAFE with includes) */
 (function () {
+  if (window.__hs_nav_inited) return;
+  window.__hs_nav_inited = true;
+
   function resetDropdownState() {
     const groups = Array.from(document.querySelectorAll(".nav-group"));
     groups.forEach((group) => {
@@ -149,8 +152,6 @@
   // Run now (in case header is already in DOM)
   initAllNav();
 
-  // Run again after includes inject header/footer
-  document.addEventListener("includes:ready", initAllNav);
 
   // Optional debugging hook
   window.initAllNav = initAllNav;
