@@ -980,8 +980,9 @@ footer{
 }
 
 .header .brand-logo{
-  height:56px;
-  width:auto;
+  width:250px;
+  max-width:250px;
+  height:auto;
   display:block;
 }
 
@@ -993,18 +994,24 @@ footer{
   min-height:86px;
 }
 
-/* Bigger header logo (safe-capped) */
+/* ===== Header logo sizing (big like ~250px) ===== */
+.brand{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+}
+
 .brand-logo{
-  height:85px;
-  width:auto;
-  max-width:320px;
-  object-fit:contain;
+  width:250px;
+  max-width:250px;
+  height:auto;
   display:block;
 }
-@media (max-width:420px){
+
+@media (max-width:520px){
   .brand-logo{
-    height:54px;
-    max-width:260px;
+    width:210px;
+    max-width:210px;
   }
 }
 
@@ -1186,14 +1193,8 @@ button.nav-link,
   }
 
   .brand{
-    flex:1 1 auto;
+    flex:0 0 auto;
     min-width:0;
-  }
-
-  .brand-logo{
-    height:58px;
-    max-width:min(230px, 62vw);
-    width:auto;
   }
 
   .nav-shell{
@@ -2128,24 +2129,4 @@ body.page-home #process .step-body li{ color:#111827; }
 @media (max-width: 900px){
   body.page-home #process .process-grid{ display:none; }
   body.page-home #process .process-accordion{ display:block; }
-}
-
-
-/* Global brand/logo sizing */
-.brand{
-  display:flex;
-  align-items:center;
-}
-
-.brand-logo{
-  height:68px;
-  width:auto;
-  display:block;
-  max-width:none;
-}
-
-@media (max-width:720px){
-  .brand-logo{
-    height:54px;
-  }
 }
