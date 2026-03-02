@@ -2135,31 +2135,33 @@ body.page-home #process .step-body li{ color:#111827; }
 }
 
 social
-/* 5-across CTA button bar (hard-forced) */
+/* 5 across */
 .cta-social-row{
   margin-top: 18px;
   width: 100%;
   display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   gap: 14px;
   align-items: center;
+  justify-items: center;   /* center the clickable element inside each column */
 }
 
-/* Each cell is the full width of its grid column */
+/* Link should wrap ONLY the button image */
 .cta-social-row > a{
-  display: block !important;
-  width: 100% !important;
+  display: inline-block !important; /* shrink-wrap to image */
+  width: auto !important;
   border-radius: 16px;
   overflow: visible;
   transition: transform .18s ease, filter .18s ease;
   will-change: transform, filter;
 }
 
-/* Image fills its grid cell */
+/* Control button size without making the grid cell clickable */
 .cta-social-row img{
   display: block !important;
-  width: 100% !important;
-  height: auto !important;
+  height: 78px !important;     /* set your button height */
+  width: auto !important;      /* keep natural width */
+  max-width: 100% !important;  /* prevents overflow in narrow columns */
 }
 
 /* Premium hover */
@@ -2179,10 +2181,11 @@ social
   outline-offset: 3px;
 }
 
-/* Responsive (only kick in when actually needed) */
+/* Responsive */
 @media (max-width: 980px){
   .cta-social-row{ grid-template-columns: repeat(3, 1fr) !important; }
 }
 @media (max-width: 620px){
   .cta-social-row{ grid-template-columns: repeat(2, 1fr) !important; }
+  .cta-social-row img{ height: 72px !important; }
 }
