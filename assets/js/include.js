@@ -98,52 +98,6 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // 4) Insert trustbar into persistent shell slot (single)
-    try {
-      if (
-        document.documentElement.hasAttribute("data-no-trustbar") ||
-        document.body.hasAttribute("data-no-trustbar")
-      ) {
-        return;
-      }
-
-      // hard idempotency: if already in DOM, stop
-      if (document.querySelector(".trustbar")) return;
-
-      const slot = document.getElementById("trustbar-slot");
-      if (!slot) return;
-
-      if (document.body.classList.contains("page-home")) {
-        const hero = document.querySelector(".home-hero-wrap .hero2, .hero2");
-        if (hero && hero.nextElementSibling !== slot) {
-          hero.insertAdjacentElement("afterend", slot);
-        }
-      }
-
-      const res = await fetch("/partials/trustbar.html");
-      if (!res.ok) return;
-
-      const html = (await res.text()).trim();
-      if (!html) return;
-
-      const tmp = document.createElement("div");
-      tmp.innerHTML = html;
-
-      const trustbar = tmp.querySelector(".trustbar");
-      if (!trustbar) return;
-
-      slot.replaceChildren();
-      slot.appendChild(trustbar);
-
-      if (typeof window.positionTrustbar === "function") {
-        window.positionTrustbar();
-        requestAnimationFrame(() => {
-          window.positionTrustbar();
-        });
-      }
-    } catch (e) {
-      // fail silently
-    }
   } finally {
     document.body.classList.remove("includes-loading");
     document.body.classList.add("includes-ready");
