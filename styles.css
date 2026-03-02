@@ -2135,36 +2135,36 @@ body.page-home #process .step-body li{ color:#111827; }
 }
 
 social
-/* 5 across */
+/* 5 even columns, fill the container width */
 .cta-social-row{
   margin-top: 18px;
   width: 100%;
   display: grid !important;
   grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
-  justify-items: center;   /* center the clickable element inside each column */
 }
 
-/* Link should wrap ONLY the button image */
+/* each column is a full clickable tile (even + fills row) */
 .cta-social-row > a{
-  display: inline-block !important; /* shrink-wrap to image */
-  width: auto !important;
-  border-radius: 16px;
-  overflow: visible;
+  display: grid !important;
+  place-items: center;
+  width: 100%;
+  min-height: 110px;           /* makes them bigger */
+  border-radius: 18px;
   transition: transform .18s ease, filter .18s ease;
   will-change: transform, filter;
 }
 
-/* Control button size without making the grid cell clickable */
+/* image scales up evenly inside each tile */
 .cta-social-row img{
-  display: block !important;
-  height: 78px !important;     /* set your button height */
-  width: auto !important;      /* keep natural width */
-  max-width: 100% !important;  /* prevents overflow in narrow columns */
+  width: 100%;
+  height: 96px;                /* uniform button height */
+  object-fit: contain;
+  display: block;
 }
 
-/* Premium hover */
+/* premium hover */
 .cta-social-row > a:hover,
 .cta-social-row > a:focus-visible{
   transform: translateY(-3px);
@@ -2181,11 +2181,13 @@ social
   outline-offset: 3px;
 }
 
-/* Responsive */
+/* responsive */
 @media (max-width: 980px){
   .cta-social-row{ grid-template-columns: repeat(3, 1fr) !important; }
+  .cta-social-row img{ height: 92px; }
 }
 @media (max-width: 620px){
   .cta-social-row{ grid-template-columns: repeat(2, 1fr) !important; }
-  .cta-social-row img{ height: 72px !important; }
+  .cta-social-row > a{ min-height: 104px; }
+  .cta-social-row img{ height: 88px; }
 }
