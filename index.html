@@ -252,6 +252,209 @@ img{max-width:100%; height:auto;}
       transform:none;
     }
   </style>
+
+
+  <style>
+    /* =========================
+       PROCESS SECTION
+       - Desktop: 2 columns, 6 equal-height cards, black text
+       - Mobile: accordion (only 1 open at a time)
+       - Icons: NO background
+       - Title text: nudged UP slightly
+    ========================== */
+  
+    /* Desktop grid */
+    #process .process-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+  
+    /* 3 equal rows per column */
+    #process .process-col{
+      display:grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+  
+    /* Card fills row */
+    #process .process-col .card{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+  
+    /* Light gradient + BLACK text */
+    #process .card.card-bluegrad{
+      background: linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);
+      border: 1px solid rgba(57,191,234,.28);
+      box-shadow: var(--shadow);
+      color:#111827;
+    }
+    #process .card.card-bluegrad h3{
+      margin:0 0 8px;
+      color: var(--navy);
+    }
+    #process .card.card-bluegrad p{
+      margin:0 0 10px;
+      color:#111827;
+    }
+    #process .card.card-bluegrad ul{
+      margin:0;
+      padding-left:18px;
+    }
+    #process .card.card-bluegrad li{ color:#111827; }
+  
+    /* Step header with icon (NO background) */
+    #process .step-title{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+    }
+    #process .step-icon{
+      width:auto;
+      height:auto;
+      background:transparent;
+      border:0;
+      box-shadow:none;
+      padding:0;
+      margin-top:2px;
+      font-size:18px;
+      line-height:1;
+      flex:0 0 auto;
+    }
+    #process .step-text{
+      position:relative;
+      top:2px;
+      line-height:1.15;
+      display:inline-block;
+    }
+  
+    /* Mobile accordion */
+    #process .process-accordion{ display:none; margin-top:16px; }
+  
+    #process details.step{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
+    }
+    #process details.step + details.step{ margin-top:10px; }
+  
+    #process details.step > summary{
+      cursor:pointer;
+      list-style:none;
+      padding:14px 16px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: var(--navy);
+    }
+    #process summary::-webkit-details-marker{ display:none; }
+  
+    #process details.step > summary::after{
+      content:"▾";
+      color: var(--navy);
+      transition: transform .18s ease;
+      font-weight:1000;
+    }
+    #process details.step[open] > summary::after{ transform: rotate(180deg); }
+  
+    #process .step-body{
+      padding:14px 16px 16px;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.22);
+    }
+    #process .step-body p{
+      margin:0 0 10px;
+      color:#111827;
+    }
+    #process .step-body ul{
+      margin:0;
+      padding-left:18px;
+    }
+    #process .step-body li{ color:#111827; }
+  
+    /* Switch: accordion on mobile */
+    @media (max-width: 900px){
+      #process .process-grid{ display:none; }
+      #process .process-accordion{ display:block; }
+    }
+  </style>
+
+  <style>
+    .marquee{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+      position:relative;
+    }
+  
+    .marquee-track{
+      display:flex;
+      width:max-content;
+      gap:18px;                 /* spacing between cards */
+      padding:16px 16px;        /* breathing room */
+      will-change: transform;
+      transform: translate3d(0,0,0);
+      backface-visibility:hidden;
+      touch-action: pan-y;
+    }
+  
+    .job-card{
+      flex:0 0 min(420px, 82vw);
+      height:290px;
+      border-radius:18px;
+      border:1px solid rgba(15,110,168,.18);
+      background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
+      position:relative;
+      overflow:hidden;
+    }
+  
+    .job-meta{
+      position:absolute;
+      left:14px;
+      right:14px;
+      bottom:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-end;
+      color:#fff;
+      text-shadow:0 10px 22px rgba(0,0,0,.35);
+    }
+    .job-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
+    .job-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
+    .job-tag{
+      font-size:12px;
+      font-weight:900;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.22);
+      white-space:nowrap;
+    }
+  
+    .job-card:hover{
+      transform: translateY(-2px);
+      transition: transform .18s ease;
+    }
+  
+    @media (prefers-reduced-motion: reduce){
+      .marquee-track{ transform:none !important; }
+    }
+  </style>
+
 </head>
 
 <body class="page-home">
@@ -659,214 +862,7 @@ img{max-width:100%; height:auto;}
     </div>
   </section>
 
-<style>
-  /* =========================
-     PROCESS SECTION
-     - Desktop: 2 columns, 6 equal-height cards, black text
-     - Mobile: accordion (only 1 open at a time)
-     - Icons: NO background
-     - Title text: nudged UP slightly
-  ========================== */
 
-  /* Desktop grid */
-  #process .process-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:16px;
-    margin-top:16px;
-    align-items:stretch;
-  }
-
-  /* 3 equal rows per column */
-  #process .process-col{
-    display:grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap:16px;
-    align-items:stretch;
-  }
-
-  /* Card fills row */
-  #process .process-col .card{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-  }
-
-  /* Light gradient + BLACK text */
-  #process .card.card-bluegrad{
-    background: linear-gradient(135deg, rgba(57,191,234,.18) 0%, #ffffff 70%);
-    border: 1px solid rgba(57,191,234,.28);
-    box-shadow: var(--shadow);
-    color:#111827;
-  }
-  #process .card.card-bluegrad h3{
-    margin:0 0 8px;
-    color: var(--navy);
-  }
-  #process .card.card-bluegrad p{
-    margin:0 0 10px;
-    color:#111827;
-  }
-  #process .card.card-bluegrad ul{
-    margin:0;
-    padding-left:18px;
-  }
-  #process .card.card-bluegrad li{ color:#111827; }
-
-  /* Step header with icon (NO background) */
-  #process .step-title{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-  }
-  #process .step-icon{
-    width:auto;
-    height:auto;
-    background:transparent;
-    border:0;
-    box-shadow:none;
-    padding:0;
-    margin-top:2px;
-    font-size:18px;
-    line-height:1;
-    flex:0 0 auto;
-  }
-  #process .step-text{
-    position:relative;
-    top:2px;
-    line-height:1.15;
-    display:inline-block;
-  }
-
-  /* Mobile accordion */
-  #process .process-accordion{ display:none; margin-top:16px; }
-
-  #process details.step{
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:0;
-    overflow:hidden;
-  }
-  #process details.step + details.step{ margin-top:10px; }
-
-  #process details.step > summary{
-    cursor:pointer;
-    list-style:none;
-    padding:14px 16px;
-    font-weight:900;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    color: var(--navy);
-  }
-  #process summary::-webkit-details-marker{ display:none; }
-
-  #process details.step > summary::after{
-    content:"▾";
-    color: var(--navy);
-    transition: transform .18s ease;
-    font-weight:1000;
-  }
-  #process details.step[open] > summary::after{ transform: rotate(180deg); }
-
-  #process .step-body{
-    padding:14px 16px 16px;
-    background:
-      radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.18), transparent 55%),
-      radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
-      linear-gradient(180deg, rgba(57,191,234,.08), #f8fbff 70%);
-    border-top:1px solid rgba(15,110,168,.22);
-  }
-  #process .step-body p{
-    margin:0 0 10px;
-    color:#111827;
-  }
-  #process .step-body ul{
-    margin:0;
-    padding-left:18px;
-  }
-  #process .step-body li{ color:#111827; }
-
-  /* Switch: accordion on mobile */
-  @media (max-width: 900px){
-    #process .process-grid{ display:none; }
-    #process .process-accordion{ display:block; }
-  }
-</style>
-
-  <!-- =========================
-     RECENT SEALING JOBS (PLACEHOLDERS)
-     - Continuous slow scroll LEFT → RIGHT
-     - 1..5 loop forever (no “one and gone”)
-     - No overlap (fixed gap + padding)
-     - Pauses on hover (desktop) + press/hold (mobile)
-========================== -->
-
-<style>
-  .marquee{
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:#fff;
-    overflow:hidden;
-    position:relative;
-  }
-
-  .marquee-track{
-    display:flex;
-    width:max-content;
-    gap:18px;                 /* spacing between cards */
-    padding:16px 16px;        /* breathing room */
-    will-change: transform;
-    transform: translate3d(0,0,0);
-    backface-visibility:hidden;
-    touch-action: pan-y;
-  }
-
-  .job-card{
-    flex:0 0 min(420px, 82vw);
-    height:290px;
-    border-radius:18px;
-    border:1px solid rgba(15,110,168,.18);
-    background: linear-gradient(135deg, rgba(15,110,168,.18), rgba(57,191,234,.14));
-    position:relative;
-    overflow:hidden;
-  }
-
-  .job-meta{
-    position:absolute;
-    left:14px;
-    right:14px;
-    bottom:12px;
-    display:flex;
-    justify-content:space-between;
-    gap:12px;
-    align-items:flex-end;
-    color:#fff;
-    text-shadow:0 10px 22px rgba(0,0,0,.35);
-  }
-  .job-title{ font-weight:1000; letter-spacing:-.01em; line-height:1.1; }
-  .job-sub{ font-size:13px; opacity:.9; margin-top:4px; font-weight:700; }
-  .job-tag{
-    font-size:12px;
-    font-weight:900;
-    padding:7px 10px;
-    border-radius:999px;
-    background: rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.22);
-    white-space:nowrap;
-  }
-
-  .job-card:hover{
-    transform: translateY(-2px);
-    transition: transform .18s ease;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{ transform:none !important; }
-  }
-</style>
 
 <section class="section" id="recent-jobs">
   <div class="container">
