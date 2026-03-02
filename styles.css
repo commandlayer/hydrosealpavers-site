@@ -2112,3 +2112,23 @@ body.page-home #process .step-body li{ color:#111827; }
   body.page-home #process .process-grid{ display:none; }
   body.page-home #process .process-accordion{ display:block; }
 }
+
+
+/* Global brand/logo sizing */
+.brand{
+  display:flex;
+  align-items:center;
+}
+
+.brand-logo{
+  height:68px;
+  width:auto;
+  display:block;
+  max-width:none;
+}
+
+@media (max-width:720px){
+  .brand-logo{
+    height:54px;
+  }
+}

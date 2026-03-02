@@ -3,8 +3,8 @@
 */
 
 (async function () {
-  if (window.__HS_INCLUDES_RAN__) return;
-  window.__HS_INCLUDES_RAN__ = true;
+  if (window.__hs_includes_ran) return;
+  window.__hs_includes_ran = true;
 
   document.body.classList.add("includes-loading");
 
@@ -68,6 +68,7 @@
 
       placeholder.replaceChildren();
       placeholder.appendChild(frag);
+      placeholder.removeAttribute("data-include");
       placeholder.classList.add("is-loaded");
     });
 
