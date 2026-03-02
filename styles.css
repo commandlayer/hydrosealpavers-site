@@ -1418,6 +1418,87 @@ button.nav-link,
 }
 
 
+
+.cta-social-row {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.cta-social-row a {
+  display: block;
+}
+
+.cta-social-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .cta-social-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .cta-social-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Premium hover polish */
+.cta-social-row a{
+  border-radius: 16px;              /* matches the button rounding */
+  overflow: hidden;                 /* keeps glow/shadow clean */
+  transform: translateZ(0);
+  transition: transform .18s ease, filter .18s ease;
+  will-change: transform, filter;
+}
+
+.cta-social-row img{
+  border-radius: 16px;
+  transition: filter .18s ease;
+}
+
+/* Hover / focus */
+.cta-social-row a:hover,
+.cta-social-row a:focus-visible{
+  transform: translateY(-3px);
+  filter: drop-shadow(0 14px 26px rgba(0,0,0,.22));
+}
+
+.cta-social-row a:hover img,
+.cta-social-row a:focus-visible img{
+  filter: saturate(1.06) contrast(1.03);
+}
+
+/* Tap behavior */
+.cta-social-row a:active{
+  transform: translateY(-1px) scale(.99);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+}
+
+/* Accessible focus ring (clean, not ugly) */
+.cta-social-row a:focus-visible{
+  outline: 3px solid rgba(40,182,200,.35); /* HydroSeal teal glow */
+  outline-offset: 3px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce){
+  .cta-social-row a,
+  .cta-social-row img{
+    transition: none !important;
+  }
+}
+
+
+
+
 /* =======================
    PAGE: HOME
    ======================= */
