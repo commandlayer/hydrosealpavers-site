@@ -1707,3 +1707,34 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227{
   }
   body.page-quote .qcard{ padding:16px; max-width: 100%; }
 }
+/* === FORCE JOBBER EMBED TO USE FULL CARD WIDTH === */
+body.page-quote .qcard{
+  max-width: 900px !important; /* 25% wider target */
+  width: 100% !important;
+}
+
+/* The embed mount point */
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* The embed usually injects 1–3 wrapper divs — this removes the cap */
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 > *{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* If Jobber uses a “container” pattern, this kills it */
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 *{
+  max-width: 100% !important;
+}
+
+/* Make inputs/buttons actually stretch (some embeds set inline widths) */
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 input,
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 select,
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 textarea,
+body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
