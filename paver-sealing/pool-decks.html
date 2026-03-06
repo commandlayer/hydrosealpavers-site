@@ -97,6 +97,24 @@
         padding-top: 6px;
       }
     }
+
+    /* Local fix: keep the split section above reviews balanced on desktop */
+    .pre-reviews-split .pool-split-rev{ align-items:stretch; }
+    .pre-reviews-split .card,
+    .pre-reviews-split .media-box{ height:100%; }
+    .pre-reviews-split .media-h-md{
+      height:100%;
+      min-height:360px;
+    }
+    .pre-reviews-split{ margin-bottom:34px; }
+
+    @media (max-width: 860px){
+      .pre-reviews-split .media-h-md{
+        height:260px;
+        min-height:0;
+      }
+      .pre-reviews-split{ margin-bottom:22px; }
+    }
   </style>
 </head>
 
@@ -310,7 +328,7 @@
       </section>
 
       <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
-      <section style="margin-top:18px;">
+      <section class="pre-reviews-split" style="margin-top:18px;">
         <div class="grid grid-2 pool-split-rev">
           <!-- TEXT -->
           <div class="card">
