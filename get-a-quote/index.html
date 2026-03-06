@@ -23,21 +23,44 @@
   <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
 
   <style>
-    /* Page-local tweak: lift the quote box higher on the hero */
-    body.page-quote .quote-overlay{
-      transform: translateY(-10%);
-    }
-    @media (max-width: 820px){
-      body.page-quote .quote-overlay{
-        transform: translateY(-6%);
-      }
+    body.page-quote{
+      background: #fff;
     }
 
-    /* Clean up spacing inside the Jobber embed without touching global styles */
+    body.page-quote .quote-page-section{
+      padding: clamp(24px, 5vw, 56px) 0 clamp(32px, 6vw, 64px);
+    }
+
+    body.page-quote .quote-intro{
+      max-width: 780px;
+      margin: 0 auto 18px;
+      text-align: left;
+    }
+
+    body.page-quote .quote-intro h2{
+      margin: 0 0 10px;
+      color: #0f2f57;
+    }
+
+    body.page-quote .quote-intro p{
+      margin: 0;
+      color: #304760;
+    }
+
+    body.page-quote .quote-card-wrap{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
     body.page-quote .qcard{
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(13, 38, 68, 0.08);
+      padding: clamp(18px, 3vw, 28px);
       overflow: hidden;
     }
-    body.page-quote .qcard h2{
+    body.page-quote .qcard .quote-form-title{
       margin: 0 0 10px !important;
     }
     body.page-quote .qcard .quote-form-title{
@@ -161,20 +184,17 @@
   <main id="page" data-page>
   <h1 class="sr-only">Get a Quote for Paver Sealing in Jacksonville and St. Johns County</h1>
 
-    <section class="hero2">
-      <img
-        src="/assets/hero/paver-sealing-jacksonville-driveway.png"
-        alt="Get a paver sealing quote in Jacksonville and St. Johns County"
-        loading="eager"
-        decoding="async"
-      />
-      <div class="hero-wash" aria-hidden="true"></div>
-
+    <section class="quote-page-section" aria-labelledby="quote-page-heading">
       <div class="container">
-        <div class="quote-overlay">
+        <div class="quote-intro">
+          <h2 id="quote-page-heading">Request Your Fast, No-Pressure Quote</h2>
+          <p>Tell us a few quick details and our team will follow up with a clear next step for your paver sealing project.</p>
+        </div>
+
+        <div class="quote-card-wrap">
           <div class="quote-grid">
             <div class="qcard">
-              <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote</h2>
+              <h3 class="quote-form-title" id="quote-form-title" tabindex="-1">Project Details</h3>
 
               <!-- REPLACED: old multi-step Formspree form removed -->
               <div id="c639aa23-e770-4085-b066-c7bba042d9df-2246227"></div>
