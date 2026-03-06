@@ -98,7 +98,7 @@
         parent.setAttribute("aria-haspopup", "true");
         parent.setAttribute("aria-expanded", "false");
 
-        parent.addEventListener("pointerdown", (e) => {
+        const toggleGroup = (e) => {
           e.preventDefault();
           e.stopPropagation();
 
@@ -110,12 +110,22 @@
             parent.setAttribute("aria-expanded", "true");
             positionMobileDropdown(group);
           }
+        };
+
+        parent.addEventListener("click", toggleGroup);
+        parent.addEventListener("pointerdown", (e) => {
+          if (e.pointerType === "mouse") return;
+          toggleGroup(e);
+        });
+        parent.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") toggleGroup(e);
         });
       }
 
       if (!dropdown.dataset.bound) {
         dropdown.dataset.bound = "1";
         dropdown.addEventListener("pointerdown", (e) => e.stopPropagation());
+        dropdown.addEventListener("click", (e) => e.stopPropagation());
       }
     });
 
