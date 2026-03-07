@@ -154,13 +154,49 @@
     }
   }
 
+  function isTrustbarExcludedPath() {
+    const path = (window.location.pathname || "").replace(/\.html$/, "").replace(/\/$/, "");
+    return path === "/warranty" || path === "/care-program";
+  }
+
+  function moveTrustbarForMobile() {
+    if (isTrustbarExcludedPath()) return;
+
+    const trustbar = document.querySelector(".trustbar");
+    const hero = document.querySelector(".home-hero-wrap .hero2, main > .hero2, .hero2");
+    if (!trustbar || !hero) return;
+
+    if (!window.__hs_trustbar_state) {
+      window.__hs_trustbar_state = {
+        parent: trustbar.parentNode,
+        nextSibling: trustbar.nextSibling,
+      };
+    }
+
+    const state = window.__hs_trustbar_state;
+
+    if (isMobile()) {
+      if (hero.nextElementSibling !== trustbar) {
+        hero.insertAdjacentElement("afterend", trustbar);
+      }
+      return;
+    }
+
+    if (state.parent) {
+      state.parent.insertBefore(trustbar, state.nextSibling || null);
+    }
+  }
+
   function initAllNav() {
     initHeaderHamburger();
     initNavDropdowns();
+    moveTrustbarForMobile();
   }
 
   // Run now (in case header is already in DOM)
   initAllNav();
+
+  window.addEventListener("resize", moveTrustbarForMobile);
 
 
   // Optional debugging hook
