@@ -375,6 +375,135 @@
     }
   </style>
 
+
+<style>
+  #county-links-duval .grid.grid-3{
+    gap: 14px;
+  }
+
+  #county-links-duval .service-card{
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 104px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+      linear-gradient(135deg,
+        rgba(255,255,255,0.70) 0%,
+        rgba(214,232,255,0.86) 45%,
+        rgba(188,218,248,0.90) 100%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(34,101,168,0.28);
+    box-shadow: 0 11px 26px rgba(20, 35, 60, 0.08);
+    border-radius: 14px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+    color: var(--navy);
+  }
+
+  #county-links-duval .service-card h3,
+  #county-links-duval .service-card p,
+  #county-links-duval .service-card a{
+    text-align: center;
+  }
+
+  #county-links-duval .service-card::before{
+    content: "";
+    position: absolute;
+    inset: -28% -24% -24% -18%;
+    background:
+      radial-gradient(circle at top right,
+        rgba(26,96,168,0.24),
+        transparent 42%),
+      radial-gradient(circle at bottom left,
+        rgba(20,67,126,0.18),
+        transparent 45%);
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: .84;
+    transition: opacity .2s ease, filter .2s ease;
+  }
+
+  #county-links-duval .service-card > *{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  #county-links-duval .service-card h3{
+    margin: 0 0 6px;
+    color: #143a5a;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .1px;
+    line-height: 1.24;
+  }
+
+  #county-links-duval .service-card p{
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #4f6681;
+  }
+
+  #county-links-duval .service-card strong{
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #1f5f98;
+    text-transform: none;
+    transition: color .2s ease;
+  }
+
+  #county-links-duval .service-card strong .arrow{
+    display: inline-block;
+    transition: transform .2s ease;
+  }
+
+  @media (hover:hover) and (pointer:fine){
+    #county-links-duval .service-card:hover,
+    #county-links-duval .service-card:focus-visible{
+      transform: translateY(-2px);
+      background:
+        linear-gradient(135deg,
+          rgba(255,255,255,0.80) 0%,
+          rgba(202,224,252,0.92) 42%,
+          rgba(176,211,246,0.95) 100%);
+      border-color: rgba(34,101,168,0.34);
+      box-shadow:
+        0 16px 34px rgba(20,58,90,0.14),
+        0 0 0 1px rgba(34,101,168,0.16),
+        0 0 24px rgba(34,101,168,0.16);
+    }
+
+    #county-links-duval .service-card:hover::before,
+    #county-links-duval .service-card:focus-visible::before{
+      opacity: .97;
+      filter: blur(9px);
+    }
+
+    #county-links-duval .service-card:hover strong,
+    #county-links-duval .service-card:focus-visible strong{
+      color: #184a78;
+    }
+
+    #county-links-duval .service-card:hover strong .arrow,
+    #county-links-duval .service-card:focus-visible strong .arrow{
+      transform: translateX(2px);
+    }
+  }
+</style>
+
 <!-- COUNTY LINKS (ONLY YOUR CURRENT PAGES) -->
 <section class="section" id="county-links-duval">
   <div class="container">
@@ -383,82 +512,40 @@
 
     <div class="grid grid-3" style="margin-top:16px;">
 
-      <!-- 1) Southside (expanded to include Jacksonville + San Marco) -->
-      <a class="card service-card" href="/service-areas/duval-county/southside.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/southside.html">
         <h3>Southside</h3>
-        <p>Clean • re-sand • seal for high-use driveways and patios. Includes San Marco.</p>
-        <strong>View Southside →</strong>
+        <p>Urban Core + San Marco</p>
+        <strong>View Southside <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
-      <!-- 2) Mandarin -->
-      <a class="card service-card" href="/service-areas/duval-county/mandarin.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/mandarin.html">
         <h3>Mandarin</h3>
-        <p>Shade + algae control. Focus on prep, dry time, and a uniform finish.</p>
-        <strong>View Mandarin →</strong>
+        <p>Mature Trees + Shade</p>
+        <strong>View Mandarin <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
-      <!-- 3) Riverside / Avondale -->
-      <a class="card service-card" href="/service-areas/duval-county/riverside-avondale.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/riverside-avondale.html">
         <h3>Riverside / Avondale</h3>
-        <p>Restore color and reduce organic staining on older patios and walkways.</p>
-        <strong>View Riverside / Avondale →</strong>
+        <p>Historic Blocks + Patios</p>
+        <strong>View Riverside / Avondale <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
-      <!-- 4) Ortega -->
-      <a class="card service-card" href="/service-areas/duval-county/ortega.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/ortega.html">
         <h3>Ortega</h3>
-        <p>High-traffic protection with joint stabilization and clean edge control.</p>
-        <strong>View Ortega →</strong>
+        <p>Estate Drives + Courtyards</p>
+        <strong>View Ortega <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
-      <!-- 5) Intracoastal East -->
-      <a class="card service-card" href="/service-areas/duval-county/intracoastal-east.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/intracoastal-east.html">
         <h3>Intracoastal East</h3>
-        <p>Coastal moisture + sand exposure. Built for durability and joint hold.</p>
-        <strong>View Intracoastal East →</strong>
+        <p>Coastal Breezes + Sand</p>
+        <strong>View Intracoastal East <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
-      <!-- 6) Beaches (merged: Jacksonville Beach + Atlantic Beach + Neptune Beach) -->
-      <a class="card service-card" href="/service-areas/duval-county/beaches.html" style="
-        background:
-          radial-gradient(900px 240px at 18% 0%, rgba(20,184,166,.20), transparent 55%),
-          radial-gradient(900px 240px at 88% 0%, rgba(34,211,238,.18), transparent 55%),
-          linear-gradient(180deg, rgba(204,251,241,.88), #ffffff 72%);
-        border:1px solid rgba(20,184,166,.26);
-      ">
+      <a class="card service-card" href="/service-areas/duval-county/beaches.html">
         <h3>The Beaches</h3>
-        <p>Salt air + UV + sand. Coastal-grade sealing for Jax, Neptune & Atlantic Beach.</p>
-        <strong>View Beaches →</strong>
+        <p>Salt Air + UV</p>
+        <strong>View Beaches <span class="arrow" aria-hidden="true">→</span></strong>
       </a>
 
     </div>
