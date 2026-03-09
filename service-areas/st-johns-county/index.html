@@ -267,8 +267,8 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: 118px;
-      padding: 14px 12px;
+      min-height: 104px;
+      padding: 10px 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -282,10 +282,16 @@
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(79,193,184,0.24);
-      box-shadow: 0 11px 26px rgba(20,58,90,0.10);
+      box-shadow: 0 11px 26px rgba(20, 35, 60, 0.08);
       border-radius: 14px;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
       color: var(--navy);
+    }
+
+    #county-links .service-card h3,
+    #county-links .service-card p,
+    #county-links .service-card a{
+      text-align: center;
     }
 
     #county-links .service-card::before{
