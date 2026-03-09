@@ -128,14 +128,17 @@
   </script>
 
   <style>
-    .hazard-split{ display:grid; grid-template-columns: 1.15fr .85fr; gap:16px; align-items:stretch; margin-top:16px; }
+    .hazard-split{ display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:stretch; margin-top:16px; }
+    .hazard-copy,
+    .hazard-hero{ height:100%; }
+    .hazard-copy{ display:flex; flex-direction:column; justify-content:flex-start; }
     .hazard-hero{ border:1px solid var(--line); border-radius: 18px; overflow:hidden; background:#f3f4f6; min-height: 420px; }
-    .hazard-hero img{ width:100%; height:100%; display:block; object-fit:cover; }
+    .hazard-hero img{ width:100%; height:100%; min-height:420px; object-fit:cover; display:block; border-radius:18px; }
     .hazard-amber{ position:relative; border:1px solid rgba(251,146,60,.18); background: linear-gradient(180deg, rgba(251,146,60,.15) 0%, #fff 60%); }
     .hazard-amber::after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.45); pointer-events:none; }
     .hazard-amber h3{ color:var(--navy); margin-top:18px; }
     .hazard-amber p{ color:var(--muted); margin-bottom:12px; }
-    @media (max-width: 860px){ .hazard-split{ grid-template-columns: 1fr; } .hazard-hero{ min-height: 260px; } }
+    @media (max-width: 900px){ .hazard-split{ grid-template-columns: 1fr; } .hazard-hero{ min-height: 260px; } .hazard-hero img{ min-height:260px; } }
   </style>
 </head>
 
@@ -313,7 +316,6 @@
       Pool decks need the right product and the right application — too much sealer in the wrong place creates slippery, tacky surfaces. We adjust product selection and method for pool environments so the finish is clean, safe, and built to last.
     </p>
   </div>
-</div>
 
         <div class="hazard-hero">
           <img
