@@ -125,6 +125,13 @@
 
         if (!response.ok) throw new Error("Submission failed");
 
+        if (typeof window.gtag === "function") {
+          window.gtag('event', 'generate_lead', {
+            form_name: 'quote_form',
+            page_path: window.location.pathname
+          });
+        }
+
         const parent = form.parentElement;
         form.remove();
         const success = document.createElement("div");
