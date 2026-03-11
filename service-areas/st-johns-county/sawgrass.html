@@ -3,71 +3,273 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Paver Sealing Sawgrass FL | HydroSeal</title>
-  <meta name="description" content="Professional paver sealing in Sawgrass, FL. HydroSeal serves Sawgrass with driveway, patio, and pool deck sealing. Full page coming soon." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass" />
 
+  <!-- SEO -->
+  <title>Paver Sealing Sawgrass FL | HydroSeal</title>
+  <meta name="description" content="Professional paver sealing in Sawgrass, FL. HydroSeal cleans, re-sands, and seals driveways, patios, and pool decks for long-term protection and curb appeal." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="HydroSeal" />
   <meta property="og:title" content="Paver Sealing Sawgrass FL | HydroSeal" />
-  <meta property="og:description" content="Professional paver sealing in Sawgrass, FL. HydroSeal serves Sawgrass with driveway, patio, and pool deck sealing. Full page coming soon." />
+  <meta property="og:description" content="Professional paver sealing in Sawgrass, FL. HydroSeal cleans, re-sands, and seals driveways, patios, and pool decks for long-term protection and curb appeal." />
   <meta property="og:url" content="https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass" />
-
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/hydroseal-driveway.webp" />
+  <meta property="og:image:alt" content="Sealed pavers in Sawgrass, Florida" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Paver Sealing Sawgrass FL | HydroSeal" />
-  <meta name="twitter:description" content="Professional paver sealing in Sawgrass, FL. HydroSeal serves Sawgrass with driveway, patio, and pool deck sealing. Full page coming soon." />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},
-      {"@type":"ListItem","position":2,"name":"Service Areas","item":"https://hydrosealpavers.com/service-areas/"},
-      {"@type":"ListItem","position":3,"name":"St. Johns County","item":"https://hydrosealpavers.com/service-areas/st-johns-county/"},
-      {"@type":"ListItem","position":4,"name":"Sawgrass","item":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass"}
-    ]
-  }
-  </script>
+  <meta name="twitter:description" content="Professional paver sealing in Sawgrass, FL. HydroSeal cleans, re-sands, and seals driveways, patios, and pool decks for long-term protection and curb appeal." />
+  <meta name="twitter:image" content="https://hydrosealpavers.com/assets/hero/hydroseal-driveway.webp" />
 
   <link rel="stylesheet" href="/styles.css" />
   <style>
-    .placeholder-card{
-      max-width: 840px;
-      margin: 0 auto;
-      border: 1px solid rgba(15,110,168,.18);
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 10px 28px rgba(20,58,90,.08);
-      padding: clamp(18px, 4vw, 30px);
+    .media-box{ overflow:hidden; border-radius:18px; }
+    .media-box img{ width:100%; height:100%; display:block; object-fit:cover; }
+    .media-h-md{ height:360px; }
+
+    .service-split,
+    .service-split-rev{
+      display:grid;
+      gap:18px;
+      align-items:stretch;
     }
-    .placeholder-alert{
-      border-left: 4px solid #2a7fb8;
-      background: #f4fbff;
-      padding: 12px 14px;
-      margin: 14px 0 18px;
-      color: #23445f;
-      font-weight: 600;
+    .service-split{ grid-template-columns:1.1fr .9fr; }
+    .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
+
+    @media (min-width: 861px){
+      .service-split > .card,
+      .service-split-rev > .card,
+      .service-split > .media-box,
+      .service-split-rev > .media-box{
+        height:100%;
+      }
+
+      .service-split > .card,
+      .service-split-rev > .card{
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+      }
+
+      .service-split .media-h-md,
+      .service-split-rev .media-h-md{
+        height:100%;
+        min-height:360px;
+      }
     }
-    .placeholder-actions{
+
+    @media (min-width: 861px){
+      .service-split-equal > .card,
+      .service-split-equal > .media-box{
+        height:100%;
+      }
+
+      .service-split-equal .media-h-md{
+        height:100%;
+        min-height:360px;
+      }
+    }
+
+    .service-reviews-section{ margin-top:30px; }
+
+    @media (max-width: 860px){
+      .service-split,
+      .service-split-rev{
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .service-split-rev .card{ order: 1; }
+      .service-split-rev .media-box{ order: 2; }
+    }
+    @media (max-width: 520px){
+      .media-h-md{ height:240px; }
+    }
+
+    .service-cta-row{
       display:flex;
-      flex-wrap:wrap;
+      justify-content:center;
       gap:10px;
-      margin-top:16px;
+      flex-wrap:wrap;
+    }
+
+    .service-cta{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:900;
+      letter-spacing:.01em;
+      text-decoration:none;
+      min-width:170px;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 10px 26px rgba(17,24,39,.10);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+      transform: translateZ(0);
+      isolation:isolate;
+    }
+
+    .service-cta::before{
+      content:"";
+      position:absolute;
+      inset:-4px;
+      border-radius:16px;
+      z-index:-1;
+      opacity:0;
+      filter: blur(6px);
+      transform: scale(.98);
+      transition: opacity .16s ease, transform .16s ease, filter .16s ease;
+    }
+
+    .service-cta::after{
+      content:"";
+      position:absolute;
+      inset:1px;
+      border-radius:13px;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 55%);
+      opacity:.55;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    @media (hover:hover) and (pointer:fine){
+      .service-cta:hover{
+        transform: scale(1.03) translateY(-1px);
+        box-shadow: 0 14px 34px rgba(17,24,39,.14);
+        filter: brightness(1.02);
+      }
+      .service-cta:hover::before{
+        opacity:.35;
+        transform: scale(1);
+        filter: blur(7px);
+      }
+    }
+
+    .service-cta:active{
+      transform: scale(1.01) translateY(0);
+      box-shadow: 0 10px 26px rgba(17,24,39,.12);
+    }
+
+    .service-cta-blue{
+      background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+      color:#fff;
+    }
+    .service-cta-blue::before{
+      background: radial-gradient(circle at 40% 35%, rgba(57,191,234,.55), rgba(15,110,168,.10) 60%, rgba(15,110,168,0) 78%);
+    }
+
+    .service-cta-blue-light{
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.10), #ffffff 72%);
+      border:1px solid rgba(15,110,168,.22);
+      color: #0B2D4A;
+      box-shadow: 0 10px 26px rgba(15,110,168,.10);
+    }
+    .service-cta-blue-light::before{
+      background: radial-gradient(circle at 40% 35%, rgba(57,191,234,.35), rgba(15,110,168,.08) 60%, rgba(15,110,168,0) 78%);
+    }
+    .service-cta-blue-light::after{ opacity:.35; }
+
+    @media (max-width:520px){
+      .service-cta{ width:100%; max-width:420px; }
+    }
+
+    #patio-faq details.faq-item{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
+    }
+    #patio-faq details.faq-item > summary{
+      cursor:pointer;
+      list-style:none;
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-weight:900;
+      user-select:none;
+    }
+    #patio-faq summary::-webkit-details-marker{ display:none; }
+    #patio-faq summary::after{
+      content:"▾";
+      font-weight:1000;
+      color: var(--navy);
+      transition: transform .18s ease;
+    }
+    #patio-faq details[open] summary::after{ transform: rotate(180deg); }
+
+    #patio-faq .faq-body{
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      padding:0 16px;
+      transform: translateY(-6px);
+      transition:
+        max-height .28s ease,
+        opacity .22s ease,
+        transform .22s ease;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.25);
+    }
+    #patio-faq details[open] .faq-body{
+      max-height:900px;
+      opacity:1;
+      padding:16px;
+      transform:none;
     }
   </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://hydrosealpavers.com/#website","url":"https://hydrosealpavers.com/","name":"HydroSeal"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass#webpage","url":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass","name":"Paver Sealing Sawgrass FL | HydroSeal","isPartOf":{"@id":"https://hydrosealpavers.com/#website"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},{"@type":"ListItem","position":2,"name":"Service Areas","item":"https://hydrosealpavers.com/service-areas"},{"@type":"ListItem","position":3,"name":"St. Johns County","item":"https://hydrosealpavers.com/service-areas/st-johns-county"},{"@type":"ListItem","position":4,"name":"Sawgrass","item":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","HomeAndConstructionBusiness"],"@id":"https://hydrosealpavers.com/#business","name":"HydroSeal","url":"https://hydrosealpavers.com/","telephone":"+1-904-537-5000","image":"https://hydrosealpavers.com/assets/hero/hydroseal-driveway.webp","logo":"https://hydrosealpavers.com/assets/hero/Hydrosealpaversealing.png","address":{"@type":"PostalAddress","addressLocality":"Jacksonville","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"St. Johns County, FL"},{"@type":"Place","name":"Sawgrass, FL"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass#service","name":"Paver Sealing in Sawgrass, FL","serviceType":"Driveway, Patio, and Pool Deck Paver Sealing","provider":{"@id":"https://hydrosealpavers.com/#business"},"areaServed":[{"@type":"Place","name":"Sawgrass, FL"},{"@type":"AdministrativeArea","name":"St. Johns County, FL"}],"url":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass#faq","mainEntity":[
+      {"@type":"Question","name":"How long should we wait before using pavers after sealing in Sawgrass?","acceptedAnswer":{"@type":"Answer","text":"Most surfaces are dry to the touch in about 1–2 hours in good weather. We usually recommend 24 hours before normal foot traffic and 24–48 hours before vehicles or heavy furniture so the sealer cures properly in Florida humidity."}},
+      {"@type":"Question","name":"Does sealing help control mildew and algae in Sawgrass?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sealing reduces water absorption so organic growth is easier to clean and less likely to stain deeply. In Sawgrass, routine rinsing and periodic cleaning still matter, but sealed pavers stay more manageable between services."}},
+      {"@type":"Question","name":"Do you re-sand joints before sealing pavers in Sawgrass?","acceptedAnswer":{"@type":"Answer","text":"Yes. We remove weak joint material, install kiln-dried sand, and compact joints before sealing. Proper joint sand lockup supports surface stability and helps reduce washout during storms."}},
+      {"@type":"Question","name":"Will sealed pool deck pavers feel slippery in Sawgrass?","acceptedAnswer":{"@type":"Answer","text":"A properly applied sealer should improve appearance without creating an unsafe film. We control coverage rates and finish level for traffic areas so surfaces remain predictable under wet conditions."}},
+      {"@type":"Question","name":"How often should pavers be resealed in Sawgrass?","acceptedAnswer":{"@type":"Answer","text":"Most residential pavers in Sawgrass benefit from resealing about every 2–3 years, depending on sun exposure, shade, traffic, and drainage. We recommend inspection before setting a timeline."}},
+      {"@type":"Question","name":"Can older Sawgrass pavers be restored instead of replaced?","acceptedAnswer":{"@type":"Answer","text":"In many cases, yes. Deep cleaning, joint stabilization, and professional sealing can restore appearance and function without full replacement when the base and edge restraints are still sound."}}
+    ]}</script>
 </head>
 <body>
   <header class="header">
     <div class="container header-row">
+
       <a class="brand" href="/" aria-label="HydroSeal home">
-        <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" class="brand-logo" loading="eager" width="320" height="125" />
+        <img
+          src="/assets/hero/Hydrosealpaversealing.png"
+          alt="HydroSeal"
+          class="brand-logo"
+          loading="eager"
+          width="320"
+          height="125"
+        />
       </a>
+
       <div class="nav-shell">
-        <button class="nav-toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
         <nav class="nav header-nav" aria-label="Primary">
           <div class="nav-menu" id="navMenu">
+
             <div class="nav-group">
               <button class="nav-link nav-parent" type="button" aria-expanded="false">Paver Sealing</button>
               <div class="dropdown" role="menu" aria-label="Paver Sealing">
@@ -76,6 +278,7 @@
                 <a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing</a>
               </div>
             </div>
+
             <div class="nav-group">
               <button class="nav-link nav-parent" type="button" aria-expanded="false">Commercial</button>
               <div class="dropdown" role="menu" aria-label="Commercial">
@@ -86,6 +289,7 @@
                 <a role="menuitem" href="/commercial/office-buildings">Office Buildings</a>
               </div>
             </div>
+
             <div class="nav-group">
               <button class="nav-link nav-parent" type="button" aria-expanded="false">Service Areas</button>
               <div class="dropdown" role="menu" aria-label="Service Areas">
@@ -94,20 +298,26 @@
                 <a role="menuitem" href="/service-areas/clay-county/">Clay County</a>
               </div>
             </div>
+
             <a class="nav-link" href="/care-program/">Care Program</a>
             <a class="nav-link" href="/warranty/">Warranty</a>
+
             <div class="nav-mobile-ctas" role="presentation">
               <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
               <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
             </div>
+
           </div>
         </nav>
+
         <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
       </div>
+
       <div class="header-ctas">
         <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
         <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
       </div>
+
     </div>
   </header>
 
@@ -124,27 +334,121 @@
     <div class="container">
       <a href="/">Home</a>
       <span aria-hidden="true">&gt;</span>
-      <a href="/service-areas/">Service Areas</a>
+      <a href="/paver-sealing">Paver Sealing</a>
       <span aria-hidden="true">&gt;</span>
-      <a href="/service-areas/st-johns-county/">St. Johns County</a>
-      <span aria-hidden="true">&gt;</span>
-      <span aria-current="page">Sawgrass</span>
+      <span aria-current="page">Patios &amp; Walkways</span>
     </div>
   </nav>
 
+
   <main id="page" data-page>
-    <!-- TODO: EXPAND THIS INTO FULL LOCAL PAGE -->
-    <section class="section">
+    <section class="section" style="padding-top:26px;">
       <div class="container">
-        <div class="placeholder-card">
-          <h1 style="margin:0;">Paver Sealing in Sawgrass, FL</h1>
-          <div class="placeholder-alert">
-            This page is being expanded.<br />
-            HydroSeal serves this area and a full local page is coming soon.
+        <h1 style="margin:0;">Paver Sealing in Sawgrass, FL</h1>
+        <p class="muted" style="margin-top:8px; max-width:860px;">HydroSeal provides premium paver sealing for homeowners in Sawgrass. We focus on premium residences where clean entries and outdoor spaces drive curb appeal, with professional cleaning, joint re-sanding, and even sealer application for driveways, patios, and pool decks.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="service-split service-split-equal">
+          <div class="media-box media-h-md">
+            <img src="/assets/hero/hydroseal-driveway.webp" alt="Sealed driveway and entry pavers in Sawgrass" loading="eager" decoding="async" width="1200" height="675" />
           </div>
-          <p style="margin:0; color:var(--muted);">HydroSeal currently serves homeowners in Sawgrass. We are building out this local page with full service details, project notes, and area-specific guidance.</p>
-          <div class="placeholder-actions">
-            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+          <div class="card">
+            <h2 style="margin:0 0 6px;">What Paver Sealing Does in Sawgrass</h2>
+            <p style="margin:0; color:var(--muted);">Sealing protects color, reduces rapid absorption, and helps stabilize joints so pavers hold a cleaner, more uniform look longer. In Sawgrass, this means less embedded staining, fewer washout issues, and easier routine maintenance between deep cleanings.</p>
+            <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted);">
+              <li><strong>Improves curb appeal</strong> with richer color and cleaner joint lines</li>
+              <li><strong>Supports joint stability</strong> after proper re-sanding and compaction</li>
+              <li><strong>Helps reduce staining pressure</strong> from daily traffic and weather exposure</li>
+              <li><strong>Simplifies maintenance</strong> so surfaces stay cleaner over time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:18px;" class="section">
+      <div class="container">
+        <div class="service-split-rev">
+          <div class="card">
+            <h2 style="margin:0 0 6px;">Protecting High-End Pavers in Sawgrass</h2>
+            <p style="margin:0; color:var(--muted);">We adjust prep chemistry, dry-time checks, and finish selection to match Sawgrass conditions. That keeps the result consistent across sun and shade, protects high-traffic zones, and reduces early wear in the areas homeowners see first.</p>
+
+            <h2 style="margin:14px 0 6px;">Our Professional 6 Step Process</h2>
+            <p style="margin:0; color:var(--muted);">Each project follows the same proven workflow, adapted for local driveway, patio, and pool-deck conditions.</p>
+            <ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
+              <li><strong>Inspection:</strong> review traffic patterns, drainage, and existing paver condition</li>
+              <li><strong>Clean:</strong> use controlled surface cleaning and targeted treatment where needed</li>
+              <li><strong>Re-sand:</strong> install and compact kiln-dried joint sand for proper lockup</li>
+              <li><strong>Dry &amp; verify:</strong> confirm moisture levels and weather window before sealing</li>
+              <li><strong>Seal:</strong> apply even coats with clean transitions and consistent finish level</li>
+              <li><strong>Final walkthrough:</strong> provide cure-time guidance and maintenance recommendations</li>
+            </ol>
+          </div>
+
+          <div class="media-box media-h-md">
+            <img src="/assets/hero/backyard-pavers.webp" alt="Patio and pool deck pavers after sealing in Sawgrass" loading="lazy" decoding="async" width="1200" height="675" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-reviews-section" aria-label="What our customers are saying">
+    </section>
+
+    <section class="section" id="patio-faq">
+      <div class="container">
+        <h2>Sawgrass Paver Sealing Questions</h2>
+        <div class="stack" style="margin-top:16px;">
+          <details class="faq-item">
+            <summary><strong>How long should we wait before using pavers after sealing in Sawgrass?</strong></summary>
+            <div class="faq-body"><p class="muted">Most surfaces are dry to the touch in about 1–2 hours in good weather. We usually recommend 24 hours before normal foot traffic and 24–48 hours before vehicles or heavy furniture so the sealer cures properly in Florida humidity.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><strong>Does sealing help control mildew and algae in Sawgrass?</strong></summary>
+            <div class="faq-body"><p class="muted">Yes. Sealing reduces water absorption so organic growth is easier to clean and less likely to stain deeply. In Sawgrass, routine rinsing and periodic cleaning still matter, but sealed pavers stay more manageable between services.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><strong>Do you re-sand joints before sealing pavers in Sawgrass?</strong></summary>
+            <div class="faq-body"><p class="muted">Yes. We remove weak joint material, install kiln-dried sand, and compact joints before sealing. Proper joint sand lockup supports surface stability and helps reduce washout during storms.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><strong>Will sealed pool deck pavers feel slippery in Sawgrass?</strong></summary>
+            <div class="faq-body"><p class="muted">A properly applied sealer should improve appearance without creating an unsafe film. We control coverage rates and finish level for traffic areas so surfaces remain predictable under wet conditions.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><strong>How often should pavers be resealed in Sawgrass?</strong></summary>
+            <div class="faq-body"><p class="muted">Most residential pavers in Sawgrass benefit from resealing about every 2–3 years, depending on sun exposure, shade, traffic, and drainage. We recommend inspection before setting a timeline.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><strong>Can older Sawgrass pavers be restored instead of replaced?</strong></summary>
+            <div class="faq-body"><p class="muted">In many cases, yes. Deep cleaning, joint stabilization, and professional sealing can restore appearance and function without full replacement when the base and edge restraints are still sound.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        const faq = document.querySelector('#patio-faq');
+        if (!faq) return;
+        const items = faq.querySelectorAll('details');
+        items.forEach(item => {
+          item.addEventListener('toggle', () => {
+            if (!item.open) return;
+            items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
+          });
+        });
+      })();
+    </script>
+
+    <section class="section" style="margin-top:18px;">
+      <div class="container">
+        <div class="card" style="text-align:center;">
+          <h2 style="margin:0;">Get Your Sawgrass Paver Sealing Quote Today</h2>
+          <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
             <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
           </div>
         </div>
@@ -152,15 +456,32 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+
+  
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
+
+<footer class="site-footer">
     <div class="container site-footer__inner">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand__row">
-            <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" class="footer-logo" width="2884" height="1127" />
+            <img
+              src="/assets/hero/Hydrosealpaversealing.png"
+              alt="HydroSeal"
+              loading="lazy"
+              class="footer-logo"
+              width="2884"
+              height="1127"
+            />
           </div>
-          <p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p>
+
+          <p class="footer-copy">
+            Premium paver sealing and protection for driveways, pool decks, and travertine across
+            St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.
+          </p>
         </div>
+
         <div>
           <div class="footer-title">Services</div>
           <div class="footer-links">
@@ -169,6 +490,7 @@
             <a href="/paver-sealing/travertine-sealing">Travertine Sealing</a>
           </div>
         </div>
+
         <div>
           <div class="footer-title">Service Areas</div>
           <div class="footer-links">
@@ -177,15 +499,23 @@
             <a href="/service-areas/clay-county/">Clay County</a>
           </div>
         </div>
+
         <div>
           <div class="footer-title">Contact</div>
           <div class="footer-meta">
             <div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div>
-            <div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div>
+
+            <div class="footer-hours">
+              <strong>Hours:</strong>
+              <span>Mon–Fri 8–5</span>
+              <span>Sat 9–1</span>
+            </div>
+
             <div><strong>Email:</strong> <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <div>© <span id="y"></span> HydroSeal. All rights reserved.</div>
         <div class="footer-bottom__links"></div>
@@ -197,5 +527,11 @@
 
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
+  <script src="/assets/js/quote-form.js" defer></script>
+
+</body>
+</html>
+
 </body>
 </html>
