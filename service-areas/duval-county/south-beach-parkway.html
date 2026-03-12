@@ -411,7 +411,7 @@
 
 
 
-    <section class="section" id="south-beach-parkway-faq">
+    <section class="section" id="south-beach-parkway-faq" data-accordion="single">
       <div class="container">
         <h2>South Beach Parkway Paver Sealing Questions</h2>
         <div class="stack" style="margin-top:16px;">
@@ -454,21 +454,6 @@
         </div>
       </div>
     </section>
-
-    <script>
-      (function () {
-        const faq = document.querySelector('#south-beach-parkway-faq');
-        if (!faq) return;
-        const items = faq.querySelectorAll('details');
-        items.forEach(item => {
-          item.addEventListener('toggle', () => {
-            if (!item.open) return;
-            items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
-          });
-        });
-      })();
-    </script>
-
     <section class="section" style="margin-top:18px;">
       <div class="container">
 </div>
@@ -569,7 +554,7 @@
 
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/quote-form.js" defer></script>
+  <script src="/assets/js/accordion.js" defer></script>
   <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>

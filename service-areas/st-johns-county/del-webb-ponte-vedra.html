@@ -413,7 +413,7 @@
       </div>
     </section>
 
-    <section class="section" id="patio-faq">
+    <section class="section" id="patio-faq" data-accordion="single">
       <div class="container">
         <h2>Del Webb Ponte Vedra Paver Sealing Questions</h2>
         <p class="muted" style="margin-top:12px;">We also work in nearby communities such as <a href="/service-areas/st-johns-county/ponte-vedra">Ponte Vedra</a>, <a href="/service-areas/st-johns-county/palm-valley">Palm Valley</a>, and <a href="/service-areas/st-johns-county/ponte-vedra-beach">Ponte Vedra Beach</a>.</p>
@@ -446,20 +446,6 @@
         </div>
       </div>
     </section>
-
-    <script>
-      (function () {
-        const faq = document.querySelector('#patio-faq');
-        if (!faq) return;
-        const items = faq.querySelectorAll('details');
-        items.forEach(item => {
-          item.addEventListener('toggle', () => {
-            if (!item.open) return;
-            items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
-          });
-        });
-      })();
-    </script>
     <section class="section service-social-section" style="padding-top:0; margin-top:18px;">
       <div class="container">
         <div class="service-social-row" style="display:flex; justify-content:center;">
@@ -552,7 +538,7 @@
 
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/quote-form.js" defer></script>
+  <script src="/assets/js/accordion.js" defer></script>
   <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>
