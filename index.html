@@ -504,35 +504,40 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://hydrosealpavers.com/#localbusiness",
+    "@id": "https://hydrosealpavers.com/#business",
     "name": "HydroSeal",
     "url": "https://hydrosealpavers.com/",
     "telephone": "+1-904-537-5000",
-    "image": "https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png",
-    "description": "HydroSeal provides professional paver sealing, paver cleaning, and joint re-sanding in St. Johns County, FL and Jacksonville, including Nocatee and the 210 corridor.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3546 St Johns Bluff Rd S",
-      "addressLocality": "Jacksonville",
-      "addressRegion": "FL",
-      "postalCode": "32224",
-      "addressCountry": "US"
-    },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
-      { "@type": "City", "name": "Jacksonville, FL" },
-      { "@type": "Place", "name": "Nocatee, FL" },
-      { "@type": "Place", "name": "Ponte Vedra, FL" },
-      { "@type": "Place", "name": "St. Augustine, FL" },
-      { "@type": "Place", "name": "Jacksonville Beach, FL" },
-      { "@type": "Place", "name": "Neptune Beach, FL" },
-      { "@type": "Place", "name": "Atlantic Beach, FL" },
-      { "@type": "Place", "name": "Orange Park, FL" }
+    "email": "info@hydrosealpavers.com",
+    "logo": "https://hydrosealpavers.com/assets/hero/Hydrosealpaversealing.png",
+    "image": "https://hydrosealpavers.com/assets/hero/paversealing-jacksonville.png",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
     ],
-    "makesOffer": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Sealing" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paver Cleaning" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Joint Sand Re-Sanding" } }
+    "areaServed": [
+      { "@type": "City", "name": "Jacksonville" },
+      { "@type": "AdministrativeArea", "name": "Duval County" },
+      { "@type": "AdministrativeArea", "name": "St. Johns County" },
+      { "@type": "AdministrativeArea", "name": "Clay County" },
+      { "@type": "AdministrativeArea", "name": "Nassau County" },
+      { "@type": "Place", "name": "Nocatee" },
+      { "@type": "Place", "name": "Ponte Vedra" },
+      { "@type": "Place", "name": "Orange Park" },
+      { "@type": "Place", "name": "Fleming Island" },
+      { "@type": "Place", "name": "Yulee" },
+      { "@type": "Place", "name": "Wildlight" }
     ]
   }
   </script>
@@ -543,7 +548,7 @@
     "@type": "Service",
     "@id": "https://hydrosealpavers.com/#service-paver-sealing",
     "name": "Paver Sealing",
-    "provider": { "@id": "https://hydrosealpavers.com/#localbusiness" },
+    "provider": { "@id": "https://hydrosealpavers.com/#business" },
     "serviceType": "Paver sealing, joint re-sanding, and protective sealing for driveways, pool decks, patios, and walkways.",
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "St. Johns County, FL" },
