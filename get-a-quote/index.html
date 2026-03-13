@@ -181,6 +181,20 @@
       padding-top: 10px !important;
       padding-bottom: 10px !important;
     }
+
+    /* Keep quote-page trust bar on the same desktop grid pattern as sitewide pages.
+       This guards against third-party embed CSS targeting generic .container classes. */
+    @media (min-width: 901px){
+      body.page-quote .trustbar > .container{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        align-items: stretch;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 
